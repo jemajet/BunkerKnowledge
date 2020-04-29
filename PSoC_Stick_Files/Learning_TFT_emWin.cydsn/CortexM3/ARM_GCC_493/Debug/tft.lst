@@ -1,0 +1,1401 @@
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"tft.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.write8_a0,"ax",%progbits
+  19              		.align	2
+  20              		.global	write8_a0
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	write8_a0, %function
+  24              	write8_a0:
+  25              	.LFB63:
+  26              		.file 1 ".\\tft.c"
+   1:.\tft.c       **** /* ========================================
+   2:.\tft.c       ****  *
+   3:.\tft.c       ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\tft.c       ****  * All Rights Reserved
+   5:.\tft.c       ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\tft.c       ****  *
+   7:.\tft.c       ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\tft.c       ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\tft.c       ****  *
+  10:.\tft.c       ****  * ========================================
+  11:.\tft.c       **** */
+  12:.\tft.c       **** #include "tft.h"
+  13:.\tft.c       **** 
+  14:.\tft.c       **** //==============================================================
+  15:.\tft.c       **** // write8_a0()
+  16:.\tft.c       **** // writes an 8-bit value to the TFT with the D/C line low
+  17:.\tft.c       **** //
+  18:.\tft.c       **** // Arguments:
+  19:.\tft.c       **** //      data - 8-bit value
+  20:.\tft.c       **** //==============================================================
+  21:.\tft.c       **** void write8_a0(uint8 data)
+  22:.\tft.c       **** {
+  27              		.loc 1 22 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 2
+
+
+  36 0002 0446     		mov	r4, r0
+  23:.\tft.c       **** 	DC_Write(0x00); 						        // set DC line low
+  37              		.loc 1 23 0
+  38 0004 0020     		movs	r0, #0
+  39              	.LVL1:
+  40 0006 FFF7FEFF 		bl	DC_Write
+  41              	.LVL2:
+  24:.\tft.c       ****     SPIM_1_WriteTxData(data);         		        // send data to transmit buffer
+  42              		.loc 1 24 0
+  43 000a 2046     		mov	r0, r4
+  44 000c FFF7FEFF 		bl	SPIM_1_WriteTxData
+  45              	.LVL3:
+  46              	.L2:
+  25:.\tft.c       ****     while (!(SPIM_1_ReadTxStatus() & 0x01)){};	    // wait for data to be sent
+  47              		.loc 1 25 0 discriminator 1
+  48 0010 FFF7FEFF 		bl	SPIM_1_ReadTxStatus
+  49              	.LVL4:
+  50 0014 10F0010F 		tst	r0, #1
+  51 0018 FAD0     		beq	.L2
+  26:.\tft.c       **** }
+  52              		.loc 1 26 0
+  53 001a 10BD     		pop	{r4, pc}
+  54              		.cfi_endproc
+  55              	.LFE63:
+  56              		.size	write8_a0, .-write8_a0
+  57              		.section	.text.write8_a1,"ax",%progbits
+  58              		.align	2
+  59              		.global	write8_a1
+  60              		.thumb
+  61              		.thumb_func
+  62              		.type	write8_a1, %function
+  63              	write8_a1:
+  64              	.LFB64:
+  27:.\tft.c       **** 
+  28:.\tft.c       **** //==============================================================
+  29:.\tft.c       **** // write8_a1()
+  30:.\tft.c       **** // writes an 8-bit value to the TFT with the D/C line high
+  31:.\tft.c       **** //
+  32:.\tft.c       **** // Arguments:
+  33:.\tft.c       **** //      data - 8-bit value
+  34:.\tft.c       **** //==============================================================
+  35:.\tft.c       **** void write8_a1(uint8 data)
+  36:.\tft.c       **** {
+  65              		.loc 1 36 0
+  66              		.cfi_startproc
+  67              		@ args = 0, pretend = 0, frame = 0
+  68              		@ frame_needed = 0, uses_anonymous_args = 0
+  69              	.LVL5:
+  70 0000 10B5     		push	{r4, lr}
+  71              		.cfi_def_cfa_offset 8
+  72              		.cfi_offset 4, -8
+  73              		.cfi_offset 14, -4
+  74 0002 0446     		mov	r4, r0
+  37:.\tft.c       **** 	DC_Write(0x01); 						        // set DC line high
+  75              		.loc 1 37 0
+  76 0004 0120     		movs	r0, #1
+  77              	.LVL6:
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 3
+
+
+  78 0006 FFF7FEFF 		bl	DC_Write
+  79              	.LVL7:
+  38:.\tft.c       ****     SPIM_1_WriteTxData(data);                       // send data to transmit buffer
+  80              		.loc 1 38 0
+  81 000a 2046     		mov	r0, r4
+  82 000c FFF7FEFF 		bl	SPIM_1_WriteTxData
+  83              	.LVL8:
+  84              	.L5:
+  39:.\tft.c       ****     while (!(SPIM_1_ReadTxStatus() & 0x01)){};	    // wait for data to be sent
+  85              		.loc 1 39 0 discriminator 1
+  86 0010 FFF7FEFF 		bl	SPIM_1_ReadTxStatus
+  87              	.LVL9:
+  88 0014 10F0010F 		tst	r0, #1
+  89 0018 FAD0     		beq	.L5
+  40:.\tft.c       **** }
+  90              		.loc 1 40 0
+  91 001a 10BD     		pop	{r4, pc}
+  92              		.cfi_endproc
+  93              	.LFE64:
+  94              		.size	write8_a1, .-write8_a1
+  95              		.section	.text.writeM8_a1,"ax",%progbits
+  96              		.align	2
+  97              		.global	writeM8_a1
+  98              		.thumb
+  99              		.thumb_func
+ 100              		.type	writeM8_a1, %function
+ 101              	writeM8_a1:
+ 102              	.LFB65:
+  41:.\tft.c       **** 
+  42:.\tft.c       **** //==============================================================
+  43:.\tft.c       **** // writeM8_a1()
+  44:.\tft.c       **** // writes multiple bytes to the TFT with the D/C line high
+  45:.\tft.c       **** //
+  46:.\tft.c       **** // Arguments:
+  47:.\tft.c       **** //      pData - pointer to an array of 8-bit data values
+  48:.\tft.c       **** //      N - the size of the array *pData
+  49:.\tft.c       **** //==============================================================
+  50:.\tft.c       **** void writeM8_a1(uint8 *pData, int N)
+  51:.\tft.c       **** {
+ 103              		.loc 1 51 0
+ 104              		.cfi_startproc
+ 105              		@ args = 0, pretend = 0, frame = 0
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107              	.LVL10:
+ 108 0000 70B5     		push	{r4, r5, r6, lr}
+ 109              		.cfi_def_cfa_offset 16
+ 110              		.cfi_offset 4, -16
+ 111              		.cfi_offset 5, -12
+ 112              		.cfi_offset 6, -8
+ 113              		.cfi_offset 14, -4
+ 114 0002 0646     		mov	r6, r0
+ 115 0004 0D46     		mov	r5, r1
+  52:.\tft.c       **** 	DC_Write(0x01); 						        // set DC line high
+ 116              		.loc 1 52 0
+ 117 0006 0120     		movs	r0, #1
+ 118              	.LVL11:
+ 119 0008 FFF7FEFF 		bl	DC_Write
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 4
+
+
+ 120              	.LVL12:
+  53:.\tft.c       ****     int i;
+  54:.\tft.c       ****     for (i=0; i<N; i++)
+ 121              		.loc 1 54 0
+ 122 000c 0024     		movs	r4, #0
+ 123 000e 08E0     		b	.L8
+ 124              	.LVL13:
+ 125              	.L10:
+  55:.\tft.c       ****     {
+  56:.\tft.c       ****         SPIM_1_WriteTxData(pData[i]);               // send data to transmit buffer
+ 126              		.loc 1 56 0
+ 127 0010 305D     		ldrb	r0, [r6, r4]	@ zero_extendqisi2
+ 128 0012 FFF7FEFF 		bl	SPIM_1_WriteTxData
+ 129              	.LVL14:
+ 130              	.L9:
+  57:.\tft.c       ****         while (!(SPIM_1_ReadTxStatus() & 0x01)){};  // wait for data to be sent
+ 131              		.loc 1 57 0 discriminator 1
+ 132 0016 FFF7FEFF 		bl	SPIM_1_ReadTxStatus
+ 133              	.LVL15:
+ 134 001a 10F0010F 		tst	r0, #1
+ 135 001e FAD0     		beq	.L9
+  54:.\tft.c       ****     {
+ 136              		.loc 1 54 0 discriminator 2
+ 137 0020 0134     		adds	r4, r4, #1
+ 138              	.LVL16:
+ 139              	.L8:
+  54:.\tft.c       ****     {
+ 140              		.loc 1 54 0 is_stmt 0 discriminator 1
+ 141 0022 AC42     		cmp	r4, r5
+ 142 0024 F4DB     		blt	.L10
+  58:.\tft.c       ****     }
+  59:.\tft.c       **** }
+ 143              		.loc 1 59 0 is_stmt 1
+ 144 0026 70BD     		pop	{r4, r5, r6, pc}
+ 145              		.cfi_endproc
+ 146              	.LFE65:
+ 147              		.size	writeM8_a1, .-writeM8_a1
+ 148              		.section	.text.read8_a1,"ax",%progbits
+ 149              		.align	2
+ 150              		.global	read8_a1
+ 151              		.thumb
+ 152              		.thumb_func
+ 153              		.type	read8_a1, %function
+ 154              	read8_a1:
+ 155              	.LFB66:
+  60:.\tft.c       **** 
+  61:.\tft.c       **** //==============================================================
+  62:.\tft.c       **** // read8_a1()
+  63:.\tft.c       **** // reads an 8-bit value to the TFT with the D/C line high
+  64:.\tft.c       **** //==============================================================
+  65:.\tft.c       **** uint8 read8_a1(void)
+  66:.\tft.c       **** {
+ 156              		.loc 1 66 0
+ 157              		.cfi_startproc
+ 158              		@ Volatile: function does not return.
+ 159              		@ args = 0, pretend = 0, frame = 0
+ 160              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 5
+
+
+ 161              		@ link register save eliminated.
+ 162              	.L13:
+  67:.\tft.c       **** 	for (;;) {}                                     // read function not implemented
+ 163              		.loc 1 67 0 discriminator 1
+ 164 0000 FEE7     		b	.L13
+ 165              		.cfi_endproc
+ 166              	.LFE66:
+ 167              		.size	read8_a1, .-read8_a1
+ 168 0002 00BF     		.section	.text.readM8_a1,"ax",%progbits
+ 169              		.align	2
+ 170              		.global	readM8_a1
+ 171              		.thumb
+ 172              		.thumb_func
+ 173              		.type	readM8_a1, %function
+ 174              	readM8_a1:
+ 175              	.LFB67:
+  68:.\tft.c       **** };
+  69:.\tft.c       **** 
+  70:.\tft.c       **** //==============================================================
+  71:.\tft.c       **** // readM8_a1()
+  72:.\tft.c       **** // reads multple 8-bit values from the TFT with the D/C line high
+  73:.\tft.c       **** //
+  74:.\tft.c       **** // Arguments:
+  75:.\tft.c       **** //      pData - an array where the read values we be stored
+  76:.\tft.c       **** //      N - the number of values that will be read (also size of 
+  77:.\tft.c       **** //          the array pData)
+  78:.\tft.c       **** //==============================================================
+  79:.\tft.c       **** void readM8_a1(uint8 *pData, int N)
+  80:.\tft.c       **** {
+ 176              		.loc 1 80 0
+ 177              		.cfi_startproc
+ 178              		@ Volatile: function does not return.
+ 179              		@ args = 0, pretend = 0, frame = 0
+ 180              		@ frame_needed = 0, uses_anonymous_args = 0
+ 181              		@ link register save eliminated.
+ 182              	.LVL17:
+ 183              	.L15:
+  81:.\tft.c       **** 	for (;;) {}                                     // read function not implemented
+ 184              		.loc 1 81 0 discriminator 1
+ 185 0000 FEE7     		b	.L15
+ 186              		.cfi_endproc
+ 187              	.LFE67:
+ 188              		.size	readM8_a1, .-readM8_a1
+ 189 0002 00BF     		.section	.text.tftStart,"ax",%progbits
+ 190              		.align	2
+ 191              		.global	tftStart
+ 192              		.thumb
+ 193              		.thumb_func
+ 194              		.type	tftStart, %function
+ 195              	tftStart:
+ 196              	.LFB68:
+  82:.\tft.c       **** }
+  83:.\tft.c       **** 
+  84:.\tft.c       **** //==============================================================
+  85:.\tft.c       **** // tftStart()
+  86:.\tft.c       **** // this function must be called to initializes the TFT
+  87:.\tft.c       **** //==============================================================
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 6
+
+
+  88:.\tft.c       **** void tftStart(void)
+  89:.\tft.c       **** {
+ 197              		.loc 1 89 0
+ 198              		.cfi_startproc
+ 199              		@ args = 0, pretend = 0, frame = 0
+ 200              		@ frame_needed = 0, uses_anonymous_args = 0
+ 201 0000 08B5     		push	{r3, lr}
+ 202              		.cfi_def_cfa_offset 8
+ 203              		.cfi_offset 3, -8
+ 204              		.cfi_offset 14, -4
+  90:.\tft.c       ****     write8_a0(0x01);         			// send Software Reset Command (must wait at least 5ms after comman
+ 205              		.loc 1 90 0
+ 206 0002 0120     		movs	r0, #1
+ 207 0004 FFF7FEFF 		bl	write8_a0
+ 208              	.LVL18:
+  91:.\tft.c       ****     CyDelay(10);
+ 209              		.loc 1 91 0
+ 210 0008 0A20     		movs	r0, #10
+ 211 000a FFF7FEFF 		bl	CyDelay
+ 212              	.LVL19:
+  92:.\tft.c       ****     write8_a0(0x36);         			// send Memory Access Control command
+ 213              		.loc 1 92 0
+ 214 000e 3620     		movs	r0, #54
+ 215 0010 FFF7FEFF 		bl	write8_a0
+ 216              	.LVL20:
+  93:.\tft.c       **** 	write8_a1(0x88);
+ 217              		.loc 1 93 0
+ 218 0014 8820     		movs	r0, #136
+ 219 0016 FFF7FEFF 		bl	write8_a1
+ 220              	.LVL21:
+  94:.\tft.c       ****     write8_a0(0x3A);         			// send COLMOD: Pixel Format Set command
+ 221              		.loc 1 94 0
+ 222 001a 3A20     		movs	r0, #58
+ 223 001c FFF7FEFF 		bl	write8_a0
+ 224              	.LVL22:
+  95:.\tft.c       ****     write8_a1(0x55);
+ 225              		.loc 1 95 0
+ 226 0020 5520     		movs	r0, #85
+ 227 0022 FFF7FEFF 		bl	write8_a1
+ 228              	.LVL23:
+  96:.\tft.c       ****     write8_a0(0x11);         			// send Sleep Out command
+ 229              		.loc 1 96 0
+ 230 0026 1120     		movs	r0, #17
+ 231 0028 FFF7FEFF 		bl	write8_a0
+ 232              	.LVL24:
+  97:.\tft.c       ****     write8_a0(0x29);         			// send Display ON command
+ 233              		.loc 1 97 0
+ 234 002c 2920     		movs	r0, #41
+ 235 002e FFF7FEFF 		bl	write8_a0
+ 236              	.LVL25:
+  98:.\tft.c       ****     CyDelay(250);            			// delay to allow all changes to take effect	
+ 237              		.loc 1 98 0
+ 238 0032 FA20     		movs	r0, #250
+ 239 0034 FFF7FEFF 		bl	CyDelay
+ 240              	.LVL26:
+ 241 0038 08BD     		pop	{r3, pc}
+ 242              		.cfi_endproc
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 7
+
+
+ 243              	.LFE68:
+ 244              		.size	tftStart, .-tftStart
+ 245 003a 00BF     		.text
+ 246              	.Letext0:
+ 247              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 248              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 249              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 250              		.file 5 "Generated_Source\\PSoC5/DC.h"
+ 251              		.file 6 "Generated_Source\\PSoC5/SPIM_1.h"
+ 252              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 253              		.file 8 "Generated_Source\\PSoC5/CyLib.h"
+ 254              		.section	.debug_info,"",%progbits
+ 255              	.Ldebug_info0:
+ 256 0000 15030000 		.4byte	0x315
+ 257 0004 0400     		.2byte	0x4
+ 258 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 259 000a 04       		.byte	0x4
+ 260 000b 01       		.uleb128 0x1
+ 261 000c 35010000 		.4byte	.LASF26
+ 262 0010 01       		.byte	0x1
+ 263 0011 DB010000 		.4byte	.LASF27
+ 264 0015 00000000 		.4byte	.LASF28
+ 265 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 266 001d 00000000 		.4byte	0
+ 267 0021 00000000 		.4byte	.Ldebug_line0
+ 268 0025 02       		.uleb128 0x2
+ 269 0026 01       		.byte	0x1
+ 270 0027 06       		.byte	0x6
+ 271 0028 3A020000 		.4byte	.LASF0
+ 272 002c 02       		.uleb128 0x2
+ 273 002d 01       		.byte	0x1
+ 274 002e 08       		.byte	0x8
+ 275 002f 19010000 		.4byte	.LASF1
+ 276 0033 02       		.uleb128 0x2
+ 277 0034 02       		.byte	0x2
+ 278 0035 05       		.byte	0x5
+ 279 0036 1E020000 		.4byte	.LASF2
+ 280 003a 02       		.uleb128 0x2
+ 281 003b 02       		.byte	0x2
+ 282 003c 07       		.byte	0x7
+ 283 003d F0000000 		.4byte	.LASF3
+ 284 0041 03       		.uleb128 0x3
+ 285 0042 82000000 		.4byte	.LASF9
+ 286 0046 02       		.byte	0x2
+ 287 0047 3F       		.byte	0x3f
+ 288 0048 4C000000 		.4byte	0x4c
+ 289 004c 02       		.uleb128 0x2
+ 290 004d 04       		.byte	0x4
+ 291 004e 05       		.byte	0x5
+ 292 004f 31020000 		.4byte	.LASF4
+ 293 0053 02       		.uleb128 0x2
+ 294 0054 04       		.byte	0x4
+ 295 0055 07       		.byte	0x7
+ 296 0056 DE000000 		.4byte	.LASF5
+ 297 005a 02       		.uleb128 0x2
+ 298 005b 08       		.byte	0x8
+ 299 005c 05       		.byte	0x5
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 8
+
+
+ 300 005d 0B020000 		.4byte	.LASF6
+ 301 0061 02       		.uleb128 0x2
+ 302 0062 08       		.byte	0x8
+ 303 0063 07       		.byte	0x7
+ 304 0064 E3010000 		.4byte	.LASF7
+ 305 0068 04       		.uleb128 0x4
+ 306 0069 04       		.byte	0x4
+ 307 006a 05       		.byte	0x5
+ 308 006b 696E7400 		.ascii	"int\000"
+ 309 006f 02       		.uleb128 0x2
+ 310 0070 04       		.byte	0x4
+ 311 0071 07       		.byte	0x7
+ 312 0072 C3010000 		.4byte	.LASF8
+ 313 0076 03       		.uleb128 0x3
+ 314 0077 FA010000 		.4byte	.LASF10
+ 315 007b 03       		.byte	0x3
+ 316 007c 2C       		.byte	0x2c
+ 317 007d 41000000 		.4byte	0x41
+ 318 0081 03       		.uleb128 0x3
+ 319 0082 CF000000 		.4byte	.LASF11
+ 320 0086 04       		.byte	0x4
+ 321 0087 C2       		.byte	0xc2
+ 322 0088 2C000000 		.4byte	0x2c
+ 323 008c 03       		.uleb128 0x3
+ 324 008d 2E010000 		.4byte	.LASF12
+ 325 0091 04       		.byte	0x4
+ 326 0092 C4       		.byte	0xc4
+ 327 0093 53000000 		.4byte	0x53
+ 328 0097 02       		.uleb128 0x2
+ 329 0098 04       		.byte	0x4
+ 330 0099 04       		.byte	0x4
+ 331 009a C4000000 		.4byte	.LASF13
+ 332 009e 02       		.uleb128 0x2
+ 333 009f 08       		.byte	0x8
+ 334 00a0 04       		.byte	0x4
+ 335 00a1 27010000 		.4byte	.LASF14
+ 336 00a5 02       		.uleb128 0x2
+ 337 00a6 01       		.byte	0x1
+ 338 00a7 08       		.byte	0x8
+ 339 00a8 19020000 		.4byte	.LASF15
+ 340 00ac 02       		.uleb128 0x2
+ 341 00ad 04       		.byte	0x4
+ 342 00ae 07       		.byte	0x7
+ 343 00af 02020000 		.4byte	.LASF16
+ 344 00b3 05       		.uleb128 0x5
+ 345 00b4 96000000 		.4byte	.LASF17
+ 346 00b8 01       		.byte	0x1
+ 347 00b9 15       		.byte	0x15
+ 348 00ba 00000000 		.4byte	.LFB63
+ 349 00be 1C000000 		.4byte	.LFE63-.LFB63
+ 350 00c2 01       		.uleb128 0x1
+ 351 00c3 9C       		.byte	0x9c
+ 352 00c4 08010000 		.4byte	0x108
+ 353 00c8 06       		.uleb128 0x6
+ 354 00c9 CA000000 		.4byte	.LASF19
+ 355 00cd 01       		.byte	0x1
+ 356 00ce 15       		.byte	0x15
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 9
+
+
+ 357 00cf 81000000 		.4byte	0x81
+ 358 00d3 00000000 		.4byte	.LLST0
+ 359 00d7 07       		.uleb128 0x7
+ 360 00d8 0A000000 		.4byte	.LVL2
+ 361 00dc DE020000 		.4byte	0x2de
+ 362 00e0 EA000000 		.4byte	0xea
+ 363 00e4 08       		.uleb128 0x8
+ 364 00e5 01       		.uleb128 0x1
+ 365 00e6 50       		.byte	0x50
+ 366 00e7 01       		.uleb128 0x1
+ 367 00e8 30       		.byte	0x30
+ 368 00e9 00       		.byte	0
+ 369 00ea 07       		.uleb128 0x7
+ 370 00eb 10000000 		.4byte	.LVL3
+ 371 00ef EF020000 		.4byte	0x2ef
+ 372 00f3 FE000000 		.4byte	0xfe
+ 373 00f7 08       		.uleb128 0x8
+ 374 00f8 01       		.uleb128 0x1
+ 375 00f9 50       		.byte	0x50
+ 376 00fa 02       		.uleb128 0x2
+ 377 00fb 74       		.byte	0x74
+ 378 00fc 00       		.sleb128 0
+ 379 00fd 00       		.byte	0
+ 380 00fe 09       		.uleb128 0x9
+ 381 00ff 14000000 		.4byte	.LVL4
+ 382 0103 00030000 		.4byte	0x300
+ 383 0107 00       		.byte	0
+ 384 0108 05       		.uleb128 0x5
+ 385 0109 A0000000 		.4byte	.LASF18
+ 386 010d 01       		.byte	0x1
+ 387 010e 23       		.byte	0x23
+ 388 010f 00000000 		.4byte	.LFB64
+ 389 0113 1C000000 		.4byte	.LFE64-.LFB64
+ 390 0117 01       		.uleb128 0x1
+ 391 0118 9C       		.byte	0x9c
+ 392 0119 5D010000 		.4byte	0x15d
+ 393 011d 06       		.uleb128 0x6
+ 394 011e CA000000 		.4byte	.LASF19
+ 395 0122 01       		.byte	0x1
+ 396 0123 23       		.byte	0x23
+ 397 0124 81000000 		.4byte	0x81
+ 398 0128 21000000 		.4byte	.LLST1
+ 399 012c 07       		.uleb128 0x7
+ 400 012d 0A000000 		.4byte	.LVL7
+ 401 0131 DE020000 		.4byte	0x2de
+ 402 0135 3F010000 		.4byte	0x13f
+ 403 0139 08       		.uleb128 0x8
+ 404 013a 01       		.uleb128 0x1
+ 405 013b 50       		.byte	0x50
+ 406 013c 01       		.uleb128 0x1
+ 407 013d 31       		.byte	0x31
+ 408 013e 00       		.byte	0
+ 409 013f 07       		.uleb128 0x7
+ 410 0140 10000000 		.4byte	.LVL8
+ 411 0144 EF020000 		.4byte	0x2ef
+ 412 0148 53010000 		.4byte	0x153
+ 413 014c 08       		.uleb128 0x8
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 10
+
+
+ 414 014d 01       		.uleb128 0x1
+ 415 014e 50       		.byte	0x50
+ 416 014f 02       		.uleb128 0x2
+ 417 0150 74       		.byte	0x74
+ 418 0151 00       		.sleb128 0
+ 419 0152 00       		.byte	0
+ 420 0153 09       		.uleb128 0x9
+ 421 0154 14000000 		.4byte	.LVL9
+ 422 0158 00030000 		.4byte	0x300
+ 423 015c 00       		.byte	0
+ 424 015d 05       		.uleb128 0x5
+ 425 015e D0010000 		.4byte	.LASF20
+ 426 0162 01       		.byte	0x1
+ 427 0163 32       		.byte	0x32
+ 428 0164 00000000 		.4byte	.LFB65
+ 429 0168 28000000 		.4byte	.LFE65-.LFB65
+ 430 016c 01       		.uleb128 0x1
+ 431 016d 9C       		.byte	0x9c
+ 432 016e C1010000 		.4byte	0x1c1
+ 433 0172 06       		.uleb128 0x6
+ 434 0173 AA000000 		.4byte	.LASF21
+ 435 0177 01       		.byte	0x1
+ 436 0178 32       		.byte	0x32
+ 437 0179 C1010000 		.4byte	0x1c1
+ 438 017d 42000000 		.4byte	.LLST2
+ 439 0181 0A       		.uleb128 0xa
+ 440 0182 4E00     		.ascii	"N\000"
+ 441 0184 01       		.byte	0x1
+ 442 0185 32       		.byte	0x32
+ 443 0186 68000000 		.4byte	0x68
+ 444 018a 60000000 		.4byte	.LLST3
+ 445 018e 0B       		.uleb128 0xb
+ 446 018f 6900     		.ascii	"i\000"
+ 447 0191 01       		.byte	0x1
+ 448 0192 35       		.byte	0x35
+ 449 0193 68000000 		.4byte	0x68
+ 450 0197 7E000000 		.4byte	.LLST4
+ 451 019b 07       		.uleb128 0x7
+ 452 019c 0C000000 		.4byte	.LVL12
+ 453 01a0 DE020000 		.4byte	0x2de
+ 454 01a4 AE010000 		.4byte	0x1ae
+ 455 01a8 08       		.uleb128 0x8
+ 456 01a9 01       		.uleb128 0x1
+ 457 01aa 50       		.byte	0x50
+ 458 01ab 01       		.uleb128 0x1
+ 459 01ac 31       		.byte	0x31
+ 460 01ad 00       		.byte	0
+ 461 01ae 09       		.uleb128 0x9
+ 462 01af 16000000 		.4byte	.LVL14
+ 463 01b3 EF020000 		.4byte	0x2ef
+ 464 01b7 09       		.uleb128 0x9
+ 465 01b8 1A000000 		.4byte	.LVL15
+ 466 01bc 00030000 		.4byte	0x300
+ 467 01c0 00       		.byte	0
+ 468 01c1 0C       		.uleb128 0xc
+ 469 01c2 04       		.byte	0x4
+ 470 01c3 81000000 		.4byte	0x81
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 11
+
+
+ 471 01c7 0D       		.uleb128 0xd
+ 472 01c8 D5000000 		.4byte	.LASF29
+ 473 01cc 01       		.byte	0x1
+ 474 01cd 41       		.byte	0x41
+ 475 01ce 81000000 		.4byte	0x81
+ 476 01d2 00000000 		.4byte	.LFB66
+ 477 01d6 02000000 		.4byte	.LFE66-.LFB66
+ 478 01da 01       		.uleb128 0x1
+ 479 01db 9C       		.byte	0x9c
+ 480 01dc 05       		.uleb128 0x5
+ 481 01dd 8C000000 		.4byte	.LASF22
+ 482 01e1 01       		.byte	0x1
+ 483 01e2 4F       		.byte	0x4f
+ 484 01e3 00000000 		.4byte	.LFB67
+ 485 01e7 02000000 		.4byte	.LFE67-.LFB67
+ 486 01eb 01       		.uleb128 0x1
+ 487 01ec 9C       		.byte	0x9c
+ 488 01ed 0A020000 		.4byte	0x20a
+ 489 01f1 0E       		.uleb128 0xe
+ 490 01f2 AA000000 		.4byte	.LASF21
+ 491 01f6 01       		.byte	0x1
+ 492 01f7 4F       		.byte	0x4f
+ 493 01f8 C1010000 		.4byte	0x1c1
+ 494 01fc 01       		.uleb128 0x1
+ 495 01fd 50       		.byte	0x50
+ 496 01fe 0F       		.uleb128 0xf
+ 497 01ff 4E00     		.ascii	"N\000"
+ 498 0201 01       		.byte	0x1
+ 499 0202 4F       		.byte	0x4f
+ 500 0203 68000000 		.4byte	0x68
+ 501 0207 01       		.uleb128 0x1
+ 502 0208 51       		.byte	0x51
+ 503 0209 00       		.byte	0
+ 504 020a 05       		.uleb128 0x5
+ 505 020b 28020000 		.4byte	.LASF23
+ 506 020f 01       		.byte	0x1
+ 507 0210 58       		.byte	0x58
+ 508 0211 00000000 		.4byte	.LFB68
+ 509 0215 3A000000 		.4byte	.LFE68-.LFB68
+ 510 0219 01       		.uleb128 0x1
+ 511 021a 9C       		.byte	0x9c
+ 512 021b CD020000 		.4byte	0x2cd
+ 513 021f 07       		.uleb128 0x7
+ 514 0220 08000000 		.4byte	.LVL18
+ 515 0224 B3000000 		.4byte	0xb3
+ 516 0228 32020000 		.4byte	0x232
+ 517 022c 08       		.uleb128 0x8
+ 518 022d 01       		.uleb128 0x1
+ 519 022e 50       		.byte	0x50
+ 520 022f 01       		.uleb128 0x1
+ 521 0230 31       		.byte	0x31
+ 522 0231 00       		.byte	0
+ 523 0232 07       		.uleb128 0x7
+ 524 0233 0E000000 		.4byte	.LVL19
+ 525 0237 0B030000 		.4byte	0x30b
+ 526 023b 45020000 		.4byte	0x245
+ 527 023f 08       		.uleb128 0x8
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 12
+
+
+ 528 0240 01       		.uleb128 0x1
+ 529 0241 50       		.byte	0x50
+ 530 0242 01       		.uleb128 0x1
+ 531 0243 3A       		.byte	0x3a
+ 532 0244 00       		.byte	0
+ 533 0245 07       		.uleb128 0x7
+ 534 0246 14000000 		.4byte	.LVL20
+ 535 024a B3000000 		.4byte	0xb3
+ 536 024e 59020000 		.4byte	0x259
+ 537 0252 08       		.uleb128 0x8
+ 538 0253 01       		.uleb128 0x1
+ 539 0254 50       		.byte	0x50
+ 540 0255 02       		.uleb128 0x2
+ 541 0256 08       		.byte	0x8
+ 542 0257 36       		.byte	0x36
+ 543 0258 00       		.byte	0
+ 544 0259 07       		.uleb128 0x7
+ 545 025a 1A000000 		.4byte	.LVL21
+ 546 025e 08010000 		.4byte	0x108
+ 547 0262 6D020000 		.4byte	0x26d
+ 548 0266 08       		.uleb128 0x8
+ 549 0267 01       		.uleb128 0x1
+ 550 0268 50       		.byte	0x50
+ 551 0269 02       		.uleb128 0x2
+ 552 026a 09       		.byte	0x9
+ 553 026b 88       		.byte	0x88
+ 554 026c 00       		.byte	0
+ 555 026d 07       		.uleb128 0x7
+ 556 026e 20000000 		.4byte	.LVL22
+ 557 0272 B3000000 		.4byte	0xb3
+ 558 0276 81020000 		.4byte	0x281
+ 559 027a 08       		.uleb128 0x8
+ 560 027b 01       		.uleb128 0x1
+ 561 027c 50       		.byte	0x50
+ 562 027d 02       		.uleb128 0x2
+ 563 027e 08       		.byte	0x8
+ 564 027f 3A       		.byte	0x3a
+ 565 0280 00       		.byte	0
+ 566 0281 07       		.uleb128 0x7
+ 567 0282 26000000 		.4byte	.LVL23
+ 568 0286 08010000 		.4byte	0x108
+ 569 028a 95020000 		.4byte	0x295
+ 570 028e 08       		.uleb128 0x8
+ 571 028f 01       		.uleb128 0x1
+ 572 0290 50       		.byte	0x50
+ 573 0291 02       		.uleb128 0x2
+ 574 0292 08       		.byte	0x8
+ 575 0293 55       		.byte	0x55
+ 576 0294 00       		.byte	0
+ 577 0295 07       		.uleb128 0x7
+ 578 0296 2C000000 		.4byte	.LVL24
+ 579 029a B3000000 		.4byte	0xb3
+ 580 029e A8020000 		.4byte	0x2a8
+ 581 02a2 08       		.uleb128 0x8
+ 582 02a3 01       		.uleb128 0x1
+ 583 02a4 50       		.byte	0x50
+ 584 02a5 01       		.uleb128 0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 13
+
+
+ 585 02a6 41       		.byte	0x41
+ 586 02a7 00       		.byte	0
+ 587 02a8 07       		.uleb128 0x7
+ 588 02a9 32000000 		.4byte	.LVL25
+ 589 02ad B3000000 		.4byte	0xb3
+ 590 02b1 BC020000 		.4byte	0x2bc
+ 591 02b5 08       		.uleb128 0x8
+ 592 02b6 01       		.uleb128 0x1
+ 593 02b7 50       		.byte	0x50
+ 594 02b8 02       		.uleb128 0x2
+ 595 02b9 08       		.byte	0x8
+ 596 02ba 29       		.byte	0x29
+ 597 02bb 00       		.byte	0
+ 598 02bc 10       		.uleb128 0x10
+ 599 02bd 38000000 		.4byte	.LVL26
+ 600 02c1 0B030000 		.4byte	0x30b
+ 601 02c5 08       		.uleb128 0x8
+ 602 02c6 01       		.uleb128 0x1
+ 603 02c7 50       		.byte	0x50
+ 604 02c8 02       		.uleb128 0x2
+ 605 02c9 08       		.byte	0x8
+ 606 02ca FA       		.byte	0xfa
+ 607 02cb 00       		.byte	0
+ 608 02cc 00       		.byte	0
+ 609 02cd 11       		.uleb128 0x11
+ 610 02ce 03010000 		.4byte	.LASF30
+ 611 02d2 07       		.byte	0x7
+ 612 02d3 2A06     		.2byte	0x62a
+ 613 02d5 D9020000 		.4byte	0x2d9
+ 614 02d9 12       		.uleb128 0x12
+ 615 02da 76000000 		.4byte	0x76
+ 616 02de 13       		.uleb128 0x13
+ 617 02df 10010000 		.4byte	.LASF24
+ 618 02e3 05       		.byte	0x5
+ 619 02e4 28       		.byte	0x28
+ 620 02e5 EF020000 		.4byte	0x2ef
+ 621 02e9 14       		.uleb128 0x14
+ 622 02ea 81000000 		.4byte	0x81
+ 623 02ee 00       		.byte	0
+ 624 02ef 13       		.uleb128 0x13
+ 625 02f0 46020000 		.4byte	.LASF25
+ 626 02f4 06       		.byte	0x6
+ 627 02f5 64       		.byte	0x64
+ 628 02f6 00030000 		.4byte	0x300
+ 629 02fa 14       		.uleb128 0x14
+ 630 02fb 81000000 		.4byte	0x81
+ 631 02ff 00       		.byte	0
+ 632 0300 15       		.uleb128 0x15
+ 633 0301 B0000000 		.4byte	.LASF31
+ 634 0305 06       		.byte	0x6
+ 635 0306 62       		.byte	0x62
+ 636 0307 81000000 		.4byte	0x81
+ 637 030b 16       		.uleb128 0x16
+ 638 030c 59020000 		.4byte	.LASF32
+ 639 0310 08       		.byte	0x8
+ 640 0311 77       		.byte	0x77
+ 641 0312 14       		.uleb128 0x14
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 14
+
+
+ 642 0313 8C000000 		.4byte	0x8c
+ 643 0317 00       		.byte	0
+ 644 0318 00       		.byte	0
+ 645              		.section	.debug_abbrev,"",%progbits
+ 646              	.Ldebug_abbrev0:
+ 647 0000 01       		.uleb128 0x1
+ 648 0001 11       		.uleb128 0x11
+ 649 0002 01       		.byte	0x1
+ 650 0003 25       		.uleb128 0x25
+ 651 0004 0E       		.uleb128 0xe
+ 652 0005 13       		.uleb128 0x13
+ 653 0006 0B       		.uleb128 0xb
+ 654 0007 03       		.uleb128 0x3
+ 655 0008 0E       		.uleb128 0xe
+ 656 0009 1B       		.uleb128 0x1b
+ 657 000a 0E       		.uleb128 0xe
+ 658 000b 55       		.uleb128 0x55
+ 659 000c 17       		.uleb128 0x17
+ 660 000d 11       		.uleb128 0x11
+ 661 000e 01       		.uleb128 0x1
+ 662 000f 10       		.uleb128 0x10
+ 663 0010 17       		.uleb128 0x17
+ 664 0011 00       		.byte	0
+ 665 0012 00       		.byte	0
+ 666 0013 02       		.uleb128 0x2
+ 667 0014 24       		.uleb128 0x24
+ 668 0015 00       		.byte	0
+ 669 0016 0B       		.uleb128 0xb
+ 670 0017 0B       		.uleb128 0xb
+ 671 0018 3E       		.uleb128 0x3e
+ 672 0019 0B       		.uleb128 0xb
+ 673 001a 03       		.uleb128 0x3
+ 674 001b 0E       		.uleb128 0xe
+ 675 001c 00       		.byte	0
+ 676 001d 00       		.byte	0
+ 677 001e 03       		.uleb128 0x3
+ 678 001f 16       		.uleb128 0x16
+ 679 0020 00       		.byte	0
+ 680 0021 03       		.uleb128 0x3
+ 681 0022 0E       		.uleb128 0xe
+ 682 0023 3A       		.uleb128 0x3a
+ 683 0024 0B       		.uleb128 0xb
+ 684 0025 3B       		.uleb128 0x3b
+ 685 0026 0B       		.uleb128 0xb
+ 686 0027 49       		.uleb128 0x49
+ 687 0028 13       		.uleb128 0x13
+ 688 0029 00       		.byte	0
+ 689 002a 00       		.byte	0
+ 690 002b 04       		.uleb128 0x4
+ 691 002c 24       		.uleb128 0x24
+ 692 002d 00       		.byte	0
+ 693 002e 0B       		.uleb128 0xb
+ 694 002f 0B       		.uleb128 0xb
+ 695 0030 3E       		.uleb128 0x3e
+ 696 0031 0B       		.uleb128 0xb
+ 697 0032 03       		.uleb128 0x3
+ 698 0033 08       		.uleb128 0x8
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 15
+
+
+ 699 0034 00       		.byte	0
+ 700 0035 00       		.byte	0
+ 701 0036 05       		.uleb128 0x5
+ 702 0037 2E       		.uleb128 0x2e
+ 703 0038 01       		.byte	0x1
+ 704 0039 3F       		.uleb128 0x3f
+ 705 003a 19       		.uleb128 0x19
+ 706 003b 03       		.uleb128 0x3
+ 707 003c 0E       		.uleb128 0xe
+ 708 003d 3A       		.uleb128 0x3a
+ 709 003e 0B       		.uleb128 0xb
+ 710 003f 3B       		.uleb128 0x3b
+ 711 0040 0B       		.uleb128 0xb
+ 712 0041 27       		.uleb128 0x27
+ 713 0042 19       		.uleb128 0x19
+ 714 0043 11       		.uleb128 0x11
+ 715 0044 01       		.uleb128 0x1
+ 716 0045 12       		.uleb128 0x12
+ 717 0046 06       		.uleb128 0x6
+ 718 0047 40       		.uleb128 0x40
+ 719 0048 18       		.uleb128 0x18
+ 720 0049 9742     		.uleb128 0x2117
+ 721 004b 19       		.uleb128 0x19
+ 722 004c 01       		.uleb128 0x1
+ 723 004d 13       		.uleb128 0x13
+ 724 004e 00       		.byte	0
+ 725 004f 00       		.byte	0
+ 726 0050 06       		.uleb128 0x6
+ 727 0051 05       		.uleb128 0x5
+ 728 0052 00       		.byte	0
+ 729 0053 03       		.uleb128 0x3
+ 730 0054 0E       		.uleb128 0xe
+ 731 0055 3A       		.uleb128 0x3a
+ 732 0056 0B       		.uleb128 0xb
+ 733 0057 3B       		.uleb128 0x3b
+ 734 0058 0B       		.uleb128 0xb
+ 735 0059 49       		.uleb128 0x49
+ 736 005a 13       		.uleb128 0x13
+ 737 005b 02       		.uleb128 0x2
+ 738 005c 17       		.uleb128 0x17
+ 739 005d 00       		.byte	0
+ 740 005e 00       		.byte	0
+ 741 005f 07       		.uleb128 0x7
+ 742 0060 898201   		.uleb128 0x4109
+ 743 0063 01       		.byte	0x1
+ 744 0064 11       		.uleb128 0x11
+ 745 0065 01       		.uleb128 0x1
+ 746 0066 31       		.uleb128 0x31
+ 747 0067 13       		.uleb128 0x13
+ 748 0068 01       		.uleb128 0x1
+ 749 0069 13       		.uleb128 0x13
+ 750 006a 00       		.byte	0
+ 751 006b 00       		.byte	0
+ 752 006c 08       		.uleb128 0x8
+ 753 006d 8A8201   		.uleb128 0x410a
+ 754 0070 00       		.byte	0
+ 755 0071 02       		.uleb128 0x2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 16
+
+
+ 756 0072 18       		.uleb128 0x18
+ 757 0073 9142     		.uleb128 0x2111
+ 758 0075 18       		.uleb128 0x18
+ 759 0076 00       		.byte	0
+ 760 0077 00       		.byte	0
+ 761 0078 09       		.uleb128 0x9
+ 762 0079 898201   		.uleb128 0x4109
+ 763 007c 00       		.byte	0
+ 764 007d 11       		.uleb128 0x11
+ 765 007e 01       		.uleb128 0x1
+ 766 007f 31       		.uleb128 0x31
+ 767 0080 13       		.uleb128 0x13
+ 768 0081 00       		.byte	0
+ 769 0082 00       		.byte	0
+ 770 0083 0A       		.uleb128 0xa
+ 771 0084 05       		.uleb128 0x5
+ 772 0085 00       		.byte	0
+ 773 0086 03       		.uleb128 0x3
+ 774 0087 08       		.uleb128 0x8
+ 775 0088 3A       		.uleb128 0x3a
+ 776 0089 0B       		.uleb128 0xb
+ 777 008a 3B       		.uleb128 0x3b
+ 778 008b 0B       		.uleb128 0xb
+ 779 008c 49       		.uleb128 0x49
+ 780 008d 13       		.uleb128 0x13
+ 781 008e 02       		.uleb128 0x2
+ 782 008f 17       		.uleb128 0x17
+ 783 0090 00       		.byte	0
+ 784 0091 00       		.byte	0
+ 785 0092 0B       		.uleb128 0xb
+ 786 0093 34       		.uleb128 0x34
+ 787 0094 00       		.byte	0
+ 788 0095 03       		.uleb128 0x3
+ 789 0096 08       		.uleb128 0x8
+ 790 0097 3A       		.uleb128 0x3a
+ 791 0098 0B       		.uleb128 0xb
+ 792 0099 3B       		.uleb128 0x3b
+ 793 009a 0B       		.uleb128 0xb
+ 794 009b 49       		.uleb128 0x49
+ 795 009c 13       		.uleb128 0x13
+ 796 009d 02       		.uleb128 0x2
+ 797 009e 17       		.uleb128 0x17
+ 798 009f 00       		.byte	0
+ 799 00a0 00       		.byte	0
+ 800 00a1 0C       		.uleb128 0xc
+ 801 00a2 0F       		.uleb128 0xf
+ 802 00a3 00       		.byte	0
+ 803 00a4 0B       		.uleb128 0xb
+ 804 00a5 0B       		.uleb128 0xb
+ 805 00a6 49       		.uleb128 0x49
+ 806 00a7 13       		.uleb128 0x13
+ 807 00a8 00       		.byte	0
+ 808 00a9 00       		.byte	0
+ 809 00aa 0D       		.uleb128 0xd
+ 810 00ab 2E       		.uleb128 0x2e
+ 811 00ac 00       		.byte	0
+ 812 00ad 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 17
+
+
+ 813 00ae 19       		.uleb128 0x19
+ 814 00af 03       		.uleb128 0x3
+ 815 00b0 0E       		.uleb128 0xe
+ 816 00b1 3A       		.uleb128 0x3a
+ 817 00b2 0B       		.uleb128 0xb
+ 818 00b3 3B       		.uleb128 0x3b
+ 819 00b4 0B       		.uleb128 0xb
+ 820 00b5 27       		.uleb128 0x27
+ 821 00b6 19       		.uleb128 0x19
+ 822 00b7 49       		.uleb128 0x49
+ 823 00b8 13       		.uleb128 0x13
+ 824 00b9 11       		.uleb128 0x11
+ 825 00ba 01       		.uleb128 0x1
+ 826 00bb 12       		.uleb128 0x12
+ 827 00bc 06       		.uleb128 0x6
+ 828 00bd 40       		.uleb128 0x40
+ 829 00be 18       		.uleb128 0x18
+ 830 00bf 9742     		.uleb128 0x2117
+ 831 00c1 19       		.uleb128 0x19
+ 832 00c2 00       		.byte	0
+ 833 00c3 00       		.byte	0
+ 834 00c4 0E       		.uleb128 0xe
+ 835 00c5 05       		.uleb128 0x5
+ 836 00c6 00       		.byte	0
+ 837 00c7 03       		.uleb128 0x3
+ 838 00c8 0E       		.uleb128 0xe
+ 839 00c9 3A       		.uleb128 0x3a
+ 840 00ca 0B       		.uleb128 0xb
+ 841 00cb 3B       		.uleb128 0x3b
+ 842 00cc 0B       		.uleb128 0xb
+ 843 00cd 49       		.uleb128 0x49
+ 844 00ce 13       		.uleb128 0x13
+ 845 00cf 02       		.uleb128 0x2
+ 846 00d0 18       		.uleb128 0x18
+ 847 00d1 00       		.byte	0
+ 848 00d2 00       		.byte	0
+ 849 00d3 0F       		.uleb128 0xf
+ 850 00d4 05       		.uleb128 0x5
+ 851 00d5 00       		.byte	0
+ 852 00d6 03       		.uleb128 0x3
+ 853 00d7 08       		.uleb128 0x8
+ 854 00d8 3A       		.uleb128 0x3a
+ 855 00d9 0B       		.uleb128 0xb
+ 856 00da 3B       		.uleb128 0x3b
+ 857 00db 0B       		.uleb128 0xb
+ 858 00dc 49       		.uleb128 0x49
+ 859 00dd 13       		.uleb128 0x13
+ 860 00de 02       		.uleb128 0x2
+ 861 00df 18       		.uleb128 0x18
+ 862 00e0 00       		.byte	0
+ 863 00e1 00       		.byte	0
+ 864 00e2 10       		.uleb128 0x10
+ 865 00e3 898201   		.uleb128 0x4109
+ 866 00e6 01       		.byte	0x1
+ 867 00e7 11       		.uleb128 0x11
+ 868 00e8 01       		.uleb128 0x1
+ 869 00e9 31       		.uleb128 0x31
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 18
+
+
+ 870 00ea 13       		.uleb128 0x13
+ 871 00eb 00       		.byte	0
+ 872 00ec 00       		.byte	0
+ 873 00ed 11       		.uleb128 0x11
+ 874 00ee 34       		.uleb128 0x34
+ 875 00ef 00       		.byte	0
+ 876 00f0 03       		.uleb128 0x3
+ 877 00f1 0E       		.uleb128 0xe
+ 878 00f2 3A       		.uleb128 0x3a
+ 879 00f3 0B       		.uleb128 0xb
+ 880 00f4 3B       		.uleb128 0x3b
+ 881 00f5 05       		.uleb128 0x5
+ 882 00f6 49       		.uleb128 0x49
+ 883 00f7 13       		.uleb128 0x13
+ 884 00f8 3F       		.uleb128 0x3f
+ 885 00f9 19       		.uleb128 0x19
+ 886 00fa 3C       		.uleb128 0x3c
+ 887 00fb 19       		.uleb128 0x19
+ 888 00fc 00       		.byte	0
+ 889 00fd 00       		.byte	0
+ 890 00fe 12       		.uleb128 0x12
+ 891 00ff 35       		.uleb128 0x35
+ 892 0100 00       		.byte	0
+ 893 0101 49       		.uleb128 0x49
+ 894 0102 13       		.uleb128 0x13
+ 895 0103 00       		.byte	0
+ 896 0104 00       		.byte	0
+ 897 0105 13       		.uleb128 0x13
+ 898 0106 2E       		.uleb128 0x2e
+ 899 0107 01       		.byte	0x1
+ 900 0108 3F       		.uleb128 0x3f
+ 901 0109 19       		.uleb128 0x19
+ 902 010a 03       		.uleb128 0x3
+ 903 010b 0E       		.uleb128 0xe
+ 904 010c 3A       		.uleb128 0x3a
+ 905 010d 0B       		.uleb128 0xb
+ 906 010e 3B       		.uleb128 0x3b
+ 907 010f 0B       		.uleb128 0xb
+ 908 0110 27       		.uleb128 0x27
+ 909 0111 19       		.uleb128 0x19
+ 910 0112 3C       		.uleb128 0x3c
+ 911 0113 19       		.uleb128 0x19
+ 912 0114 01       		.uleb128 0x1
+ 913 0115 13       		.uleb128 0x13
+ 914 0116 00       		.byte	0
+ 915 0117 00       		.byte	0
+ 916 0118 14       		.uleb128 0x14
+ 917 0119 05       		.uleb128 0x5
+ 918 011a 00       		.byte	0
+ 919 011b 49       		.uleb128 0x49
+ 920 011c 13       		.uleb128 0x13
+ 921 011d 00       		.byte	0
+ 922 011e 00       		.byte	0
+ 923 011f 15       		.uleb128 0x15
+ 924 0120 2E       		.uleb128 0x2e
+ 925 0121 00       		.byte	0
+ 926 0122 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 19
+
+
+ 927 0123 19       		.uleb128 0x19
+ 928 0124 03       		.uleb128 0x3
+ 929 0125 0E       		.uleb128 0xe
+ 930 0126 3A       		.uleb128 0x3a
+ 931 0127 0B       		.uleb128 0xb
+ 932 0128 3B       		.uleb128 0x3b
+ 933 0129 0B       		.uleb128 0xb
+ 934 012a 27       		.uleb128 0x27
+ 935 012b 19       		.uleb128 0x19
+ 936 012c 49       		.uleb128 0x49
+ 937 012d 13       		.uleb128 0x13
+ 938 012e 3C       		.uleb128 0x3c
+ 939 012f 19       		.uleb128 0x19
+ 940 0130 00       		.byte	0
+ 941 0131 00       		.byte	0
+ 942 0132 16       		.uleb128 0x16
+ 943 0133 2E       		.uleb128 0x2e
+ 944 0134 01       		.byte	0x1
+ 945 0135 3F       		.uleb128 0x3f
+ 946 0136 19       		.uleb128 0x19
+ 947 0137 03       		.uleb128 0x3
+ 948 0138 0E       		.uleb128 0xe
+ 949 0139 3A       		.uleb128 0x3a
+ 950 013a 0B       		.uleb128 0xb
+ 951 013b 3B       		.uleb128 0x3b
+ 952 013c 0B       		.uleb128 0xb
+ 953 013d 27       		.uleb128 0x27
+ 954 013e 19       		.uleb128 0x19
+ 955 013f 3C       		.uleb128 0x3c
+ 956 0140 19       		.uleb128 0x19
+ 957 0141 00       		.byte	0
+ 958 0142 00       		.byte	0
+ 959 0143 00       		.byte	0
+ 960              		.section	.debug_loc,"",%progbits
+ 961              	.Ldebug_loc0:
+ 962              	.LLST0:
+ 963 0000 00000000 		.4byte	.LVL0
+ 964 0004 06000000 		.4byte	.LVL1
+ 965 0008 0100     		.2byte	0x1
+ 966 000a 50       		.byte	0x50
+ 967 000b 06000000 		.4byte	.LVL1
+ 968 000f 1C000000 		.4byte	.LFE63
+ 969 0013 0400     		.2byte	0x4
+ 970 0015 F3       		.byte	0xf3
+ 971 0016 01       		.uleb128 0x1
+ 972 0017 50       		.byte	0x50
+ 973 0018 9F       		.byte	0x9f
+ 974 0019 00000000 		.4byte	0
+ 975 001d 00000000 		.4byte	0
+ 976              	.LLST1:
+ 977 0021 00000000 		.4byte	.LVL5
+ 978 0025 06000000 		.4byte	.LVL6
+ 979 0029 0100     		.2byte	0x1
+ 980 002b 50       		.byte	0x50
+ 981 002c 06000000 		.4byte	.LVL6
+ 982 0030 1C000000 		.4byte	.LFE64
+ 983 0034 0400     		.2byte	0x4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 20
+
+
+ 984 0036 F3       		.byte	0xf3
+ 985 0037 01       		.uleb128 0x1
+ 986 0038 50       		.byte	0x50
+ 987 0039 9F       		.byte	0x9f
+ 988 003a 00000000 		.4byte	0
+ 989 003e 00000000 		.4byte	0
+ 990              	.LLST2:
+ 991 0042 00000000 		.4byte	.LVL10
+ 992 0046 08000000 		.4byte	.LVL11
+ 993 004a 0100     		.2byte	0x1
+ 994 004c 50       		.byte	0x50
+ 995 004d 08000000 		.4byte	.LVL11
+ 996 0051 28000000 		.4byte	.LFE65
+ 997 0055 0100     		.2byte	0x1
+ 998 0057 56       		.byte	0x56
+ 999 0058 00000000 		.4byte	0
+ 1000 005c 00000000 		.4byte	0
+ 1001              	.LLST3:
+ 1002 0060 00000000 		.4byte	.LVL10
+ 1003 0064 0B000000 		.4byte	.LVL12-1
+ 1004 0068 0100     		.2byte	0x1
+ 1005 006a 51       		.byte	0x51
+ 1006 006b 0B000000 		.4byte	.LVL12-1
+ 1007 006f 28000000 		.4byte	.LFE65
+ 1008 0073 0100     		.2byte	0x1
+ 1009 0075 55       		.byte	0x55
+ 1010 0076 00000000 		.4byte	0
+ 1011 007a 00000000 		.4byte	0
+ 1012              	.LLST4:
+ 1013 007e 0C000000 		.4byte	.LVL12
+ 1014 0082 10000000 		.4byte	.LVL13
+ 1015 0086 0200     		.2byte	0x2
+ 1016 0088 30       		.byte	0x30
+ 1017 0089 9F       		.byte	0x9f
+ 1018 008a 10000000 		.4byte	.LVL13
+ 1019 008e 28000000 		.4byte	.LFE65
+ 1020 0092 0100     		.2byte	0x1
+ 1021 0094 54       		.byte	0x54
+ 1022 0095 00000000 		.4byte	0
+ 1023 0099 00000000 		.4byte	0
+ 1024              		.section	.debug_aranges,"",%progbits
+ 1025 0000 44000000 		.4byte	0x44
+ 1026 0004 0200     		.2byte	0x2
+ 1027 0006 00000000 		.4byte	.Ldebug_info0
+ 1028 000a 04       		.byte	0x4
+ 1029 000b 00       		.byte	0
+ 1030 000c 0000     		.2byte	0
+ 1031 000e 0000     		.2byte	0
+ 1032 0010 00000000 		.4byte	.LFB63
+ 1033 0014 1C000000 		.4byte	.LFE63-.LFB63
+ 1034 0018 00000000 		.4byte	.LFB64
+ 1035 001c 1C000000 		.4byte	.LFE64-.LFB64
+ 1036 0020 00000000 		.4byte	.LFB65
+ 1037 0024 28000000 		.4byte	.LFE65-.LFB65
+ 1038 0028 00000000 		.4byte	.LFB66
+ 1039 002c 02000000 		.4byte	.LFE66-.LFB66
+ 1040 0030 00000000 		.4byte	.LFB67
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 21
+
+
+ 1041 0034 02000000 		.4byte	.LFE67-.LFB67
+ 1042 0038 00000000 		.4byte	.LFB68
+ 1043 003c 3A000000 		.4byte	.LFE68-.LFB68
+ 1044 0040 00000000 		.4byte	0
+ 1045 0044 00000000 		.4byte	0
+ 1046              		.section	.debug_ranges,"",%progbits
+ 1047              	.Ldebug_ranges0:
+ 1048 0000 00000000 		.4byte	.LFB63
+ 1049 0004 1C000000 		.4byte	.LFE63
+ 1050 0008 00000000 		.4byte	.LFB64
+ 1051 000c 1C000000 		.4byte	.LFE64
+ 1052 0010 00000000 		.4byte	.LFB65
+ 1053 0014 28000000 		.4byte	.LFE65
+ 1054 0018 00000000 		.4byte	.LFB66
+ 1055 001c 02000000 		.4byte	.LFE66
+ 1056 0020 00000000 		.4byte	.LFB67
+ 1057 0024 02000000 		.4byte	.LFE67
+ 1058 0028 00000000 		.4byte	.LFB68
+ 1059 002c 3A000000 		.4byte	.LFE68
+ 1060 0030 00000000 		.4byte	0
+ 1061 0034 00000000 		.4byte	0
+ 1062              		.section	.debug_line,"",%progbits
+ 1063              	.Ldebug_line0:
+ 1064 0000 02020000 		.section	.debug_str,"MS",%progbits,1
+ 1064      02006701 
+ 1064      00000201 
+ 1064      FB0E0D00 
+ 1064      01010101 
+ 1065              	.LASF28:
+ 1066 0000 433A5C55 		.ascii	"C:\\Users\\mark6\\Google Drive\\College-MIT\\S6Spri"
+ 1066      73657273 
+ 1066      5C6D6172 
+ 1066      6B365C47 
+ 1066      6F6F676C 
+ 1067 002e 6E673230 		.ascii	"ng2020\\6.115\\FinalProject\\BunkerKnowledge\\PSoC_"
+ 1067      32305C36 
+ 1067      2E313135 
+ 1067      5C46696E 
+ 1067      616C5072 
+ 1068 005d 53746963 		.ascii	"Stick_Files\\Learning_TFT_emWin.cydsn\000"
+ 1068      6B5F4669 
+ 1068      6C65735C 
+ 1068      4C656172 
+ 1068      6E696E67 
+ 1069              	.LASF9:
+ 1070 0082 5F5F696E 		.ascii	"__int32_t\000"
+ 1070      7433325F 
+ 1070      7400
+ 1071              	.LASF22:
+ 1072 008c 72656164 		.ascii	"readM8_a1\000"
+ 1072      4D385F61 
+ 1072      3100
+ 1073              	.LASF17:
+ 1074 0096 77726974 		.ascii	"write8_a0\000"
+ 1074      65385F61 
+ 1074      3000
+ 1075              	.LASF18:
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 22
+
+
+ 1076 00a0 77726974 		.ascii	"write8_a1\000"
+ 1076      65385F61 
+ 1076      3100
+ 1077              	.LASF21:
+ 1078 00aa 70446174 		.ascii	"pData\000"
+ 1078      6100
+ 1079              	.LASF31:
+ 1080 00b0 5350494D 		.ascii	"SPIM_1_ReadTxStatus\000"
+ 1080      5F315F52 
+ 1080      65616454 
+ 1080      78537461 
+ 1080      74757300 
+ 1081              	.LASF13:
+ 1082 00c4 666C6F61 		.ascii	"float\000"
+ 1082      7400
+ 1083              	.LASF19:
+ 1084 00ca 64617461 		.ascii	"data\000"
+ 1084      00
+ 1085              	.LASF11:
+ 1086 00cf 75696E74 		.ascii	"uint8\000"
+ 1086      3800
+ 1087              	.LASF29:
+ 1088 00d5 72656164 		.ascii	"read8_a1\000"
+ 1088      385F6131 
+ 1088      00
+ 1089              	.LASF5:
+ 1090 00de 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1090      20756E73 
+ 1090      69676E65 
+ 1090      6420696E 
+ 1090      7400
+ 1091              	.LASF3:
+ 1092 00f0 73686F72 		.ascii	"short unsigned int\000"
+ 1092      7420756E 
+ 1092      7369676E 
+ 1092      65642069 
+ 1092      6E7400
+ 1093              	.LASF30:
+ 1094 0103 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1094      52784275 
+ 1094      66666572 
+ 1094      00
+ 1095              	.LASF24:
+ 1096 0110 44435F57 		.ascii	"DC_Write\000"
+ 1096      72697465 
+ 1096      00
+ 1097              	.LASF1:
+ 1098 0119 756E7369 		.ascii	"unsigned char\000"
+ 1098      676E6564 
+ 1098      20636861 
+ 1098      7200
+ 1099              	.LASF14:
+ 1100 0127 646F7562 		.ascii	"double\000"
+ 1100      6C6500
+ 1101              	.LASF12:
+ 1102 012e 75696E74 		.ascii	"uint32\000"
+ 1102      333200
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 23
+
+
+ 1103              	.LASF26:
+ 1104 0135 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1104      4320342E 
+ 1104      392E3320 
+ 1104      32303135 
+ 1104      30333033 
+ 1105 0168 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1105      20726576 
+ 1105      6973696F 
+ 1105      6E203232 
+ 1105      31323230 
+ 1106 019b 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1106      66756E63 
+ 1106      74696F6E 
+ 1106      2D736563 
+ 1106      74696F6E 
+ 1107              	.LASF8:
+ 1108 01c3 756E7369 		.ascii	"unsigned int\000"
+ 1108      676E6564 
+ 1108      20696E74 
+ 1108      00
+ 1109              	.LASF20:
+ 1110 01d0 77726974 		.ascii	"writeM8_a1\000"
+ 1110      654D385F 
+ 1110      613100
+ 1111              	.LASF27:
+ 1112 01db 2E5C7466 		.ascii	".\\tft.c\000"
+ 1112      742E6300 
+ 1113              	.LASF7:
+ 1114 01e3 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1114      206C6F6E 
+ 1114      6720756E 
+ 1114      7369676E 
+ 1114      65642069 
+ 1115              	.LASF10:
+ 1116 01fa 696E7433 		.ascii	"int32_t\000"
+ 1116      325F7400 
+ 1117              	.LASF16:
+ 1118 0202 73697A65 		.ascii	"sizetype\000"
+ 1118      74797065 
+ 1118      00
+ 1119              	.LASF6:
+ 1120 020b 6C6F6E67 		.ascii	"long long int\000"
+ 1120      206C6F6E 
+ 1120      6720696E 
+ 1120      7400
+ 1121              	.LASF15:
+ 1122 0219 63686172 		.ascii	"char\000"
+ 1122      00
+ 1123              	.LASF2:
+ 1124 021e 73686F72 		.ascii	"short int\000"
+ 1124      7420696E 
+ 1124      7400
+ 1125              	.LASF23:
+ 1126 0228 74667453 		.ascii	"tftStart\000"
+ 1126      74617274 
+ 1126      00
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cctXNYIu.s 			page 24
+
+
+ 1127              	.LASF4:
+ 1128 0231 6C6F6E67 		.ascii	"long int\000"
+ 1128      20696E74 
+ 1128      00
+ 1129              	.LASF0:
+ 1130 023a 7369676E 		.ascii	"signed char\000"
+ 1130      65642063 
+ 1130      68617200 
+ 1131              	.LASF25:
+ 1132 0246 5350494D 		.ascii	"SPIM_1_WriteTxData\000"
+ 1132      5F315F57 
+ 1132      72697465 
+ 1132      54784461 
+ 1132      746100
+ 1133              	.LASF32:
+ 1134 0259 43794465 		.ascii	"CyDelay\000"
+ 1134      6C617900 
+ 1135              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

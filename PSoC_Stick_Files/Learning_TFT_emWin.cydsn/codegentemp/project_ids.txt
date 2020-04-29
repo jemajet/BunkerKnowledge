@@ -1,0 +1,5 @@
+C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_Stick_Files\Learning_TFT_emWin.cydsn\Learning_TFT_emWin.cyprj|b0d287b4-2501-4e21-94a7-3fe535cde5ec
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|8f7248d8-a030-4ae8-a9c8-91faa49b2650
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|ff6158d5-83a6-4056-adab-281207d6873b
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|523df213-7a54-4962-a98f-e2534aa370ca
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|84b7ca4f-7b6e-4554-b1be-391dbe322f5d
