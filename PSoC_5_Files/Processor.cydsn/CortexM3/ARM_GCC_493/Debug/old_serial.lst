@@ -1,0 +1,1579 @@
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"old_serial.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	x
+  19              		.bss
+  20              		.type	x, %object
+  21              		.size	x, 1
+  22              	x:
+  23 0000 00       		.space	1
+  24              		.global	x0
+  25              		.type	x0, %object
+  26              		.size	x0, 1
+  27              	x0:
+  28 0001 00       		.space	1
+  29              		.global	x1
+  30              		.type	x1, %object
+  31              		.size	x1, 1
+  32              	x1:
+  33 0002 00       		.space	1
+  34              		.global	y
+  35              		.type	y, %object
+  36              		.size	y, 1
+  37              	y:
+  38 0003 00       		.space	1
+  39              		.section	.text.RX_INT,"ax",%progbits
+  40              		.align	2
+  41              		.global	RX_INT
+  42              		.thumb
+  43              		.thumb_func
+  44              		.type	RX_INT, %function
+  45              	RX_INT:
+  46              	.LFB63:
+  47              		.file 1 ".\\old_serial.c"
+   1:.\old_serial.c **** /* ========================================
+   2:.\old_serial.c ****  *
+   3:.\old_serial.c ****  * Copyright MIT 6.115, 2013
+   4:.\old_serial.c ****  * All Rights Reserved
+   5:.\old_serial.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\old_serial.c ****  *
+   7:.\old_serial.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\old_serial.c ****  * WHICH IS THE PROPERTY OF MIT 6.115.
+   9:.\old_serial.c ****  *
+  10:.\old_serial.c ****  * This file is necessary for your project to build.
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 2
+
+
+  11:.\old_serial.c ****  * Please do not delete it.
+  12:.\old_serial.c ****  *
+  13:.\old_serial.c ****  * ========================================
+  14:.\old_serial.c **** */
+  15:.\old_serial.c **** 
+  16:.\old_serial.c **** #include <device.h>
+  17:.\old_serial.c **** 
+  18:.\old_serial.c **** uint8 x = 0;
+  19:.\old_serial.c **** uint8 x0 = 0;
+  20:.\old_serial.c **** uint8 x1 = 0;
+  21:.\old_serial.c **** uint8 y = 0;
+  22:.\old_serial.c **** 
+  23:.\old_serial.c **** uint8 get_x();
+  24:.\old_serial.c **** void inc_x();
+  25:.\old_serial.c **** void dec_x();
+  26:.\old_serial.c **** void reset_x();
+  27:.\old_serial.c **** void lcd_backspace();
+  28:.\old_serial.c **** void send_backspace();
+  29:.\old_serial.c **** 
+  30:.\old_serial.c **** CY_ISR(RX_INT)
+  31:.\old_serial.c **** {
+  48              		.loc 1 31 0
+  49              		.cfi_startproc
+  50              		@ args = 0, pretend = 0, frame = 8
+  51              		@ frame_needed = 1, uses_anonymous_args = 0
+  52 0000 80B5     		push	{r7, lr}
+  53              		.cfi_def_cfa_offset 8
+  54              		.cfi_offset 7, -8
+  55              		.cfi_offset 14, -4
+  56 0002 82B0     		sub	sp, sp, #8
+  57              		.cfi_def_cfa_offset 16
+  58 0004 00AF     		add	r7, sp, #0
+  59              		.cfi_def_cfa_register 7
+  32:.\old_serial.c ****     x = get_x();
+  60              		.loc 1 32 0
+  61 0006 FFF7FEFF 		bl	get_x
+  62 000a 0346     		mov	r3, r0
+  63 000c 1A46     		mov	r2, r3
+  64 000e 164B     		ldr	r3, .L6
+  65 0010 1A70     		strb	r2, [r3]
+  33:.\old_serial.c ****     char sent = UART_ReadRxData();
+  66              		.loc 1 33 0
+  67 0012 FFF7FEFF 		bl	UART_ReadRxData
+  68 0016 0346     		mov	r3, r0
+  69 0018 FB71     		strb	r3, [r7, #7]
+  34:.\old_serial.c ****     if (sent == 0x08 || sent == 0x7F) {
+  70              		.loc 1 34 0
+  71 001a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  72 001c 082B     		cmp	r3, #8
+  73 001e 02D0     		beq	.L2
+  74              		.loc 1 34 0 is_stmt 0 discriminator 1
+  75 0020 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  76 0022 7F2B     		cmp	r3, #127
+  77 0024 02D1     		bne	.L3
+  78              	.L2:
+  35:.\old_serial.c ****         // backspace
+  36:.\old_serial.c ****         lcd_backspace();
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 3
+
+
+  79              		.loc 1 36 0 is_stmt 1
+  80 0026 FFF7FEFF 		bl	lcd_backspace
+  81 002a 16E0     		b	.L4
+  82              	.L3:
+  37:.\old_serial.c ****     } else if (sent == 0x0C) {
+  83              		.loc 1 37 0
+  84 002c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  85 002e 0C2B     		cmp	r3, #12
+  86 0030 05D1     		bne	.L5
+  38:.\old_serial.c ****         // If clearing in putty, clear the lcd
+  39:.\old_serial.c ****         LCD_ClearDisplay();
+  87              		.loc 1 39 0
+  88 0032 0120     		movs	r0, #1
+  89 0034 FFF7FEFF 		bl	LCD_WriteControl
+  40:.\old_serial.c ****         reset_x();
+  90              		.loc 1 40 0
+  91 0038 FFF7FEFF 		bl	reset_x
+  92 003c 0DE0     		b	.L4
+  93              	.L5:
+  41:.\old_serial.c ****     } 
+  42:.\old_serial.c ****     else {
+  43:.\old_serial.c ****         LCD_Position(y, x);
+  94              		.loc 1 43 0
+  95 003e 0B4B     		ldr	r3, .L6+4
+  96 0040 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  97 0042 094B     		ldr	r3, .L6
+  98 0044 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  99 0046 1046     		mov	r0, r2
+ 100 0048 1946     		mov	r1, r3
+ 101 004a FFF7FEFF 		bl	LCD_Position
+  44:.\old_serial.c ****         LCD_PutChar(sent);     // RX ISR
+ 102              		.loc 1 44 0
+ 103 004e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 104 0050 1846     		mov	r0, r3
+ 105 0052 FFF7FEFF 		bl	LCD_PutChar
+  45:.\old_serial.c ****         inc_x();
+ 106              		.loc 1 45 0
+ 107 0056 FFF7FEFF 		bl	inc_x
+ 108              	.L4:
+  46:.\old_serial.c ****     } 
+  47:.\old_serial.c ****     UART_WriteTxData(sent);
+ 109              		.loc 1 47 0
+ 110 005a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 111 005c 1846     		mov	r0, r3
+ 112 005e FFF7FEFF 		bl	UART_WriteTxData
+  48:.\old_serial.c **** }
+ 113              		.loc 1 48 0
+ 114 0062 0837     		adds	r7, r7, #8
+ 115              		.cfi_def_cfa_offset 8
+ 116 0064 BD46     		mov	sp, r7
+ 117              		.cfi_def_cfa_register 13
+ 118              		@ sp needed
+ 119 0066 80BD     		pop	{r7, pc}
+ 120              	.L7:
+ 121              		.align	2
+ 122              	.L6:
+ 123 0068 00000000 		.word	x
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 4
+
+
+ 124 006c 00000000 		.word	y
+ 125              		.cfi_endproc
+ 126              	.LFE63:
+ 127              		.size	RX_INT, .-RX_INT
+ 128              		.section	.text.main,"ax",%progbits
+ 129              		.align	2
+ 130              		.global	main
+ 131              		.thumb
+ 132              		.thumb_func
+ 133              		.type	main, %function
+ 134              	main:
+ 135              	.LFB64:
+  49:.\old_serial.c **** 
+  50:.\old_serial.c **** void main()
+  51:.\old_serial.c **** {	
+ 136              		.loc 1 51 0
+ 137              		.cfi_startproc
+ 138              		@ args = 0, pretend = 0, frame = 8
+ 139              		@ frame_needed = 1, uses_anonymous_args = 0
+ 140 0000 80B5     		push	{r7, lr}
+ 141              		.cfi_def_cfa_offset 8
+ 142              		.cfi_offset 7, -8
+ 143              		.cfi_offset 14, -4
+ 144 0002 82B0     		sub	sp, sp, #8
+ 145              		.cfi_def_cfa_offset 16
+ 146 0004 00AF     		add	r7, sp, #0
+ 147              		.cfi_def_cfa_register 7
+  52:.\old_serial.c **** 	LCD_Start();					    // initialize lcd
+ 148              		.loc 1 52 0
+ 149 0006 FFF7FEFF 		bl	LCD_Start
+  53:.\old_serial.c **** 	LCD_ClearDisplay();
+ 150              		.loc 1 53 0
+ 151 000a 0120     		movs	r0, #1
+ 152 000c FFF7FEFF 		bl	LCD_WriteControl
+  54:.\old_serial.c ****     
+  55:.\old_serial.c ****     CyGlobalIntEnable;
+ 153              		.loc 1 55 0
+ 154              	@ 55 ".\old_serial.c" 1
+ 155 0010 62B6     		CPSIE   i
+ 156              	@ 0 "" 2
+  56:.\old_serial.c ****     rx_int_StartEx(RX_INT);             // start RX interrupt (look for CY_ISR with RX_INT address)
+ 157              		.loc 1 56 0
+ 158              		.thumb
+ 159 0012 3548     		ldr	r0, .L14
+ 160 0014 FFF7FEFF 		bl	rx_int_StartEx
+  57:.\old_serial.c ****                                         // for code that writes received bytes to LCD.
+  58:.\old_serial.c ****     
+  59:.\old_serial.c ****     UART_Start();                       // initialize UART
+ 161              		.loc 1 59 0
+ 162 0018 FFF7FEFF 		bl	UART_Start
+  60:.\old_serial.c ****     UART_ClearRxBuffer();
+ 163              		.loc 1 60 0
+ 164 001c FFF7FEFF 		bl	UART_ClearRxBuffer
+  61:.\old_serial.c ****     
+  62:.\old_serial.c ****     CapSense_Start();
+ 165              		.loc 1 62 0
+ 166 0020 FFF7FEFF 		bl	CapSense_Start
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 5
+
+
+  63:.\old_serial.c ****     CapSense_InitializeAllBaselines();
+ 167              		.loc 1 63 0
+ 168 0024 FFF7FEFF 		bl	CapSense_InitializeAllBaselines
+  64:.\old_serial.c ****     CapSense_ScanEnabledWidgets();
+ 169              		.loc 1 64 0
+ 170 0028 FFF7FEFF 		bl	CapSense_ScanEnabledWidgets
+  65:.\old_serial.c ****     uint8 button0 = 0;
+ 171              		.loc 1 65 0
+ 172 002c 0023     		movs	r3, #0
+ 173 002e 7B71     		strb	r3, [r7, #5]
+  66:.\old_serial.c ****     uint8 oldbutton0 = 0;
+ 174              		.loc 1 66 0
+ 175 0030 0023     		movs	r3, #0
+ 176 0032 FB71     		strb	r3, [r7, #7]
+  67:.\old_serial.c ****     uint8 button1 = 0;
+ 177              		.loc 1 67 0
+ 178 0034 0023     		movs	r3, #0
+ 179 0036 3B71     		strb	r3, [r7, #4]
+  68:.\old_serial.c ****     uint8 oldbutton1 = 0;
+ 180              		.loc 1 68 0
+ 181 0038 0023     		movs	r3, #0
+ 182 003a BB71     		strb	r3, [r7, #6]
+  69:.\old_serial.c ****     LED_1_Write(1);
+ 183              		.loc 1 69 0
+ 184 003c 0120     		movs	r0, #1
+ 185 003e FFF7FEFF 		bl	LED_1_Write
+ 186              	.L13:
+  70:.\old_serial.c ****     
+  71:.\old_serial.c ****     for(;;)
+  72:.\old_serial.c ****     
+  73:.\old_serial.c **** 
+  74:.\old_serial.c **** 
+  75:.\old_serial.c ****         if (! CapSense_IsBusy() )
+ 187              		.loc 1 75 0
+ 188 0042 FFF7FEFF 		bl	CapSense_IsBusy
+ 189 0046 0346     		mov	r3, r0
+ 190 0048 002B     		cmp	r3, #0
+ 191 004a 4BD1     		bne	.L9
+  76:.\old_serial.c **** 		    {
+  77:.\old_serial.c ****                 button0 = CapSense_CheckIsWidgetActive(CapSense_BUTTON0__BTN);
+ 192              		.loc 1 77 0
+ 193 004c 0020     		movs	r0, #0
+ 194 004e FFF7FEFF 		bl	CapSense_CheckIsWidgetActive
+ 195 0052 0346     		mov	r3, r0
+ 196 0054 7B71     		strb	r3, [r7, #5]
+  78:.\old_serial.c ****                 button1 = CapSense_CheckIsWidgetActive(CapSense_BUTTON1__BTN);
+ 197              		.loc 1 78 0
+ 198 0056 0120     		movs	r0, #1
+ 199 0058 FFF7FEFF 		bl	CapSense_CheckIsWidgetActive
+ 200 005c 0346     		mov	r3, r0
+ 201 005e 3B71     		strb	r3, [r7, #4]
+  79:.\old_serial.c **** 
+  80:.\old_serial.c ****                 if (button0 && button1) 
+ 202              		.loc 1 80 0
+ 203 0060 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 204 0062 002B     		cmp	r3, #0
+ 205 0064 0BD0     		beq	.L10
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 6
+
+
+ 206              		.loc 1 80 0 is_stmt 0 discriminator 1
+ 207 0066 3B79     		ldrb	r3, [r7, #4]	@ zero_extendqisi2
+ 208 0068 002B     		cmp	r3, #0
+ 209 006a 08D0     		beq	.L10
+  81:.\old_serial.c ****                 {
+  82:.\old_serial.c ****                     // pressing both buttons clears the display
+  83:.\old_serial.c ****                     LCD_ClearDisplay();
+ 210              		.loc 1 83 0 is_stmt 1
+ 211 006c 0120     		movs	r0, #1
+ 212 006e FFF7FEFF 		bl	LCD_WriteControl
+  84:.\old_serial.c ****                     reset_x();
+ 213              		.loc 1 84 0
+ 214 0072 FFF7FEFF 		bl	reset_x
+  85:.\old_serial.c ****                     UART_WriteTxData(0x0C);
+ 215              		.loc 1 85 0
+ 216 0076 0C20     		movs	r0, #12
+ 217 0078 FFF7FEFF 		bl	UART_WriteTxData
+ 218 007c 2AE0     		b	.L11
+ 219              	.L10:
+  86:.\old_serial.c ****                 }
+  87:.\old_serial.c **** 			    else if (button0 && button0 != oldbutton0) 
+ 220              		.loc 1 87 0
+ 221 007e 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 222 0080 002B     		cmp	r3, #0
+ 223 0082 1CD0     		beq	.L12
+ 224              		.loc 1 87 0 is_stmt 0 discriminator 1
+ 225 0084 7A79     		ldrb	r2, [r7, #5]	@ zero_extendqisi2
+ 226 0086 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 227 0088 9A42     		cmp	r2, r3
+ 228 008a 18D0     		beq	.L12
+  88:.\old_serial.c ****                 {
+  89:.\old_serial.c ****                     // button 0, (5_5) switches which row you're writing on
+  90:.\old_serial.c ****                     y ^= 1;
+ 229              		.loc 1 90 0 is_stmt 1
+ 230 008c 174B     		ldr	r3, .L14+4
+ 231 008e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 232 0090 83F00103 		eor	r3, r3, #1
+ 233 0094 DAB2     		uxtb	r2, r3
+ 234 0096 154B     		ldr	r3, .L14+4
+ 235 0098 1A70     		strb	r2, [r3]
+  91:.\old_serial.c ****                     LED_2_Write(LED_1_Read());
+ 236              		.loc 1 91 0
+ 237 009a FFF7FEFF 		bl	LED_1_Read
+ 238 009e 0346     		mov	r3, r0
+ 239 00a0 1846     		mov	r0, r3
+ 240 00a2 FFF7FEFF 		bl	LED_2_Write
+  92:.\old_serial.c ****                     LED_1_Write(!LED_1_Read());
+ 241              		.loc 1 92 0
+ 242 00a6 FFF7FEFF 		bl	LED_1_Read
+ 243 00aa 0346     		mov	r3, r0
+ 244 00ac 002B     		cmp	r3, #0
+ 245 00ae 0CBF     		ite	eq
+ 246 00b0 0123     		moveq	r3, #1
+ 247 00b2 0023     		movne	r3, #0
+ 248 00b4 DBB2     		uxtb	r3, r3
+ 249 00b6 1846     		mov	r0, r3
+ 250 00b8 FFF7FEFF 		bl	LED_1_Write
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 7
+
+
+ 251 00bc 0AE0     		b	.L11
+ 252              	.L12:
+  93:.\old_serial.c ****                         
+  94:.\old_serial.c ****                 }
+  95:.\old_serial.c ****                 else if (button1 && button1 != oldbutton1)
+ 253              		.loc 1 95 0
+ 254 00be 3B79     		ldrb	r3, [r7, #4]	@ zero_extendqisi2
+ 255 00c0 002B     		cmp	r3, #0
+ 256 00c2 07D0     		beq	.L11
+ 257              		.loc 1 95 0 is_stmt 0 discriminator 1
+ 258 00c4 3A79     		ldrb	r2, [r7, #4]	@ zero_extendqisi2
+ 259 00c6 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 260 00c8 9A42     		cmp	r2, r3
+ 261 00ca 03D0     		beq	.L11
+  96:.\old_serial.c ****                 {
+  97:.\old_serial.c ****                     // button 1, (5_6) is a backspace
+  98:.\old_serial.c ****                     lcd_backspace();
+ 262              		.loc 1 98 0 is_stmt 1
+ 263 00cc FFF7FEFF 		bl	lcd_backspace
+  99:.\old_serial.c ****                     send_backspace();
+ 264              		.loc 1 99 0
+ 265 00d0 FFF7FEFF 		bl	send_backspace
+ 266              	.L11:
+ 100:.\old_serial.c ****                 }
+ 101:.\old_serial.c ****                 /* Update all baselines */
+ 102:.\old_serial.c ****                 CapSense_UpdateEnabledBaselines();
+ 267              		.loc 1 102 0
+ 268 00d4 FFF7FEFF 		bl	CapSense_UpdateEnabledBaselines
+ 103:.\old_serial.c ****                 
+ 104:.\old_serial.c ****            		/* Start scanning all enabled sensors */
+ 105:.\old_serial.c ****             	CapSense_ScanEnabledWidgets();
+ 269              		.loc 1 105 0
+ 270 00d8 FFF7FEFF 		bl	CapSense_ScanEnabledWidgets
+ 106:.\old_serial.c ****                 oldbutton0 = button0;
+ 271              		.loc 1 106 0
+ 272 00dc 7B79     		ldrb	r3, [r7, #5]
+ 273 00de FB71     		strb	r3, [r7, #7]
+ 107:.\old_serial.c ****                 oldbutton1 = button1;
+ 274              		.loc 1 107 0
+ 275 00e0 3B79     		ldrb	r3, [r7, #4]
+ 276 00e2 BB71     		strb	r3, [r7, #6]
+ 277              	.L9:
+ 108:.\old_serial.c **** 		    }
+ 109:.\old_serial.c ****     
+ 110:.\old_serial.c ****    
+ 111:.\old_serial.c **** }
+ 278              		.loc 1 111 0
+ 279 00e4 ADE7     		b	.L13
+ 280              	.L15:
+ 281 00e6 00BF     		.align	2
+ 282              	.L14:
+ 283 00e8 00000000 		.word	RX_INT
+ 284 00ec 00000000 		.word	y
+ 285              		.cfi_endproc
+ 286              	.LFE64:
+ 287              		.size	main, .-main
+ 288              		.section	.text.get_x,"ax",%progbits
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 8
+
+
+ 289              		.align	2
+ 290              		.global	get_x
+ 291              		.thumb
+ 292              		.thumb_func
+ 293              		.type	get_x, %function
+ 294              	get_x:
+ 295              	.LFB65:
+ 112:.\old_serial.c **** 
+ 113:.\old_serial.c **** 
+ 114:.\old_serial.c **** uint8 get_x() {
+ 296              		.loc 1 114 0
+ 297              		.cfi_startproc
+ 298              		@ args = 0, pretend = 0, frame = 0
+ 299              		@ frame_needed = 1, uses_anonymous_args = 0
+ 300              		@ link register save eliminated.
+ 301 0000 80B4     		push	{r7}
+ 302              		.cfi_def_cfa_offset 4
+ 303              		.cfi_offset 7, -4
+ 304 0002 00AF     		add	r7, sp, #0
+ 305              		.cfi_def_cfa_register 7
+ 115:.\old_serial.c ****     if (y == 0) {
+ 306              		.loc 1 115 0
+ 307 0004 064B     		ldr	r3, .L19
+ 308 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 309 0008 002B     		cmp	r3, #0
+ 310 000a 02D1     		bne	.L17
+ 116:.\old_serial.c ****         return x0;
+ 311              		.loc 1 116 0
+ 312 000c 054B     		ldr	r3, .L19+4
+ 313 000e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 314 0010 01E0     		b	.L18
+ 315              	.L17:
+ 117:.\old_serial.c ****     } else {
+ 118:.\old_serial.c ****         return x1;
+ 316              		.loc 1 118 0
+ 317 0012 054B     		ldr	r3, .L19+8
+ 318 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 319              	.L18:
+ 119:.\old_serial.c ****     }
+ 120:.\old_serial.c **** }
+ 320              		.loc 1 120 0
+ 321 0016 1846     		mov	r0, r3
+ 322 0018 BD46     		mov	sp, r7
+ 323              		.cfi_def_cfa_register 13
+ 324              		@ sp needed
+ 325 001a 5DF8047B 		ldr	r7, [sp], #4
+ 326              		.cfi_restore 7
+ 327              		.cfi_def_cfa_offset 0
+ 328 001e 7047     		bx	lr
+ 329              	.L20:
+ 330              		.align	2
+ 331              	.L19:
+ 332 0020 00000000 		.word	y
+ 333 0024 00000000 		.word	x0
+ 334 0028 00000000 		.word	x1
+ 335              		.cfi_endproc
+ 336              	.LFE65:
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 9
+
+
+ 337              		.size	get_x, .-get_x
+ 338              		.section	.text.inc_x,"ax",%progbits
+ 339              		.align	2
+ 340              		.global	inc_x
+ 341              		.thumb
+ 342              		.thumb_func
+ 343              		.type	inc_x, %function
+ 344              	inc_x:
+ 345              	.LFB66:
+ 121:.\old_serial.c **** 
+ 122:.\old_serial.c **** void inc_x() {
+ 346              		.loc 1 122 0
+ 347              		.cfi_startproc
+ 348              		@ args = 0, pretend = 0, frame = 0
+ 349              		@ frame_needed = 1, uses_anonymous_args = 0
+ 350              		@ link register save eliminated.
+ 351 0000 80B4     		push	{r7}
+ 352              		.cfi_def_cfa_offset 4
+ 353              		.cfi_offset 7, -4
+ 354 0002 00AF     		add	r7, sp, #0
+ 355              		.cfi_def_cfa_register 7
+ 123:.\old_serial.c ****     if (y == 0) {
+ 356              		.loc 1 123 0
+ 357 0004 174B     		ldr	r3, .L24
+ 358 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 359 0008 002B     		cmp	r3, #0
+ 360 000a 13D1     		bne	.L22
+ 124:.\old_serial.c ****         x0++;
+ 361              		.loc 1 124 0
+ 362 000c 164B     		ldr	r3, .L24+4
+ 363 000e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 364 0010 0133     		adds	r3, r3, #1
+ 365 0012 DAB2     		uxtb	r2, r3
+ 366 0014 144B     		ldr	r3, .L24+4
+ 367 0016 1A70     		strb	r2, [r3]
+ 125:.\old_serial.c ****         x0 %= 15; // keep within bounds
+ 368              		.loc 1 125 0
+ 369 0018 134B     		ldr	r3, .L24+4
+ 370 001a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 371 001c 134B     		ldr	r3, .L24+8
+ 372 001e A3FB0213 		umull	r1, r3, r3, r2
+ 373 0022 D908     		lsrs	r1, r3, #3
+ 374 0024 0B46     		mov	r3, r1
+ 375 0026 1B01     		lsls	r3, r3, #4
+ 376 0028 5B1A     		subs	r3, r3, r1
+ 377 002a D31A     		subs	r3, r2, r3
+ 378 002c DAB2     		uxtb	r2, r3
+ 379 002e 0E4B     		ldr	r3, .L24+4
+ 380 0030 1A70     		strb	r2, [r3]
+ 381 0032 12E0     		b	.L21
+ 382              	.L22:
+ 126:.\old_serial.c ****     } else {
+ 127:.\old_serial.c ****         x1++;
+ 383              		.loc 1 127 0
+ 384 0034 0E4B     		ldr	r3, .L24+12
+ 385 0036 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 386 0038 0133     		adds	r3, r3, #1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 10
+
+
+ 387 003a DAB2     		uxtb	r2, r3
+ 388 003c 0C4B     		ldr	r3, .L24+12
+ 389 003e 1A70     		strb	r2, [r3]
+ 128:.\old_serial.c ****         x1 %= 15;
+ 390              		.loc 1 128 0
+ 391 0040 0B4B     		ldr	r3, .L24+12
+ 392 0042 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 393 0044 094B     		ldr	r3, .L24+8
+ 394 0046 A3FB0213 		umull	r1, r3, r3, r2
+ 395 004a D908     		lsrs	r1, r3, #3
+ 396 004c 0B46     		mov	r3, r1
+ 397 004e 1B01     		lsls	r3, r3, #4
+ 398 0050 5B1A     		subs	r3, r3, r1
+ 399 0052 D31A     		subs	r3, r2, r3
+ 400 0054 DAB2     		uxtb	r2, r3
+ 401 0056 064B     		ldr	r3, .L24+12
+ 402 0058 1A70     		strb	r2, [r3]
+ 403              	.L21:
+ 129:.\old_serial.c ****     }
+ 130:.\old_serial.c **** }
+ 404              		.loc 1 130 0
+ 405 005a BD46     		mov	sp, r7
+ 406              		.cfi_def_cfa_register 13
+ 407              		@ sp needed
+ 408 005c 5DF8047B 		ldr	r7, [sp], #4
+ 409              		.cfi_restore 7
+ 410              		.cfi_def_cfa_offset 0
+ 411 0060 7047     		bx	lr
+ 412              	.L25:
+ 413 0062 00BF     		.align	2
+ 414              	.L24:
+ 415 0064 00000000 		.word	y
+ 416 0068 00000000 		.word	x0
+ 417 006c 89888888 		.word	-2004318071
+ 418 0070 00000000 		.word	x1
+ 419              		.cfi_endproc
+ 420              	.LFE66:
+ 421              		.size	inc_x, .-inc_x
+ 422              		.section	.text.dec_x,"ax",%progbits
+ 423              		.align	2
+ 424              		.global	dec_x
+ 425              		.thumb
+ 426              		.thumb_func
+ 427              		.type	dec_x, %function
+ 428              	dec_x:
+ 429              	.LFB67:
+ 131:.\old_serial.c **** 
+ 132:.\old_serial.c **** void dec_x() {
+ 430              		.loc 1 132 0
+ 431              		.cfi_startproc
+ 432              		@ args = 0, pretend = 0, frame = 0
+ 433              		@ frame_needed = 1, uses_anonymous_args = 0
+ 434              		@ link register save eliminated.
+ 435 0000 80B4     		push	{r7}
+ 436              		.cfi_def_cfa_offset 4
+ 437              		.cfi_offset 7, -4
+ 438 0002 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 11
+
+
+ 439              		.cfi_def_cfa_register 7
+ 133:.\old_serial.c ****     if (y == 0 && x0 > 0) {
+ 440              		.loc 1 133 0
+ 441 0004 1C4B     		ldr	r3, .L31
+ 442 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 443 0008 002B     		cmp	r3, #0
+ 444 000a 0AD1     		bne	.L27
+ 445              		.loc 1 133 0 is_stmt 0 discriminator 1
+ 446 000c 1B4B     		ldr	r3, .L31+4
+ 447 000e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 448 0010 002B     		cmp	r3, #0
+ 449 0012 06D0     		beq	.L27
+ 134:.\old_serial.c ****         x0--;
+ 450              		.loc 1 134 0 is_stmt 1
+ 451 0014 194B     		ldr	r3, .L31+4
+ 452 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 453 0018 013B     		subs	r3, r3, #1
+ 454 001a DAB2     		uxtb	r2, r3
+ 455 001c 174B     		ldr	r3, .L31+4
+ 456 001e 1A70     		strb	r2, [r3]
+ 457 0020 25E0     		b	.L26
+ 458              	.L27:
+ 135:.\old_serial.c ****     } else if (y == 0 && x0 == 0) {
+ 459              		.loc 1 135 0
+ 460 0022 154B     		ldr	r3, .L31
+ 461 0024 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 462 0026 002B     		cmp	r3, #0
+ 463 0028 07D1     		bne	.L29
+ 464              		.loc 1 135 0 is_stmt 0 discriminator 1
+ 465 002a 144B     		ldr	r3, .L31+4
+ 466 002c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 467 002e 002B     		cmp	r3, #0
+ 468 0030 03D1     		bne	.L29
+ 136:.\old_serial.c ****         x0 = 14;
+ 469              		.loc 1 136 0 is_stmt 1
+ 470 0032 124B     		ldr	r3, .L31+4
+ 471 0034 0E22     		movs	r2, #14
+ 472 0036 1A70     		strb	r2, [r3]
+ 473 0038 19E0     		b	.L26
+ 474              	.L29:
+ 137:.\old_serial.c ****     } else if (y == 1 && x1 > 0) {
+ 475              		.loc 1 137 0
+ 476 003a 0F4B     		ldr	r3, .L31
+ 477 003c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 478 003e 012B     		cmp	r3, #1
+ 479 0040 0AD1     		bne	.L30
+ 480              		.loc 1 137 0 is_stmt 0 discriminator 1
+ 481 0042 0F4B     		ldr	r3, .L31+8
+ 482 0044 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 483 0046 002B     		cmp	r3, #0
+ 484 0048 06D0     		beq	.L30
+ 138:.\old_serial.c ****         x1--;
+ 485              		.loc 1 138 0 is_stmt 1
+ 486 004a 0D4B     		ldr	r3, .L31+8
+ 487 004c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 488 004e 013B     		subs	r3, r3, #1
+ 489 0050 DAB2     		uxtb	r2, r3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 12
+
+
+ 490 0052 0B4B     		ldr	r3, .L31+8
+ 491 0054 1A70     		strb	r2, [r3]
+ 492 0056 0AE0     		b	.L26
+ 493              	.L30:
+ 139:.\old_serial.c ****     } else if (y == 1 && x1 == 0) {
+ 494              		.loc 1 139 0
+ 495 0058 074B     		ldr	r3, .L31
+ 496 005a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 497 005c 012B     		cmp	r3, #1
+ 498 005e 06D1     		bne	.L26
+ 499              		.loc 1 139 0 is_stmt 0 discriminator 1
+ 500 0060 074B     		ldr	r3, .L31+8
+ 501 0062 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 502 0064 002B     		cmp	r3, #0
+ 503 0066 02D1     		bne	.L26
+ 140:.\old_serial.c ****         x1 = 14;   
+ 504              		.loc 1 140 0 is_stmt 1
+ 505 0068 054B     		ldr	r3, .L31+8
+ 506 006a 0E22     		movs	r2, #14
+ 507 006c 1A70     		strb	r2, [r3]
+ 508              	.L26:
+ 141:.\old_serial.c ****     }
+ 142:.\old_serial.c **** }
+ 509              		.loc 1 142 0
+ 510 006e BD46     		mov	sp, r7
+ 511              		.cfi_def_cfa_register 13
+ 512              		@ sp needed
+ 513 0070 5DF8047B 		ldr	r7, [sp], #4
+ 514              		.cfi_restore 7
+ 515              		.cfi_def_cfa_offset 0
+ 516 0074 7047     		bx	lr
+ 517              	.L32:
+ 518 0076 00BF     		.align	2
+ 519              	.L31:
+ 520 0078 00000000 		.word	y
+ 521 007c 00000000 		.word	x0
+ 522 0080 00000000 		.word	x1
+ 523              		.cfi_endproc
+ 524              	.LFE67:
+ 525              		.size	dec_x, .-dec_x
+ 526              		.section	.text.reset_x,"ax",%progbits
+ 527              		.align	2
+ 528              		.global	reset_x
+ 529              		.thumb
+ 530              		.thumb_func
+ 531              		.type	reset_x, %function
+ 532              	reset_x:
+ 533              	.LFB68:
+ 143:.\old_serial.c **** 
+ 144:.\old_serial.c **** void reset_x() {
+ 534              		.loc 1 144 0
+ 535              		.cfi_startproc
+ 536              		@ args = 0, pretend = 0, frame = 0
+ 537              		@ frame_needed = 1, uses_anonymous_args = 0
+ 538              		@ link register save eliminated.
+ 539 0000 80B4     		push	{r7}
+ 540              		.cfi_def_cfa_offset 4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 13
+
+
+ 541              		.cfi_offset 7, -4
+ 542 0002 00AF     		add	r7, sp, #0
+ 543              		.cfi_def_cfa_register 7
+ 145:.\old_serial.c ****     x0 = 0;
+ 544              		.loc 1 145 0
+ 545 0004 064B     		ldr	r3, .L34
+ 546 0006 0022     		movs	r2, #0
+ 547 0008 1A70     		strb	r2, [r3]
+ 146:.\old_serial.c ****     x1 = 0;
+ 548              		.loc 1 146 0
+ 549 000a 064B     		ldr	r3, .L34+4
+ 550 000c 0022     		movs	r2, #0
+ 551 000e 1A70     		strb	r2, [r3]
+ 147:.\old_serial.c ****     x = 0;
+ 552              		.loc 1 147 0
+ 553 0010 054B     		ldr	r3, .L34+8
+ 554 0012 0022     		movs	r2, #0
+ 555 0014 1A70     		strb	r2, [r3]
+ 148:.\old_serial.c **** }
+ 556              		.loc 1 148 0
+ 557 0016 BD46     		mov	sp, r7
+ 558              		.cfi_def_cfa_register 13
+ 559              		@ sp needed
+ 560 0018 5DF8047B 		ldr	r7, [sp], #4
+ 561              		.cfi_restore 7
+ 562              		.cfi_def_cfa_offset 0
+ 563 001c 7047     		bx	lr
+ 564              	.L35:
+ 565 001e 00BF     		.align	2
+ 566              	.L34:
+ 567 0020 00000000 		.word	x0
+ 568 0024 00000000 		.word	x1
+ 569 0028 00000000 		.word	x
+ 570              		.cfi_endproc
+ 571              	.LFE68:
+ 572              		.size	reset_x, .-reset_x
+ 573              		.section	.text.lcd_backspace,"ax",%progbits
+ 574              		.align	2
+ 575              		.global	lcd_backspace
+ 576              		.thumb
+ 577              		.thumb_func
+ 578              		.type	lcd_backspace, %function
+ 579              	lcd_backspace:
+ 580              	.LFB69:
+ 149:.\old_serial.c **** 
+ 150:.\old_serial.c **** void lcd_backspace() {
+ 581              		.loc 1 150 0
+ 582              		.cfi_startproc
+ 583              		@ args = 0, pretend = 0, frame = 0
+ 584              		@ frame_needed = 1, uses_anonymous_args = 0
+ 585 0000 80B5     		push	{r7, lr}
+ 586              		.cfi_def_cfa_offset 8
+ 587              		.cfi_offset 7, -8
+ 588              		.cfi_offset 14, -4
+ 589 0002 00AF     		add	r7, sp, #0
+ 590              		.cfi_def_cfa_register 7
+ 151:.\old_serial.c ****     // clears the prior space on the LCD
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 14
+
+
+ 152:.\old_serial.c ****     dec_x();
+ 591              		.loc 1 152 0
+ 592 0004 FFF7FEFF 		bl	dec_x
+ 153:.\old_serial.c ****     x = get_x();
+ 593              		.loc 1 153 0
+ 594 0008 FFF7FEFF 		bl	get_x
+ 595 000c 0346     		mov	r3, r0
+ 596 000e 1A46     		mov	r2, r3
+ 597 0010 0A4B     		ldr	r3, .L37
+ 598 0012 1A70     		strb	r2, [r3]
+ 154:.\old_serial.c ****     LCD_Position(y, x);
+ 599              		.loc 1 154 0
+ 600 0014 0A4B     		ldr	r3, .L37+4
+ 601 0016 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 602 0018 084B     		ldr	r3, .L37
+ 603 001a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 604 001c 1046     		mov	r0, r2
+ 605 001e 1946     		mov	r1, r3
+ 606 0020 FFF7FEFF 		bl	LCD_Position
+ 155:.\old_serial.c ****     LCD_PutChar(' ');
+ 607              		.loc 1 155 0
+ 608 0024 2020     		movs	r0, #32
+ 609 0026 FFF7FEFF 		bl	LCD_PutChar
+ 156:.\old_serial.c ****     LCD_Position(y, x);
+ 610              		.loc 1 156 0
+ 611 002a 054B     		ldr	r3, .L37+4
+ 612 002c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 613 002e 034B     		ldr	r3, .L37
+ 614 0030 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 615 0032 1046     		mov	r0, r2
+ 616 0034 1946     		mov	r1, r3
+ 617 0036 FFF7FEFF 		bl	LCD_Position
+ 157:.\old_serial.c **** }
+ 618              		.loc 1 157 0
+ 619 003a 80BD     		pop	{r7, pc}
+ 620              	.L38:
+ 621              		.align	2
+ 622              	.L37:
+ 623 003c 00000000 		.word	x
+ 624 0040 00000000 		.word	y
+ 625              		.cfi_endproc
+ 626              	.LFE69:
+ 627              		.size	lcd_backspace, .-lcd_backspace
+ 628              		.section	.text.send_backspace,"ax",%progbits
+ 629              		.align	2
+ 630              		.global	send_backspace
+ 631              		.thumb
+ 632              		.thumb_func
+ 633              		.type	send_backspace, %function
+ 634              	send_backspace:
+ 635              	.LFB70:
+ 158:.\old_serial.c **** void send_backspace() {
+ 636              		.loc 1 158 0
+ 637              		.cfi_startproc
+ 638              		@ args = 0, pretend = 0, frame = 0
+ 639              		@ frame_needed = 1, uses_anonymous_args = 0
+ 640 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 15
+
+
+ 641              		.cfi_def_cfa_offset 8
+ 642              		.cfi_offset 7, -8
+ 643              		.cfi_offset 14, -4
+ 644 0002 00AF     		add	r7, sp, #0
+ 645              		.cfi_def_cfa_register 7
+ 159:.\old_serial.c ****     // sends the ASCII backspace character, space to delete
+ 160:.\old_serial.c ****     //   then another backspace
+ 161:.\old_serial.c ****     UART_WriteTxData(0x08);
+ 646              		.loc 1 161 0
+ 647 0004 0820     		movs	r0, #8
+ 648 0006 FFF7FEFF 		bl	UART_WriteTxData
+ 162:.\old_serial.c ****     UART_WriteTxData(0x20);
+ 649              		.loc 1 162 0
+ 650 000a 2020     		movs	r0, #32
+ 651 000c FFF7FEFF 		bl	UART_WriteTxData
+ 163:.\old_serial.c ****     UART_WriteTxData(0x08);   
+ 652              		.loc 1 163 0
+ 653 0010 0820     		movs	r0, #8
+ 654 0012 FFF7FEFF 		bl	UART_WriteTxData
+ 164:.\old_serial.c **** }
+ 655              		.loc 1 164 0
+ 656 0016 80BD     		pop	{r7, pc}
+ 657              		.cfi_endproc
+ 658              	.LFE70:
+ 659              		.size	send_backspace, .-send_backspace
+ 660              		.text
+ 661              	.Letext0:
+ 662              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 663              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 664              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 665              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 666              		.section	.debug_info,"",%progbits
+ 667              	.Ldebug_info0:
+ 668 0000 D0010000 		.4byte	0x1d0
+ 669 0004 0400     		.2byte	0x4
+ 670 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 671 000a 04       		.byte	0x4
+ 672 000b 01       		.uleb128 0x1
+ 673 000c 0A000000 		.4byte	.LASF27
+ 674 0010 01       		.byte	0x1
+ 675 0011 DC010000 		.4byte	.LASF28
+ 676 0015 9E000000 		.4byte	.LASF29
+ 677 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 678 001d 00000000 		.4byte	0
+ 679 0021 00000000 		.4byte	.Ldebug_line0
+ 680 0025 02       		.uleb128 0x2
+ 681 0026 01       		.byte	0x1
+ 682 0027 06       		.byte	0x6
+ 683 0028 31020000 		.4byte	.LASF0
+ 684 002c 02       		.uleb128 0x2
+ 685 002d 01       		.byte	0x1
+ 686 002e 08       		.byte	0x8
+ 687 002f 1F010000 		.4byte	.LASF1
+ 688 0033 02       		.uleb128 0x2
+ 689 0034 02       		.byte	0x2
+ 690 0035 05       		.byte	0x5
+ 691 0036 10020000 		.4byte	.LASF2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 16
+
+
+ 692 003a 02       		.uleb128 0x2
+ 693 003b 02       		.byte	0x2
+ 694 003c 07       		.byte	0x7
+ 695 003d 3F010000 		.4byte	.LASF3
+ 696 0041 03       		.uleb128 0x3
+ 697 0042 00000000 		.4byte	.LASF9
+ 698 0046 02       		.byte	0x2
+ 699 0047 3F       		.byte	0x3f
+ 700 0048 4C000000 		.4byte	0x4c
+ 701 004c 02       		.uleb128 0x2
+ 702 004d 04       		.byte	0x4
+ 703 004e 05       		.byte	0x5
+ 704 004f 20020000 		.4byte	.LASF4
+ 705 0053 02       		.uleb128 0x2
+ 706 0054 04       		.byte	0x4
+ 707 0055 07       		.byte	0x7
+ 708 0056 2D010000 		.4byte	.LASF5
+ 709 005a 02       		.uleb128 0x2
+ 710 005b 08       		.byte	0x8
+ 711 005c 05       		.byte	0x5
+ 712 005d F0010000 		.4byte	.LASF6
+ 713 0061 02       		.uleb128 0x2
+ 714 0062 08       		.byte	0x8
+ 715 0063 07       		.byte	0x7
+ 716 0064 B4010000 		.4byte	.LASF7
+ 717 0068 04       		.uleb128 0x4
+ 718 0069 04       		.byte	0x4
+ 719 006a 05       		.byte	0x5
+ 720 006b 696E7400 		.ascii	"int\000"
+ 721 006f 02       		.uleb128 0x2
+ 722 0070 04       		.byte	0x4
+ 723 0071 07       		.byte	0x7
+ 724 0072 97010000 		.4byte	.LASF8
+ 725 0076 03       		.uleb128 0x3
+ 726 0077 CB010000 		.4byte	.LASF10
+ 727 007b 03       		.byte	0x3
+ 728 007c 2C       		.byte	0x2c
+ 729 007d 41000000 		.4byte	0x41
+ 730 0081 03       		.uleb128 0x3
+ 731 0082 1A020000 		.4byte	.LASF11
+ 732 0086 04       		.byte	0x4
+ 733 0087 C2       		.byte	0xc2
+ 734 0088 2C000000 		.4byte	0x2c
+ 735 008c 02       		.uleb128 0x2
+ 736 008d 04       		.byte	0x4
+ 737 008e 04       		.byte	0x4
+ 738 008f 13010000 		.4byte	.LASF12
+ 739 0093 02       		.uleb128 0x2
+ 740 0094 08       		.byte	0x8
+ 741 0095 04       		.byte	0x4
+ 742 0096 3D020000 		.4byte	.LASF13
+ 743 009a 02       		.uleb128 0x2
+ 744 009b 01       		.byte	0x1
+ 745 009c 08       		.byte	0x8
+ 746 009d 04020000 		.4byte	.LASF14
+ 747 00a1 02       		.uleb128 0x2
+ 748 00a2 04       		.byte	0x4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 17
+
+
+ 749 00a3 07       		.byte	0x7
+ 750 00a4 D3010000 		.4byte	.LASF15
+ 751 00a8 05       		.uleb128 0x5
+ 752 00a9 09020000 		.4byte	.LASF30
+ 753 00ad 01       		.byte	0x1
+ 754 00ae 1E       		.byte	0x1e
+ 755 00af 00000000 		.4byte	.LFB63
+ 756 00b3 70000000 		.4byte	.LFE63-.LFB63
+ 757 00b7 01       		.uleb128 0x1
+ 758 00b8 9C       		.byte	0x9c
+ 759 00b9 CC000000 		.4byte	0xcc
+ 760 00bd 06       		.uleb128 0x6
+ 761 00be EB010000 		.4byte	.LASF16
+ 762 00c2 01       		.byte	0x1
+ 763 00c3 21       		.byte	0x21
+ 764 00c4 9A000000 		.4byte	0x9a
+ 765 00c8 02       		.uleb128 0x2
+ 766 00c9 91       		.byte	0x91
+ 767 00ca 77       		.sleb128 -9
+ 768 00cb 00       		.byte	0
+ 769 00cc 07       		.uleb128 0x7
+ 770 00cd 83010000 		.4byte	.LASF31
+ 771 00d1 01       		.byte	0x1
+ 772 00d2 32       		.byte	0x32
+ 773 00d3 00000000 		.4byte	.LFB64
+ 774 00d7 F0000000 		.4byte	.LFE64-.LFB64
+ 775 00db 01       		.uleb128 0x1
+ 776 00dc 9C       		.byte	0x9c
+ 777 00dd 1A010000 		.4byte	0x11a
+ 778 00e1 06       		.uleb128 0x6
+ 779 00e2 A4010000 		.4byte	.LASF17
+ 780 00e6 01       		.byte	0x1
+ 781 00e7 41       		.byte	0x41
+ 782 00e8 81000000 		.4byte	0x81
+ 783 00ec 02       		.uleb128 0x2
+ 784 00ed 91       		.byte	0x91
+ 785 00ee 75       		.sleb128 -11
+ 786 00ef 06       		.uleb128 0x6
+ 787 00f0 6D010000 		.4byte	.LASF18
+ 788 00f4 01       		.byte	0x1
+ 789 00f5 42       		.byte	0x42
+ 790 00f6 81000000 		.4byte	0x81
+ 791 00fa 02       		.uleb128 0x2
+ 792 00fb 91       		.byte	0x91
+ 793 00fc 77       		.sleb128 -9
+ 794 00fd 06       		.uleb128 0x6
+ 795 00fe AC010000 		.4byte	.LASF19
+ 796 0102 01       		.byte	0x1
+ 797 0103 43       		.byte	0x43
+ 798 0104 81000000 		.4byte	0x81
+ 799 0108 02       		.uleb128 0x2
+ 800 0109 91       		.byte	0x91
+ 801 010a 74       		.sleb128 -12
+ 802 010b 06       		.uleb128 0x6
+ 803 010c 78010000 		.4byte	.LASF20
+ 804 0110 01       		.byte	0x1
+ 805 0111 44       		.byte	0x44
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 18
+
+
+ 806 0112 81000000 		.4byte	0x81
+ 807 0116 02       		.uleb128 0x2
+ 808 0117 91       		.byte	0x91
+ 809 0118 76       		.sleb128 -10
+ 810 0119 00       		.byte	0
+ 811 011a 08       		.uleb128 0x8
+ 812 011b FE010000 		.4byte	.LASF32
+ 813 011f 01       		.byte	0x1
+ 814 0120 72       		.byte	0x72
+ 815 0121 81000000 		.4byte	0x81
+ 816 0125 00000000 		.4byte	.LFB65
+ 817 0129 2C000000 		.4byte	.LFE65-.LFB65
+ 818 012d 01       		.uleb128 0x1
+ 819 012e 9C       		.byte	0x9c
+ 820 012f 09       		.uleb128 0x9
+ 821 0130 98000000 		.4byte	.LASF21
+ 822 0134 01       		.byte	0x1
+ 823 0135 7A       		.byte	0x7a
+ 824 0136 00000000 		.4byte	.LFB66
+ 825 013a 74000000 		.4byte	.LFE66-.LFB66
+ 826 013e 01       		.uleb128 0x1
+ 827 013f 9C       		.byte	0x9c
+ 828 0140 09       		.uleb128 0x9
+ 829 0141 19010000 		.4byte	.LASF22
+ 830 0145 01       		.byte	0x1
+ 831 0146 84       		.byte	0x84
+ 832 0147 00000000 		.4byte	.LFB67
+ 833 014b 84000000 		.4byte	.LFE67-.LFB67
+ 834 014f 01       		.uleb128 0x1
+ 835 0150 9C       		.byte	0x9c
+ 836 0151 09       		.uleb128 0x9
+ 837 0152 29020000 		.4byte	.LASF23
+ 838 0156 01       		.byte	0x1
+ 839 0157 90       		.byte	0x90
+ 840 0158 00000000 		.4byte	.LFB68
+ 841 015c 2C000000 		.4byte	.LFE68-.LFB68
+ 842 0160 01       		.uleb128 0x1
+ 843 0161 9C       		.byte	0x9c
+ 844 0162 0A       		.uleb128 0xa
+ 845 0163 52010000 		.4byte	.LASF24
+ 846 0167 01       		.byte	0x1
+ 847 0168 96       		.byte	0x96
+ 848 0169 00000000 		.4byte	.LFB69
+ 849 016d 44000000 		.4byte	.LFE69-.LFB69
+ 850 0171 01       		.uleb128 0x1
+ 851 0172 9C       		.byte	0x9c
+ 852 0173 0A       		.uleb128 0xa
+ 853 0174 88010000 		.4byte	.LASF25
+ 854 0178 01       		.byte	0x1
+ 855 0179 9E       		.byte	0x9e
+ 856 017a 00000000 		.4byte	.LFB70
+ 857 017e 18000000 		.4byte	.LFE70-.LFB70
+ 858 0182 01       		.uleb128 0x1
+ 859 0183 9C       		.byte	0x9c
+ 860 0184 0B       		.uleb128 0xb
+ 861 0185 60010000 		.4byte	.LASF26
+ 862 0189 05       		.byte	0x5
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 19
+
+
+ 863 018a 2A06     		.2byte	0x62a
+ 864 018c 90010000 		.4byte	0x190
+ 865 0190 0C       		.uleb128 0xc
+ 866 0191 76000000 		.4byte	0x76
+ 867 0195 0D       		.uleb128 0xd
+ 868 0196 7800     		.ascii	"x\000"
+ 869 0198 01       		.byte	0x1
+ 870 0199 12       		.byte	0x12
+ 871 019a 81000000 		.4byte	0x81
+ 872 019e 05       		.uleb128 0x5
+ 873 019f 03       		.byte	0x3
+ 874 01a0 00000000 		.4byte	x
+ 875 01a4 0D       		.uleb128 0xd
+ 876 01a5 783000   		.ascii	"x0\000"
+ 877 01a8 01       		.byte	0x1
+ 878 01a9 13       		.byte	0x13
+ 879 01aa 81000000 		.4byte	0x81
+ 880 01ae 05       		.uleb128 0x5
+ 881 01af 03       		.byte	0x3
+ 882 01b0 00000000 		.4byte	x0
+ 883 01b4 0D       		.uleb128 0xd
+ 884 01b5 783100   		.ascii	"x1\000"
+ 885 01b8 01       		.byte	0x1
+ 886 01b9 14       		.byte	0x14
+ 887 01ba 81000000 		.4byte	0x81
+ 888 01be 05       		.uleb128 0x5
+ 889 01bf 03       		.byte	0x3
+ 890 01c0 00000000 		.4byte	x1
+ 891 01c4 0D       		.uleb128 0xd
+ 892 01c5 7900     		.ascii	"y\000"
+ 893 01c7 01       		.byte	0x1
+ 894 01c8 15       		.byte	0x15
+ 895 01c9 81000000 		.4byte	0x81
+ 896 01cd 05       		.uleb128 0x5
+ 897 01ce 03       		.byte	0x3
+ 898 01cf 00000000 		.4byte	y
+ 899 01d3 00       		.byte	0
+ 900              		.section	.debug_abbrev,"",%progbits
+ 901              	.Ldebug_abbrev0:
+ 902 0000 01       		.uleb128 0x1
+ 903 0001 11       		.uleb128 0x11
+ 904 0002 01       		.byte	0x1
+ 905 0003 25       		.uleb128 0x25
+ 906 0004 0E       		.uleb128 0xe
+ 907 0005 13       		.uleb128 0x13
+ 908 0006 0B       		.uleb128 0xb
+ 909 0007 03       		.uleb128 0x3
+ 910 0008 0E       		.uleb128 0xe
+ 911 0009 1B       		.uleb128 0x1b
+ 912 000a 0E       		.uleb128 0xe
+ 913 000b 55       		.uleb128 0x55
+ 914 000c 17       		.uleb128 0x17
+ 915 000d 11       		.uleb128 0x11
+ 916 000e 01       		.uleb128 0x1
+ 917 000f 10       		.uleb128 0x10
+ 918 0010 17       		.uleb128 0x17
+ 919 0011 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 20
+
+
+ 920 0012 00       		.byte	0
+ 921 0013 02       		.uleb128 0x2
+ 922 0014 24       		.uleb128 0x24
+ 923 0015 00       		.byte	0
+ 924 0016 0B       		.uleb128 0xb
+ 925 0017 0B       		.uleb128 0xb
+ 926 0018 3E       		.uleb128 0x3e
+ 927 0019 0B       		.uleb128 0xb
+ 928 001a 03       		.uleb128 0x3
+ 929 001b 0E       		.uleb128 0xe
+ 930 001c 00       		.byte	0
+ 931 001d 00       		.byte	0
+ 932 001e 03       		.uleb128 0x3
+ 933 001f 16       		.uleb128 0x16
+ 934 0020 00       		.byte	0
+ 935 0021 03       		.uleb128 0x3
+ 936 0022 0E       		.uleb128 0xe
+ 937 0023 3A       		.uleb128 0x3a
+ 938 0024 0B       		.uleb128 0xb
+ 939 0025 3B       		.uleb128 0x3b
+ 940 0026 0B       		.uleb128 0xb
+ 941 0027 49       		.uleb128 0x49
+ 942 0028 13       		.uleb128 0x13
+ 943 0029 00       		.byte	0
+ 944 002a 00       		.byte	0
+ 945 002b 04       		.uleb128 0x4
+ 946 002c 24       		.uleb128 0x24
+ 947 002d 00       		.byte	0
+ 948 002e 0B       		.uleb128 0xb
+ 949 002f 0B       		.uleb128 0xb
+ 950 0030 3E       		.uleb128 0x3e
+ 951 0031 0B       		.uleb128 0xb
+ 952 0032 03       		.uleb128 0x3
+ 953 0033 08       		.uleb128 0x8
+ 954 0034 00       		.byte	0
+ 955 0035 00       		.byte	0
+ 956 0036 05       		.uleb128 0x5
+ 957 0037 2E       		.uleb128 0x2e
+ 958 0038 01       		.byte	0x1
+ 959 0039 3F       		.uleb128 0x3f
+ 960 003a 19       		.uleb128 0x19
+ 961 003b 03       		.uleb128 0x3
+ 962 003c 0E       		.uleb128 0xe
+ 963 003d 3A       		.uleb128 0x3a
+ 964 003e 0B       		.uleb128 0xb
+ 965 003f 3B       		.uleb128 0x3b
+ 966 0040 0B       		.uleb128 0xb
+ 967 0041 27       		.uleb128 0x27
+ 968 0042 19       		.uleb128 0x19
+ 969 0043 11       		.uleb128 0x11
+ 970 0044 01       		.uleb128 0x1
+ 971 0045 12       		.uleb128 0x12
+ 972 0046 06       		.uleb128 0x6
+ 973 0047 40       		.uleb128 0x40
+ 974 0048 18       		.uleb128 0x18
+ 975 0049 9642     		.uleb128 0x2116
+ 976 004b 19       		.uleb128 0x19
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 21
+
+
+ 977 004c 01       		.uleb128 0x1
+ 978 004d 13       		.uleb128 0x13
+ 979 004e 00       		.byte	0
+ 980 004f 00       		.byte	0
+ 981 0050 06       		.uleb128 0x6
+ 982 0051 34       		.uleb128 0x34
+ 983 0052 00       		.byte	0
+ 984 0053 03       		.uleb128 0x3
+ 985 0054 0E       		.uleb128 0xe
+ 986 0055 3A       		.uleb128 0x3a
+ 987 0056 0B       		.uleb128 0xb
+ 988 0057 3B       		.uleb128 0x3b
+ 989 0058 0B       		.uleb128 0xb
+ 990 0059 49       		.uleb128 0x49
+ 991 005a 13       		.uleb128 0x13
+ 992 005b 02       		.uleb128 0x2
+ 993 005c 18       		.uleb128 0x18
+ 994 005d 00       		.byte	0
+ 995 005e 00       		.byte	0
+ 996 005f 07       		.uleb128 0x7
+ 997 0060 2E       		.uleb128 0x2e
+ 998 0061 01       		.byte	0x1
+ 999 0062 3F       		.uleb128 0x3f
+ 1000 0063 19       		.uleb128 0x19
+ 1001 0064 03       		.uleb128 0x3
+ 1002 0065 0E       		.uleb128 0xe
+ 1003 0066 3A       		.uleb128 0x3a
+ 1004 0067 0B       		.uleb128 0xb
+ 1005 0068 3B       		.uleb128 0x3b
+ 1006 0069 0B       		.uleb128 0xb
+ 1007 006a 11       		.uleb128 0x11
+ 1008 006b 01       		.uleb128 0x1
+ 1009 006c 12       		.uleb128 0x12
+ 1010 006d 06       		.uleb128 0x6
+ 1011 006e 40       		.uleb128 0x40
+ 1012 006f 18       		.uleb128 0x18
+ 1013 0070 9642     		.uleb128 0x2116
+ 1014 0072 19       		.uleb128 0x19
+ 1015 0073 01       		.uleb128 0x1
+ 1016 0074 13       		.uleb128 0x13
+ 1017 0075 00       		.byte	0
+ 1018 0076 00       		.byte	0
+ 1019 0077 08       		.uleb128 0x8
+ 1020 0078 2E       		.uleb128 0x2e
+ 1021 0079 00       		.byte	0
+ 1022 007a 3F       		.uleb128 0x3f
+ 1023 007b 19       		.uleb128 0x19
+ 1024 007c 03       		.uleb128 0x3
+ 1025 007d 0E       		.uleb128 0xe
+ 1026 007e 3A       		.uleb128 0x3a
+ 1027 007f 0B       		.uleb128 0xb
+ 1028 0080 3B       		.uleb128 0x3b
+ 1029 0081 0B       		.uleb128 0xb
+ 1030 0082 49       		.uleb128 0x49
+ 1031 0083 13       		.uleb128 0x13
+ 1032 0084 11       		.uleb128 0x11
+ 1033 0085 01       		.uleb128 0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 22
+
+
+ 1034 0086 12       		.uleb128 0x12
+ 1035 0087 06       		.uleb128 0x6
+ 1036 0088 40       		.uleb128 0x40
+ 1037 0089 18       		.uleb128 0x18
+ 1038 008a 9742     		.uleb128 0x2117
+ 1039 008c 19       		.uleb128 0x19
+ 1040 008d 00       		.byte	0
+ 1041 008e 00       		.byte	0
+ 1042 008f 09       		.uleb128 0x9
+ 1043 0090 2E       		.uleb128 0x2e
+ 1044 0091 00       		.byte	0
+ 1045 0092 3F       		.uleb128 0x3f
+ 1046 0093 19       		.uleb128 0x19
+ 1047 0094 03       		.uleb128 0x3
+ 1048 0095 0E       		.uleb128 0xe
+ 1049 0096 3A       		.uleb128 0x3a
+ 1050 0097 0B       		.uleb128 0xb
+ 1051 0098 3B       		.uleb128 0x3b
+ 1052 0099 0B       		.uleb128 0xb
+ 1053 009a 11       		.uleb128 0x11
+ 1054 009b 01       		.uleb128 0x1
+ 1055 009c 12       		.uleb128 0x12
+ 1056 009d 06       		.uleb128 0x6
+ 1057 009e 40       		.uleb128 0x40
+ 1058 009f 18       		.uleb128 0x18
+ 1059 00a0 9742     		.uleb128 0x2117
+ 1060 00a2 19       		.uleb128 0x19
+ 1061 00a3 00       		.byte	0
+ 1062 00a4 00       		.byte	0
+ 1063 00a5 0A       		.uleb128 0xa
+ 1064 00a6 2E       		.uleb128 0x2e
+ 1065 00a7 00       		.byte	0
+ 1066 00a8 3F       		.uleb128 0x3f
+ 1067 00a9 19       		.uleb128 0x19
+ 1068 00aa 03       		.uleb128 0x3
+ 1069 00ab 0E       		.uleb128 0xe
+ 1070 00ac 3A       		.uleb128 0x3a
+ 1071 00ad 0B       		.uleb128 0xb
+ 1072 00ae 3B       		.uleb128 0x3b
+ 1073 00af 0B       		.uleb128 0xb
+ 1074 00b0 11       		.uleb128 0x11
+ 1075 00b1 01       		.uleb128 0x1
+ 1076 00b2 12       		.uleb128 0x12
+ 1077 00b3 06       		.uleb128 0x6
+ 1078 00b4 40       		.uleb128 0x40
+ 1079 00b5 18       		.uleb128 0x18
+ 1080 00b6 9642     		.uleb128 0x2116
+ 1081 00b8 19       		.uleb128 0x19
+ 1082 00b9 00       		.byte	0
+ 1083 00ba 00       		.byte	0
+ 1084 00bb 0B       		.uleb128 0xb
+ 1085 00bc 34       		.uleb128 0x34
+ 1086 00bd 00       		.byte	0
+ 1087 00be 03       		.uleb128 0x3
+ 1088 00bf 0E       		.uleb128 0xe
+ 1089 00c0 3A       		.uleb128 0x3a
+ 1090 00c1 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 23
+
+
+ 1091 00c2 3B       		.uleb128 0x3b
+ 1092 00c3 05       		.uleb128 0x5
+ 1093 00c4 49       		.uleb128 0x49
+ 1094 00c5 13       		.uleb128 0x13
+ 1095 00c6 3F       		.uleb128 0x3f
+ 1096 00c7 19       		.uleb128 0x19
+ 1097 00c8 3C       		.uleb128 0x3c
+ 1098 00c9 19       		.uleb128 0x19
+ 1099 00ca 00       		.byte	0
+ 1100 00cb 00       		.byte	0
+ 1101 00cc 0C       		.uleb128 0xc
+ 1102 00cd 35       		.uleb128 0x35
+ 1103 00ce 00       		.byte	0
+ 1104 00cf 49       		.uleb128 0x49
+ 1105 00d0 13       		.uleb128 0x13
+ 1106 00d1 00       		.byte	0
+ 1107 00d2 00       		.byte	0
+ 1108 00d3 0D       		.uleb128 0xd
+ 1109 00d4 34       		.uleb128 0x34
+ 1110 00d5 00       		.byte	0
+ 1111 00d6 03       		.uleb128 0x3
+ 1112 00d7 08       		.uleb128 0x8
+ 1113 00d8 3A       		.uleb128 0x3a
+ 1114 00d9 0B       		.uleb128 0xb
+ 1115 00da 3B       		.uleb128 0x3b
+ 1116 00db 0B       		.uleb128 0xb
+ 1117 00dc 49       		.uleb128 0x49
+ 1118 00dd 13       		.uleb128 0x13
+ 1119 00de 3F       		.uleb128 0x3f
+ 1120 00df 19       		.uleb128 0x19
+ 1121 00e0 02       		.uleb128 0x2
+ 1122 00e1 18       		.uleb128 0x18
+ 1123 00e2 00       		.byte	0
+ 1124 00e3 00       		.byte	0
+ 1125 00e4 00       		.byte	0
+ 1126              		.section	.debug_aranges,"",%progbits
+ 1127 0000 54000000 		.4byte	0x54
+ 1128 0004 0200     		.2byte	0x2
+ 1129 0006 00000000 		.4byte	.Ldebug_info0
+ 1130 000a 04       		.byte	0x4
+ 1131 000b 00       		.byte	0
+ 1132 000c 0000     		.2byte	0
+ 1133 000e 0000     		.2byte	0
+ 1134 0010 00000000 		.4byte	.LFB63
+ 1135 0014 70000000 		.4byte	.LFE63-.LFB63
+ 1136 0018 00000000 		.4byte	.LFB64
+ 1137 001c F0000000 		.4byte	.LFE64-.LFB64
+ 1138 0020 00000000 		.4byte	.LFB65
+ 1139 0024 2C000000 		.4byte	.LFE65-.LFB65
+ 1140 0028 00000000 		.4byte	.LFB66
+ 1141 002c 74000000 		.4byte	.LFE66-.LFB66
+ 1142 0030 00000000 		.4byte	.LFB67
+ 1143 0034 84000000 		.4byte	.LFE67-.LFB67
+ 1144 0038 00000000 		.4byte	.LFB68
+ 1145 003c 2C000000 		.4byte	.LFE68-.LFB68
+ 1146 0040 00000000 		.4byte	.LFB69
+ 1147 0044 44000000 		.4byte	.LFE69-.LFB69
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 24
+
+
+ 1148 0048 00000000 		.4byte	.LFB70
+ 1149 004c 18000000 		.4byte	.LFE70-.LFB70
+ 1150 0050 00000000 		.4byte	0
+ 1151 0054 00000000 		.4byte	0
+ 1152              		.section	.debug_ranges,"",%progbits
+ 1153              	.Ldebug_ranges0:
+ 1154 0000 00000000 		.4byte	.LFB63
+ 1155 0004 70000000 		.4byte	.LFE63
+ 1156 0008 00000000 		.4byte	.LFB64
+ 1157 000c F0000000 		.4byte	.LFE64
+ 1158 0010 00000000 		.4byte	.LFB65
+ 1159 0014 2C000000 		.4byte	.LFE65
+ 1160 0018 00000000 		.4byte	.LFB66
+ 1161 001c 74000000 		.4byte	.LFE66
+ 1162 0020 00000000 		.4byte	.LFB67
+ 1163 0024 84000000 		.4byte	.LFE67
+ 1164 0028 00000000 		.4byte	.LFB68
+ 1165 002c 2C000000 		.4byte	.LFE68
+ 1166 0030 00000000 		.4byte	.LFB69
+ 1167 0034 44000000 		.4byte	.LFE69
+ 1168 0038 00000000 		.4byte	.LFB70
+ 1169 003c 18000000 		.4byte	.LFE70
+ 1170 0040 00000000 		.4byte	0
+ 1171 0044 00000000 		.4byte	0
+ 1172              		.section	.debug_line,"",%progbits
+ 1173              	.Ldebug_line0:
+ 1174 0000 59020000 		.section	.debug_str,"MS",%progbits,1
+ 1174      02004F01 
+ 1174      00000201 
+ 1174      FB0E0D00 
+ 1174      01010101 
+ 1175              	.LASF9:
+ 1176 0000 5F5F696E 		.ascii	"__int32_t\000"
+ 1176      7433325F 
+ 1176      7400
+ 1177              	.LASF27:
+ 1178 000a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1178      4320342E 
+ 1178      392E3320 
+ 1178      32303135 
+ 1178      30333033 
+ 1179 003d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1179      20726576 
+ 1179      6973696F 
+ 1179      6E203232 
+ 1179      31323230 
+ 1180 0070 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1180      66756E63 
+ 1180      74696F6E 
+ 1180      2D736563 
+ 1180      74696F6E 
+ 1181              	.LASF21:
+ 1182 0098 696E635F 		.ascii	"inc_x\000"
+ 1182      7800
+ 1183              	.LASF29:
+ 1184 009e 433A5C55 		.ascii	"C:\\Users\\mark6\\Google Drive\\College-MIT\\S6Spri"
+ 1184      73657273 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 25
+
+
+ 1184      5C6D6172 
+ 1184      6B365C47 
+ 1184      6F6F676C 
+ 1185 00cc 6E673230 		.ascii	"ng2020\\6.115\\FinalProject\\BunkerKnowledge\\PSoC_"
+ 1185      32305C36 
+ 1185      2E313135 
+ 1185      5C46696E 
+ 1185      616C5072 
+ 1186 00fb 355F4669 		.ascii	"5_Files\\Processor.cydsn\000"
+ 1186      6C65735C 
+ 1186      50726F63 
+ 1186      6573736F 
+ 1186      722E6379 
+ 1187              	.LASF12:
+ 1188 0113 666C6F61 		.ascii	"float\000"
+ 1188      7400
+ 1189              	.LASF22:
+ 1190 0119 6465635F 		.ascii	"dec_x\000"
+ 1190      7800
+ 1191              	.LASF1:
+ 1192 011f 756E7369 		.ascii	"unsigned char\000"
+ 1192      676E6564 
+ 1192      20636861 
+ 1192      7200
+ 1193              	.LASF5:
+ 1194 012d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1194      20756E73 
+ 1194      69676E65 
+ 1194      6420696E 
+ 1194      7400
+ 1195              	.LASF3:
+ 1196 013f 73686F72 		.ascii	"short unsigned int\000"
+ 1196      7420756E 
+ 1196      7369676E 
+ 1196      65642069 
+ 1196      6E7400
+ 1197              	.LASF24:
+ 1198 0152 6C63645F 		.ascii	"lcd_backspace\000"
+ 1198      6261636B 
+ 1198      73706163 
+ 1198      6500
+ 1199              	.LASF26:
+ 1200 0160 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1200      52784275 
+ 1200      66666572 
+ 1200      00
+ 1201              	.LASF18:
+ 1202 016d 6F6C6462 		.ascii	"oldbutton0\000"
+ 1202      7574746F 
+ 1202      6E3000
+ 1203              	.LASF20:
+ 1204 0178 6F6C6462 		.ascii	"oldbutton1\000"
+ 1204      7574746F 
+ 1204      6E3100
+ 1205              	.LASF31:
+ 1206 0183 6D61696E 		.ascii	"main\000"
+ 1206      00
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 26
+
+
+ 1207              	.LASF25:
+ 1208 0188 73656E64 		.ascii	"send_backspace\000"
+ 1208      5F626163 
+ 1208      6B737061 
+ 1208      636500
+ 1209              	.LASF8:
+ 1210 0197 756E7369 		.ascii	"unsigned int\000"
+ 1210      676E6564 
+ 1210      20696E74 
+ 1210      00
+ 1211              	.LASF17:
+ 1212 01a4 62757474 		.ascii	"button0\000"
+ 1212      6F6E3000 
+ 1213              	.LASF19:
+ 1214 01ac 62757474 		.ascii	"button1\000"
+ 1214      6F6E3100 
+ 1215              	.LASF7:
+ 1216 01b4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1216      206C6F6E 
+ 1216      6720756E 
+ 1216      7369676E 
+ 1216      65642069 
+ 1217              	.LASF10:
+ 1218 01cb 696E7433 		.ascii	"int32_t\000"
+ 1218      325F7400 
+ 1219              	.LASF15:
+ 1220 01d3 73697A65 		.ascii	"sizetype\000"
+ 1220      74797065 
+ 1220      00
+ 1221              	.LASF28:
+ 1222 01dc 2E5C6F6C 		.ascii	".\\old_serial.c\000"
+ 1222      645F7365 
+ 1222      7269616C 
+ 1222      2E6300
+ 1223              	.LASF16:
+ 1224 01eb 73656E74 		.ascii	"sent\000"
+ 1224      00
+ 1225              	.LASF6:
+ 1226 01f0 6C6F6E67 		.ascii	"long long int\000"
+ 1226      206C6F6E 
+ 1226      6720696E 
+ 1226      7400
+ 1227              	.LASF32:
+ 1228 01fe 6765745F 		.ascii	"get_x\000"
+ 1228      7800
+ 1229              	.LASF14:
+ 1230 0204 63686172 		.ascii	"char\000"
+ 1230      00
+ 1231              	.LASF30:
+ 1232 0209 52585F49 		.ascii	"RX_INT\000"
+ 1232      4E5400
+ 1233              	.LASF2:
+ 1234 0210 73686F72 		.ascii	"short int\000"
+ 1234      7420696E 
+ 1234      7400
+ 1235              	.LASF11:
+ 1236 021a 75696E74 		.ascii	"uint8\000"
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccPPBoWQ.s 			page 27
+
+
+ 1236      3800
+ 1237              	.LASF4:
+ 1238 0220 6C6F6E67 		.ascii	"long int\000"
+ 1238      20696E74 
+ 1238      00
+ 1239              	.LASF23:
+ 1240 0229 72657365 		.ascii	"reset_x\000"
+ 1240      745F7800 
+ 1241              	.LASF0:
+ 1242 0231 7369676E 		.ascii	"signed char\000"
+ 1242      65642063 
+ 1242      68617200 
+ 1243              	.LASF13:
+ 1244 023d 646F7562 		.ascii	"double\000"
+ 1244      6C6500
+ 1245              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

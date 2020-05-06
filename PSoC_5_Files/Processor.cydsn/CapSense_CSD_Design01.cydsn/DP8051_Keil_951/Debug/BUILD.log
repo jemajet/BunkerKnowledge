@@ -1,0 +1,57 @@
+--------------- Build Started: 04/17/2020 03:42:54 Project: CapSense_CSD_Design01, Configuration: DP8051 Keil 9.51 Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\mark6\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p "C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\Lab5Kovid2\RS232.cydsn\CapSense_CSD_Design01.cydsn\CapSense_CSD_Design01.cyprj" -d CY8C3866AXI-040 -s "C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\Lab5Kovid2\RS232.cydsn\CapSense_CSD_Design01.cydsn\Generated_Source\PSoC3" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=BE
+Elaborating Design...
+HDL Generation ...
+Synthesis ...
+Place and Route ...
+Tech mapping ...
+Analog Placement ...
+Log: apr.M0058: The analog placement iterative improvement is 67% done. (App=cydsfit)
+Analog Routing ...
+Analog Code Generation ...
+Digital Placement ...
+Digital Routing ...
+Bitstream Generation ...
+Static timing analysis ...
+API Generation ...
+Dependency Generation ...
+Clean Temporary Files ...
+c51.exe .\main.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/main.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\main.obj)
+c51.exe .\Generated_Source\PSoC3\cyfitter_cfg.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/cyfitter_cfg.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\cyfitter_cfg.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_CSHL.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_CSHL.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_CSHL.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_INT.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_INT.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_INT.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_Pins.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_Pins.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_Pins.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_PM.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_PM.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_PM.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_SMS_Wrapper.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_SMS_Wrapper.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_SMS_Wrapper.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_TunerHelper.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_TunerHelper.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_TunerHelper.obj)
+c51.exe .\Generated_Source\PSoC3\LCD_BarGraph.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/LCD_BarGraph.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\LCD_BarGraph.obj)
+c51.exe .\Generated_Source\PSoC3\LCD.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/LCD.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\LCD.obj)
+c51.exe .\Generated_Source\PSoC3\LCD_PM.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/LCD_PM.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\LCD_PM.obj)
+c51.exe .\Generated_Source\PSoC3\LED1.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/LED1.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\LED1.obj)
+c51.exe .\Generated_Source\PSoC3\LED2.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/LED2.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\LED2.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_IntClock.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_IntClock.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_IntClock.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_CompCH0.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_CompCH0.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_CompCH0.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_CompCH0_PM.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_CompCH0_PM.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_CompCH0_PM.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_AMuxCH0.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_AMuxCH0.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_AMuxCH0.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_IdacCH0.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_IdacCH0.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_IdacCH0.obj)
+c51.exe .\Generated_Source\PSoC3\CapSense_CSD_IdacCH0_PM.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_IdacCH0_PM.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CapSense_CSD_IdacCH0_PM.obj)
+c51.exe .\Generated_Source\PSoC3\LCD_LCDPort.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/LCD_LCDPort.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\LCD_LCDPort.obj)
+Ax51.exe .\Generated_Source\PSoC3\CyBootAsmKeil.a51 CASE EP "INCDIR(., Generated_Source\PSoC3)" DB MACRO NOCO PR(.\DP8051_Keil_951\Debug/CyBootAsmKeil.lst) OJ(.\DP8051_Keil_951\Debug\CyBootAsmKeil.obj)
+c51.exe .\Generated_Source\PSoC3\CyDmac.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CyDmac.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CyDmac.obj)
+c51.exe .\Generated_Source\PSoC3\CyFlash.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CyFlash.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CyFlash.obj)
+c51.exe .\Generated_Source\PSoC3\CyLib.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CyLib.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CyLib.obj)
+Ax51.exe .\Generated_Source\PSoC3\cymem.a51 CASE EP "INCDIR(., Generated_Source\PSoC3)" DB MACRO NOCO PR(.\DP8051_Keil_951\Debug/cymem.lst) OJ(.\DP8051_Keil_951\Debug\cymem.obj)
+c51.exe .\Generated_Source\PSoC3\cyPm.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/cyPm.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\cyPm.obj)
+c51.exe .\Generated_Source\PSoC3\CySpc.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/CySpc.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\CySpc.obj)
+c51.exe .\Generated_Source\PSoC3\cyutils.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP "INCDIR(., Generated_Source\PSoC3)" FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/cyutils.lst) CD OT(0 ,Size) OJ(.\DP8051_Keil_951\Debug\cyutils.obj)
+Ax51.exe .\Generated_Source\PSoC3\KeilStart.a51 CASE EP "INCDIR(., Generated_Source\PSoC3)" DB MACRO NOCO PR(.\DP8051_Keil_951\Debug/KeilStart.lst) OJ(.\DP8051_Keil_951\Debug\KeilStart.obj)
+LIBX51.exe TRANSFER '.\DP8051_Keil_951\Debug\cyfitter_cfg.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_CSHL.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_INT.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_Pins.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_PM.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_SMS_Wrapper.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_TunerHelper.obj', '.\DP8051_Keil_951\Debug\LCD_BarGraph.obj', '.\DP8051_Keil_951\Debug\LCD.obj', '.\DP8051_Keil_951\Debug\LCD_PM.obj', '.\DP8051_Keil_951\Debug\LED1.obj', '.\DP8051_Keil_951\Debug\LED2.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_IntClock.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_CompCH0.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_CompCH0_PM.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_AMuxCH0.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_IdacCH0.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_IdacCH0_PM.obj', '.\DP8051_Keil_951\Debug\LCD_LCDPort.obj', '.\DP8051_Keil_951\Debug\CyBootAsmKeil.obj', '.\DP8051_Keil_951\Debug\CyDmac.obj', '.\DP8051_Keil_951\Debug\CyFlash.obj', '.\DP8051_Keil_951\Debug\CyLib.obj', '.\DP8051_Keil_951\Debug\cymem.obj', '.\DP8051_Keil_951\Debug\cyPm.obj', '.\DP8051_Keil_951\Debug\CySpc.obj', '.\DP8051_Keil_951\Debug\cyutils.obj', '.\DP8051_Keil_951\Debug\KeilStart.obj' TO '.\DP8051_Keil_951\Debug\CapSense_CSD_Design01.lib'
+LX51.exe '.\DP8051_Keil_951\Debug\main.obj', '.\DP8051_Keil_951\Debug\CapSense_CSD_Design01.lib', 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CapSense_CSD_v3_50\Library\CapSenseLibrary_DP8051.lib', 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\DP8051\DP8051_Keil_951\Debug\CyComponentLibrary.lib' TO '.\DP8051_Keil_951\Debug\CapSense_CSD_Design01.omf' CODE RU RC(10) DW(16) WL(2) PR(.\DP8051_Keil_951\Debug/CapSense_CSD_Design01.map) IX CL(XDATA(X:0x0000-X:0x1FFF)) CL(CODE(C:0x0000-C:0xFFFF)) CL(CONST(C:0x0000-C:0xFFFF))
+Program Size: data=14.0 xdata=579 const=240 code=9816
+OHx51.exe CapSense_CSD_Design01.omf HEXFILE(CapSense_CSD_Design01.ihx)
+c8051-elf-omf2elf.exe CapSense_CSD_Design01.omf CapSense_CSD_Design01.elf
+cyhextool -o .\DP8051_Keil_951\Debug\CapSense_CSD_Design01.hex -f .\DP8051_Keil_951\Debug\CapSense_CSD_Design01.ihx -prot .\Generated_Source\PSoC3\protect.hex -id 1E028069 -a EEPROM=90200000:800,PROGRAM=00000000:10000,CONFIG=80000000:2000,PROTECT=90400000:40 -meta 0301 -cunv 00004005 -wonv BC90ACAF -ecc .\Generated_Source\PSoC3\config.hex
+Flash used: 10240 of 65536 bytes (15.6%).
+SRAM used: 579 of 8192 bytes (7.1%).
+--------------- Build Succeeded: 04/17/2020 03:43:15 ---------------

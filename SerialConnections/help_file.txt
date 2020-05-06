@@ -1,0 +1,19 @@
+
+Covid-19 Commands Help Guide
+
+  Definitions
+    level - the scope of the data you're searching for, state/us/world
+    name  - name of the area you're searching for eg. TX, 
+             can handle 2 letter postal codes or state names
+    press - the press releases about Covid-19
+    time  - daily/current, daily retrieves historical data, and current
+             retrieves today's data 
+
+  - In general, all commands will send over the serial port when executed,
+     space separated and deployed in description, number order
+  - Commands are sent with NO brackets
+  
+  1. [time] [level] [name] - sends the dataset requested by level, time, name
+                over the serial port, no name required if us or world
+  2. [press] [amount]    - sends amount most recent press releases, amount
+                 is optional

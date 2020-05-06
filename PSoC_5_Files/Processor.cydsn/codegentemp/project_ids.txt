@@ -1,0 +1,6 @@
+C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\Processor.cyprj|dd8f637b-e0fd-4645-86ed-5fe644a5ee30
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|62f2c189-0740-4b19-8325-9b23262aa4c4
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|89e06818-149e-43dd-9d26-4e90d281ba76
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|1a0079df-79ec-4a38-a6d0-4df6e3e41340
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|1784b2e0-5bc3-4403-8272-493b007a45d2
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|57750943-6866-4d8d-b9e0-e60a64e11c17

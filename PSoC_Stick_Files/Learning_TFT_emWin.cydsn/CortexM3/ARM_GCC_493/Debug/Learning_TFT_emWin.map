@@ -3324,24 +3324,24 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x58de
+.debug_info     0x00000000     0x58dc
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x823 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_info    0x00000823      0x319 .\CortexM3\ARM_GCC_493\Debug\tft.o
- .debug_info    0x00000b3c      0x2a7 .\CortexM3\ARM_GCC_493\Debug\GUI_X.o
- .debug_info    0x00000de3      0x640 .\CortexM3\ARM_GCC_493\Debug\GUIConf.o
- .debug_info    0x00001423      0x980 .\CortexM3\ARM_GCC_493\Debug\LCDConf.o
- .debug_info    0x00001da3      0x13a .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_info    0x00001edd      0x3a3 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_info    0x00002280      0x486 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(cyfitter_cfg.o)
- .debug_info    0x00002706      0x4b1 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(SPIM_1.o)
- .debug_info    0x00002bb7      0x11e .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(DC.o)
- .debug_info    0x00002cd5      0x281 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(SPIM_1_IntClock.o)
- .debug_info    0x00002f56       0xd2 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(CyBootAsmGnu.o)
- .debug_info    0x00003028     0x136c .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(CyLib.o)
- .debug_info    0x00004394      0xa55 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(cyPm.o)
- .debug_info    0x00004de9      0x608 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(CyFlash.o)
- .debug_info    0x000053f1      0x4ed .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(CySpc.o)
+ .debug_info    0x00000000      0x821 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_info    0x00000821      0x319 .\CortexM3\ARM_GCC_493\Debug\tft.o
+ .debug_info    0x00000b3a      0x2a7 .\CortexM3\ARM_GCC_493\Debug\GUI_X.o
+ .debug_info    0x00000de1      0x640 .\CortexM3\ARM_GCC_493\Debug\GUIConf.o
+ .debug_info    0x00001421      0x980 .\CortexM3\ARM_GCC_493\Debug\LCDConf.o
+ .debug_info    0x00001da1      0x13a .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_info    0x00001edb      0x3a3 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_info    0x0000227e      0x486 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(cyfitter_cfg.o)
+ .debug_info    0x00002704      0x4b1 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(SPIM_1.o)
+ .debug_info    0x00002bb5      0x11e .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(DC.o)
+ .debug_info    0x00002cd3      0x281 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(SPIM_1_IntClock.o)
+ .debug_info    0x00002f54       0xd2 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(CyBootAsmGnu.o)
+ .debug_info    0x00003026     0x136c .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(CyLib.o)
+ .debug_info    0x00004392      0xa55 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(cyPm.o)
+ .debug_info    0x00004de7      0x608 .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(CyFlash.o)
+ .debug_info    0x000053ef      0x4ed .\CortexM3\ARM_GCC_493\Debug\Learning_TFT_emWin.a(CySpc.o)
 
 .debug_abbrev   0x00000000     0x1932
  *(.debug_abbrev)

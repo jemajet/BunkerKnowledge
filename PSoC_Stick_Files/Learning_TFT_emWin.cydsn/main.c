@@ -40,7 +40,7 @@ void MainTask()
     GUI_SetFont(&GUI_Font8x16);
     GUI_DispString("Hello world!");
     while(1) {
-         counter(iptr, 99999, 5);
+         counter(iptr, 9999, 4);
      }
 }
 

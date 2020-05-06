@@ -1,0 +1,7 @@
+C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\Lab5Kovid2\RS232.cydsn\RS232.cyprj|d8dc5d04-9fe7-413d-9526-e821cc13cb8f
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|f2d54828-97a0-433a-83dd-c6cb2512a7ff
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|de9091eb-a089-451a-8fa6-719fce74b6b4
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|73e5676a-b3b3-431b-b440-75a7b654fe4c
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|6016f090-f5d0-4cc8-814b-a99a84bb099f
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|3a42e388-7835-4a08-a08a-75e5fc08c014
+C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\Lab5Kovid2\RS232.cydsn\CapSense_CSD_Design01.cydsn\CapSense_CSD_Design01.cyprj|f0b533ba-dda7-456a-b8da-d7cb815bb2bd

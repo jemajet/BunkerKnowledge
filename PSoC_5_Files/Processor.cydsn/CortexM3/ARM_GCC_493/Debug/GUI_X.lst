@@ -1,0 +1,1376 @@
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"GUI_X.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.comm	OS_TimeMS,4,4
+  19              		.section	.text.GUI_X_GetTime,"ax",%progbits
+  20              		.align	2
+  21              		.global	GUI_X_GetTime
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	GUI_X_GetTime, %function
+  25              	GUI_X_GetTime:
+  26              	.LFB63:
+  27              		.file 1 ".\\GUI_X.c"
+   1:.\GUI_X.c     **** /*********************************************************************
+   2:.\GUI_X.c     **** *                SEGGER Microcontroller GmbH & Co. KG                *
+   3:.\GUI_X.c     **** *        Solutions for real time microcontroller applications        *
+   4:.\GUI_X.c     **** **********************************************************************
+   5:.\GUI_X.c     **** *                                                                    *
+   6:.\GUI_X.c     **** *        (c) 1996 - 2017  SEGGER Microcontroller GmbH & Co. KG       *
+   7:.\GUI_X.c     **** *                                                                    *
+   8:.\GUI_X.c     **** *        Internet: www.segger.com    Support:  support@segger.com    *
+   9:.\GUI_X.c     **** *                                                                    *
+  10:.\GUI_X.c     **** **********************************************************************
+  11:.\GUI_X.c     **** 
+  12:.\GUI_X.c     **** ** emWin V5.46 - Graphical user interface for embedded applications **
+  13:.\GUI_X.c     **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  14:.\GUI_X.c     **** emWin is protected by  international copyright laws.  Knowledge of the
+  15:.\GUI_X.c     **** source code may not be used to write a similar product.  This file may
+  16:.\GUI_X.c     **** only be used in accordance with the following terms:
+  17:.\GUI_X.c     **** 
+  18:.\GUI_X.c     **** The software  has been licensed to  Cypress Semiconductor Corporation,
+  19:.\GUI_X.c     **** whose registered  office is situated  at 198 Champion Ct. San Jose, CA 
+  20:.\GUI_X.c     **** 95134 USA  solely for the  purposes of creating  libraries for Cypress
+  21:.\GUI_X.c     **** PSoC3 and  PSoC5 processor-based devices,  sublicensed and distributed
+  22:.\GUI_X.c     **** under  the  terms  and  conditions  of  the  Cypress  End User License
+  23:.\GUI_X.c     **** Agreement.
+  24:.\GUI_X.c     **** Full source code is available at: www.segger.com
+  25:.\GUI_X.c     **** 
+  26:.\GUI_X.c     **** We appreciate your understanding and fairness.
+  27:.\GUI_X.c     **** ----------------------------------------------------------------------
+  28:.\GUI_X.c     **** Licensing information
+  29:.\GUI_X.c     **** Licensor:                 SEGGER Microcontroller Systems LLC
+  30:.\GUI_X.c     **** Licensed to:              Cypress Semiconductor Corp, 198 Champion Ct., San Jose, CA 95134, USA
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 2
+
+
+  31:.\GUI_X.c     **** Licensed SEGGER software: emWin
+  32:.\GUI_X.c     **** License number:           GUI-00319
+  33:.\GUI_X.c     **** License model:            Services and License Agreement, signed June 10th, 2009
+  34:.\GUI_X.c     **** Licensed platform:        Any Cypress platform (Initial targets are: PSoC3, PSoC5)
+  35:.\GUI_X.c     **** ----------------------------------------------------------------------
+  36:.\GUI_X.c     **** Support and Update Agreement (SUA)
+  37:.\GUI_X.c     **** SUA period:               2009-06-12 - 2022-07-27
+  38:.\GUI_X.c     **** Contact to extend SUA:    sales@segger.com
+  39:.\GUI_X.c     **** ----------------------------------------------------------------------
+  40:.\GUI_X.c     **** File        : GUI_X.C
+  41:.\GUI_X.c     **** Purpose     : Config / System dependent externals for GUI
+  42:.\GUI_X.c     **** ---------------------------END-OF-HEADER------------------------------
+  43:.\GUI_X.c     **** */
+  44:.\GUI_X.c     **** 
+  45:.\GUI_X.c     **** #include "GUI.h"
+  46:.\GUI_X.c     **** 
+  47:.\GUI_X.c     **** #include "project.h"
+  48:.\GUI_X.c     **** 
+  49:.\GUI_X.c     **** /*********************************************************************
+  50:.\GUI_X.c     **** *
+  51:.\GUI_X.c     **** *       Function Prototypes
+  52:.\GUI_X.c     **** */
+  53:.\GUI_X.c     **** void GUI_X_Systick_Init(void);
+  54:.\GUI_X.c     **** 
+  55:.\GUI_X.c     **** /*********************************************************************
+  56:.\GUI_X.c     **** *
+  57:.\GUI_X.c     **** *       Global data
+  58:.\GUI_X.c     **** */
+  59:.\GUI_X.c     **** volatile GUI_TIMER_TIME OS_TimeMS;
+  60:.\GUI_X.c     **** 
+  61:.\GUI_X.c     **** /*********************************************************************
+  62:.\GUI_X.c     **** *
+  63:.\GUI_X.c     **** *      Timing:
+  64:.\GUI_X.c     **** *                 GUI_X_GetTime()
+  65:.\GUI_X.c     **** *                 GUI_X_Delay(int)
+  66:.\GUI_X.c     **** *
+  67:.\GUI_X.c     **** *   Some timing dependent routines require a GetTime
+  68:.\GUI_X.c     **** *   and delay function. Default time unit (tick), normally is
+  69:.\GUI_X.c     **** *   1 ms.
+  70:.\GUI_X.c     **** */
+  71:.\GUI_X.c     **** 
+  72:.\GUI_X.c     **** GUI_TIMER_TIME GUI_X_GetTime(void) { 
+  28              		.loc 1 72 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 80B4     		push	{r7}
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+  73:.\GUI_X.c     ****   return OS_TimeMS; 
+  38              		.loc 1 73 0
+  39 0004 034B     		ldr	r3, .L3
+  40 0006 1B68     		ldr	r3, [r3]
+  74:.\GUI_X.c     **** }
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 3
+
+
+  41              		.loc 1 74 0
+  42 0008 1846     		mov	r0, r3
+  43 000a BD46     		mov	sp, r7
+  44              		.cfi_def_cfa_register 13
+  45              		@ sp needed
+  46 000c 5DF8047B 		ldr	r7, [sp], #4
+  47              		.cfi_restore 7
+  48              		.cfi_def_cfa_offset 0
+  49 0010 7047     		bx	lr
+  50              	.L4:
+  51 0012 00BF     		.align	2
+  52              	.L3:
+  53 0014 00000000 		.word	OS_TimeMS
+  54              		.cfi_endproc
+  55              	.LFE63:
+  56              		.size	GUI_X_GetTime, .-GUI_X_GetTime
+  57              		.section	.text.GUI_X_Delay,"ax",%progbits
+  58              		.align	2
+  59              		.global	GUI_X_Delay
+  60              		.thumb
+  61              		.thumb_func
+  62              		.type	GUI_X_Delay, %function
+  63              	GUI_X_Delay:
+  64              	.LFB64:
+  75:.\GUI_X.c     **** 
+  76:.\GUI_X.c     **** void GUI_X_Delay(int ms) { 
+  65              		.loc 1 76 0
+  66              		.cfi_startproc
+  67              		@ args = 0, pretend = 0, frame = 16
+  68              		@ frame_needed = 1, uses_anonymous_args = 0
+  69              		@ link register save eliminated.
+  70 0000 80B4     		push	{r7}
+  71              		.cfi_def_cfa_offset 4
+  72              		.cfi_offset 7, -4
+  73 0002 85B0     		sub	sp, sp, #20
+  74              		.cfi_def_cfa_offset 24
+  75 0004 00AF     		add	r7, sp, #0
+  76              		.cfi_def_cfa_register 7
+  77 0006 7860     		str	r0, [r7, #4]
+  77:.\GUI_X.c     ****   int tEnd = OS_TimeMS + ms;
+  78              		.loc 1 77 0
+  79 0008 084B     		ldr	r3, .L7
+  80 000a 1A68     		ldr	r2, [r3]
+  81 000c 7B68     		ldr	r3, [r7, #4]
+  82 000e 1344     		add	r3, r3, r2
+  83 0010 FB60     		str	r3, [r7, #12]
+  78:.\GUI_X.c     ****   while ((tEnd - OS_TimeMS) > 0);
+  84              		.loc 1 78 0
+  85 0012 00BF     		nop
+  86              	.L6:
+  87              		.loc 1 78 0 is_stmt 0 discriminator 1
+  88 0014 054B     		ldr	r3, .L7
+  89 0016 1B68     		ldr	r3, [r3]
+  90 0018 FA68     		ldr	r2, [r7, #12]
+  91 001a D31A     		subs	r3, r2, r3
+  92 001c 002B     		cmp	r3, #0
+  93 001e F9DC     		bgt	.L6
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 4
+
+
+  79:.\GUI_X.c     **** }
+  94              		.loc 1 79 0 is_stmt 1
+  95 0020 1437     		adds	r7, r7, #20
+  96              		.cfi_def_cfa_offset 4
+  97 0022 BD46     		mov	sp, r7
+  98              		.cfi_def_cfa_register 13
+  99              		@ sp needed
+ 100 0024 5DF8047B 		ldr	r7, [sp], #4
+ 101              		.cfi_restore 7
+ 102              		.cfi_def_cfa_offset 0
+ 103 0028 7047     		bx	lr
+ 104              	.L8:
+ 105 002a 00BF     		.align	2
+ 106              	.L7:
+ 107 002c 00000000 		.word	OS_TimeMS
+ 108              		.cfi_endproc
+ 109              	.LFE64:
+ 110              		.size	GUI_X_Delay, .-GUI_X_Delay
+ 111              		.section	.text.GUI_X_Init,"ax",%progbits
+ 112              		.align	2
+ 113              		.global	GUI_X_Init
+ 114              		.thumb
+ 115              		.thumb_func
+ 116              		.type	GUI_X_Init, %function
+ 117              	GUI_X_Init:
+ 118              	.LFB65:
+  80:.\GUI_X.c     **** 
+  81:.\GUI_X.c     **** /*********************************************************************
+  82:.\GUI_X.c     **** *
+  83:.\GUI_X.c     **** *       GUI_X_Init()
+  84:.\GUI_X.c     **** *
+  85:.\GUI_X.c     **** * Note:
+  86:.\GUI_X.c     **** *     GUI_X_Init() is called from GUI_Init is a possibility to init
+  87:.\GUI_X.c     **** *     some hardware which needs to be up and running before the GUI.
+  88:.\GUI_X.c     **** */
+  89:.\GUI_X.c     **** void GUI_X_Init(void) {
+ 119              		.loc 1 89 0
+ 120              		.cfi_startproc
+ 121              		@ args = 0, pretend = 0, frame = 0
+ 122              		@ frame_needed = 1, uses_anonymous_args = 0
+ 123 0000 80B5     		push	{r7, lr}
+ 124              		.cfi_def_cfa_offset 8
+ 125              		.cfi_offset 7, -8
+ 126              		.cfi_offset 14, -4
+ 127 0002 00AF     		add	r7, sp, #0
+ 128              		.cfi_def_cfa_register 7
+  90:.\GUI_X.c     ****   GUI_X_Systick_Init();
+ 129              		.loc 1 90 0
+ 130 0004 FFF7FEFF 		bl	GUI_X_Systick_Init
+  91:.\GUI_X.c     **** }
+ 131              		.loc 1 91 0
+ 132 0008 80BD     		pop	{r7, pc}
+ 133              		.cfi_endproc
+ 134              	.LFE65:
+ 135              		.size	GUI_X_Init, .-GUI_X_Init
+ 136 000a 00BF     		.section	.text.GUI_X_ExecIdle,"ax",%progbits
+ 137              		.align	2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 5
+
+
+ 138              		.global	GUI_X_ExecIdle
+ 139              		.thumb
+ 140              		.thumb_func
+ 141              		.type	GUI_X_ExecIdle, %function
+ 142              	GUI_X_ExecIdle:
+ 143              	.LFB66:
+  92:.\GUI_X.c     **** 
+  93:.\GUI_X.c     **** 
+  94:.\GUI_X.c     **** /*********************************************************************
+  95:.\GUI_X.c     **** *
+  96:.\GUI_X.c     **** *       GUI_X_ExecIdle
+  97:.\GUI_X.c     **** *
+  98:.\GUI_X.c     **** * Note:
+  99:.\GUI_X.c     **** *  Called if WM is in idle state
+ 100:.\GUI_X.c     **** */
+ 101:.\GUI_X.c     **** void GUI_X_ExecIdle(void) {}
+ 144              		.loc 1 101 0
+ 145              		.cfi_startproc
+ 146              		@ args = 0, pretend = 0, frame = 0
+ 147              		@ frame_needed = 1, uses_anonymous_args = 0
+ 148              		@ link register save eliminated.
+ 149 0000 80B4     		push	{r7}
+ 150              		.cfi_def_cfa_offset 4
+ 151              		.cfi_offset 7, -4
+ 152 0002 00AF     		add	r7, sp, #0
+ 153              		.cfi_def_cfa_register 7
+ 154              		.loc 1 101 0
+ 155 0004 BD46     		mov	sp, r7
+ 156              		.cfi_def_cfa_register 13
+ 157              		@ sp needed
+ 158 0006 5DF8047B 		ldr	r7, [sp], #4
+ 159              		.cfi_restore 7
+ 160              		.cfi_def_cfa_offset 0
+ 161 000a 7047     		bx	lr
+ 162              		.cfi_endproc
+ 163              	.LFE66:
+ 164              		.size	GUI_X_ExecIdle, .-GUI_X_ExecIdle
+ 165              		.section	.text.GUI_X_Log,"ax",%progbits
+ 166              		.align	2
+ 167              		.global	GUI_X_Log
+ 168              		.thumb
+ 169              		.thumb_func
+ 170              		.type	GUI_X_Log, %function
+ 171              	GUI_X_Log:
+ 172              	.LFB67:
+ 102:.\GUI_X.c     **** 
+ 103:.\GUI_X.c     **** /*********************************************************************
+ 104:.\GUI_X.c     **** *
+ 105:.\GUI_X.c     **** *      Logging: OS dependent
+ 106:.\GUI_X.c     **** 
+ 107:.\GUI_X.c     **** Note:
+ 108:.\GUI_X.c     ****   Logging is used in higher debug levels only. The typical target
+ 109:.\GUI_X.c     ****   build does not use logging and does therefor not require any of
+ 110:.\GUI_X.c     ****   the logging routines below. For a release build without logging
+ 111:.\GUI_X.c     ****   the routines below may be eliminated to save some space.
+ 112:.\GUI_X.c     ****   (If the linker is not function aware and eliminates unreferenced
+ 113:.\GUI_X.c     ****   functions automatically)
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 6
+
+
+ 114:.\GUI_X.c     **** 
+ 115:.\GUI_X.c     **** */
+ 116:.\GUI_X.c     **** 
+ 117:.\GUI_X.c     **** void GUI_X_Log     (const char *s) { GUI_USE_PARA(s); }
+ 173              		.loc 1 117 0
+ 174              		.cfi_startproc
+ 175              		@ args = 0, pretend = 0, frame = 8
+ 176              		@ frame_needed = 1, uses_anonymous_args = 0
+ 177              		@ link register save eliminated.
+ 178 0000 80B4     		push	{r7}
+ 179              		.cfi_def_cfa_offset 4
+ 180              		.cfi_offset 7, -4
+ 181 0002 83B0     		sub	sp, sp, #12
+ 182              		.cfi_def_cfa_offset 16
+ 183 0004 00AF     		add	r7, sp, #0
+ 184              		.cfi_def_cfa_register 7
+ 185 0006 7860     		str	r0, [r7, #4]
+ 186              		.loc 1 117 0
+ 187 0008 0C37     		adds	r7, r7, #12
+ 188              		.cfi_def_cfa_offset 4
+ 189 000a BD46     		mov	sp, r7
+ 190              		.cfi_def_cfa_register 13
+ 191              		@ sp needed
+ 192 000c 5DF8047B 		ldr	r7, [sp], #4
+ 193              		.cfi_restore 7
+ 194              		.cfi_def_cfa_offset 0
+ 195 0010 7047     		bx	lr
+ 196              		.cfi_endproc
+ 197              	.LFE67:
+ 198              		.size	GUI_X_Log, .-GUI_X_Log
+ 199 0012 00BF     		.section	.text.GUI_X_Warn,"ax",%progbits
+ 200              		.align	2
+ 201              		.global	GUI_X_Warn
+ 202              		.thumb
+ 203              		.thumb_func
+ 204              		.type	GUI_X_Warn, %function
+ 205              	GUI_X_Warn:
+ 206              	.LFB68:
+ 118:.\GUI_X.c     **** void GUI_X_Warn    (const char *s) { GUI_USE_PARA(s); }
+ 207              		.loc 1 118 0
+ 208              		.cfi_startproc
+ 209              		@ args = 0, pretend = 0, frame = 8
+ 210              		@ frame_needed = 1, uses_anonymous_args = 0
+ 211              		@ link register save eliminated.
+ 212 0000 80B4     		push	{r7}
+ 213              		.cfi_def_cfa_offset 4
+ 214              		.cfi_offset 7, -4
+ 215 0002 83B0     		sub	sp, sp, #12
+ 216              		.cfi_def_cfa_offset 16
+ 217 0004 00AF     		add	r7, sp, #0
+ 218              		.cfi_def_cfa_register 7
+ 219 0006 7860     		str	r0, [r7, #4]
+ 220              		.loc 1 118 0
+ 221 0008 0C37     		adds	r7, r7, #12
+ 222              		.cfi_def_cfa_offset 4
+ 223 000a BD46     		mov	sp, r7
+ 224              		.cfi_def_cfa_register 13
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 7
+
+
+ 225              		@ sp needed
+ 226 000c 5DF8047B 		ldr	r7, [sp], #4
+ 227              		.cfi_restore 7
+ 228              		.cfi_def_cfa_offset 0
+ 229 0010 7047     		bx	lr
+ 230              		.cfi_endproc
+ 231              	.LFE68:
+ 232              		.size	GUI_X_Warn, .-GUI_X_Warn
+ 233 0012 00BF     		.section	.text.GUI_X_ErrorOut,"ax",%progbits
+ 234              		.align	2
+ 235              		.global	GUI_X_ErrorOut
+ 236              		.thumb
+ 237              		.thumb_func
+ 238              		.type	GUI_X_ErrorOut, %function
+ 239              	GUI_X_ErrorOut:
+ 240              	.LFB69:
+ 119:.\GUI_X.c     **** void GUI_X_ErrorOut(const char *s) { GUI_USE_PARA(s); }
+ 241              		.loc 1 119 0
+ 242              		.cfi_startproc
+ 243              		@ args = 0, pretend = 0, frame = 8
+ 244              		@ frame_needed = 1, uses_anonymous_args = 0
+ 245              		@ link register save eliminated.
+ 246 0000 80B4     		push	{r7}
+ 247              		.cfi_def_cfa_offset 4
+ 248              		.cfi_offset 7, -4
+ 249 0002 83B0     		sub	sp, sp, #12
+ 250              		.cfi_def_cfa_offset 16
+ 251 0004 00AF     		add	r7, sp, #0
+ 252              		.cfi_def_cfa_register 7
+ 253 0006 7860     		str	r0, [r7, #4]
+ 254              		.loc 1 119 0
+ 255 0008 0C37     		adds	r7, r7, #12
+ 256              		.cfi_def_cfa_offset 4
+ 257 000a BD46     		mov	sp, r7
+ 258              		.cfi_def_cfa_register 13
+ 259              		@ sp needed
+ 260 000c 5DF8047B 		ldr	r7, [sp], #4
+ 261              		.cfi_restore 7
+ 262              		.cfi_def_cfa_offset 0
+ 263 0010 7047     		bx	lr
+ 264              		.cfi_endproc
+ 265              	.LFE69:
+ 266              		.size	GUI_X_ErrorOut, .-GUI_X_ErrorOut
+ 267 0012 00BF     		.section	.text.GUI_X_Systick_Intr,"ax",%progbits
+ 268              		.align	2
+ 269              		.global	GUI_X_Systick_Intr
+ 270              		.thumb
+ 271              		.thumb_func
+ 272              		.type	GUI_X_Systick_Intr, %function
+ 273              	GUI_X_Systick_Intr:
+ 274              	.LFB70:
+ 120:.\GUI_X.c     **** 
+ 121:.\GUI_X.c     **** /*********************************************************************
+ 122:.\GUI_X.c     **** *
+ 123:.\GUI_X.c     **** *         Setup Systick for timing
+ 124:.\GUI_X.c     **** *
+ 125:.\GUI_X.c     **** */
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 8
+
+
+ 126:.\GUI_X.c     **** /*********************************************************************
+ 127:.\GUI_X.c     **** *
+ 128:.\GUI_X.c     **** *       GUI_X_Systick_Intr
+ 129:.\GUI_X.c     **** *
+ 130:.\GUI_X.c     **** * Purpose:
+ 131:.\GUI_X.c     **** *   Interrupt Service Routine for Systick.
+ 132:.\GUI_X.c     **** */
+ 133:.\GUI_X.c     **** void GUI_X_Systick_Intr(void){    
+ 275              		.loc 1 133 0
+ 276              		.cfi_startproc
+ 277              		@ args = 0, pretend = 0, frame = 0
+ 278              		@ frame_needed = 1, uses_anonymous_args = 0
+ 279              		@ link register save eliminated.
+ 280 0000 80B4     		push	{r7}
+ 281              		.cfi_def_cfa_offset 4
+ 282              		.cfi_offset 7, -4
+ 283 0002 00AF     		add	r7, sp, #0
+ 284              		.cfi_def_cfa_register 7
+ 134:.\GUI_X.c     ****   OS_TimeMS++;
+ 285              		.loc 1 134 0
+ 286 0004 044B     		ldr	r3, .L15
+ 287 0006 1B68     		ldr	r3, [r3]
+ 288 0008 0133     		adds	r3, r3, #1
+ 289 000a 034A     		ldr	r2, .L15
+ 290 000c 1360     		str	r3, [r2]
+ 135:.\GUI_X.c     **** }
+ 291              		.loc 1 135 0
+ 292 000e BD46     		mov	sp, r7
+ 293              		.cfi_def_cfa_register 13
+ 294              		@ sp needed
+ 295 0010 5DF8047B 		ldr	r7, [sp], #4
+ 296              		.cfi_restore 7
+ 297              		.cfi_def_cfa_offset 0
+ 298 0014 7047     		bx	lr
+ 299              	.L16:
+ 300 0016 00BF     		.align	2
+ 301              	.L15:
+ 302 0018 00000000 		.word	OS_TimeMS
+ 303              		.cfi_endproc
+ 304              	.LFE70:
+ 305              		.size	GUI_X_Systick_Intr, .-GUI_X_Systick_Intr
+ 306              		.section	.text.GUI_X_Systick_Init,"ax",%progbits
+ 307              		.align	2
+ 308              		.global	GUI_X_Systick_Init
+ 309              		.thumb
+ 310              		.thumb_func
+ 311              		.type	GUI_X_Systick_Init, %function
+ 312              	GUI_X_Systick_Init:
+ 313              	.LFB71:
+ 136:.\GUI_X.c     **** 
+ 137:.\GUI_X.c     **** /*********************************************************************
+ 138:.\GUI_X.c     **** *
+ 139:.\GUI_X.c     **** *       GUI_X_Systick_Init()
+ 140:.\GUI_X.c     **** *
+ 141:.\GUI_X.c     **** * Purpose:
+ 142:.\GUI_X.c     **** *   Sets up the Systick interrupt and enable it.
+ 143:.\GUI_X.c     **** */
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 9
+
+
+ 144:.\GUI_X.c     **** void GUI_X_Systick_Init(void){  
+ 314              		.loc 1 144 0
+ 315              		.cfi_startproc
+ 316              		@ args = 0, pretend = 0, frame = 8
+ 317              		@ frame_needed = 1, uses_anonymous_args = 0
+ 318 0000 80B5     		push	{r7, lr}
+ 319              		.cfi_def_cfa_offset 8
+ 320              		.cfi_offset 7, -8
+ 321              		.cfi_offset 14, -4
+ 322 0002 82B0     		sub	sp, sp, #8
+ 323              		.cfi_def_cfa_offset 16
+ 324 0004 00AF     		add	r7, sp, #0
+ 325              		.cfi_def_cfa_register 7
+ 145:.\GUI_X.c     ****   uint32_t i; 
+ 146:.\GUI_X.c     ****   CySysTickStart();
+ 326              		.loc 1 146 0
+ 327 0006 FFF7FEFF 		bl	CySysTickStart
+ 147:.\GUI_X.c     ****   //
+ 148:.\GUI_X.c     ****   // Find unused callback slot.
+ 149:.\GUI_X.c     ****   //
+ 150:.\GUI_X.c     ****     for (i = 0u; i < CY_SYS_SYST_NUM_OF_CALLBACKS; i++)
+ 328              		.loc 1 150 0
+ 329 000a 0023     		movs	r3, #0
+ 330 000c 7B60     		str	r3, [r7, #4]
+ 331 000e 0DE0     		b	.L18
+ 332              	.L21:
+ 151:.\GUI_X.c     ****     {
+ 152:.\GUI_X.c     ****         if (CySysTickGetCallback(i) == NULL)
+ 333              		.loc 1 152 0
+ 334 0010 7868     		ldr	r0, [r7, #4]
+ 335 0012 FFF7FEFF 		bl	CySysTickGetCallback
+ 336 0016 0346     		mov	r3, r0
+ 337 0018 002B     		cmp	r3, #0
+ 338 001a 04D1     		bne	.L19
+ 153:.\GUI_X.c     ****         {
+ 154:.\GUI_X.c     ****             CySysTickSetCallback(i, GUI_X_Systick_Intr);
+ 339              		.loc 1 154 0
+ 340 001c 7868     		ldr	r0, [r7, #4]
+ 341 001e 0949     		ldr	r1, .L23
+ 342 0020 FFF7FEFF 		bl	CySysTickSetCallback
+ 155:.\GUI_X.c     ****             break;
+ 343              		.loc 1 155 0
+ 344 0024 05E0     		b	.L20
+ 345              	.L19:
+ 150:.\GUI_X.c     ****     {
+ 346              		.loc 1 150 0 discriminator 2
+ 347 0026 7B68     		ldr	r3, [r7, #4]
+ 348 0028 0133     		adds	r3, r3, #1
+ 349 002a 7B60     		str	r3, [r7, #4]
+ 350              	.L18:
+ 150:.\GUI_X.c     ****     {
+ 351              		.loc 1 150 0 is_stmt 0 discriminator 1
+ 352 002c 7B68     		ldr	r3, [r7, #4]
+ 353 002e 042B     		cmp	r3, #4
+ 354 0030 EED9     		bls	.L21
+ 355              	.L20:
+ 156:.\GUI_X.c     ****         }
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 10
+
+
+ 157:.\GUI_X.c     ****     }
+ 158:.\GUI_X.c     ****     
+ 159:.\GUI_X.c     ****     CYASSERT(i < CY_SYS_SYST_NUM_OF_CALLBACKS);
+ 356              		.loc 1 159 0 is_stmt 1
+ 357 0032 7B68     		ldr	r3, [r7, #4]
+ 358 0034 042B     		cmp	r3, #4
+ 359 0036 02D9     		bls	.L17
+ 360              		.loc 1 159 0 is_stmt 0 discriminator 1
+ 361 0038 0020     		movs	r0, #0
+ 362 003a FFF7FEFF 		bl	CyHalt
+ 363              	.L17:
+ 160:.\GUI_X.c     **** }
+ 364              		.loc 1 160 0 is_stmt 1
+ 365 003e 0837     		adds	r7, r7, #8
+ 366              		.cfi_def_cfa_offset 8
+ 367 0040 BD46     		mov	sp, r7
+ 368              		.cfi_def_cfa_register 13
+ 369              		@ sp needed
+ 370 0042 80BD     		pop	{r7, pc}
+ 371              	.L24:
+ 372              		.align	2
+ 373              	.L23:
+ 374 0044 00000000 		.word	GUI_X_Systick_Intr
+ 375              		.cfi_endproc
+ 376              	.LFE71:
+ 377              		.size	GUI_X_Systick_Init, .-GUI_X_Systick_Init
+ 378              		.text
+ 379              	.Letext0:
+ 380              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 381              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 382              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 383              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 384              		.section	.debug_info,"",%progbits
+ 385              	.Ldebug_info0:
+ 386 0000 F9010000 		.4byte	0x1f9
+ 387 0004 0400     		.2byte	0x4
+ 388 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 389 000a 04       		.byte	0x4
+ 390 000b 01       		.uleb128 0x1
+ 391 000c 0E010000 		.4byte	.LASF30
+ 392 0010 01       		.byte	0x1
+ 393 0011 6F020000 		.4byte	.LASF31
+ 394 0015 27000000 		.4byte	.LASF32
+ 395 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 396 001d 00000000 		.4byte	0
+ 397 0021 00000000 		.4byte	.Ldebug_line0
+ 398 0025 02       		.uleb128 0x2
+ 399 0026 04       		.byte	0x4
+ 400 0027 05       		.byte	0x5
+ 401 0028 696E7400 		.ascii	"int\000"
+ 402 002c 03       		.uleb128 0x3
+ 403 002d 04       		.byte	0x4
+ 404 002e 07       		.byte	0x7
+ 405 002f C4010000 		.4byte	.LASF0
+ 406 0033 03       		.uleb128 0x3
+ 407 0034 04       		.byte	0x4
+ 408 0035 07       		.byte	0x7
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 11
+
+
+ 409 0036 DD000000 		.4byte	.LASF1
+ 410 003a 03       		.uleb128 0x3
+ 411 003b 02       		.byte	0x2
+ 412 003c 05       		.byte	0x5
+ 413 003d 34020000 		.4byte	.LASF2
+ 414 0041 03       		.uleb128 0x3
+ 415 0042 01       		.byte	0x1
+ 416 0043 08       		.byte	0x8
+ 417 0044 D1010000 		.4byte	.LASF3
+ 418 0048 03       		.uleb128 0x3
+ 419 0049 01       		.byte	0x1
+ 420 004a 08       		.byte	0x8
+ 421 004b CF000000 		.4byte	.LASF4
+ 422 004f 03       		.uleb128 0x3
+ 423 0050 04       		.byte	0x4
+ 424 0051 05       		.byte	0x5
+ 425 0052 47020000 		.4byte	.LASF5
+ 426 0056 04       		.uleb128 0x4
+ 427 0057 04       		.byte	0x4
+ 428 0058 5C000000 		.4byte	0x5c
+ 429 005c 05       		.uleb128 0x5
+ 430 005d 41000000 		.4byte	0x41
+ 431 0061 03       		.uleb128 0x3
+ 432 0062 02       		.byte	0x2
+ 433 0063 07       		.byte	0x7
+ 434 0064 5C020000 		.4byte	.LASF6
+ 435 0068 03       		.uleb128 0x3
+ 436 0069 01       		.byte	0x1
+ 437 006a 06       		.byte	0x6
+ 438 006b 50020000 		.4byte	.LASF7
+ 439 006f 03       		.uleb128 0x3
+ 440 0070 04       		.byte	0x4
+ 441 0071 07       		.byte	0x7
+ 442 0072 E8010000 		.4byte	.LASF8
+ 443 0076 06       		.uleb128 0x6
+ 444 0077 13000000 		.4byte	.LASF9
+ 445 007b 02       		.byte	0x2
+ 446 007c 3F       		.byte	0x3f
+ 447 007d 4F000000 		.4byte	0x4f
+ 448 0081 06       		.uleb128 0x6
+ 449 0082 A3010000 		.4byte	.LASF10
+ 450 0086 02       		.byte	0x2
+ 451 0087 41       		.byte	0x41
+ 452 0088 33000000 		.4byte	0x33
+ 453 008c 03       		.uleb128 0x3
+ 454 008d 08       		.byte	0x8
+ 455 008e 05       		.byte	0x5
+ 456 008f F6010000 		.4byte	.LASF11
+ 457 0093 03       		.uleb128 0x3
+ 458 0094 08       		.byte	0x8
+ 459 0095 07       		.byte	0x7
+ 460 0096 B8000000 		.4byte	.LASF12
+ 461 009a 06       		.uleb128 0x6
+ 462 009b E0010000 		.4byte	.LASF13
+ 463 009f 03       		.byte	0x3
+ 464 00a0 2C       		.byte	0x2c
+ 465 00a1 76000000 		.4byte	0x76
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 12
+
+
+ 466 00a5 06       		.uleb128 0x6
+ 467 00a6 3E020000 		.4byte	.LASF14
+ 468 00aa 03       		.byte	0x3
+ 469 00ab 2D       		.byte	0x2d
+ 470 00ac 81000000 		.4byte	0x81
+ 471 00b0 06       		.uleb128 0x6
+ 472 00b1 EF000000 		.4byte	.LASF15
+ 473 00b5 04       		.byte	0x4
+ 474 00b6 C2       		.byte	0xc2
+ 475 00b7 48000000 		.4byte	0x48
+ 476 00bb 06       		.uleb128 0x6
+ 477 00bc AE010000 		.4byte	.LASF16
+ 478 00c0 04       		.byte	0x4
+ 479 00c1 C4       		.byte	0xc4
+ 480 00c2 33000000 		.4byte	0x33
+ 481 00c6 03       		.uleb128 0x3
+ 482 00c7 04       		.byte	0x4
+ 483 00c8 04       		.byte	0x4
+ 484 00c9 A7000000 		.4byte	.LASF17
+ 485 00cd 03       		.uleb128 0x3
+ 486 00ce 08       		.byte	0x8
+ 487 00cf 04       		.byte	0x4
+ 488 00d0 9C010000 		.4byte	.LASF18
+ 489 00d4 07       		.uleb128 0x7
+ 490 00d5 26020000 		.4byte	.LASF33
+ 491 00d9 01       		.byte	0x1
+ 492 00da 48       		.byte	0x48
+ 493 00db 25000000 		.4byte	0x25
+ 494 00df 00000000 		.4byte	.LFB63
+ 495 00e3 18000000 		.4byte	.LFE63-.LFB63
+ 496 00e7 01       		.uleb128 0x1
+ 497 00e8 9C       		.byte	0x9c
+ 498 00e9 08       		.uleb128 0x8
+ 499 00ea F5000000 		.4byte	.LASF21
+ 500 00ee 01       		.byte	0x1
+ 501 00ef 4C       		.byte	0x4c
+ 502 00f0 00000000 		.4byte	.LFB64
+ 503 00f4 30000000 		.4byte	.LFE64-.LFB64
+ 504 00f8 01       		.uleb128 0x1
+ 505 00f9 9C       		.byte	0x9c
+ 506 00fa 1A010000 		.4byte	0x11a
+ 507 00fe 09       		.uleb128 0x9
+ 508 00ff 6D7300   		.ascii	"ms\000"
+ 509 0102 01       		.byte	0x1
+ 510 0103 4C       		.byte	0x4c
+ 511 0104 25000000 		.4byte	0x25
+ 512 0108 02       		.uleb128 0x2
+ 513 0109 91       		.byte	0x91
+ 514 010a 6C       		.sleb128 -20
+ 515 010b 0A       		.uleb128 0xa
+ 516 010c F1010000 		.4byte	.LASF27
+ 517 0110 01       		.byte	0x1
+ 518 0111 4D       		.byte	0x4d
+ 519 0112 25000000 		.4byte	0x25
+ 520 0116 02       		.uleb128 0x2
+ 521 0117 91       		.byte	0x91
+ 522 0118 74       		.sleb128 -12
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 13
+
+
+ 523 0119 00       		.byte	0
+ 524 011a 0B       		.uleb128 0xb
+ 525 011b 9C000000 		.4byte	.LASF19
+ 526 011f 01       		.byte	0x1
+ 527 0120 59       		.byte	0x59
+ 528 0121 00000000 		.4byte	.LFB65
+ 529 0125 0A000000 		.4byte	.LFE65-.LFB65
+ 530 0129 01       		.uleb128 0x1
+ 531 012a 9C       		.byte	0x9c
+ 532 012b 0C       		.uleb128 0xc
+ 533 012c 17020000 		.4byte	.LASF20
+ 534 0130 01       		.byte	0x1
+ 535 0131 65       		.byte	0x65
+ 536 0132 00000000 		.4byte	.LFB66
+ 537 0136 0C000000 		.4byte	.LFE66-.LFB66
+ 538 013a 01       		.uleb128 0x1
+ 539 013b 9C       		.byte	0x9c
+ 540 013c 08       		.uleb128 0x8
+ 541 013d 1D000000 		.4byte	.LASF22
+ 542 0141 01       		.byte	0x1
+ 543 0142 75       		.byte	0x75
+ 544 0143 00000000 		.4byte	.LFB67
+ 545 0147 12000000 		.4byte	.LFE67-.LFB67
+ 546 014b 01       		.uleb128 0x1
+ 547 014c 9C       		.byte	0x9c
+ 548 014d 5E010000 		.4byte	0x15e
+ 549 0151 09       		.uleb128 0x9
+ 550 0152 7300     		.ascii	"s\000"
+ 551 0154 01       		.byte	0x1
+ 552 0155 75       		.byte	0x75
+ 553 0156 56000000 		.4byte	0x56
+ 554 015a 02       		.uleb128 0x2
+ 555 015b 91       		.byte	0x91
+ 556 015c 74       		.sleb128 -12
+ 557 015d 00       		.byte	0
+ 558 015e 08       		.uleb128 0x8
+ 559 015f AD000000 		.4byte	.LASF23
+ 560 0163 01       		.byte	0x1
+ 561 0164 76       		.byte	0x76
+ 562 0165 00000000 		.4byte	.LFB68
+ 563 0169 12000000 		.4byte	.LFE68-.LFB68
+ 564 016d 01       		.uleb128 0x1
+ 565 016e 9C       		.byte	0x9c
+ 566 016f 80010000 		.4byte	0x180
+ 567 0173 09       		.uleb128 0x9
+ 568 0174 7300     		.ascii	"s\000"
+ 569 0176 01       		.byte	0x1
+ 570 0177 76       		.byte	0x76
+ 571 0178 56000000 		.4byte	0x56
+ 572 017c 02       		.uleb128 0x2
+ 573 017d 91       		.byte	0x91
+ 574 017e 74       		.sleb128 -12
+ 575 017f 00       		.byte	0
+ 576 0180 08       		.uleb128 0x8
+ 577 0181 B5010000 		.4byte	.LASF24
+ 578 0185 01       		.byte	0x1
+ 579 0186 77       		.byte	0x77
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 14
+
+
+ 580 0187 00000000 		.4byte	.LFB69
+ 581 018b 12000000 		.4byte	.LFE69-.LFB69
+ 582 018f 01       		.uleb128 0x1
+ 583 0190 9C       		.byte	0x9c
+ 584 0191 A2010000 		.4byte	0x1a2
+ 585 0195 09       		.uleb128 0x9
+ 586 0196 7300     		.ascii	"s\000"
+ 587 0198 01       		.byte	0x1
+ 588 0199 77       		.byte	0x77
+ 589 019a 56000000 		.4byte	0x56
+ 590 019e 02       		.uleb128 0x2
+ 591 019f 91       		.byte	0x91
+ 592 01a0 74       		.sleb128 -12
+ 593 01a1 00       		.byte	0
+ 594 01a2 0C       		.uleb128 0xc
+ 595 01a3 00000000 		.4byte	.LASF25
+ 596 01a7 01       		.byte	0x1
+ 597 01a8 85       		.byte	0x85
+ 598 01a9 00000000 		.4byte	.LFB70
+ 599 01ad 1C000000 		.4byte	.LFE70-.LFB70
+ 600 01b1 01       		.uleb128 0x1
+ 601 01b2 9C       		.byte	0x9c
+ 602 01b3 0D       		.uleb128 0xd
+ 603 01b4 04020000 		.4byte	.LASF26
+ 604 01b8 01       		.byte	0x1
+ 605 01b9 90       		.byte	0x90
+ 606 01ba 00000000 		.4byte	.LFB71
+ 607 01be 48000000 		.4byte	.LFE71-.LFB71
+ 608 01c2 01       		.uleb128 0x1
+ 609 01c3 9C       		.byte	0x9c
+ 610 01c4 D5010000 		.4byte	0x1d5
+ 611 01c8 0E       		.uleb128 0xe
+ 612 01c9 6900     		.ascii	"i\000"
+ 613 01cb 01       		.byte	0x1
+ 614 01cc 91       		.byte	0x91
+ 615 01cd A5000000 		.4byte	0xa5
+ 616 01d1 02       		.uleb128 0x2
+ 617 01d2 91       		.byte	0x91
+ 618 01d3 74       		.sleb128 -12
+ 619 01d4 00       		.byte	0
+ 620 01d5 0F       		.uleb128 0xf
+ 621 01d6 01010000 		.4byte	.LASF28
+ 622 01da 05       		.byte	0x5
+ 623 01db 2A06     		.2byte	0x62a
+ 624 01dd E1010000 		.4byte	0x1e1
+ 625 01e1 10       		.uleb128 0x10
+ 626 01e2 9A000000 		.4byte	0x9a
+ 627 01e6 11       		.uleb128 0x11
+ 628 01e7 D6010000 		.4byte	.LASF29
+ 629 01eb 01       		.byte	0x1
+ 630 01ec 3B       		.byte	0x3b
+ 631 01ed F7010000 		.4byte	0x1f7
+ 632 01f1 05       		.uleb128 0x5
+ 633 01f2 03       		.byte	0x3
+ 634 01f3 00000000 		.4byte	OS_TimeMS
+ 635 01f7 10       		.uleb128 0x10
+ 636 01f8 25000000 		.4byte	0x25
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 15
+
+
+ 637 01fc 00       		.byte	0
+ 638              		.section	.debug_abbrev,"",%progbits
+ 639              	.Ldebug_abbrev0:
+ 640 0000 01       		.uleb128 0x1
+ 641 0001 11       		.uleb128 0x11
+ 642 0002 01       		.byte	0x1
+ 643 0003 25       		.uleb128 0x25
+ 644 0004 0E       		.uleb128 0xe
+ 645 0005 13       		.uleb128 0x13
+ 646 0006 0B       		.uleb128 0xb
+ 647 0007 03       		.uleb128 0x3
+ 648 0008 0E       		.uleb128 0xe
+ 649 0009 1B       		.uleb128 0x1b
+ 650 000a 0E       		.uleb128 0xe
+ 651 000b 55       		.uleb128 0x55
+ 652 000c 17       		.uleb128 0x17
+ 653 000d 11       		.uleb128 0x11
+ 654 000e 01       		.uleb128 0x1
+ 655 000f 10       		.uleb128 0x10
+ 656 0010 17       		.uleb128 0x17
+ 657 0011 00       		.byte	0
+ 658 0012 00       		.byte	0
+ 659 0013 02       		.uleb128 0x2
+ 660 0014 24       		.uleb128 0x24
+ 661 0015 00       		.byte	0
+ 662 0016 0B       		.uleb128 0xb
+ 663 0017 0B       		.uleb128 0xb
+ 664 0018 3E       		.uleb128 0x3e
+ 665 0019 0B       		.uleb128 0xb
+ 666 001a 03       		.uleb128 0x3
+ 667 001b 08       		.uleb128 0x8
+ 668 001c 00       		.byte	0
+ 669 001d 00       		.byte	0
+ 670 001e 03       		.uleb128 0x3
+ 671 001f 24       		.uleb128 0x24
+ 672 0020 00       		.byte	0
+ 673 0021 0B       		.uleb128 0xb
+ 674 0022 0B       		.uleb128 0xb
+ 675 0023 3E       		.uleb128 0x3e
+ 676 0024 0B       		.uleb128 0xb
+ 677 0025 03       		.uleb128 0x3
+ 678 0026 0E       		.uleb128 0xe
+ 679 0027 00       		.byte	0
+ 680 0028 00       		.byte	0
+ 681 0029 04       		.uleb128 0x4
+ 682 002a 0F       		.uleb128 0xf
+ 683 002b 00       		.byte	0
+ 684 002c 0B       		.uleb128 0xb
+ 685 002d 0B       		.uleb128 0xb
+ 686 002e 49       		.uleb128 0x49
+ 687 002f 13       		.uleb128 0x13
+ 688 0030 00       		.byte	0
+ 689 0031 00       		.byte	0
+ 690 0032 05       		.uleb128 0x5
+ 691 0033 26       		.uleb128 0x26
+ 692 0034 00       		.byte	0
+ 693 0035 49       		.uleb128 0x49
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 16
+
+
+ 694 0036 13       		.uleb128 0x13
+ 695 0037 00       		.byte	0
+ 696 0038 00       		.byte	0
+ 697 0039 06       		.uleb128 0x6
+ 698 003a 16       		.uleb128 0x16
+ 699 003b 00       		.byte	0
+ 700 003c 03       		.uleb128 0x3
+ 701 003d 0E       		.uleb128 0xe
+ 702 003e 3A       		.uleb128 0x3a
+ 703 003f 0B       		.uleb128 0xb
+ 704 0040 3B       		.uleb128 0x3b
+ 705 0041 0B       		.uleb128 0xb
+ 706 0042 49       		.uleb128 0x49
+ 707 0043 13       		.uleb128 0x13
+ 708 0044 00       		.byte	0
+ 709 0045 00       		.byte	0
+ 710 0046 07       		.uleb128 0x7
+ 711 0047 2E       		.uleb128 0x2e
+ 712 0048 00       		.byte	0
+ 713 0049 3F       		.uleb128 0x3f
+ 714 004a 19       		.uleb128 0x19
+ 715 004b 03       		.uleb128 0x3
+ 716 004c 0E       		.uleb128 0xe
+ 717 004d 3A       		.uleb128 0x3a
+ 718 004e 0B       		.uleb128 0xb
+ 719 004f 3B       		.uleb128 0x3b
+ 720 0050 0B       		.uleb128 0xb
+ 721 0051 27       		.uleb128 0x27
+ 722 0052 19       		.uleb128 0x19
+ 723 0053 49       		.uleb128 0x49
+ 724 0054 13       		.uleb128 0x13
+ 725 0055 11       		.uleb128 0x11
+ 726 0056 01       		.uleb128 0x1
+ 727 0057 12       		.uleb128 0x12
+ 728 0058 06       		.uleb128 0x6
+ 729 0059 40       		.uleb128 0x40
+ 730 005a 18       		.uleb128 0x18
+ 731 005b 9742     		.uleb128 0x2117
+ 732 005d 19       		.uleb128 0x19
+ 733 005e 00       		.byte	0
+ 734 005f 00       		.byte	0
+ 735 0060 08       		.uleb128 0x8
+ 736 0061 2E       		.uleb128 0x2e
+ 737 0062 01       		.byte	0x1
+ 738 0063 3F       		.uleb128 0x3f
+ 739 0064 19       		.uleb128 0x19
+ 740 0065 03       		.uleb128 0x3
+ 741 0066 0E       		.uleb128 0xe
+ 742 0067 3A       		.uleb128 0x3a
+ 743 0068 0B       		.uleb128 0xb
+ 744 0069 3B       		.uleb128 0x3b
+ 745 006a 0B       		.uleb128 0xb
+ 746 006b 27       		.uleb128 0x27
+ 747 006c 19       		.uleb128 0x19
+ 748 006d 11       		.uleb128 0x11
+ 749 006e 01       		.uleb128 0x1
+ 750 006f 12       		.uleb128 0x12
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 17
+
+
+ 751 0070 06       		.uleb128 0x6
+ 752 0071 40       		.uleb128 0x40
+ 753 0072 18       		.uleb128 0x18
+ 754 0073 9742     		.uleb128 0x2117
+ 755 0075 19       		.uleb128 0x19
+ 756 0076 01       		.uleb128 0x1
+ 757 0077 13       		.uleb128 0x13
+ 758 0078 00       		.byte	0
+ 759 0079 00       		.byte	0
+ 760 007a 09       		.uleb128 0x9
+ 761 007b 05       		.uleb128 0x5
+ 762 007c 00       		.byte	0
+ 763 007d 03       		.uleb128 0x3
+ 764 007e 08       		.uleb128 0x8
+ 765 007f 3A       		.uleb128 0x3a
+ 766 0080 0B       		.uleb128 0xb
+ 767 0081 3B       		.uleb128 0x3b
+ 768 0082 0B       		.uleb128 0xb
+ 769 0083 49       		.uleb128 0x49
+ 770 0084 13       		.uleb128 0x13
+ 771 0085 02       		.uleb128 0x2
+ 772 0086 18       		.uleb128 0x18
+ 773 0087 00       		.byte	0
+ 774 0088 00       		.byte	0
+ 775 0089 0A       		.uleb128 0xa
+ 776 008a 34       		.uleb128 0x34
+ 777 008b 00       		.byte	0
+ 778 008c 03       		.uleb128 0x3
+ 779 008d 0E       		.uleb128 0xe
+ 780 008e 3A       		.uleb128 0x3a
+ 781 008f 0B       		.uleb128 0xb
+ 782 0090 3B       		.uleb128 0x3b
+ 783 0091 0B       		.uleb128 0xb
+ 784 0092 49       		.uleb128 0x49
+ 785 0093 13       		.uleb128 0x13
+ 786 0094 02       		.uleb128 0x2
+ 787 0095 18       		.uleb128 0x18
+ 788 0096 00       		.byte	0
+ 789 0097 00       		.byte	0
+ 790 0098 0B       		.uleb128 0xb
+ 791 0099 2E       		.uleb128 0x2e
+ 792 009a 00       		.byte	0
+ 793 009b 3F       		.uleb128 0x3f
+ 794 009c 19       		.uleb128 0x19
+ 795 009d 03       		.uleb128 0x3
+ 796 009e 0E       		.uleb128 0xe
+ 797 009f 3A       		.uleb128 0x3a
+ 798 00a0 0B       		.uleb128 0xb
+ 799 00a1 3B       		.uleb128 0x3b
+ 800 00a2 0B       		.uleb128 0xb
+ 801 00a3 27       		.uleb128 0x27
+ 802 00a4 19       		.uleb128 0x19
+ 803 00a5 11       		.uleb128 0x11
+ 804 00a6 01       		.uleb128 0x1
+ 805 00a7 12       		.uleb128 0x12
+ 806 00a8 06       		.uleb128 0x6
+ 807 00a9 40       		.uleb128 0x40
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 18
+
+
+ 808 00aa 18       		.uleb128 0x18
+ 809 00ab 9642     		.uleb128 0x2116
+ 810 00ad 19       		.uleb128 0x19
+ 811 00ae 00       		.byte	0
+ 812 00af 00       		.byte	0
+ 813 00b0 0C       		.uleb128 0xc
+ 814 00b1 2E       		.uleb128 0x2e
+ 815 00b2 00       		.byte	0
+ 816 00b3 3F       		.uleb128 0x3f
+ 817 00b4 19       		.uleb128 0x19
+ 818 00b5 03       		.uleb128 0x3
+ 819 00b6 0E       		.uleb128 0xe
+ 820 00b7 3A       		.uleb128 0x3a
+ 821 00b8 0B       		.uleb128 0xb
+ 822 00b9 3B       		.uleb128 0x3b
+ 823 00ba 0B       		.uleb128 0xb
+ 824 00bb 27       		.uleb128 0x27
+ 825 00bc 19       		.uleb128 0x19
+ 826 00bd 11       		.uleb128 0x11
+ 827 00be 01       		.uleb128 0x1
+ 828 00bf 12       		.uleb128 0x12
+ 829 00c0 06       		.uleb128 0x6
+ 830 00c1 40       		.uleb128 0x40
+ 831 00c2 18       		.uleb128 0x18
+ 832 00c3 9742     		.uleb128 0x2117
+ 833 00c5 19       		.uleb128 0x19
+ 834 00c6 00       		.byte	0
+ 835 00c7 00       		.byte	0
+ 836 00c8 0D       		.uleb128 0xd
+ 837 00c9 2E       		.uleb128 0x2e
+ 838 00ca 01       		.byte	0x1
+ 839 00cb 3F       		.uleb128 0x3f
+ 840 00cc 19       		.uleb128 0x19
+ 841 00cd 03       		.uleb128 0x3
+ 842 00ce 0E       		.uleb128 0xe
+ 843 00cf 3A       		.uleb128 0x3a
+ 844 00d0 0B       		.uleb128 0xb
+ 845 00d1 3B       		.uleb128 0x3b
+ 846 00d2 0B       		.uleb128 0xb
+ 847 00d3 27       		.uleb128 0x27
+ 848 00d4 19       		.uleb128 0x19
+ 849 00d5 11       		.uleb128 0x11
+ 850 00d6 01       		.uleb128 0x1
+ 851 00d7 12       		.uleb128 0x12
+ 852 00d8 06       		.uleb128 0x6
+ 853 00d9 40       		.uleb128 0x40
+ 854 00da 18       		.uleb128 0x18
+ 855 00db 9642     		.uleb128 0x2116
+ 856 00dd 19       		.uleb128 0x19
+ 857 00de 01       		.uleb128 0x1
+ 858 00df 13       		.uleb128 0x13
+ 859 00e0 00       		.byte	0
+ 860 00e1 00       		.byte	0
+ 861 00e2 0E       		.uleb128 0xe
+ 862 00e3 34       		.uleb128 0x34
+ 863 00e4 00       		.byte	0
+ 864 00e5 03       		.uleb128 0x3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 19
+
+
+ 865 00e6 08       		.uleb128 0x8
+ 866 00e7 3A       		.uleb128 0x3a
+ 867 00e8 0B       		.uleb128 0xb
+ 868 00e9 3B       		.uleb128 0x3b
+ 869 00ea 0B       		.uleb128 0xb
+ 870 00eb 49       		.uleb128 0x49
+ 871 00ec 13       		.uleb128 0x13
+ 872 00ed 02       		.uleb128 0x2
+ 873 00ee 18       		.uleb128 0x18
+ 874 00ef 00       		.byte	0
+ 875 00f0 00       		.byte	0
+ 876 00f1 0F       		.uleb128 0xf
+ 877 00f2 34       		.uleb128 0x34
+ 878 00f3 00       		.byte	0
+ 879 00f4 03       		.uleb128 0x3
+ 880 00f5 0E       		.uleb128 0xe
+ 881 00f6 3A       		.uleb128 0x3a
+ 882 00f7 0B       		.uleb128 0xb
+ 883 00f8 3B       		.uleb128 0x3b
+ 884 00f9 05       		.uleb128 0x5
+ 885 00fa 49       		.uleb128 0x49
+ 886 00fb 13       		.uleb128 0x13
+ 887 00fc 3F       		.uleb128 0x3f
+ 888 00fd 19       		.uleb128 0x19
+ 889 00fe 3C       		.uleb128 0x3c
+ 890 00ff 19       		.uleb128 0x19
+ 891 0100 00       		.byte	0
+ 892 0101 00       		.byte	0
+ 893 0102 10       		.uleb128 0x10
+ 894 0103 35       		.uleb128 0x35
+ 895 0104 00       		.byte	0
+ 896 0105 49       		.uleb128 0x49
+ 897 0106 13       		.uleb128 0x13
+ 898 0107 00       		.byte	0
+ 899 0108 00       		.byte	0
+ 900 0109 11       		.uleb128 0x11
+ 901 010a 34       		.uleb128 0x34
+ 902 010b 00       		.byte	0
+ 903 010c 03       		.uleb128 0x3
+ 904 010d 0E       		.uleb128 0xe
+ 905 010e 3A       		.uleb128 0x3a
+ 906 010f 0B       		.uleb128 0xb
+ 907 0110 3B       		.uleb128 0x3b
+ 908 0111 0B       		.uleb128 0xb
+ 909 0112 49       		.uleb128 0x49
+ 910 0113 13       		.uleb128 0x13
+ 911 0114 3F       		.uleb128 0x3f
+ 912 0115 19       		.uleb128 0x19
+ 913 0116 02       		.uleb128 0x2
+ 914 0117 18       		.uleb128 0x18
+ 915 0118 00       		.byte	0
+ 916 0119 00       		.byte	0
+ 917 011a 00       		.byte	0
+ 918              		.section	.debug_aranges,"",%progbits
+ 919 0000 5C000000 		.4byte	0x5c
+ 920 0004 0200     		.2byte	0x2
+ 921 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 20
+
+
+ 922 000a 04       		.byte	0x4
+ 923 000b 00       		.byte	0
+ 924 000c 0000     		.2byte	0
+ 925 000e 0000     		.2byte	0
+ 926 0010 00000000 		.4byte	.LFB63
+ 927 0014 18000000 		.4byte	.LFE63-.LFB63
+ 928 0018 00000000 		.4byte	.LFB64
+ 929 001c 30000000 		.4byte	.LFE64-.LFB64
+ 930 0020 00000000 		.4byte	.LFB65
+ 931 0024 0A000000 		.4byte	.LFE65-.LFB65
+ 932 0028 00000000 		.4byte	.LFB66
+ 933 002c 0C000000 		.4byte	.LFE66-.LFB66
+ 934 0030 00000000 		.4byte	.LFB67
+ 935 0034 12000000 		.4byte	.LFE67-.LFB67
+ 936 0038 00000000 		.4byte	.LFB68
+ 937 003c 12000000 		.4byte	.LFE68-.LFB68
+ 938 0040 00000000 		.4byte	.LFB69
+ 939 0044 12000000 		.4byte	.LFE69-.LFB69
+ 940 0048 00000000 		.4byte	.LFB70
+ 941 004c 1C000000 		.4byte	.LFE70-.LFB70
+ 942 0050 00000000 		.4byte	.LFB71
+ 943 0054 48000000 		.4byte	.LFE71-.LFB71
+ 944 0058 00000000 		.4byte	0
+ 945 005c 00000000 		.4byte	0
+ 946              		.section	.debug_ranges,"",%progbits
+ 947              	.Ldebug_ranges0:
+ 948 0000 00000000 		.4byte	.LFB63
+ 949 0004 18000000 		.4byte	.LFE63
+ 950 0008 00000000 		.4byte	.LFB64
+ 951 000c 30000000 		.4byte	.LFE64
+ 952 0010 00000000 		.4byte	.LFB65
+ 953 0014 0A000000 		.4byte	.LFE65
+ 954 0018 00000000 		.4byte	.LFB66
+ 955 001c 0C000000 		.4byte	.LFE66
+ 956 0020 00000000 		.4byte	.LFB67
+ 957 0024 12000000 		.4byte	.LFE67
+ 958 0028 00000000 		.4byte	.LFB68
+ 959 002c 12000000 		.4byte	.LFE68
+ 960 0030 00000000 		.4byte	.LFB69
+ 961 0034 12000000 		.4byte	.LFE69
+ 962 0038 00000000 		.4byte	.LFB70
+ 963 003c 1C000000 		.4byte	.LFE70
+ 964 0040 00000000 		.4byte	.LFB71
+ 965 0044 48000000 		.4byte	.LFE71
+ 966 0048 00000000 		.4byte	0
+ 967 004c 00000000 		.4byte	0
+ 968              		.section	.debug_line,"",%progbits
+ 969              	.Ldebug_line0:
+ 970 0000 10020000 		.section	.debug_str,"MS",%progbits,1
+ 970      02004A01 
+ 970      00000201 
+ 970      FB0E0D00 
+ 970      01010101 
+ 971              	.LASF25:
+ 972 0000 4755495F 		.ascii	"GUI_X_Systick_Intr\000"
+ 972      585F5379 
+ 972      73746963 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 21
+
+
+ 972      6B5F496E 
+ 972      747200
+ 973              	.LASF9:
+ 974 0013 5F5F696E 		.ascii	"__int32_t\000"
+ 974      7433325F 
+ 974      7400
+ 975              	.LASF22:
+ 976 001d 4755495F 		.ascii	"GUI_X_Log\000"
+ 976      585F4C6F 
+ 976      6700
+ 977              	.LASF32:
+ 978 0027 433A5C55 		.ascii	"C:\\Users\\mark6\\Google Drive\\College-MIT\\S6Spri"
+ 978      73657273 
+ 978      5C6D6172 
+ 978      6B365C47 
+ 978      6F6F676C 
+ 979 0055 6E673230 		.ascii	"ng2020\\6.115\\FinalProject\\BunkerKnowledge\\PSoC_"
+ 979      32305C36 
+ 979      2E313135 
+ 979      5C46696E 
+ 979      616C5072 
+ 980 0084 355F4669 		.ascii	"5_Files\\Processor.cydsn\000"
+ 980      6C65735C 
+ 980      50726F63 
+ 980      6573736F 
+ 980      722E6379 
+ 981              	.LASF19:
+ 982 009c 4755495F 		.ascii	"GUI_X_Init\000"
+ 982      585F496E 
+ 982      697400
+ 983              	.LASF17:
+ 984 00a7 666C6F61 		.ascii	"float\000"
+ 984      7400
+ 985              	.LASF23:
+ 986 00ad 4755495F 		.ascii	"GUI_X_Warn\000"
+ 986      585F5761 
+ 986      726E00
+ 987              	.LASF12:
+ 988 00b8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 988      206C6F6E 
+ 988      6720756E 
+ 988      7369676E 
+ 988      65642069 
+ 989              	.LASF4:
+ 990 00cf 756E7369 		.ascii	"unsigned char\000"
+ 990      676E6564 
+ 990      20636861 
+ 990      7200
+ 991              	.LASF1:
+ 992 00dd 6C6F6E67 		.ascii	"long unsigned int\000"
+ 992      20756E73 
+ 992      69676E65 
+ 992      6420696E 
+ 992      7400
+ 993              	.LASF15:
+ 994 00ef 75696E74 		.ascii	"uint8\000"
+ 994      3800
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 22
+
+
+ 995              	.LASF21:
+ 996 00f5 4755495F 		.ascii	"GUI_X_Delay\000"
+ 996      585F4465 
+ 996      6C617900 
+ 997              	.LASF28:
+ 998 0101 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 998      52784275 
+ 998      66666572 
+ 998      00
+ 999              	.LASF30:
+ 1000 010e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1000      4320342E 
+ 1000      392E3320 
+ 1000      32303135 
+ 1000      30333033 
+ 1001 0141 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1001      20726576 
+ 1001      6973696F 
+ 1001      6E203232 
+ 1001      31323230 
+ 1002 0174 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1002      66756E63 
+ 1002      74696F6E 
+ 1002      2D736563 
+ 1002      74696F6E 
+ 1003              	.LASF18:
+ 1004 019c 646F7562 		.ascii	"double\000"
+ 1004      6C6500
+ 1005              	.LASF10:
+ 1006 01a3 5F5F7569 		.ascii	"__uint32_t\000"
+ 1006      6E743332 
+ 1006      5F7400
+ 1007              	.LASF16:
+ 1008 01ae 75696E74 		.ascii	"uint32\000"
+ 1008      333200
+ 1009              	.LASF24:
+ 1010 01b5 4755495F 		.ascii	"GUI_X_ErrorOut\000"
+ 1010      585F4572 
+ 1010      726F724F 
+ 1010      757400
+ 1011              	.LASF0:
+ 1012 01c4 756E7369 		.ascii	"unsigned int\000"
+ 1012      676E6564 
+ 1012      20696E74 
+ 1012      00
+ 1013              	.LASF3:
+ 1014 01d1 63686172 		.ascii	"char\000"
+ 1014      00
+ 1015              	.LASF29:
+ 1016 01d6 4F535F54 		.ascii	"OS_TimeMS\000"
+ 1016      696D654D 
+ 1016      5300
+ 1017              	.LASF13:
+ 1018 01e0 696E7433 		.ascii	"int32_t\000"
+ 1018      325F7400 
+ 1019              	.LASF8:
+ 1020 01e8 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cclMb1Ub.s 			page 23
+
+
+ 1020      74797065 
+ 1020      00
+ 1021              	.LASF27:
+ 1022 01f1 74456E64 		.ascii	"tEnd\000"
+ 1022      00
+ 1023              	.LASF11:
+ 1024 01f6 6C6F6E67 		.ascii	"long long int\000"
+ 1024      206C6F6E 
+ 1024      6720696E 
+ 1024      7400
+ 1025              	.LASF26:
+ 1026 0204 4755495F 		.ascii	"GUI_X_Systick_Init\000"
+ 1026      585F5379 
+ 1026      73746963 
+ 1026      6B5F496E 
+ 1026      697400
+ 1027              	.LASF20:
+ 1028 0217 4755495F 		.ascii	"GUI_X_ExecIdle\000"
+ 1028      585F4578 
+ 1028      65634964 
+ 1028      6C6500
+ 1029              	.LASF33:
+ 1030 0226 4755495F 		.ascii	"GUI_X_GetTime\000"
+ 1030      585F4765 
+ 1030      7454696D 
+ 1030      6500
+ 1031              	.LASF2:
+ 1032 0234 73686F72 		.ascii	"short int\000"
+ 1032      7420696E 
+ 1032      7400
+ 1033              	.LASF14:
+ 1034 023e 75696E74 		.ascii	"uint32_t\000"
+ 1034      33325F74 
+ 1034      00
+ 1035              	.LASF5:
+ 1036 0247 6C6F6E67 		.ascii	"long int\000"
+ 1036      20696E74 
+ 1036      00
+ 1037              	.LASF7:
+ 1038 0250 7369676E 		.ascii	"signed char\000"
+ 1038      65642063 
+ 1038      68617200 
+ 1039              	.LASF6:
+ 1040 025c 73686F72 		.ascii	"short unsigned int\000"
+ 1040      7420756E 
+ 1040      7369676E 
+ 1040      65642069 
+ 1040      6E7400
+ 1041              	.LASF31:
+ 1042 026f 2E5C4755 		.ascii	".\\GUI_X.c\000"
+ 1042      495F582E 
+ 1042      6300
+ 1043              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

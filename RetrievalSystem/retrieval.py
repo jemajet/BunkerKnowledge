@@ -72,7 +72,6 @@ def get_us_covid_data(level, time_length, state=None):
     if state != None:
         url += state + "/"
     url += time_length + ".json"
-    print(url)
     return make_request(url)
 
 
@@ -123,6 +122,8 @@ def get_covid19_data(level, time_length, state=None, press=False):
 
     Returns JSON of data
     '''
+    level = level.lower()
+    time_length = time_length.lower()
     if press:
         return get_press_data()
     elif level == "world":

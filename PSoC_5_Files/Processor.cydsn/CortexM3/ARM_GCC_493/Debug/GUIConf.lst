@@ -1,0 +1,1640 @@
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"GUIConf.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.GUI_X_Config,"ax",%progbits
+  19              		.align	2
+  20              		.global	GUI_X_Config
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	GUI_X_Config, %function
+  24              	GUI_X_Config:
+  25              	.LFB0:
+  26              		.file 1 ".\\GUIConf.c"
+   1:.\GUIConf.c   **** /*********************************************************************
+   2:.\GUIConf.c   **** *                SEGGER Microcontroller GmbH & Co. KG                *
+   3:.\GUIConf.c   **** *        Solutions for real time microcontroller applications        *
+   4:.\GUIConf.c   **** **********************************************************************
+   5:.\GUIConf.c   **** *                                                                    *
+   6:.\GUIConf.c   **** *        (c) 1996 - 2017  SEGGER Microcontroller GmbH & Co. KG       *
+   7:.\GUIConf.c   **** *                                                                    *
+   8:.\GUIConf.c   **** *        Internet: www.segger.com    Support:  support@segger.com    *
+   9:.\GUIConf.c   **** *                                                                    *
+  10:.\GUIConf.c   **** **********************************************************************
+  11:.\GUIConf.c   **** 
+  12:.\GUIConf.c   **** ** emWin V5.46 - Graphical user interface for embedded applications **
+  13:.\GUIConf.c   **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  14:.\GUIConf.c   **** emWin is protected by  international copyright laws.  Knowledge of the
+  15:.\GUIConf.c   **** source code may not be used to write a similar product.  This file may
+  16:.\GUIConf.c   **** only be used in accordance with the following terms:
+  17:.\GUIConf.c   **** 
+  18:.\GUIConf.c   **** The software  has been licensed to  Cypress Semiconductor Corporation,
+  19:.\GUIConf.c   **** whose registered  office is situated  at 198 Champion Ct. San Jose, CA 
+  20:.\GUIConf.c   **** 95134 USA  solely for the  purposes of creating  libraries for Cypress
+  21:.\GUIConf.c   **** PSoC3 and  PSoC5 processor-based devices,  sublicensed and distributed
+  22:.\GUIConf.c   **** under  the  terms  and  conditions  of  the  Cypress  End User License
+  23:.\GUIConf.c   **** Agreement.
+  24:.\GUIConf.c   **** Full source code is available at: www.segger.com
+  25:.\GUIConf.c   **** 
+  26:.\GUIConf.c   **** We appreciate your understanding and fairness.
+  27:.\GUIConf.c   **** ----------------------------------------------------------------------
+  28:.\GUIConf.c   **** Licensing information
+  29:.\GUIConf.c   **** Licensor:                 SEGGER Microcontroller Systems LLC
+  30:.\GUIConf.c   **** Licensed to:              Cypress Semiconductor Corp, 198 Champion Ct., San Jose, CA 95134, USA
+  31:.\GUIConf.c   **** Licensed SEGGER software: emWin
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 2
+
+
+  32:.\GUIConf.c   **** License number:           GUI-00319
+  33:.\GUIConf.c   **** License model:            Services and License Agreement, signed June 10th, 2009
+  34:.\GUIConf.c   **** Licensed platform:        Any Cypress platform (Initial targets are: PSoC3, PSoC5)
+  35:.\GUIConf.c   **** ----------------------------------------------------------------------
+  36:.\GUIConf.c   **** Support and Update Agreement (SUA)
+  37:.\GUIConf.c   **** SUA period:               2009-06-12 - 2022-07-27
+  38:.\GUIConf.c   **** Contact to extend SUA:    sales@segger.com
+  39:.\GUIConf.c   **** ----------------------------------------------------------------------
+  40:.\GUIConf.c   **** File        : GUIConf.c
+  41:.\GUIConf.c   **** Purpose     : Display controller initialization
+  42:.\GUIConf.c   **** ---------------------------END-OF-HEADER------------------------------
+  43:.\GUIConf.c   **** */
+  44:.\GUIConf.c   **** 
+  45:.\GUIConf.c   **** #include "GUI.h"
+  46:.\GUIConf.c   **** 
+  47:.\GUIConf.c   **** /*********************************************************************
+  48:.\GUIConf.c   **** *
+  49:.\GUIConf.c   **** *       Defines
+  50:.\GUIConf.c   **** *
+  51:.\GUIConf.c   **** **********************************************************************
+  52:.\GUIConf.c   **** */
+  53:.\GUIConf.c   **** //
+  54:.\GUIConf.c   **** // Define the available number of bytes available for the GUI
+  55:.\GUIConf.c   **** //
+  56:.\GUIConf.c   **** #define GUI_NUMBYTES  0x2000
+  57:.\GUIConf.c   **** 
+  58:.\GUIConf.c   **** /*********************************************************************
+  59:.\GUIConf.c   **** *
+  60:.\GUIConf.c   **** *       Public code
+  61:.\GUIConf.c   **** *
+  62:.\GUIConf.c   **** **********************************************************************
+  63:.\GUIConf.c   **** */
+  64:.\GUIConf.c   **** /*********************************************************************
+  65:.\GUIConf.c   **** *
+  66:.\GUIConf.c   **** *       GUI_X_Config
+  67:.\GUIConf.c   **** *
+  68:.\GUIConf.c   **** * Purpose:
+  69:.\GUIConf.c   **** *   Called during the initialization process in order to set up the
+  70:.\GUIConf.c   **** *   available memory for the GUI.
+  71:.\GUIConf.c   **** */
+  72:.\GUIConf.c   **** void GUI_X_Config(void) {
+  27              		.loc 1 72 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 7, -8
+  34              		.cfi_offset 14, -4
+  35 0002 00AF     		add	r7, sp, #0
+  36              		.cfi_def_cfa_register 7
+  73:.\GUIConf.c   ****   //
+  74:.\GUIConf.c   ****   // 32 bit aligned memory area
+  75:.\GUIConf.c   ****   //
+  76:.\GUIConf.c   ****   static U32 aMemory[GUI_NUMBYTES / 4];
+  77:.\GUIConf.c   ****   //
+  78:.\GUIConf.c   ****   // Assign memory to emWin
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 3
+
+
+  79:.\GUIConf.c   ****   //
+  80:.\GUIConf.c   ****   GUI_ALLOC_AssignMemory(aMemory, GUI_NUMBYTES);
+  37              		.loc 1 80 0
+  38 0004 0448     		ldr	r0, .L2
+  39 0006 4FF40051 		mov	r1, #8192
+  40 000a FFF7FEFF 		bl	GUI_ALLOC_AssignMemory
+  81:.\GUIConf.c   ****   //
+  82:.\GUIConf.c   ****   // Set default font
+  83:.\GUIConf.c   ****   //
+  84:.\GUIConf.c   ****   GUI_SetDefaultFont(GUI_FONT_6X8);
+  41              		.loc 1 84 0
+  42 000e 0348     		ldr	r0, .L2+4
+  43 0010 FFF7FEFF 		bl	GUI_SetDefaultFont
+  85:.\GUIConf.c   **** }
+  44              		.loc 1 85 0
+  45 0014 80BD     		pop	{r7, pc}
+  46              	.L3:
+  47 0016 00BF     		.align	2
+  48              	.L2:
+  49 0018 00000000 		.word	aMemory.7986
+  50 001c 00000000 		.word	GUI_Font6x8
+  51              		.cfi_endproc
+  52              	.LFE0:
+  53              		.size	GUI_X_Config, .-GUI_X_Config
+  54              		.bss
+  55              		.align	2
+  56              	aMemory.7986:
+  57 0000 00000000 		.space	8192
+  57      00000000 
+  57      00000000 
+  57      00000000 
+  57      00000000 
+  58              		.text
+  59              	.Letext0:
+  60              		.file 2 "..\\..\\..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI_Type.h"
+  61              		.file 3 "..\\..\\..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI.h"
+  62              		.section	.debug_info,"",%progbits
+  63              	.Ldebug_info0:
+  64 0000 EE050000 		.4byte	0x5ee
+  65 0004 0400     		.2byte	0x4
+  66 0006 00000000 		.4byte	.Ldebug_abbrev0
+  67 000a 04       		.byte	0x4
+  68 000b 01       		.uleb128 0x1
+  69 000c 1D010000 		.4byte	.LASF63
+  70 0010 01       		.byte	0x1
+  71 0011 11010000 		.4byte	.LASF64
+  72 0015 C7010000 		.4byte	.LASF65
+  73 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  74 001d 00000000 		.4byte	0
+  75 0021 00000000 		.4byte	.Ldebug_line0
+  76 0025 02       		.uleb128 0x2
+  77 0026 04       		.byte	0x4
+  78 0027 05       		.byte	0x5
+  79 0028 696E7400 		.ascii	"int\000"
+  80 002c 03       		.uleb128 0x3
+  81 002d 04       		.byte	0x4
+  82 002e 07       		.byte	0x7
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 4
+
+
+  83 002f 92020000 		.4byte	.LASF0
+  84 0033 03       		.uleb128 0x3
+  85 0034 04       		.byte	0x4
+  86 0035 07       		.byte	0x7
+  87 0036 2F030000 		.4byte	.LASF1
+  88 003a 03       		.uleb128 0x3
+  89 003b 02       		.byte	0x2
+  90 003c 05       		.byte	0x5
+  91 003d 2E000000 		.4byte	.LASF2
+  92 0041 03       		.uleb128 0x3
+  93 0042 01       		.byte	0x1
+  94 0043 08       		.byte	0x8
+  95 0044 DB020000 		.4byte	.LASF3
+  96 0048 03       		.uleb128 0x3
+  97 0049 01       		.byte	0x1
+  98 004a 08       		.byte	0x8
+  99 004b 59020000 		.4byte	.LASF4
+ 100 004f 03       		.uleb128 0x3
+ 101 0050 04       		.byte	0x4
+ 102 0051 05       		.byte	0x5
+ 103 0052 A6030000 		.4byte	.LASF5
+ 104 0056 04       		.uleb128 0x4
+ 105 0057 04       		.byte	0x4
+ 106 0058 5C000000 		.4byte	0x5c
+ 107 005c 05       		.uleb128 0x5
+ 108 005d 48000000 		.4byte	0x48
+ 109 0061 04       		.uleb128 0x4
+ 110 0062 04       		.byte	0x4
+ 111 0063 67000000 		.4byte	0x67
+ 112 0067 06       		.uleb128 0x6
+ 113 0068 04       		.uleb128 0x4
+ 114 0069 04       		.byte	0x4
+ 115 006a 6E000000 		.4byte	0x6e
+ 116 006e 05       		.uleb128 0x5
+ 117 006f 41000000 		.4byte	0x41
+ 118 0073 03       		.uleb128 0x3
+ 119 0074 02       		.byte	0x2
+ 120 0075 07       		.byte	0x7
+ 121 0076 C8020000 		.4byte	.LASF6
+ 122 007a 07       		.uleb128 0x7
+ 123 007b 04       		.byte	0x4
+ 124 007c 02       		.byte	0x2
+ 125 007d B6       		.byte	0xb6
+ 126 007e 99000000 		.4byte	0x99
+ 127 0082 08       		.uleb128 0x8
+ 128 0083 633000   		.ascii	"c0\000"
+ 129 0086 02       		.byte	0x2
+ 130 0087 B7       		.byte	0xb7
+ 131 0088 3A000000 		.4byte	0x3a
+ 132 008c 00       		.byte	0
+ 133 008d 08       		.uleb128 0x8
+ 134 008e 633100   		.ascii	"c1\000"
+ 135 0091 02       		.byte	0x2
+ 136 0092 B8       		.byte	0xb8
+ 137 0093 3A000000 		.4byte	0x3a
+ 138 0097 02       		.byte	0x2
+ 139 0098 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 5
+
+
+ 140 0099 09       		.uleb128 0x9
+ 141 009a 74000000 		.4byte	.LASF10
+ 142 009e 02       		.byte	0x2
+ 143 009f B9       		.byte	0xb9
+ 144 00a0 7A000000 		.4byte	0x7a
+ 145 00a4 07       		.uleb128 0x7
+ 146 00a5 08       		.byte	0x8
+ 147 00a6 02       		.byte	0x2
+ 148 00a7 BB       		.byte	0xbb
+ 149 00a8 D1000000 		.4byte	0xd1
+ 150 00ac 0A       		.uleb128 0xa
+ 151 00ad E0020000 		.4byte	.LASF7
+ 152 00b1 02       		.byte	0x2
+ 153 00b2 BC       		.byte	0xbc
+ 154 00b3 73000000 		.4byte	0x73
+ 155 00b7 00       		.byte	0
+ 156 00b8 0A       		.uleb128 0xa
+ 157 00b9 DD030000 		.4byte	.LASF8
+ 158 00bd 02       		.byte	0x2
+ 159 00be BD       		.byte	0xbd
+ 160 00bf 73000000 		.4byte	0x73
+ 161 00c3 02       		.byte	0x2
+ 162 00c4 0A       		.uleb128 0xa
+ 163 00c5 00000000 		.4byte	.LASF9
+ 164 00c9 02       		.byte	0x2
+ 165 00ca BE       		.byte	0xbe
+ 166 00cb D1000000 		.4byte	0xd1
+ 167 00cf 04       		.byte	0x4
+ 168 00d0 00       		.byte	0
+ 169 00d1 04       		.uleb128 0x4
+ 170 00d2 04       		.byte	0x4
+ 171 00d3 D7000000 		.4byte	0xd7
+ 172 00d7 05       		.uleb128 0x5
+ 173 00d8 99000000 		.4byte	0x99
+ 174 00dc 09       		.uleb128 0x9
+ 175 00dd D6000000 		.4byte	.LASF11
+ 176 00e1 02       		.byte	0x2
+ 177 00e2 BF       		.byte	0xbf
+ 178 00e3 A4000000 		.4byte	0xa4
+ 179 00e7 07       		.uleb128 0x7
+ 180 00e8 08       		.byte	0x8
+ 181 00e9 02       		.byte	0x2
+ 182 00ea C1       		.byte	0xc1
+ 183 00eb 20010000 		.4byte	0x120
+ 184 00ef 0A       		.uleb128 0xa
+ 185 00f0 9D000000 		.4byte	.LASF12
+ 186 00f4 02       		.byte	0x2
+ 187 00f5 C2       		.byte	0xc2
+ 188 00f6 48000000 		.4byte	0x48
+ 189 00fa 00       		.byte	0
+ 190 00fb 0A       		.uleb128 0xa
+ 191 00fc 8C020000 		.4byte	.LASF13
+ 192 0100 02       		.byte	0x2
+ 193 0101 C3       		.byte	0xc3
+ 194 0102 48000000 		.4byte	0x48
+ 195 0106 01       		.byte	0x1
+ 196 0107 0A       		.uleb128 0xa
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 6
+
+
+ 197 0108 41000000 		.4byte	.LASF14
+ 198 010c 02       		.byte	0x2
+ 199 010d C4       		.byte	0xc4
+ 200 010e 48000000 		.4byte	0x48
+ 201 0112 02       		.byte	0x2
+ 202 0113 0A       		.uleb128 0xa
+ 203 0114 1E000000 		.4byte	.LASF15
+ 204 0118 02       		.byte	0x2
+ 205 0119 C5       		.byte	0xc5
+ 206 011a 56000000 		.4byte	0x56
+ 207 011e 04       		.byte	0x4
+ 208 011f 00       		.byte	0
+ 209 0120 09       		.uleb128 0x9
+ 210 0121 06000000 		.4byte	.LASF16
+ 211 0125 02       		.byte	0x2
+ 212 0126 C6       		.byte	0xc6
+ 213 0127 E7000000 		.4byte	0xe7
+ 214 012b 07       		.uleb128 0x7
+ 215 012c 0C       		.byte	0xc
+ 216 012d 02       		.byte	0x2
+ 217 012e C8       		.byte	0xc8
+ 218 012f 7C010000 		.4byte	0x17c
+ 219 0133 0A       		.uleb128 0xa
+ 220 0134 9D000000 		.4byte	.LASF12
+ 221 0138 02       		.byte	0x2
+ 222 0139 C9       		.byte	0xc9
+ 223 013a 48000000 		.4byte	0x48
+ 224 013e 00       		.byte	0
+ 225 013f 0A       		.uleb128 0xa
+ 226 0140 C2020000 		.4byte	.LASF17
+ 227 0144 02       		.byte	0x2
+ 228 0145 CA       		.byte	0xca
+ 229 0146 48000000 		.4byte	0x48
+ 230 014a 01       		.byte	0x1
+ 231 014b 0A       		.uleb128 0xa
+ 232 014c C3000000 		.4byte	.LASF18
+ 233 0150 02       		.byte	0x2
+ 234 0151 CB       		.byte	0xcb
+ 235 0152 7C010000 		.4byte	0x17c
+ 236 0156 02       		.byte	0x2
+ 237 0157 0A       		.uleb128 0xa
+ 238 0158 9F020000 		.4byte	.LASF19
+ 239 015c 02       		.byte	0x2
+ 240 015d CC       		.byte	0xcc
+ 241 015e 7C010000 		.4byte	0x17c
+ 242 0162 03       		.byte	0x3
+ 243 0163 0A       		.uleb128 0xa
+ 244 0164 8C020000 		.4byte	.LASF13
+ 245 0168 02       		.byte	0x2
+ 246 0169 CD       		.byte	0xcd
+ 247 016a 48000000 		.4byte	0x48
+ 248 016e 04       		.byte	0x4
+ 249 016f 0A       		.uleb128 0xa
+ 250 0170 1E000000 		.4byte	.LASF15
+ 251 0174 02       		.byte	0x2
+ 252 0175 CE       		.byte	0xce
+ 253 0176 56000000 		.4byte	0x56
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 7
+
+
+ 254 017a 08       		.byte	0x8
+ 255 017b 00       		.byte	0
+ 256 017c 03       		.uleb128 0x3
+ 257 017d 01       		.byte	0x1
+ 258 017e 06       		.byte	0x6
+ 259 017f 80020000 		.4byte	.LASF20
+ 260 0183 09       		.uleb128 0x9
+ 261 0184 AB010000 		.4byte	.LASF21
+ 262 0188 02       		.byte	0x2
+ 263 0189 CF       		.byte	0xcf
+ 264 018a 2B010000 		.4byte	0x12b
+ 265 018e 0B       		.uleb128 0xb
+ 266 018f 14030000 		.4byte	.LASF26
+ 267 0193 0C       		.byte	0xc
+ 268 0194 02       		.byte	0x2
+ 269 0195 D1       		.byte	0xd1
+ 270 0196 CB010000 		.4byte	0x1cb
+ 271 019a 0A       		.uleb128 0xa
+ 272 019b 41030000 		.4byte	.LASF22
+ 273 019f 02       		.byte	0x2
+ 274 01a0 D2       		.byte	0xd2
+ 275 01a1 73000000 		.4byte	0x73
+ 276 01a5 00       		.byte	0
+ 277 01a6 0A       		.uleb128 0xa
+ 278 01a7 0C010000 		.4byte	.LASF23
+ 279 01ab 02       		.byte	0x2
+ 280 01ac D3       		.byte	0xd3
+ 281 01ad 73000000 		.4byte	0x73
+ 282 01b1 02       		.byte	0x2
+ 283 01b2 0A       		.uleb128 0xa
+ 284 01b3 F3000000 		.4byte	.LASF24
+ 285 01b7 02       		.byte	0x2
+ 286 01b8 D4       		.byte	0xd4
+ 287 01b9 CB010000 		.4byte	0x1cb
+ 288 01bd 04       		.byte	0x4
+ 289 01be 0A       		.uleb128 0xa
+ 290 01bf FE000000 		.4byte	.LASF25
+ 291 01c3 02       		.byte	0x2
+ 292 01c4 D5       		.byte	0xd5
+ 293 01c5 D6010000 		.4byte	0x1d6
+ 294 01c9 08       		.byte	0x8
+ 295 01ca 00       		.byte	0
+ 296 01cb 04       		.uleb128 0x4
+ 297 01cc 04       		.byte	0x4
+ 298 01cd D1010000 		.4byte	0x1d1
+ 299 01d1 05       		.uleb128 0x5
+ 300 01d2 20010000 		.4byte	0x120
+ 301 01d6 04       		.uleb128 0x4
+ 302 01d7 04       		.byte	0x4
+ 303 01d8 DC010000 		.4byte	0x1dc
+ 304 01dc 05       		.uleb128 0x5
+ 305 01dd 8E010000 		.4byte	0x18e
+ 306 01e1 09       		.uleb128 0x9
+ 307 01e2 14030000 		.4byte	.LASF26
+ 308 01e6 02       		.byte	0x2
+ 309 01e7 D6       		.byte	0xd6
+ 310 01e8 8E010000 		.4byte	0x18e
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 8
+
+
+ 311 01ec 0B       		.uleb128 0xb
+ 312 01ed 62000000 		.4byte	.LASF27
+ 313 01f1 0C       		.byte	0xc
+ 314 01f2 02       		.byte	0x2
+ 315 01f3 D8       		.byte	0xd8
+ 316 01f4 29020000 		.4byte	0x229
+ 317 01f8 0A       		.uleb128 0xa
+ 318 01f9 41030000 		.4byte	.LASF22
+ 319 01fd 02       		.byte	0x2
+ 320 01fe D9       		.byte	0xd9
+ 321 01ff 73000000 		.4byte	0x73
+ 322 0203 00       		.byte	0
+ 323 0204 0A       		.uleb128 0xa
+ 324 0205 0C010000 		.4byte	.LASF23
+ 325 0209 02       		.byte	0x2
+ 326 020a DA       		.byte	0xda
+ 327 020b 73000000 		.4byte	0x73
+ 328 020f 02       		.byte	0x2
+ 329 0210 0A       		.uleb128 0xa
+ 330 0211 F3000000 		.4byte	.LASF24
+ 331 0215 02       		.byte	0x2
+ 332 0216 DB       		.byte	0xdb
+ 333 0217 29020000 		.4byte	0x229
+ 334 021b 04       		.byte	0x4
+ 335 021c 0A       		.uleb128 0xa
+ 336 021d FE000000 		.4byte	.LASF25
+ 337 0221 02       		.byte	0x2
+ 338 0222 DC       		.byte	0xdc
+ 339 0223 34020000 		.4byte	0x234
+ 340 0227 08       		.byte	0x8
+ 341 0228 00       		.byte	0
+ 342 0229 04       		.uleb128 0x4
+ 343 022a 04       		.byte	0x4
+ 344 022b 2F020000 		.4byte	0x22f
+ 345 022f 05       		.uleb128 0x5
+ 346 0230 83010000 		.4byte	0x183
+ 347 0234 04       		.uleb128 0x4
+ 348 0235 04       		.byte	0x4
+ 349 0236 3A020000 		.4byte	0x23a
+ 350 023a 05       		.uleb128 0x5
+ 351 023b EC010000 		.4byte	0x1ec
+ 352 023f 09       		.uleb128 0x9
+ 353 0240 62000000 		.4byte	.LASF27
+ 354 0244 02       		.byte	0x2
+ 355 0245 DD       		.byte	0xdd
+ 356 0246 EC010000 		.4byte	0x1ec
+ 357 024a 07       		.uleb128 0x7
+ 358 024b 14       		.byte	0x14
+ 359 024c 02       		.byte	0x2
+ 360 024d DF       		.byte	0xdf
+ 361 024e B3020000 		.4byte	0x2b3
+ 362 0252 0A       		.uleb128 0xa
+ 363 0253 1E000000 		.4byte	.LASF15
+ 364 0257 02       		.byte	0x2
+ 365 0258 E0       		.byte	0xe0
+ 366 0259 56000000 		.4byte	0x56
+ 367 025d 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 9
+
+
+ 368 025e 0A       		.uleb128 0xa
+ 369 025f BC010000 		.4byte	.LASF28
+ 370 0263 02       		.byte	0x2
+ 371 0264 E1       		.byte	0xe1
+ 372 0265 56000000 		.4byte	0x56
+ 373 0269 04       		.byte	0x4
+ 374 026a 0A       		.uleb128 0xa
+ 375 026b 5B000000 		.4byte	.LASF29
+ 376 026f 02       		.byte	0x2
+ 377 0270 E2       		.byte	0xe2
+ 378 0271 B3020000 		.4byte	0x2b3
+ 379 0275 08       		.byte	0x8
+ 380 0276 0A       		.uleb128 0xa
+ 381 0277 E0020000 		.4byte	.LASF7
+ 382 027b 02       		.byte	0x2
+ 383 027c E3       		.byte	0xe3
+ 384 027d 73000000 		.4byte	0x73
+ 385 0281 0C       		.byte	0xc
+ 386 0282 0A       		.uleb128 0xa
+ 387 0283 DD030000 		.4byte	.LASF8
+ 388 0287 02       		.byte	0x2
+ 389 0288 E4       		.byte	0xe4
+ 390 0289 73000000 		.4byte	0x73
+ 391 028d 0E       		.byte	0xe
+ 392 028e 0A       		.uleb128 0xa
+ 393 028f 9D000000 		.4byte	.LASF12
+ 394 0293 02       		.byte	0x2
+ 395 0294 E5       		.byte	0xe5
+ 396 0295 48000000 		.4byte	0x48
+ 397 0299 10       		.byte	0x10
+ 398 029a 0A       		.uleb128 0xa
+ 399 029b 8C020000 		.4byte	.LASF13
+ 400 029f 02       		.byte	0x2
+ 401 02a0 E6       		.byte	0xe6
+ 402 02a1 48000000 		.4byte	0x48
+ 403 02a5 11       		.byte	0x11
+ 404 02a6 0A       		.uleb128 0xa
+ 405 02a7 41000000 		.4byte	.LASF14
+ 406 02ab 02       		.byte	0x2
+ 407 02ac E7       		.byte	0xe7
+ 408 02ad 48000000 		.4byte	0x48
+ 409 02b1 12       		.byte	0x12
+ 410 02b2 00       		.byte	0
+ 411 02b3 04       		.uleb128 0x4
+ 412 02b4 04       		.byte	0x4
+ 413 02b5 B9020000 		.4byte	0x2b9
+ 414 02b9 05       		.uleb128 0x5
+ 415 02ba DC000000 		.4byte	0xdc
+ 416 02be 09       		.uleb128 0x9
+ 417 02bf 47030000 		.4byte	.LASF30
+ 418 02c3 02       		.byte	0x2
+ 419 02c4 E8       		.byte	0xe8
+ 420 02c5 4A020000 		.4byte	0x24a
+ 421 02c9 07       		.uleb128 0x7
+ 422 02ca 06       		.byte	0x6
+ 423 02cb 02       		.byte	0x2
+ 424 02cc F1       		.byte	0xf1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 10
+
+
+ 425 02cd 02030000 		.4byte	0x302
+ 426 02d1 0A       		.uleb128 0xa
+ 427 02d2 C8000000 		.4byte	.LASF31
+ 428 02d6 02       		.byte	0x2
+ 429 02d7 F2       		.byte	0xf2
+ 430 02d8 73000000 		.4byte	0x73
+ 431 02dc 00       		.byte	0
+ 432 02dd 0A       		.uleb128 0xa
+ 433 02de 94000000 		.4byte	.LASF32
+ 434 02e2 02       		.byte	0x2
+ 435 02e3 F3       		.byte	0xf3
+ 436 02e4 48000000 		.4byte	0x48
+ 437 02e8 02       		.byte	0x2
+ 438 02e9 0A       		.uleb128 0xa
+ 439 02ea 87000000 		.4byte	.LASF33
+ 440 02ee 02       		.byte	0x2
+ 441 02ef F4       		.byte	0xf4
+ 442 02f0 48000000 		.4byte	0x48
+ 443 02f4 03       		.byte	0x3
+ 444 02f5 0A       		.uleb128 0xa
+ 445 02f6 CE000000 		.4byte	.LASF34
+ 446 02fa 02       		.byte	0x2
+ 447 02fb F5       		.byte	0xf5
+ 448 02fc 48000000 		.4byte	0x48
+ 449 0300 04       		.byte	0x4
+ 450 0301 00       		.byte	0
+ 451 0302 09       		.uleb128 0x9
+ 452 0303 D0030000 		.4byte	.LASF35
+ 453 0307 02       		.byte	0x2
+ 454 0308 F6       		.byte	0xf6
+ 455 0309 C9020000 		.4byte	0x2c9
+ 456 030d 0C       		.uleb128 0xc
+ 457 030e F9020000 		.4byte	.LASF36
+ 458 0312 02       		.byte	0x2
+ 459 0313 1301     		.2byte	0x113
+ 460 0315 19030000 		.4byte	0x319
+ 461 0319 0D       		.uleb128 0xd
+ 462 031a 25000000 		.4byte	0x25
+ 463 031e 2D030000 		.4byte	0x32d
+ 464 0322 0E       		.uleb128 0xe
+ 465 0323 68000000 		.4byte	0x68
+ 466 0327 0E       		.uleb128 0xe
+ 467 0328 25000000 		.4byte	0x25
+ 468 032c 00       		.byte	0
+ 469 032d 0C       		.uleb128 0xc
+ 470 032e 96030000 		.4byte	.LASF37
+ 471 0332 02       		.byte	0x2
+ 472 0333 1401     		.2byte	0x114
+ 473 0335 19030000 		.4byte	0x319
+ 474 0339 0C       		.uleb128 0xc
+ 475 033a C3030000 		.4byte	.LASF38
+ 476 033e 02       		.byte	0x2
+ 477 033f 1501     		.2byte	0x115
+ 478 0341 45030000 		.4byte	0x345
+ 479 0345 0F       		.uleb128 0xf
+ 480 0346 55030000 		.4byte	0x355
+ 481 034a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 11
+
+
+ 482 034b 68000000 		.4byte	0x68
+ 483 034f 0E       		.uleb128 0xe
+ 484 0350 25000000 		.4byte	0x25
+ 485 0354 00       		.byte	0
+ 486 0355 10       		.uleb128 0x10
+ 487 0356 0C       		.byte	0xc
+ 488 0357 02       		.byte	0x2
+ 489 0358 1701     		.2byte	0x117
+ 490 035a 86030000 		.4byte	0x386
+ 491 035e 11       		.uleb128 0x11
+ 492 035f EA020000 		.4byte	.LASF39
+ 493 0363 02       		.byte	0x2
+ 494 0364 1801     		.2byte	0x118
+ 495 0366 86030000 		.4byte	0x386
+ 496 036a 00       		.byte	0
+ 497 036b 11       		.uleb128 0x11
+ 498 036c 4E000000 		.4byte	.LASF40
+ 499 0370 02       		.byte	0x2
+ 500 0371 1901     		.2byte	0x119
+ 501 0373 8C030000 		.4byte	0x38c
+ 502 0377 04       		.byte	0x4
+ 503 0378 11       		.uleb128 0x11
+ 504 0379 75020000 		.4byte	.LASF41
+ 505 037d 02       		.byte	0x2
+ 506 037e 1A01     		.2byte	0x11a
+ 507 0380 92030000 		.4byte	0x392
+ 508 0384 08       		.byte	0x8
+ 509 0385 00       		.byte	0
+ 510 0386 04       		.uleb128 0x4
+ 511 0387 04       		.byte	0x4
+ 512 0388 0D030000 		.4byte	0x30d
+ 513 038c 04       		.uleb128 0x4
+ 514 038d 04       		.byte	0x4
+ 515 038e 2D030000 		.4byte	0x32d
+ 516 0392 04       		.uleb128 0x4
+ 517 0393 04       		.byte	0x4
+ 518 0394 39030000 		.4byte	0x339
+ 519 0398 0C       		.uleb128 0xc
+ 520 0399 B2000000 		.4byte	.LASF42
+ 521 039d 02       		.byte	0x2
+ 522 039e 1B01     		.2byte	0x11b
+ 523 03a0 55030000 		.4byte	0x355
+ 524 03a4 0C       		.uleb128 0xc
+ 525 03a5 0B030000 		.4byte	.LASF43
+ 526 03a9 02       		.byte	0x2
+ 527 03aa 2401     		.2byte	0x124
+ 528 03ac B0030000 		.4byte	0x3b0
+ 529 03b0 12       		.uleb128 0x12
+ 530 03b1 0B030000 		.4byte	.LASF43
+ 531 03b5 24       		.byte	0x24
+ 532 03b6 02       		.byte	0x2
+ 533 03b7 B101     		.2byte	0x1b1
+ 534 03b9 72040000 		.4byte	0x472
+ 535 03bd 11       		.uleb128 0x11
+ 536 03be 85030000 		.4byte	.LASF44
+ 537 03c2 02       		.byte	0x2
+ 538 03c3 B201     		.2byte	0x1b2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 12
+
+
+ 539 03c5 7D050000 		.4byte	0x57d
+ 540 03c9 00       		.byte	0
+ 541 03ca 11       		.uleb128 0x11
+ 542 03cb 55030000 		.4byte	.LASF45
+ 543 03cf 02       		.byte	0x2
+ 544 03d0 B301     		.2byte	0x1b3
+ 545 03d2 83050000 		.4byte	0x583
+ 546 03d6 04       		.byte	0x4
+ 547 03d7 11       		.uleb128 0x11
+ 548 03d8 B5030000 		.4byte	.LASF46
+ 549 03dc 02       		.byte	0x2
+ 550 03dd B401     		.2byte	0x1b4
+ 551 03df 89050000 		.4byte	0x589
+ 552 03e3 08       		.byte	0x8
+ 553 03e4 11       		.uleb128 0x11
+ 554 03e5 13000000 		.4byte	.LASF47
+ 555 03e9 02       		.byte	0x2
+ 556 03ea B501     		.2byte	0x1b5
+ 557 03ec 8F050000 		.4byte	0x58f
+ 558 03f0 0C       		.byte	0xc
+ 559 03f1 11       		.uleb128 0x11
+ 560 03f2 67020000 		.4byte	.LASF48
+ 561 03f6 02       		.byte	0x2
+ 562 03f7 B601     		.2byte	0x1b6
+ 563 03f9 95050000 		.4byte	0x595
+ 564 03fd 10       		.byte	0x10
+ 565 03fe 11       		.uleb128 0x11
+ 566 03ff E9000000 		.4byte	.LASF49
+ 567 0403 02       		.byte	0x2
+ 568 0404 B701     		.2byte	0x1b7
+ 569 0406 9B050000 		.4byte	0x59b
+ 570 040a 14       		.byte	0x14
+ 571 040b 11       		.uleb128 0x11
+ 572 040c C2020000 		.4byte	.LASF17
+ 573 0410 02       		.byte	0x2
+ 574 0411 B801     		.2byte	0x1b8
+ 575 0413 48000000 		.4byte	0x48
+ 576 0417 18       		.byte	0x18
+ 577 0418 11       		.uleb128 0x11
+ 578 0419 90030000 		.4byte	.LASF50
+ 579 041d 02       		.byte	0x2
+ 580 041e B901     		.2byte	0x1b9
+ 581 0420 48000000 		.4byte	0x48
+ 582 0424 19       		.byte	0x19
+ 583 0425 11       		.uleb128 0x11
+ 584 0426 80030000 		.4byte	.LASF51
+ 585 042a 02       		.byte	0x2
+ 586 042b BA01     		.2byte	0x1ba
+ 587 042d 48000000 		.4byte	0x48
+ 588 0431 1A       		.byte	0x1a
+ 589 0432 11       		.uleb128 0x11
+ 590 0433 8F000000 		.4byte	.LASF52
+ 591 0437 02       		.byte	0x2
+ 592 0438 BB01     		.2byte	0x1bb
+ 593 043a 48000000 		.4byte	0x48
+ 594 043e 1B       		.byte	0x1b
+ 595 043f 13       		.uleb128 0x13
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 13
+
+
+ 596 0440 7000     		.ascii	"p\000"
+ 597 0442 02       		.byte	0x2
+ 598 0443 C101     		.2byte	0x1c1
+ 599 0445 22050000 		.4byte	0x522
+ 600 0449 1C       		.byte	0x1c
+ 601 044a 11       		.uleb128 0x11
+ 602 044b 94000000 		.4byte	.LASF32
+ 603 044f 02       		.byte	0x2
+ 604 0450 C201     		.2byte	0x1c2
+ 605 0452 48000000 		.4byte	0x48
+ 606 0456 20       		.byte	0x20
+ 607 0457 11       		.uleb128 0x11
+ 608 0458 87000000 		.4byte	.LASF33
+ 609 045c 02       		.byte	0x2
+ 610 045d C301     		.2byte	0x1c3
+ 611 045f 48000000 		.4byte	0x48
+ 612 0463 21       		.byte	0x21
+ 613 0464 11       		.uleb128 0x11
+ 614 0465 CE000000 		.4byte	.LASF34
+ 615 0469 02       		.byte	0x2
+ 616 046a C401     		.2byte	0x1c4
+ 617 046c 48000000 		.4byte	0x48
+ 618 0470 22       		.byte	0x22
+ 619 0471 00       		.byte	0
+ 620 0472 0C       		.uleb128 0xc
+ 621 0473 4C020000 		.4byte	.LASF53
+ 622 0477 02       		.byte	0x2
+ 623 0478 2601     		.2byte	0x126
+ 624 047a 7E040000 		.4byte	0x47e
+ 625 047e 0F       		.uleb128 0xf
+ 626 047f 89040000 		.4byte	0x489
+ 627 0483 0E       		.uleb128 0xe
+ 628 0484 73000000 		.4byte	0x73
+ 629 0488 00       		.byte	0
+ 630 0489 0C       		.uleb128 0xc
+ 631 048a A4020000 		.4byte	.LASF54
+ 632 048e 02       		.byte	0x2
+ 633 048f 2701     		.2byte	0x127
+ 634 0491 95040000 		.4byte	0x495
+ 635 0495 0D       		.uleb128 0xd
+ 636 0496 25000000 		.4byte	0x25
+ 637 049a A9040000 		.4byte	0x4a9
+ 638 049e 0E       		.uleb128 0xe
+ 639 049f 73000000 		.4byte	0x73
+ 640 04a3 0E       		.uleb128 0xe
+ 641 04a4 A9040000 		.4byte	0x4a9
+ 642 04a8 00       		.byte	0
+ 643 04a9 04       		.uleb128 0x4
+ 644 04aa 04       		.byte	0x4
+ 645 04ab 25000000 		.4byte	0x25
+ 646 04af 0C       		.uleb128 0xc
+ 647 04b0 64030000 		.4byte	.LASF55
+ 648 04b4 02       		.byte	0x2
+ 649 04b5 2801     		.2byte	0x128
+ 650 04b7 BB040000 		.4byte	0x4bb
+ 651 04bb 0F       		.uleb128 0xf
+ 652 04bc CB040000 		.4byte	0x4cb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 14
+
+
+ 653 04c0 0E       		.uleb128 0xe
+ 654 04c1 CB040000 		.4byte	0x4cb
+ 655 04c5 0E       		.uleb128 0xe
+ 656 04c6 D6040000 		.4byte	0x4d6
+ 657 04ca 00       		.byte	0
+ 658 04cb 04       		.uleb128 0x4
+ 659 04cc 04       		.byte	0x4
+ 660 04cd D1040000 		.4byte	0x4d1
+ 661 04d1 05       		.uleb128 0x5
+ 662 04d2 A4030000 		.4byte	0x3a4
+ 663 04d6 04       		.uleb128 0x4
+ 664 04d7 04       		.byte	0x4
+ 665 04d8 02030000 		.4byte	0x302
+ 666 04dc 0C       		.uleb128 0xc
+ 667 04dd B5020000 		.4byte	.LASF56
+ 668 04e1 02       		.byte	0x2
+ 669 04e2 2901     		.2byte	0x129
+ 670 04e4 E8040000 		.4byte	0x4e8
+ 671 04e8 0D       		.uleb128 0xd
+ 672 04e9 41000000 		.4byte	0x41
+ 673 04ed FC040000 		.4byte	0x4fc
+ 674 04f1 0E       		.uleb128 0xe
+ 675 04f2 CB040000 		.4byte	0x4cb
+ 676 04f6 0E       		.uleb128 0xe
+ 677 04f7 73000000 		.4byte	0x73
+ 678 04fb 00       		.byte	0
+ 679 04fc 0C       		.uleb128 0xc
+ 680 04fd 3C020000 		.4byte	.LASF57
+ 681 0501 02       		.byte	0x2
+ 682 0502 2A01     		.2byte	0x12a
+ 683 0504 08050000 		.4byte	0x508
+ 684 0508 0D       		.uleb128 0xd
+ 685 0509 25000000 		.4byte	0x25
+ 686 050d 1C050000 		.4byte	0x51c
+ 687 0511 0E       		.uleb128 0xe
+ 688 0512 73000000 		.4byte	0x73
+ 689 0516 0E       		.uleb128 0xe
+ 690 0517 1C050000 		.4byte	0x51c
+ 691 051b 00       		.byte	0
+ 692 051c 04       		.uleb128 0x4
+ 693 051d 04       		.byte	0x4
+ 694 051e 83010000 		.4byte	0x183
+ 695 0522 14       		.uleb128 0x14
+ 696 0523 04       		.byte	0x4
+ 697 0524 02       		.byte	0x2
+ 698 0525 BC01     		.2byte	0x1bc
+ 699 0527 5C050000 		.4byte	0x55c
+ 700 052b 15       		.uleb128 0x15
+ 701 052c 24000000 		.4byte	.LASF58
+ 702 0530 02       		.byte	0x2
+ 703 0531 BD01     		.2byte	0x1bd
+ 704 0533 61000000 		.4byte	0x61
+ 705 0537 15       		.uleb128 0x15
+ 706 0538 A3000000 		.4byte	.LASF59
+ 707 053c 02       		.byte	0x2
+ 708 053d BE01     		.2byte	0x1be
+ 709 053f 5C050000 		.4byte	0x55c
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 15
+
+
+ 710 0543 15       		.uleb128 0x15
+ 711 0544 AF030000 		.4byte	.LASF60
+ 712 0548 02       		.byte	0x2
+ 713 0549 BF01     		.2byte	0x1bf
+ 714 054b 67050000 		.4byte	0x567
+ 715 054f 15       		.uleb128 0x15
+ 716 0550 A9000000 		.4byte	.LASF61
+ 717 0554 02       		.byte	0x2
+ 718 0555 C001     		.2byte	0x1c0
+ 719 0557 72050000 		.4byte	0x572
+ 720 055b 00       		.byte	0
+ 721 055c 04       		.uleb128 0x4
+ 722 055d 04       		.byte	0x4
+ 723 055e 62050000 		.4byte	0x562
+ 724 0562 05       		.uleb128 0x5
+ 725 0563 BE020000 		.4byte	0x2be
+ 726 0567 04       		.uleb128 0x4
+ 727 0568 04       		.byte	0x4
+ 728 0569 6D050000 		.4byte	0x56d
+ 729 056d 05       		.uleb128 0x5
+ 730 056e E1010000 		.4byte	0x1e1
+ 731 0572 04       		.uleb128 0x4
+ 732 0573 04       		.byte	0x4
+ 733 0574 78050000 		.4byte	0x578
+ 734 0578 05       		.uleb128 0x5
+ 735 0579 3F020000 		.4byte	0x23f
+ 736 057d 04       		.uleb128 0x4
+ 737 057e 04       		.byte	0x4
+ 738 057f 72040000 		.4byte	0x472
+ 739 0583 04       		.uleb128 0x4
+ 740 0584 04       		.byte	0x4
+ 741 0585 89040000 		.4byte	0x489
+ 742 0589 04       		.uleb128 0x4
+ 743 058a 04       		.byte	0x4
+ 744 058b AF040000 		.4byte	0x4af
+ 745 058f 04       		.uleb128 0x4
+ 746 0590 04       		.byte	0x4
+ 747 0591 DC040000 		.4byte	0x4dc
+ 748 0595 04       		.uleb128 0x4
+ 749 0596 04       		.byte	0x4
+ 750 0597 FC040000 		.4byte	0x4fc
+ 751 059b 04       		.uleb128 0x4
+ 752 059c 04       		.byte	0x4
+ 753 059d A1050000 		.4byte	0x5a1
+ 754 05a1 05       		.uleb128 0x5
+ 755 05a2 98030000 		.4byte	0x398
+ 756 05a6 03       		.uleb128 0x3
+ 757 05a7 04       		.byte	0x4
+ 758 05a8 07       		.byte	0x7
+ 759 05a9 38000000 		.4byte	.LASF62
+ 760 05ad 16       		.uleb128 0x16
+ 761 05ae 22030000 		.4byte	.LASF66
+ 762 05b2 01       		.byte	0x1
+ 763 05b3 48       		.byte	0x48
+ 764 05b4 00000000 		.4byte	.LFB0
+ 765 05b8 20000000 		.4byte	.LFE0-.LFB0
+ 766 05bc 01       		.uleb128 0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 16
+
+
+ 767 05bd 9C       		.byte	0x9c
+ 768 05be D4050000 		.4byte	0x5d4
+ 769 05c2 17       		.uleb128 0x17
+ 770 05c3 04010000 		.4byte	.LASF67
+ 771 05c7 01       		.byte	0x1
+ 772 05c8 4C       		.byte	0x4c
+ 773 05c9 D4050000 		.4byte	0x5d4
+ 774 05cd 05       		.uleb128 0x5
+ 775 05ce 03       		.byte	0x3
+ 776 05cf 00000000 		.4byte	aMemory.7986
+ 777 05d3 00       		.byte	0
+ 778 05d4 18       		.uleb128 0x18
+ 779 05d5 33000000 		.4byte	0x33
+ 780 05d9 E5050000 		.4byte	0x5e5
+ 781 05dd 19       		.uleb128 0x19
+ 782 05de A6050000 		.4byte	0x5a6
+ 783 05e2 FF07     		.2byte	0x7ff
+ 784 05e4 00       		.byte	0
+ 785 05e5 1A       		.uleb128 0x1a
+ 786 05e6 74030000 		.4byte	.LASF68
+ 787 05ea 03       		.byte	0x3
+ 788 05eb 1908     		.2byte	0x819
+ 789 05ed D1040000 		.4byte	0x4d1
+ 790 05f1 00       		.byte	0
+ 791              		.section	.debug_abbrev,"",%progbits
+ 792              	.Ldebug_abbrev0:
+ 793 0000 01       		.uleb128 0x1
+ 794 0001 11       		.uleb128 0x11
+ 795 0002 01       		.byte	0x1
+ 796 0003 25       		.uleb128 0x25
+ 797 0004 0E       		.uleb128 0xe
+ 798 0005 13       		.uleb128 0x13
+ 799 0006 0B       		.uleb128 0xb
+ 800 0007 03       		.uleb128 0x3
+ 801 0008 0E       		.uleb128 0xe
+ 802 0009 1B       		.uleb128 0x1b
+ 803 000a 0E       		.uleb128 0xe
+ 804 000b 55       		.uleb128 0x55
+ 805 000c 17       		.uleb128 0x17
+ 806 000d 11       		.uleb128 0x11
+ 807 000e 01       		.uleb128 0x1
+ 808 000f 10       		.uleb128 0x10
+ 809 0010 17       		.uleb128 0x17
+ 810 0011 00       		.byte	0
+ 811 0012 00       		.byte	0
+ 812 0013 02       		.uleb128 0x2
+ 813 0014 24       		.uleb128 0x24
+ 814 0015 00       		.byte	0
+ 815 0016 0B       		.uleb128 0xb
+ 816 0017 0B       		.uleb128 0xb
+ 817 0018 3E       		.uleb128 0x3e
+ 818 0019 0B       		.uleb128 0xb
+ 819 001a 03       		.uleb128 0x3
+ 820 001b 08       		.uleb128 0x8
+ 821 001c 00       		.byte	0
+ 822 001d 00       		.byte	0
+ 823 001e 03       		.uleb128 0x3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 17
+
+
+ 824 001f 24       		.uleb128 0x24
+ 825 0020 00       		.byte	0
+ 826 0021 0B       		.uleb128 0xb
+ 827 0022 0B       		.uleb128 0xb
+ 828 0023 3E       		.uleb128 0x3e
+ 829 0024 0B       		.uleb128 0xb
+ 830 0025 03       		.uleb128 0x3
+ 831 0026 0E       		.uleb128 0xe
+ 832 0027 00       		.byte	0
+ 833 0028 00       		.byte	0
+ 834 0029 04       		.uleb128 0x4
+ 835 002a 0F       		.uleb128 0xf
+ 836 002b 00       		.byte	0
+ 837 002c 0B       		.uleb128 0xb
+ 838 002d 0B       		.uleb128 0xb
+ 839 002e 49       		.uleb128 0x49
+ 840 002f 13       		.uleb128 0x13
+ 841 0030 00       		.byte	0
+ 842 0031 00       		.byte	0
+ 843 0032 05       		.uleb128 0x5
+ 844 0033 26       		.uleb128 0x26
+ 845 0034 00       		.byte	0
+ 846 0035 49       		.uleb128 0x49
+ 847 0036 13       		.uleb128 0x13
+ 848 0037 00       		.byte	0
+ 849 0038 00       		.byte	0
+ 850 0039 06       		.uleb128 0x6
+ 851 003a 26       		.uleb128 0x26
+ 852 003b 00       		.byte	0
+ 853 003c 00       		.byte	0
+ 854 003d 00       		.byte	0
+ 855 003e 07       		.uleb128 0x7
+ 856 003f 13       		.uleb128 0x13
+ 857 0040 01       		.byte	0x1
+ 858 0041 0B       		.uleb128 0xb
+ 859 0042 0B       		.uleb128 0xb
+ 860 0043 3A       		.uleb128 0x3a
+ 861 0044 0B       		.uleb128 0xb
+ 862 0045 3B       		.uleb128 0x3b
+ 863 0046 0B       		.uleb128 0xb
+ 864 0047 01       		.uleb128 0x1
+ 865 0048 13       		.uleb128 0x13
+ 866 0049 00       		.byte	0
+ 867 004a 00       		.byte	0
+ 868 004b 08       		.uleb128 0x8
+ 869 004c 0D       		.uleb128 0xd
+ 870 004d 00       		.byte	0
+ 871 004e 03       		.uleb128 0x3
+ 872 004f 08       		.uleb128 0x8
+ 873 0050 3A       		.uleb128 0x3a
+ 874 0051 0B       		.uleb128 0xb
+ 875 0052 3B       		.uleb128 0x3b
+ 876 0053 0B       		.uleb128 0xb
+ 877 0054 49       		.uleb128 0x49
+ 878 0055 13       		.uleb128 0x13
+ 879 0056 38       		.uleb128 0x38
+ 880 0057 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 18
+
+
+ 881 0058 00       		.byte	0
+ 882 0059 00       		.byte	0
+ 883 005a 09       		.uleb128 0x9
+ 884 005b 16       		.uleb128 0x16
+ 885 005c 00       		.byte	0
+ 886 005d 03       		.uleb128 0x3
+ 887 005e 0E       		.uleb128 0xe
+ 888 005f 3A       		.uleb128 0x3a
+ 889 0060 0B       		.uleb128 0xb
+ 890 0061 3B       		.uleb128 0x3b
+ 891 0062 0B       		.uleb128 0xb
+ 892 0063 49       		.uleb128 0x49
+ 893 0064 13       		.uleb128 0x13
+ 894 0065 00       		.byte	0
+ 895 0066 00       		.byte	0
+ 896 0067 0A       		.uleb128 0xa
+ 897 0068 0D       		.uleb128 0xd
+ 898 0069 00       		.byte	0
+ 899 006a 03       		.uleb128 0x3
+ 900 006b 0E       		.uleb128 0xe
+ 901 006c 3A       		.uleb128 0x3a
+ 902 006d 0B       		.uleb128 0xb
+ 903 006e 3B       		.uleb128 0x3b
+ 904 006f 0B       		.uleb128 0xb
+ 905 0070 49       		.uleb128 0x49
+ 906 0071 13       		.uleb128 0x13
+ 907 0072 38       		.uleb128 0x38
+ 908 0073 0B       		.uleb128 0xb
+ 909 0074 00       		.byte	0
+ 910 0075 00       		.byte	0
+ 911 0076 0B       		.uleb128 0xb
+ 912 0077 13       		.uleb128 0x13
+ 913 0078 01       		.byte	0x1
+ 914 0079 03       		.uleb128 0x3
+ 915 007a 0E       		.uleb128 0xe
+ 916 007b 0B       		.uleb128 0xb
+ 917 007c 0B       		.uleb128 0xb
+ 918 007d 3A       		.uleb128 0x3a
+ 919 007e 0B       		.uleb128 0xb
+ 920 007f 3B       		.uleb128 0x3b
+ 921 0080 0B       		.uleb128 0xb
+ 922 0081 01       		.uleb128 0x1
+ 923 0082 13       		.uleb128 0x13
+ 924 0083 00       		.byte	0
+ 925 0084 00       		.byte	0
+ 926 0085 0C       		.uleb128 0xc
+ 927 0086 16       		.uleb128 0x16
+ 928 0087 00       		.byte	0
+ 929 0088 03       		.uleb128 0x3
+ 930 0089 0E       		.uleb128 0xe
+ 931 008a 3A       		.uleb128 0x3a
+ 932 008b 0B       		.uleb128 0xb
+ 933 008c 3B       		.uleb128 0x3b
+ 934 008d 05       		.uleb128 0x5
+ 935 008e 49       		.uleb128 0x49
+ 936 008f 13       		.uleb128 0x13
+ 937 0090 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 19
+
+
+ 938 0091 00       		.byte	0
+ 939 0092 0D       		.uleb128 0xd
+ 940 0093 15       		.uleb128 0x15
+ 941 0094 01       		.byte	0x1
+ 942 0095 27       		.uleb128 0x27
+ 943 0096 19       		.uleb128 0x19
+ 944 0097 49       		.uleb128 0x49
+ 945 0098 13       		.uleb128 0x13
+ 946 0099 01       		.uleb128 0x1
+ 947 009a 13       		.uleb128 0x13
+ 948 009b 00       		.byte	0
+ 949 009c 00       		.byte	0
+ 950 009d 0E       		.uleb128 0xe
+ 951 009e 05       		.uleb128 0x5
+ 952 009f 00       		.byte	0
+ 953 00a0 49       		.uleb128 0x49
+ 954 00a1 13       		.uleb128 0x13
+ 955 00a2 00       		.byte	0
+ 956 00a3 00       		.byte	0
+ 957 00a4 0F       		.uleb128 0xf
+ 958 00a5 15       		.uleb128 0x15
+ 959 00a6 01       		.byte	0x1
+ 960 00a7 27       		.uleb128 0x27
+ 961 00a8 19       		.uleb128 0x19
+ 962 00a9 01       		.uleb128 0x1
+ 963 00aa 13       		.uleb128 0x13
+ 964 00ab 00       		.byte	0
+ 965 00ac 00       		.byte	0
+ 966 00ad 10       		.uleb128 0x10
+ 967 00ae 13       		.uleb128 0x13
+ 968 00af 01       		.byte	0x1
+ 969 00b0 0B       		.uleb128 0xb
+ 970 00b1 0B       		.uleb128 0xb
+ 971 00b2 3A       		.uleb128 0x3a
+ 972 00b3 0B       		.uleb128 0xb
+ 973 00b4 3B       		.uleb128 0x3b
+ 974 00b5 05       		.uleb128 0x5
+ 975 00b6 01       		.uleb128 0x1
+ 976 00b7 13       		.uleb128 0x13
+ 977 00b8 00       		.byte	0
+ 978 00b9 00       		.byte	0
+ 979 00ba 11       		.uleb128 0x11
+ 980 00bb 0D       		.uleb128 0xd
+ 981 00bc 00       		.byte	0
+ 982 00bd 03       		.uleb128 0x3
+ 983 00be 0E       		.uleb128 0xe
+ 984 00bf 3A       		.uleb128 0x3a
+ 985 00c0 0B       		.uleb128 0xb
+ 986 00c1 3B       		.uleb128 0x3b
+ 987 00c2 05       		.uleb128 0x5
+ 988 00c3 49       		.uleb128 0x49
+ 989 00c4 13       		.uleb128 0x13
+ 990 00c5 38       		.uleb128 0x38
+ 991 00c6 0B       		.uleb128 0xb
+ 992 00c7 00       		.byte	0
+ 993 00c8 00       		.byte	0
+ 994 00c9 12       		.uleb128 0x12
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 20
+
+
+ 995 00ca 13       		.uleb128 0x13
+ 996 00cb 01       		.byte	0x1
+ 997 00cc 03       		.uleb128 0x3
+ 998 00cd 0E       		.uleb128 0xe
+ 999 00ce 0B       		.uleb128 0xb
+ 1000 00cf 0B       		.uleb128 0xb
+ 1001 00d0 3A       		.uleb128 0x3a
+ 1002 00d1 0B       		.uleb128 0xb
+ 1003 00d2 3B       		.uleb128 0x3b
+ 1004 00d3 05       		.uleb128 0x5
+ 1005 00d4 01       		.uleb128 0x1
+ 1006 00d5 13       		.uleb128 0x13
+ 1007 00d6 00       		.byte	0
+ 1008 00d7 00       		.byte	0
+ 1009 00d8 13       		.uleb128 0x13
+ 1010 00d9 0D       		.uleb128 0xd
+ 1011 00da 00       		.byte	0
+ 1012 00db 03       		.uleb128 0x3
+ 1013 00dc 08       		.uleb128 0x8
+ 1014 00dd 3A       		.uleb128 0x3a
+ 1015 00de 0B       		.uleb128 0xb
+ 1016 00df 3B       		.uleb128 0x3b
+ 1017 00e0 05       		.uleb128 0x5
+ 1018 00e1 49       		.uleb128 0x49
+ 1019 00e2 13       		.uleb128 0x13
+ 1020 00e3 38       		.uleb128 0x38
+ 1021 00e4 0B       		.uleb128 0xb
+ 1022 00e5 00       		.byte	0
+ 1023 00e6 00       		.byte	0
+ 1024 00e7 14       		.uleb128 0x14
+ 1025 00e8 17       		.uleb128 0x17
+ 1026 00e9 01       		.byte	0x1
+ 1027 00ea 0B       		.uleb128 0xb
+ 1028 00eb 0B       		.uleb128 0xb
+ 1029 00ec 3A       		.uleb128 0x3a
+ 1030 00ed 0B       		.uleb128 0xb
+ 1031 00ee 3B       		.uleb128 0x3b
+ 1032 00ef 05       		.uleb128 0x5
+ 1033 00f0 01       		.uleb128 0x1
+ 1034 00f1 13       		.uleb128 0x13
+ 1035 00f2 00       		.byte	0
+ 1036 00f3 00       		.byte	0
+ 1037 00f4 15       		.uleb128 0x15
+ 1038 00f5 0D       		.uleb128 0xd
+ 1039 00f6 00       		.byte	0
+ 1040 00f7 03       		.uleb128 0x3
+ 1041 00f8 0E       		.uleb128 0xe
+ 1042 00f9 3A       		.uleb128 0x3a
+ 1043 00fa 0B       		.uleb128 0xb
+ 1044 00fb 3B       		.uleb128 0x3b
+ 1045 00fc 05       		.uleb128 0x5
+ 1046 00fd 49       		.uleb128 0x49
+ 1047 00fe 13       		.uleb128 0x13
+ 1048 00ff 00       		.byte	0
+ 1049 0100 00       		.byte	0
+ 1050 0101 16       		.uleb128 0x16
+ 1051 0102 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 21
+
+
+ 1052 0103 01       		.byte	0x1
+ 1053 0104 3F       		.uleb128 0x3f
+ 1054 0105 19       		.uleb128 0x19
+ 1055 0106 03       		.uleb128 0x3
+ 1056 0107 0E       		.uleb128 0xe
+ 1057 0108 3A       		.uleb128 0x3a
+ 1058 0109 0B       		.uleb128 0xb
+ 1059 010a 3B       		.uleb128 0x3b
+ 1060 010b 0B       		.uleb128 0xb
+ 1061 010c 27       		.uleb128 0x27
+ 1062 010d 19       		.uleb128 0x19
+ 1063 010e 11       		.uleb128 0x11
+ 1064 010f 01       		.uleb128 0x1
+ 1065 0110 12       		.uleb128 0x12
+ 1066 0111 06       		.uleb128 0x6
+ 1067 0112 40       		.uleb128 0x40
+ 1068 0113 18       		.uleb128 0x18
+ 1069 0114 9642     		.uleb128 0x2116
+ 1070 0116 19       		.uleb128 0x19
+ 1071 0117 01       		.uleb128 0x1
+ 1072 0118 13       		.uleb128 0x13
+ 1073 0119 00       		.byte	0
+ 1074 011a 00       		.byte	0
+ 1075 011b 17       		.uleb128 0x17
+ 1076 011c 34       		.uleb128 0x34
+ 1077 011d 00       		.byte	0
+ 1078 011e 03       		.uleb128 0x3
+ 1079 011f 0E       		.uleb128 0xe
+ 1080 0120 3A       		.uleb128 0x3a
+ 1081 0121 0B       		.uleb128 0xb
+ 1082 0122 3B       		.uleb128 0x3b
+ 1083 0123 0B       		.uleb128 0xb
+ 1084 0124 49       		.uleb128 0x49
+ 1085 0125 13       		.uleb128 0x13
+ 1086 0126 02       		.uleb128 0x2
+ 1087 0127 18       		.uleb128 0x18
+ 1088 0128 00       		.byte	0
+ 1089 0129 00       		.byte	0
+ 1090 012a 18       		.uleb128 0x18
+ 1091 012b 01       		.uleb128 0x1
+ 1092 012c 01       		.byte	0x1
+ 1093 012d 49       		.uleb128 0x49
+ 1094 012e 13       		.uleb128 0x13
+ 1095 012f 01       		.uleb128 0x1
+ 1096 0130 13       		.uleb128 0x13
+ 1097 0131 00       		.byte	0
+ 1098 0132 00       		.byte	0
+ 1099 0133 19       		.uleb128 0x19
+ 1100 0134 21       		.uleb128 0x21
+ 1101 0135 00       		.byte	0
+ 1102 0136 49       		.uleb128 0x49
+ 1103 0137 13       		.uleb128 0x13
+ 1104 0138 2F       		.uleb128 0x2f
+ 1105 0139 05       		.uleb128 0x5
+ 1106 013a 00       		.byte	0
+ 1107 013b 00       		.byte	0
+ 1108 013c 1A       		.uleb128 0x1a
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 22
+
+
+ 1109 013d 34       		.uleb128 0x34
+ 1110 013e 00       		.byte	0
+ 1111 013f 03       		.uleb128 0x3
+ 1112 0140 0E       		.uleb128 0xe
+ 1113 0141 3A       		.uleb128 0x3a
+ 1114 0142 0B       		.uleb128 0xb
+ 1115 0143 3B       		.uleb128 0x3b
+ 1116 0144 05       		.uleb128 0x5
+ 1117 0145 49       		.uleb128 0x49
+ 1118 0146 13       		.uleb128 0x13
+ 1119 0147 3F       		.uleb128 0x3f
+ 1120 0148 19       		.uleb128 0x19
+ 1121 0149 3C       		.uleb128 0x3c
+ 1122 014a 19       		.uleb128 0x19
+ 1123 014b 00       		.byte	0
+ 1124 014c 00       		.byte	0
+ 1125 014d 00       		.byte	0
+ 1126              		.section	.debug_aranges,"",%progbits
+ 1127 0000 1C000000 		.4byte	0x1c
+ 1128 0004 0200     		.2byte	0x2
+ 1129 0006 00000000 		.4byte	.Ldebug_info0
+ 1130 000a 04       		.byte	0x4
+ 1131 000b 00       		.byte	0
+ 1132 000c 0000     		.2byte	0
+ 1133 000e 0000     		.2byte	0
+ 1134 0010 00000000 		.4byte	.LFB0
+ 1135 0014 20000000 		.4byte	.LFE0-.LFB0
+ 1136 0018 00000000 		.4byte	0
+ 1137 001c 00000000 		.4byte	0
+ 1138              		.section	.debug_ranges,"",%progbits
+ 1139              	.Ldebug_ranges0:
+ 1140 0000 00000000 		.4byte	.LFB0
+ 1141 0004 20000000 		.4byte	.LFE0
+ 1142 0008 00000000 		.4byte	0
+ 1143 000c 00000000 		.4byte	0
+ 1144              		.section	.debug_line,"",%progbits
+ 1145              	.Ldebug_line0:
+ 1146 0000 84000000 		.section	.debug_str,"MS",%progbits,1
+ 1146      02006B00 
+ 1146      00000201 
+ 1146      FB0E0D00 
+ 1146      01010101 
+ 1147              	.LASF9:
+ 1148 0000 704C6973 		.ascii	"pList\000"
+ 1148      7400
+ 1149              	.LASF16:
+ 1150 0006 4755495F 		.ascii	"GUI_CHARINFO\000"
+ 1150      43484152 
+ 1150      494E464F 
+ 1150      00
+ 1151              	.LASF47:
+ 1152 0013 70664973 		.ascii	"pfIsInFont\000"
+ 1152      496E466F 
+ 1152      6E7400
+ 1153              	.LASF15:
+ 1154 001e 70446174 		.ascii	"pData\000"
+ 1154      6100
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 23
+
+
+ 1155              	.LASF58:
+ 1156 0024 70466F6E 		.ascii	"pFontData\000"
+ 1156      74446174 
+ 1156      6100
+ 1157              	.LASF2:
+ 1158 002e 73686F72 		.ascii	"short int\000"
+ 1158      7420696E 
+ 1158      7400
+ 1159              	.LASF62:
+ 1160 0038 73697A65 		.ascii	"sizetype\000"
+ 1160      74797065 
+ 1160      00
+ 1161              	.LASF14:
+ 1162 0041 42797465 		.ascii	"BytesPerLine\000"
+ 1162      73506572 
+ 1162      4C696E65 
+ 1162      00
+ 1163              	.LASF40:
+ 1164 004e 70664765 		.ascii	"pfGetLineLen\000"
+ 1164      744C696E 
+ 1164      654C656E 
+ 1164      00
+ 1165              	.LASF29:
+ 1166 005b 70547261 		.ascii	"pTrans\000"
+ 1166      6E7300
+ 1167              	.LASF27:
+ 1168 0062 4755495F 		.ascii	"GUI_FONT_PROP_EXT\000"
+ 1168      464F4E54 
+ 1168      5F50524F 
+ 1168      505F4558 
+ 1168      5400
+ 1169              	.LASF10:
+ 1170 0074 4755495F 		.ascii	"GUI_FONT_TRANSLIST\000"
+ 1170      464F4E54 
+ 1170      5F545241 
+ 1170      4E534C49 
+ 1170      535400
+ 1171              	.LASF33:
+ 1172 0087 4C486569 		.ascii	"LHeight\000"
+ 1172      67687400 
+ 1173              	.LASF52:
+ 1174 008f 594D6167 		.ascii	"YMag\000"
+ 1174      00
+ 1175              	.LASF32:
+ 1176 0094 42617365 		.ascii	"Baseline\000"
+ 1176      6C696E65 
+ 1176      00
+ 1177              	.LASF12:
+ 1178 009d 5853697A 		.ascii	"XSize\000"
+ 1178      6500
+ 1179              	.LASF59:
+ 1180 00a3 704D6F6E 		.ascii	"pMono\000"
+ 1180      6F00
+ 1181              	.LASF61:
+ 1182 00a9 7050726F 		.ascii	"pPropExt\000"
+ 1182      70457874 
+ 1182      00
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 24
+
+
+ 1183              	.LASF42:
+ 1184 00b2 74475549 		.ascii	"tGUI_ENC_APIList\000"
+ 1184      5F454E43 
+ 1184      5F415049 
+ 1184      4C697374 
+ 1184      00
+ 1185              	.LASF18:
+ 1186 00c3 58506F73 		.ascii	"XPos\000"
+ 1186      00
+ 1187              	.LASF31:
+ 1188 00c8 466C6167 		.ascii	"Flags\000"
+ 1188      7300
+ 1189              	.LASF34:
+ 1190 00ce 43486569 		.ascii	"CHeight\000"
+ 1190      67687400 
+ 1191              	.LASF11:
+ 1192 00d6 4755495F 		.ascii	"GUI_FONT_TRANSINFO\000"
+ 1192      464F4E54 
+ 1192      5F545241 
+ 1192      4E53494E 
+ 1192      464F00
+ 1193              	.LASF49:
+ 1194 00e9 70616645 		.ascii	"pafEncode\000"
+ 1194      6E636F64 
+ 1194      6500
+ 1195              	.LASF24:
+ 1196 00f3 70614368 		.ascii	"paCharInfo\000"
+ 1196      6172496E 
+ 1196      666F00
+ 1197              	.LASF25:
+ 1198 00fe 704E6578 		.ascii	"pNext\000"
+ 1198      7400
+ 1199              	.LASF67:
+ 1200 0104 614D656D 		.ascii	"aMemory\000"
+ 1200      6F727900 
+ 1201              	.LASF23:
+ 1202 010c 4C617374 		.ascii	"Last\000"
+ 1202      00
+ 1203              	.LASF64:
+ 1204 0111 2E5C4755 		.ascii	".\\GUIConf.c\000"
+ 1204      49436F6E 
+ 1204      662E6300 
+ 1205              	.LASF63:
+ 1206 011d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1206      4320342E 
+ 1206      392E3320 
+ 1206      32303135 
+ 1206      30333033 
+ 1207 0150 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1207      20726576 
+ 1207      6973696F 
+ 1207      6E203232 
+ 1207      31323230 
+ 1208 0183 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1208      66756E63 
+ 1208      74696F6E 
+ 1208      2D736563 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 25
+
+
+ 1208      74696F6E 
+ 1209              	.LASF21:
+ 1210 01ab 4755495F 		.ascii	"GUI_CHARINFO_EXT\000"
+ 1210      43484152 
+ 1210      494E464F 
+ 1210      5F455854 
+ 1210      00
+ 1211              	.LASF28:
+ 1212 01bc 70547261 		.ascii	"pTransData\000"
+ 1212      6E734461 
+ 1212      746100
+ 1213              	.LASF65:
+ 1214 01c7 433A5C55 		.ascii	"C:\\Users\\mark6\\Google Drive\\College-MIT\\S6Spri"
+ 1214      73657273 
+ 1214      5C6D6172 
+ 1214      6B365C47 
+ 1214      6F6F676C 
+ 1215 01f5 6E673230 		.ascii	"ng2020\\6.115\\FinalProject\\BunkerKnowledge\\PSoC_"
+ 1215      32305C36 
+ 1215      2E313135 
+ 1215      5C46696E 
+ 1215      616C5072 
+ 1216 0224 355F4669 		.ascii	"5_Files\\Processor.cydsn\000"
+ 1216      6C65735C 
+ 1216      50726F63 
+ 1216      6573736F 
+ 1216      722E6379 
+ 1217              	.LASF57:
+ 1218 023c 4755495F 		.ascii	"GUI_GETCHARINFO\000"
+ 1218      47455443 
+ 1218      48415249 
+ 1218      4E464F00 
+ 1219              	.LASF53:
+ 1220 024c 4755495F 		.ascii	"GUI_DISPCHAR\000"
+ 1220      44495350 
+ 1220      43484152 
+ 1220      00
+ 1221              	.LASF4:
+ 1222 0259 756E7369 		.ascii	"unsigned char\000"
+ 1222      676E6564 
+ 1222      20636861 
+ 1222      7200
+ 1223              	.LASF48:
+ 1224 0267 70664765 		.ascii	"pfGetCharInfo\000"
+ 1224      74436861 
+ 1224      72496E66 
+ 1224      6F00
+ 1225              	.LASF41:
+ 1226 0275 70664469 		.ascii	"pfDispLine\000"
+ 1226      73704C69 
+ 1226      6E6500
+ 1227              	.LASF20:
+ 1228 0280 7369676E 		.ascii	"signed char\000"
+ 1228      65642063 
+ 1228      68617200 
+ 1229              	.LASF13:
+ 1230 028c 58446973 		.ascii	"XDist\000"
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 26
+
+
+ 1230      7400
+ 1231              	.LASF0:
+ 1232 0292 756E7369 		.ascii	"unsigned int\000"
+ 1232      676E6564 
+ 1232      20696E74 
+ 1232      00
+ 1233              	.LASF19:
+ 1234 029f 59506F73 		.ascii	"YPos\000"
+ 1234      00
+ 1235              	.LASF54:
+ 1236 02a4 4755495F 		.ascii	"GUI_GETCHARDISTX\000"
+ 1236      47455443 
+ 1236      48415244 
+ 1236      49535458 
+ 1236      00
+ 1237              	.LASF56:
+ 1238 02b5 4755495F 		.ascii	"GUI_ISINFONT\000"
+ 1238      4953494E 
+ 1238      464F4E54 
+ 1238      00
+ 1239              	.LASF17:
+ 1240 02c2 5953697A 		.ascii	"YSize\000"
+ 1240      6500
+ 1241              	.LASF6:
+ 1242 02c8 73686F72 		.ascii	"short unsigned int\000"
+ 1242      7420756E 
+ 1242      7369676E 
+ 1242      65642069 
+ 1242      6E7400
+ 1243              	.LASF3:
+ 1244 02db 63686172 		.ascii	"char\000"
+ 1244      00
+ 1245              	.LASF7:
+ 1246 02e0 46697273 		.ascii	"FirstChar\000"
+ 1246      74436861 
+ 1246      7200
+ 1247              	.LASF39:
+ 1248 02ea 70664765 		.ascii	"pfGetLineDistX\000"
+ 1248      744C696E 
+ 1248      65446973 
+ 1248      745800
+ 1249              	.LASF36:
+ 1250 02f9 74475549 		.ascii	"tGUI_GetLineDistX\000"
+ 1250      5F476574 
+ 1250      4C696E65 
+ 1250      44697374 
+ 1250      5800
+ 1251              	.LASF43:
+ 1252 030b 4755495F 		.ascii	"GUI_FONT\000"
+ 1252      464F4E54 
+ 1252      00
+ 1253              	.LASF26:
+ 1254 0314 4755495F 		.ascii	"GUI_FONT_PROP\000"
+ 1254      464F4E54 
+ 1254      5F50524F 
+ 1254      5000
+ 1255              	.LASF66:
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 27
+
+
+ 1256 0322 4755495F 		.ascii	"GUI_X_Config\000"
+ 1256      585F436F 
+ 1256      6E666967 
+ 1256      00
+ 1257              	.LASF1:
+ 1258 032f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1258      20756E73 
+ 1258      69676E65 
+ 1258      6420696E 
+ 1258      7400
+ 1259              	.LASF22:
+ 1260 0341 46697273 		.ascii	"First\000"
+ 1260      7400
+ 1261              	.LASF30:
+ 1262 0347 4755495F 		.ascii	"GUI_FONT_MONO\000"
+ 1262      464F4E54 
+ 1262      5F4D4F4E 
+ 1262      4F00
+ 1263              	.LASF45:
+ 1264 0355 70664765 		.ascii	"pfGetCharDistX\000"
+ 1264      74436861 
+ 1264      72446973 
+ 1264      745800
+ 1265              	.LASF55:
+ 1266 0364 4755495F 		.ascii	"GUI_GETFONTINFO\000"
+ 1266      47455446 
+ 1266      4F4E5449 
+ 1266      4E464F00 
+ 1267              	.LASF68:
+ 1268 0374 4755495F 		.ascii	"GUI_Font6x8\000"
+ 1268      466F6E74 
+ 1268      36783800 
+ 1269              	.LASF51:
+ 1270 0380 584D6167 		.ascii	"XMag\000"
+ 1270      00
+ 1271              	.LASF44:
+ 1272 0385 70664469 		.ascii	"pfDispChar\000"
+ 1272      73704368 
+ 1272      617200
+ 1273              	.LASF50:
+ 1274 0390 59446973 		.ascii	"YDist\000"
+ 1274      7400
+ 1275              	.LASF37:
+ 1276 0396 74475549 		.ascii	"tGUI_GetLineLen\000"
+ 1276      5F476574 
+ 1276      4C696E65 
+ 1276      4C656E00 
+ 1277              	.LASF5:
+ 1278 03a6 6C6F6E67 		.ascii	"long int\000"
+ 1278      20696E74 
+ 1278      00
+ 1279              	.LASF60:
+ 1280 03af 7050726F 		.ascii	"pProp\000"
+ 1280      7000
+ 1281              	.LASF46:
+ 1282 03b5 70664765 		.ascii	"pfGetFontInfo\000"
+ 1282      74466F6E 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccdQRzAi.s 			page 28
+
+
+ 1282      74496E66 
+ 1282      6F00
+ 1283              	.LASF38:
+ 1284 03c3 74474C5F 		.ascii	"tGL_DispLine\000"
+ 1284      44697370 
+ 1284      4C696E65 
+ 1284      00
+ 1285              	.LASF35:
+ 1286 03d0 4755495F 		.ascii	"GUI_FONTINFO\000"
+ 1286      464F4E54 
+ 1286      494E464F 
+ 1286      00
+ 1287              	.LASF8:
+ 1288 03dd 4C617374 		.ascii	"LastChar\000"
+ 1288      43686172 
+ 1288      00
+ 1289              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

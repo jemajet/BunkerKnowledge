@@ -1,0 +1,14 @@
+Last Modified Date & Time: 04/17/2020 02:50:13
+
+RS232: TopDesign.cysch
+	LCD [v1.70] to [v2.10]
+	UART [v2.20] to [v2.50]
+	RX [v1.70] to [v2.10]
+	TX [v1.70] to [v2.10]
+	rx_int [v1.60] to [v1.70]
+	tx_int [v1.60] to [v1.70]
+
+RS232: RS232.cydwr
+	cy_boot [v3.20] to [v5.20]
+
+
