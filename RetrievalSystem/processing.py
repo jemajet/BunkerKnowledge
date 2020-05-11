@@ -71,8 +71,12 @@ us_state_abbrev = {
     'Washington': 'WA',
     'West Virginia': 'WV',
     'Wisconsin': 'WI',
-    'Wyoming': 'WY'
+    'Wyoming': 'WY',
+    'the US': 'US',
+    'the World': 'WORLD'
 }
+
+abbrev_to_name = {v: k for k, v in us_state_abbrev.items()}
 
 populations = {"World": 7780953897,
                "US": 329579469,
@@ -152,16 +156,25 @@ class Covid19_Node():
         return s
 
     def __str__(self):
-        s = "Statitics for {}\n".format(self.__dict__["name"])
+        delim = '\n'
+        s = "Statistics for {}{}".format(
+            abbrev_to_name[self.__dict__["name"]], delim)
+        s += "{}{}".format(self.__dict__["date"], delim)
         for key, value in self.__dict__.items():
+            key = " ".join(key.capitalize().split("_"))
             if type(value) == int:
-                s += "\t{}: {:,}\n".format(key, value)
-            elif key == "percent_infected" or key == "percent_tested":
-                s += "\t{}: {}%\n".format(key, value)
-            elif key == "name":
+                s += "{}{}{:,}{}".format(key, delim, value, delim)
+            elif "Percent" in key or "rate" in key:
+                if "rate" not in key:
+                    key = key.split()  # [percent, characteristic]
+                    # % characteristic, to fit on screen
+                    key = "% " + key[1].capitalize()
+                s += "{}{}{}%{}".format(key, delim, value, delim)
+            elif key == "Name" or key == "Date":
                 continue
             else:
-                s += "\t{}: {}\n".format(key, value)
+                s += "{}{}{}{}".format(key, delim, value, delim)
+        s += "END".format(delim)
         return s
 
     def __repr__(self):
@@ -175,21 +188,23 @@ class Covid19_World_Node(Covid19_Node):
     '''
 
     def __init__(self, c_json):
-        # c_json = get_covid19_data("world", "current")[0]["data"]
-        self.name = "world"
+        self.name = "WORLD"
+        self.date = str(datetime.date.today())
         self.confirmed = c_json["confirmed"]
         self.deaths = c_json["deaths"]
         self.recovered = c_json["recovered"]
+        self.active = self.confirmed - self.deaths - self.recovered
         self.population = populations["World"]
         self.percent_infected = round(
             self.confirmed / self.population * 100, 2)
-        self.date = str(datetime.date.today())
+        self.percent_recovered = round(
+            self.recovered / self.confirmed * 100, 2)
+        self.death_rate = round(self.deaths / self.confirmed * 100, 2)
 
 
 class Covid19_USA_Node(Covid19_Node):
 
     def __init__(self, c_json):
-        # c_json = get_covid19_data("us", "current")[0]
         self.name = "US"
         self.date = c_json["lastModified"][:10]
         self.confirmed = c_json["positive"]
@@ -197,17 +212,21 @@ class Covid19_USA_Node(Covid19_Node):
             "hospitalizedCurrently"] if "hospitalizedCurrently" in c_json else 0
         self.recovered = c_json["recovered"] if c_json[
             "recovered"] != None else 0
-        self.icu = c_json[
+        self.in_icu = c_json[
             "inIcuCurrently"] if "inIcuCurrently" in c_json else 0
-        self.ventilator = c_json[
+        self.on_ventilator = c_json[
             "onVentilatorCurrently"] if "onVentilatorCurrently" in c_json else 0
         self.total_tested = c_json["totalTestResults"]
         self.deaths = c_json["death"]
+        self.active = self.confirmed - self.deaths - self.recovered
         self.population = populations[self.name]
         self.percent_infected = round(
             self.confirmed / self.population * 100, 2)
         self.percent_tested = round(
             self.total_tested / self.population * 100, 2)
+        self.percent_recovered = round(
+            self.recovered / self.confirmed * 100, 2)
+        self.death_rate = round(self.deaths / self.confirmed * 100, 2)
 
 
 class Covid19_State_Node(Covid19_Node):
@@ -216,18 +235,19 @@ class Covid19_State_Node(Covid19_Node):
         self.name = c_json["state"]
         self.date = c_json["dateChecked"][:10]
         self.confirmed = c_json["positive"]
-        # self.negative = c_json["negative"]
-        # self.hospitalized = c_json["hospitalizedCurrently"]
         self.recovered = c_json["recovered"] if c_json[
             "recovered"] != None else 0
-        # self.icu = c_json["inIcuCurrently"]
         self.total_tested = c_json["totalTestResults"]
         self.deaths = c_json["death"]
+        self.active = self.confirmed - self.deaths - self.recovered
         self.population = populations[self.name]
         self.percent_infected = round(
             self.confirmed / self.population * 100, 2)
         self.percent_tested = round(
             self.total_tested / self.population * 100, 2)
+        self.percent_recovered = round(
+            self.recovered / self.confirmed * 100, 2)
+        self.death_rate = round(self.deaths / self.confirmed * 100, 2)
 
 
 class Covid19_Press():
@@ -275,7 +295,7 @@ class Covid19_Dataset():
                 state_data) for state_data in get_covid19_data("states", "current") if state_data["state"] in states}
             self.current["US"] = Covid19_USA_Node(
                 get_covid19_data("us", "current")[0])
-            self.current["world"] = Covid19_World_Node(
+            self.current["WORLD"] = Covid19_World_Node(
                 get_covid19_data("world", "current")[0]["data"])
             self.history = {state: {} for state in self.names}
             self.history["US"] = {}

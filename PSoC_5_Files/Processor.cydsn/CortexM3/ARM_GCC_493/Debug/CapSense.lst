@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
   55              	CapSense_maskTable:
   56 000c 20       		.byte	32
   57 000d 40       		.byte	64
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 2
 
 
   58              		.global	CapSense_csTable
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
    9:.\Generated_Source\PSoC5/CapSense.c **** * Note:
   10:.\Generated_Source\PSoC5/CapSense.c **** *
   11:.\Generated_Source\PSoC5/CapSense.c **** ********************************************************************************
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 3
 
 
   12:.\Generated_Source\PSoC5/CapSense.c **** * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
@@ -128,7 +128,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
   16:.\Generated_Source\PSoC5/CapSense.c **** *******************************************************************************/
   17:.\Generated_Source\PSoC5/CapSense.c **** 
   18:.\Generated_Source\PSoC5/CapSense.c **** #include "CapSense.h"
-  19:.\Generated_Source\PSoC5/CapSense.c **** 
+  19:.\Generated_Source\PSoC5/CapSense.c **** #include "cyapicallbacks.h"
   20:.\Generated_Source\PSoC5/CapSense.c **** 
   21:.\Generated_Source\PSoC5/CapSense.c **** 
   22:.\Generated_Source\PSoC5/CapSense.c **** static uint8 CapSense_initVar = 0u;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
   66:.\Generated_Source\PSoC5/CapSense.c **** 
   67:.\Generated_Source\PSoC5/CapSense.c **** uint8 CapSense_idacSettings[] = {
   68:.\Generated_Source\PSoC5/CapSense.c ****     200u,200u,
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 4
 
 
   69:.\Generated_Source\PSoC5/CapSense.c **** };
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  111:.\Generated_Source\PSoC5/CapSense.c ****            * ( (CapSense_DESIGN_TYPE == CapSense_TWO_CHANNELS_DESIGN) && \
  112:.\Generated_Source\PSoC5/CapSense.c ****            * (CapSense_IMPLEMENTATION_CH1 == CapSense_MEASURE_IMPLEMENTATION_UDB)) ) 
  113:.\Generated_Source\PSoC5/CapSense.c ****            */
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 5
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 5
 
 
  114:.\Generated_Source\PSoC5/CapSense.c ****     
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  133              		.loc 1 150 0
  134 0028 384A     		ldr	r2, .L2+4
  135 002a 384B     		ldr	r3, .L2+4
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 6
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 6
 
 
  136 002c 1B78     		ldrb	r3, [r3]
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  184:.\Generated_Source\PSoC5/CapSense.c ****         
  185:.\Generated_Source\PSoC5/CapSense.c ****         /* Raw Counter */
  186:.\Generated_Source\PSoC5/CapSense.c ****         CapSense_RAW_CH0_CONTROL_REG      = CapSense_MEASURE_CTRL_ENABLE;
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 7
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 7
 
 
  187:.\Generated_Source\PSoC5/CapSense.c ****         CapSense_RAW_CH0_CONTROL2_REG    |= CapSense_MEASURE_CTRL_PULSEWIDTH;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  194 0098 254B     		ldr	r3, .L2+40
  195 009a FF22     		movs	r2, #255
  196 009c 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 8
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 8
 
 
  204:.\Generated_Source\PSoC5/CapSense.c ****         CapSense_RAW_CH0_PERIOD_HI_REG    = CapSense_MEASURE_FULL_RANGE_LOW;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  209              		.loc 1 245 0
  210 00b0 0020     		movs	r0, #0
  211 00b2 2349     		ldr	r1, .L2+56
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 9
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 9
 
 
  212 00b4 FFF7FEFF 		bl	CyIntSetVector
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  234 00e2 DBB2     		uxtb	r3, r3
  235 00e4 1370     		strb	r3, [r2]
  278:.\Generated_Source\PSoC5/CapSense.c ****     #if (CapSense_DESIGN_TYPE == CapSense_TWO_CHANNELS_DESIGN)
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 10
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 10
 
 
  279:.\Generated_Source\PSoC5/CapSense.c ****         CapSense_CONTROL_REG |= CapSense_CTRL_WINDOW_EN__CH1;
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  260 010c 9A640040 		.word	1073767578
  261 0110 29640040 		.word	1073767465
  262 0114 49640040 		.word	1073767497
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 11
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 11
 
 
  263 0118 8E640040 		.word	1073767566
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  328:.\Generated_Source\PSoC5/CapSense.c ****     uint8 enableInterrupts;
  329:.\Generated_Source\PSoC5/CapSense.c ****     
  330:.\Generated_Source\PSoC5/CapSense.c ****     enableInterrupts = CyEnterCriticalSection();
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 12
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 12
 
 
  298              		.loc 1 330 0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  373:.\Generated_Source\PSoC5/CapSense.c ****         #else
  374:.\Generated_Source\PSoC5/CapSense.c ****         /* Window PWM -  Do nothing */
  375:.\Generated_Source\PSoC5/CapSense.c ****         /* Raw Counter - Do nothing */
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 13
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 13
 
 
  376:.\Generated_Source\PSoC5/CapSense.c ****         
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  329 0042 43F01003 		orr	r3, r3, #16
  330 0046 DBB2     		uxtb	r3, r3
  331 0048 1370     		strb	r3, [r2]
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 14
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 14
 
 
  411:.\Generated_Source\PSoC5/CapSense.c ****         
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  352 006e DBB2     		uxtb	r3, r3
  353 0070 63F07F03 		orn	r3, r3, #127
  354 0074 DBB2     		uxtb	r3, r3
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 15
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 15
 
 
  355 0076 1370     		strb	r3, [r2]
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  471:.\Generated_Source\PSoC5/CapSense.c **** *  No
  472:.\Generated_Source\PSoC5/CapSense.c **** *
  473:.\Generated_Source\PSoC5/CapSense.c **** * Note:
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 16
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 16
 
 
  474:.\Generated_Source\PSoC5/CapSense.c **** *  All widgets are enabled by default except proximity widgets. Proximity widgets 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  416 0026 00BF     		.align	2
  417              	.L9:
  418 0028 00000000 		.word	CapSense_initVar
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 17
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 17
 
 
  419 002c 00000000 		.word	CapSense_lowLevelTuningDone
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  448 0012 1370     		strb	r3, [r2]
  520:.\Generated_Source\PSoC5/CapSense.c ****     
  521:.\Generated_Source\PSoC5/CapSense.c ****     /* Disable interrupt */
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 18
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 18
 
 
  522:.\Generated_Source\PSoC5/CapSense.c ****     CyIntDisable(CapSense_IsrCH0_ISR_NUMBER);
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  562:.\Generated_Source\PSoC5/CapSense.c ****         #if (CapSense_IMPLEMENTATION_CH1 == CapSense_MEASURE_IMPLEMENTATION_FF)
  563:.\Generated_Source\PSoC5/CapSense.c ****             /* Window PWM */
  564:.\Generated_Source\PSoC5/CapSense.c ****             CapSense_PWM_CH1_ACT_PWRMGR_REG  &= ~CapSense_PWM_CH1_ACT_PWR_EN;
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 19
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 19
 
 
  565:.\Generated_Source\PSoC5/CapSense.c ****             CapSense_PWM_CH1_STBY_PWRMGR_REG &= ~CapSense_PWM_CH1_STBY_PWR_EN;
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  472 003e 1B78     		ldrb	r3, [r3]
  473 0040 DBB2     		uxtb	r3, r3
  474 0042 23F00103 		bic	r3, r3, #1
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 20
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 20
 
 
  475 0046 DBB2     		uxtb	r3, r3
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  516              		.align	2
  517              		.global	CapSense_FindNextSensor
  518              		.thumb
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 21
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 21
 
 
  519              		.thumb_func
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  658:.\Generated_Source\PSoC5/CapSense.c ****         
  659:.\Generated_Source\PSoC5/CapSense.c ****         /* Check if sensor enabled */
  660:.\Generated_Source\PSoC5/CapSense.c ****         do
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 22
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 22
 
 
  661:.\Generated_Source\PSoC5/CapSense.c ****         {
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  578 0044 5DF8047B 		ldr	r7, [sp], #4
  579              		.cfi_restore 7
  580              		.cfi_def_cfa_offset 0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 23
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 23
 
 
  581 0048 7047     		bx	lr
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  713:.\Generated_Source\PSoC5/CapSense.c ****         uint8 indexCh1 = snsIndex + CapSense_TOTAL_SENSOR_COUNT__CH0;
  714:.\Generated_Source\PSoC5/CapSense.c ****         
  715:.\Generated_Source\PSoC5/CapSense.c ****         /* Find enabled sensor on channel 0 */
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 24
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 24
 
 
  716:.\Generated_Source\PSoC5/CapSense.c ****         do
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  770:.\Generated_Source\PSoC5/CapSense.c ****         else
  771:.\Generated_Source\PSoC5/CapSense.c ****         {
  772:.\Generated_Source\PSoC5/CapSense.c ****             /* Scans Channel TWO only */
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 25
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 25
 
 
  773:.\Generated_Source\PSoC5/CapSense.c ****             snsIndex = indexCh1;
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  813:.\Generated_Source\PSoC5/CapSense.c ****         /* Define widget sensor belongs to */
  814:.\Generated_Source\PSoC5/CapSense.c ****         widget = CapSense_widgetNumber[slot];
  611              		.loc 1 814 0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 26
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 26
 
 
  612 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  847:.\Generated_Source\PSoC5/CapSense.c ****             #endif  /* CapSense_CURRENT_SOURCE */
  848:.\Generated_Source\PSoC5/CapSense.c ****             
  849:.\Generated_Source\PSoC5/CapSense.c ****             /* Set Pwm Resolution */
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 27
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 27
 
 
  850:.\Generated_Source\PSoC5/CapSense.c ****             #if (CapSense_IMPLEMENTATION_CH0 == CapSense_MEASURE_IMPLEMENTATION_FF)
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  650              	.LFE5:
  651              		.size	CapSense_SetScanSlotSettings, .-CapSense_SetScanSlotSettings
  652              		.section	.text.CapSense_ScanSensor,"ax",%progbits
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 28
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 28
 
 
  653              		.align	2
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  673 0008 FB71     		strb	r3, [r7, #7]
  922:.\Generated_Source\PSoC5/CapSense.c ****     /* Clears status/control variable and set sensorIndex */
  923:.\Generated_Source\PSoC5/CapSense.c ****     CapSense_csv = 0u;
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 29
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 29
 
 
  674              		.loc 1 923 0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  962:.\Generated_Source\PSoC5/CapSense.c **** }
  690              		.loc 1 962 0
  691 0024 0837     		adds	r7, r7, #8
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 30
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 30
 
 
  692              		.cfi_def_cfa_offset 8
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  996:.\Generated_Source\PSoC5/CapSense.c **** *******************************************************************************/
  997:.\Generated_Source\PSoC5/CapSense.c **** void CapSense_ScanEnabledWidgets(void) 
  998:.\Generated_Source\PSoC5/CapSense.c **** {
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 31
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 31
 
 
  713              		.loc 1 998 0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1011:.\Generated_Source\PSoC5/CapSense.c ****             CapSense_PreScan(CapSense_sensorIndex);
  755              		.loc 1 1011 0
  756 003e 044B     		ldr	r3, .L29+4
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 32
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 32
 
 
  757 0040 1B78     		ldrb	r3, [r3]
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1043:.\Generated_Source\PSoC5/CapSense.c **** *  completed.
 1044:.\Generated_Source\PSoC5/CapSense.c **** *
 1045:.\Generated_Source\PSoC5/CapSense.c **** * Global Variables:
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 33
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 33
 
 
 1046:.\Generated_Source\PSoC5/CapSense.c **** *  CapSense_csv - used to provide status and mode of scanning process. 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1060:.\Generated_Source\PSoC5/CapSense.c **** * Summary:
 1061:.\Generated_Source\PSoC5/CapSense.c **** *  Returns scan sensor raw data from the CapSense_sensorRaw[] array. 
 1062:.\Generated_Source\PSoC5/CapSense.c **** *  Each scan sensor has a unique number within the sensor array. This number 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 34
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 34
 
 
 1063:.\Generated_Source\PSoC5/CapSense.c **** *  is assigned by the CapSense customizer in sequence.
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  858              		.global	CapSense_ClearSensors
  859              		.thumb
  860              		.thumb_func
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 35
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 35
 
 
  861              		.type	CapSense_ClearSensors, %function
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1100:.\Generated_Source\PSoC5/CapSense.c ****     {
  890              		.loc 1 1100 0 is_stmt 0 discriminator 1
  891 001a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 36
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 36
 
 
  892 001c 012B     		cmp	r3, #1
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1137:.\Generated_Source\PSoC5/CapSense.c ****         uint8 snsNumber;
 1138:.\Generated_Source\PSoC5/CapSense.c ****         const uint8 CYCODE *index;
 1139:.\Generated_Source\PSoC5/CapSense.c ****         /* Read the sensor type: single or complex */
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 37
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 37
 
 
 1140:.\Generated_Source\PSoC5/CapSense.c ****         uint8 snsType = CapSense_portTable[slot];
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1194:.\Generated_Source\PSoC5/CapSense.c ****         uint8 snsType = CapSense_portTable[slot];
 1195:.\Generated_Source\PSoC5/CapSense.c ****         
 1196:.\Generated_Source\PSoC5/CapSense.c ****         /* Check if sensor is complex */
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 38
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 38
 
 
 1197:.\Generated_Source\PSoC5/CapSense.c ****         if ((snsType & CapSense_COMPLEX_SS_FLAG) == 0u)
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  915              		@ frame_needed = 1, uses_anonymous_args = 0
  916 0000 80B5     		push	{r7, lr}
  917              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 39
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 39
 
 
  918              		.cfi_offset 7, -8
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  953 0034 52F82330 		ldr	r3, [r2, r3, lsl #2]
  954 0038 FA7B     		ldrb	r2, [r7, #15]	@ zero_extendqisi2
  955 003a 0A49     		ldr	r1, .L44+12
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 40
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 40
 
 
  956 003c 51F82220 		ldr	r2, [r1, r2, lsl #2]
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  975              	.L44:
  976 0058 00000000 		.word	CapSense_portTable
  977 005c 00000000 		.word	CapSense_maskTable
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 41
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 41
 
 
  978 0060 00000000 		.word	CapSense_pcTable
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1001 0004 00AF     		add	r7, sp, #0
  1002              		.cfi_def_cfa_register 7
  1003 0006 0346     		mov	r3, r0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 42
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 42
 
 
  1004 0008 FB71     		strb	r3, [r7, #7]
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1372:.\Generated_Source\PSoC5/CapSense.c ****             
 1373:.\Generated_Source\PSoC5/CapSense.c ****         #endif  /* CapSense_IS_COMPLEX_SCANSLOTS */
 1374:.\Generated_Source\PSoC5/CapSense.c ****         
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 43
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 43
 
 
 1375:.\Generated_Source\PSoC5/CapSense.c ****     #endif  /* CapSense_DESIGN_TYPE */
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1055              		.align	2
  1056              	.L48:
  1057 005c 00000000 		.word	CapSense_portTable
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 44
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 44
 
 
  1058 0060 00000000 		.word	CapSense_maskTable
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1086              		.loc 1 1418 0
  1087 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
  1088 000c 1846     		mov	r0, r3
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 45
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 45
 
 
  1089 000e FFF7FEFF 		bl	CapSense_SetScanSlotSettings
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1452:.\Generated_Source\PSoC5/CapSense.c ****             CapSense_BufCH0_CAPS_CFG0_REG &= (uint8)~CapSense_CSBUF_ENABLE;
 1453:.\Generated_Source\PSoC5/CapSense.c ****             
 1454:.\Generated_Source\PSoC5/CapSense.c ****         #else
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 46
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 46
 
 
 1455:.\Generated_Source\PSoC5/CapSense.c ****             /* Connect DSI output to Rb */
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1509:.\Generated_Source\PSoC5/CapSense.c ****             #if (CapSense_CURRENT_SOURCE == CapSense_IDAC_SOURCE)
 1510:.\Generated_Source\PSoC5/CapSense.c ****                 /* Disable Vref from AMux */
 1511:.\Generated_Source\PSoC5/CapSense.c ****                 #if (CapSense_VREF_VDAC == CapSense_VREF_OPTIONS)
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 47
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 47
 
 
 1512:.\Generated_Source\PSoC5/CapSense.c ****                    CapSense_AMuxCH1_Disconnect(CapSense_AMuxCH1_VREF_CHANNEL);
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1119 004a 0837     		adds	r7, r7, #8
  1120              		.cfi_def_cfa_offset 8
  1121 004c BD46     		mov	sp, r7
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 48
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 48
 
 
  1122              		.cfi_def_cfa_register 13
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1148              		.cfi_offset 14, -4
  1149 0002 82B0     		sub	sp, sp, #8
  1150              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 49
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 49
 
 
  1151 0004 00AF     		add	r7, sp, #0
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1192              		.loc 1 1595 0
  1193 0054 D243     		mvns	r2, r2
  1194 0056 91B2     		uxth	r1, r2
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 50
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 50
 
 
  1195 0058 0C4A     		ldr	r2, .L54+8
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1225 0090 0C640040 		.word	1073767436
  1226 0094 70580040 		.word	1073764464
  1227              		.cfi_endproc
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 51
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 51
 
 
  1228              	.LFE14:
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1665:.\Generated_Source\PSoC5/CapSense.c ****         #endif  /* (CapSense_IMPLEMENTATION_CH0 == CapSense_MEASURE_IMPLEMENTATION_FF)*/
 1666:.\Generated_Source\PSoC5/CapSense.c ****         
 1667:.\Generated_Source\PSoC5/CapSense.c ****         /* Disable Sensor */
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 52
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 52
 
 
 1668:.\Generated_Source\PSoC5/CapSense.c ****         CapSense_DisableScanSlot(sensor);
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1722:.\Generated_Source\PSoC5/CapSense.c ****         
 1723:.\Generated_Source\PSoC5/CapSense.c ****         /* Read SlotResult from Raw Counter */
 1724:.\Generated_Source\PSoC5/CapSense.c ****         #if (CapSense_IMPLEMENTATION_CH1 == CapSense_MEASURE_IMPLEMENTATION_FF)
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 53
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 53
 
 
 1725:.\Generated_Source\PSoC5/CapSense.c ****             CapSense_sensorRaw[sensor]  = CapSense_MEASURE_FULL_RANGE - 
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1779:.\Generated_Source\PSoC5/CapSense.c ****         uint8 i;
 1780:.\Generated_Source\PSoC5/CapSense.c ****         
 1781:.\Generated_Source\PSoC5/CapSense.c ****         /* Disable all Rb */
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 54
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 54
 
 
 1782:.\Generated_Source\PSoC5/CapSense.c ****         for(i = 0u; i < CapSense_TOTAL_RB_NUMBER; i++)
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1836:.\Generated_Source\PSoC5/CapSense.c **** #endif /* CapSense_CURRENT_SOURCE == CapSense_EXTERNAL_RB */ 
 1837:.\Generated_Source\PSoC5/CapSense.c **** 
 1838:.\Generated_Source\PSoC5/CapSense.c **** #if (CapSense_PRESCALER_OPTIONS)
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 55
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 55
 
 
 1839:.\Generated_Source\PSoC5/CapSense.c ****     /*******************************************************************************
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1265 001c BD46     		mov	sp, r7
  1266              		.cfi_def_cfa_register 13
  1267              		@ sp needed
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 56
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 56
 
 
  1268 001e 5DF8047B 		ldr	r7, [sp], #4
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1885:.\Generated_Source\PSoC5/CapSense.c **** 
 1886:.\Generated_Source\PSoC5/CapSense.c ****         /* Get Prescaler */
 1887:.\Generated_Source\PSoC5/CapSense.c ****         #if (CapSense_PRESCALER_OPTIONS == CapSense_PRESCALER_UDB)
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 57
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 57
 
 
 1888:.\Generated_Source\PSoC5/CapSense.c ****             prescaler = CapSense_PRESCALER_PERIOD_REG;
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1910:.\Generated_Source\PSoC5/CapSense.c **** *  scanspeed:  Sets ScanSpeed divider.
 1911:.\Generated_Source\PSoC5/CapSense.c **** *
 1912:.\Generated_Source\PSoC5/CapSense.c **** * Return:
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 58
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 58
 
 
 1913:.\Generated_Source\PSoC5/CapSense.c **** *  None
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
 1924:.\Generated_Source\PSoC5/CapSense.c ****     * Function Name: CapSense_SetAnalogSwitchesSource
 1925:.\Generated_Source\PSoC5/CapSense.c ****     ********************************************************************************
 1926:.\Generated_Source\PSoC5/CapSense.c ****     *
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 59
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 59
 
 
 1927:.\Generated_Source\PSoC5/CapSense.c ****     * Summary:
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1406              		.loc 1 1952 0
  1407 0022 064A     		ldr	r2, .L69
  1408 0024 054B     		ldr	r3, .L69
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 60
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 60
 
 
  1409 0026 1B78     		ldrb	r3, [r3]
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1461 003a 02       		.uleb128 0x2
  1462 003b 02       		.byte	0x2
  1463 003c 07       		.byte	0x7
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 61
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 61
 
 
  1464 003d C7010000 		.4byte	.LASF3
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1518 00a6 02       		.byte	0x2
  1519 00a7 6C01     		.2byte	0x16c
  1520 00a9 AD000000 		.4byte	0xad
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 62
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 62
 
 
  1521 00ad 06       		.uleb128 0x6
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1575 0123 77       		.sleb128 -9
  1576 0124 00       		.byte	0
  1577 0125 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 63
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 63
 
 
  1578 0126 BE030000 		.4byte	.LASF22
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1632 0199 00000000 		.4byte	.LFB5
  1633 019d 50000000 		.4byte	.LFE5-.LFB5
  1634 01a1 01       		.uleb128 0x1
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 64
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 64
 
 
  1635 01a2 9C       		.byte	0x9c
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1689 0214 0C       		.uleb128 0xc
  1690 0215 1B010000 		.4byte	.LASF33
  1691 0219 01       		.byte	0x1
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 65
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 65
 
 
  1692 021a 3304     		.2byte	0x433
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1746 028d E004     		.2byte	0x4e0
  1747 028f 6B000000 		.4byte	0x6b
  1748 0293 02       		.uleb128 0x2
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 66
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 66
 
 
  1749 0294 91       		.byte	0x91
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1803 0300 0D       		.uleb128 0xd
  1804 0301 DA010000 		.4byte	.LASF30
  1805 0305 01       		.byte	0x1
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 67
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 67
 
 
  1806 0306 8705     		.2byte	0x587
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1860 037b 01       		.byte	0x1
  1861 037c 5C07     		.2byte	0x75c
  1862 037e 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 68
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 68
 
 
  1863 0382 02       		.uleb128 0x2
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1917 03ef 03       		.byte	0x3
  1918 03f0 00000000 		.4byte	CapSense_lowLevelTuningDone
  1919 03f4 12       		.uleb128 0x12
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 69
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 69
 
 
  1920 03f5 07000000 		.4byte	.LASF49
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  1974 046a 6B000000 		.4byte	0x6b
  1975 046e 12       		.uleb128 0x12
  1976 046f 25000000 		.4byte	.LASF53
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 70
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 70
 
 
  1977 0473 01       		.byte	0x1
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2031 04eb 01       		.byte	0x1
  2032 04ec 43       		.byte	0x43
  2033 04ed 84040000 		.4byte	0x484
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 71
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 71
 
 
  2034 04f1 05       		.uleb128 0x5
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2088 0016 0B       		.uleb128 0xb
  2089 0017 0B       		.uleb128 0xb
  2090 0018 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 72
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 72
 
 
  2091 0019 0B       		.uleb128 0xb
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2145 004f 03       		.uleb128 0x3
  2146 0050 0E       		.uleb128 0xe
  2147 0051 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 73
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 73
 
 
  2148 0052 0B       		.uleb128 0xb
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2202 008a 13       		.uleb128 0x13
  2203 008b 00       		.byte	0
  2204 008c 00       		.byte	0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 74
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 74
 
 
  2205 008d 0A       		.uleb128 0xa
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2259 00c4 01       		.uleb128 0x1
  2260 00c5 12       		.uleb128 0x12
  2261 00c6 06       		.uleb128 0x6
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 75
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 75
 
 
  2262 00c7 40       		.uleb128 0x40
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2316 00fe 01       		.uleb128 0x1
  2317 00ff 12       		.uleb128 0x12
  2318 0100 06       		.uleb128 0x6
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 76
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 76
 
 
  2319 0101 40       		.uleb128 0x40
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2373 0139 0B       		.uleb128 0xb
  2374 013a 49       		.uleb128 0x49
  2375 013b 13       		.uleb128 0x13
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 77
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 77
 
 
  2376 013c 3F       		.uleb128 0x3f
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2430 0024 30000000 		.4byte	.LFE2-.LFB2
  2431 0028 00000000 		.4byte	.LFB3
  2432 002c 94000000 		.4byte	.LFE3-.LFB3
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 78
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 78
 
 
  2433 0030 00000000 		.4byte	.LFB4
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2487 0050 00000000 		.4byte	.LFB10
  2488 0054 26000000 		.4byte	.LFE10
  2489 0058 00000000 		.4byte	.LFB11
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 79
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 79
 
 
  2490 005c 68000000 		.4byte	.LFE11
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2522              	.LASF7:
  2523 005b 6C6F6E67 		.ascii	"long long unsigned int\000"
  2523      206C6F6E 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 80
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 80
 
 
  2523      6720756E 
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2546              	.LASF33:
  2547 011b 43617053 		.ascii	"CapSense_ReadSensorRaw\000"
  2547      656E7365 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 81
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 81
 
 
  2547      5F526561 
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2569 01c7 73686F72 		.ascii	"short unsigned int\000"
  2569      7420756E 
  2569      7369676E 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 82
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 82
 
 
  2569      65642069 
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2593      32303135 
  2593      30333033 
  2594 029f 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 83
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 83
 
 
  2594      20726576 
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2615      657400
  2616              	.LASF43:
  2617 038d 43617053 		.ascii	"CapSense_GetPrescaler\000"
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 84
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 84
 
 
  2617      656E7365 
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 1
  2635      656E7365 
  2635      5F507265 
  2635      5363616E 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccuakXLP.s 			page 85
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXDMDLG.s 			page 85
 
 
  2635      00

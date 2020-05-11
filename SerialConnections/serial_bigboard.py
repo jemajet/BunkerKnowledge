@@ -6,13 +6,68 @@ import serial
 import time
 import threading
 
-# with serial.Serial("COM3", 9600) as ser:
-#	 print("Welcome to serial connection sexy")
-#	 while True:
-#		 val = commandut(" > ")
-#		 if val.lower() == "exit":
-#			 break
-#		 ser.write(val.encode())
+us_state_abbrev = {
+    'Alabama': 'AL',
+    'Alaska': 'AK',
+    'American Samoa': 'AS',
+    'Arizona': 'AZ',
+    'Arkansas': 'AR',
+    'California': 'CA',
+    'Colorado': 'CO',
+    'Connecticut': 'CT',
+    'Delaware': 'DE',
+    'District of Columbia': 'DC',
+    'Florida': 'FL',
+    'Georgia': 'GA',
+    'Guam': 'GU',
+    'Hawaii': 'HI',
+    'Idaho': 'ID',
+    'Illinois': 'IL',
+    'Indiana': 'IN',
+    'Iowa': 'IA',
+    'Kansas': 'KS',
+    'Kentucky': 'KY',
+    'Louisiana': 'LA',
+    'Maine': 'ME',
+    'Maryland': 'MD',
+    'Massachusetts': 'MA',
+    'Michigan': 'MI',
+    'Minnesota': 'MN',
+    'Mississippi': 'MS',
+    'Missouri': 'MO',
+    'Montana': 'MT',
+    'Nebraska': 'NE',
+    'Nevada': 'NV',
+    'New Hampshire': 'NH',
+    'New Jersey': 'NJ',
+    'New Mexico': 'NM',
+    'New York': 'NY',
+    'North Carolina': 'NC',
+    'North Dakota': 'ND',
+    'Northern Mariana Islands': 'MP',
+    'Ohio': 'OH',
+    'Oklahoma': 'OK',
+    'Oregon': 'OR',
+    'Pennsylvania': 'PA',
+    'Puerto Rico': 'PR',
+    'Rhode Island': 'RI',
+    'South Carolina': 'SC',
+    'South Dakota': 'SD',
+    'Tennessee': 'TN',
+    'Texas': 'TX',
+    'Utah': 'UT',
+    'Vermont': 'VT',
+    'Virgin Islands': 'VI',
+    'Virginia': 'VA',
+    'Washington': 'WA',
+    'West Virginia': 'WV',
+    'Wisconsin': 'WI',
+    'Wyoming': 'WY',
+    'the US': 'US',
+    'the World': 'WORLD'
+}
+
+abbrev_to_name = {v: k for k, v in us_state_abbrev.items()}
 
 
 class Serial_Control():
@@ -30,7 +85,6 @@ class Serial_Control():
             pass
         self.big_board_serial = serial.Serial(self.port, self.baud_rate)
         self.line_reader = ReadLine(self.big_board_serial)
-        print("hey")
         self.startup()
         self.terminal()
 
@@ -38,26 +92,13 @@ class Serial_Control():
         print("\n  **********************************************")
         print("  * Welcome to the Covid-19 Database Terminal! *")
         print("  **********************************************\n")
-        print("-Please wait for startup (could take up to 10 seconds)")
-        print("-To get help, please type help\nSending data...")
-        # print("Sending data", end="")
-        # self.transmit_node(self.dataset.get_current("TX"))
-        # print(self.dataset.get_current("TX"))
-        # nodes = self.dataset.get_all_current().values()
-        # self.transmit_nodes(nodes)
+        #print("-Please wait for startup (could take up to 10 seconds)")
+        print("-To get help, please type help\n")
 
     def transmit_nodes(self, nodes):
         # Sends nodes to the serial port, displays a progress bar with 5
         # periods
-        # total_nodes = len(nodes)
-        # num_per_print = 10
         sent = "".join([node.transmit_string() for node in nodes])
-
-        # for i, node in enumerate(nodes):
-        #	 self.transmit_node(node)
-        # if i % num_per_print == 0:
-        #	 print(".", end="")
-        # print()
 
     def transmit_node(self, node):
         self.transmit_word(node.transmit_string())
@@ -68,18 +109,37 @@ class Serial_Control():
     def terminal(self):
         while True:
             command = self.get_command()
-            self.transmit_word(command)
-            # self.transmit_word("\n")
-            response = self.line_reader.readline().decode("utf-8")
-            print(response, end="")
-            if command == "exit":
-                break
-            elif command == "help":
-                self.help()
-            else:
-                pass
-                # print(command)
-            self.big_board_serial.write(command.encode())
+            try:
+                if command == "exit":
+                    break
+                elif command == "help":
+                    self.help()
+                elif 'press' in command:
+                    _, article = command.split(" ")
+                else:
+                    # send state/us data
+                    if len(command) != 2 and command != "world":
+                        # not using state code
+                        command = command.split(" ")
+                        for i, x in enumerate(command):
+                            command[i] = x.capitalize()
+                        command = " ".join(command)
+                        command = us_state_abbrev[command]
+                    command = command.upper()
+
+                    data = str(self.dataset.get_current(command))
+                    data = data.split("\n")
+                    for dat in data:
+                        self.big_board_serial.write(dat.encode())
+                        self.big_board_serial.write("\n".encode())
+
+                    print(r'Sent:{}'.format(data))
+            except KeyError:
+                error = "No data for {}, or incorrect command".format(command)
+                print(error)
+                error += "\nEND\n"
+                self.big_board_serial.write(error.encode())
+
         self.big_board_serial.close()
 
     def get_command(self):
@@ -123,10 +183,3 @@ if __name__ == "__main__":
     baud = 57600  # look into why 115200 is producing weird stuff
     connection = Serial_Control(port, baud)
     connection.start()
-    # print(connection.dataset.get_current("TX"))
-    # print(connection.dataset.get_current("MA"))
-    # con = serial.Serial(port, baud)
-    # s = ReadLine(con)
-    # while True:
-    #     r = s.readline()
-    #     print(r.decode("utf-8"), end="")

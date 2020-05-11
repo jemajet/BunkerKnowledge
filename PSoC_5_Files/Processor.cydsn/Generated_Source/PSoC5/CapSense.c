@@ -16,7 +16,7 @@
 *******************************************************************************/
 
 #include "CapSense.h"
-
+#include "cyapicallbacks.h"
 
 
 static uint8 CapSense_initVar = 0u;

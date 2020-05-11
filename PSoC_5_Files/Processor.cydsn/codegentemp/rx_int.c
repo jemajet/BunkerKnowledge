@@ -19,7 +19,7 @@
 #include <cydevice_trm.h>
 #include <CyLib.h>
 #include <rx_int.h>
-
+#include "cyapicallbacks.h"
 
 #if !defined(rx_int__REMOVED) /* Check for removal by optimization */
 

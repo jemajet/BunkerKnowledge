@@ -17,7 +17,7 @@
 *******************************************************************************/
 
 #include "SPIM_1_PVT.h"
-
+#include "cyapicallbacks.h"
 
 /* User code required at start of ISR */
 /* `#START SPIM_1_ISR_START_DEF` */

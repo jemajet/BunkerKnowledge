@@ -15,60 +15,64 @@
 
 #include <device.h>
 #include <stdio.h>
+#include <string.h>
 #include "GUI.h"
 #include "tft.h"
 
 void MainTask(void);
 inline void counter(int* i, int max, int digits);
+void create_rects();
+void display_stats(int word_count);
+void clear_words(int word_count);
+
 // Screen size for TFT 35628MP from MPJA, 240x320
-int SCREEN_X; // 240
-int SCREEN_Y; // 320
+int SCREEN_X = 240; // 240
+int SCREEN_Y = 320; // 320
+int MARGIN = 10;
+int Y_INC = 20; // go down by 20 pixels when y is incremented
 char print[100];
 
-uint8 x = 0;
-uint8 x0 = 0;
-uint8 x1 = 0;
-uint8 y = 0;
 
-uint8 get_x();
-void inc_x();
-void dec_x();
-void reset_x();
-void lcd_backspace();
-void send_backspace();
+#define WORD_SIZE 50
+#define NUM_RECTS 28
+char end_command[4] = "END";
 
-#define COMMAND_SIZE 20
-char command[COMMAND_SIZE];
-uint8 command_index = 0;
-
-
-
+char word[WORD_SIZE];
+uint8 printindex = 0;
+char delimiter = '\n';
+int wordindex = 0;
+GUI_WRAPMODE aWm[] = { GUI_WRAPMODE_NONE, GUI_WRAPMODE_CHAR, GUI_WRAPMODE_WORD};
+GUI_RECT rects[NUM_RECTS];
+char words[NUM_RECTS][WORD_SIZE];
 CY_ISR(RX_INT)
 {
-    x = get_x();
     char sent = UART_ReadRxData();
-    if (sent == 0x08 || sent == 0x7F) {
-        // backspace
-        lcd_backspace();
-    } else if (sent == 0x0C) {
-        // If clearing in putty, clear the lcd
-        LCD_1_ClearDisplay();
-        reset_x();
-    } 
-    else {
-        LCD_1_Position(y, x);
-        LCD_1_PutChar(sent);     // RX ISR
-        inc_x();
-    } 
-    
-    
+    if (sent == delimiter) {
+        // end of word, display in its specified box, and clear word
+        // first sent is name, then date, then alternating key, value pairs
+        if (strcmp(words[printindex], end_command) == 0) { 
+            // END, so go to display, printindex is number of words +1
+            display_stats(printindex);
+            clear_words(printindex);
+            printindex = 0;
+        } else {
+            // This word is done, move to next word
+            printindex++;
+        }
+
+        wordindex = 0;
+    } else {
+        // add sent to the current word
+        words[printindex][wordindex] = sent; // add word
+        words[printindex][wordindex+1] = '\0'; // make it a properly terminated string
+        wordindex++; // prepare for next character
+    }
+    //LCD_1_PutChar(sent);     // RX ISR
     UART_WriteTxData(sent);
 }
 
 void main()
 {	
-
-    
     
 	LCD_1_Start();					    // initialize lcd
 	LCD_1_ClearDisplay();
@@ -81,130 +85,73 @@ void main()
     UART_ClearRxBuffer();
     SPIM_1_Start();                         // initialize SPIM component     
 
+    /*
     CapSense_Start();
     CapSense_InitializeAllBaselines();
     CapSense_ScanEnabledWidgets();
-    uint8 button0 = 0;
-    uint8 oldbutton0 = 0;
-    uint8 button1 = 0;
-    uint8 oldbutton1 = 0;
+    */
     LED_1_Write(1);
     
     MainTask();                             // all of the emWin exmples use MainTask() as the entry point
-    int i = 0;
-    int *iptr = &i;
     
-    for(;;)
+    for(;;) {
     
-
-        
-        if (! CapSense_IsBusy() )
-            counter(iptr, 9999, 4);
-		    {
-                button0 = CapSense_CheckIsWidgetActive(CapSense_BUTTON0__BTN);
-                button1 = CapSense_CheckIsWidgetActive(CapSense_BUTTON1__BTN);
-
-                if (button0 && button1) 
-                {
-                    // pressing both buttons clears the display
-                    LCD_1_ClearDisplay();
-                    reset_x();
-                    UART_WriteTxData(0x0C);
-                }
-			    else if (button0 && button0 != oldbutton0) 
-                {
-                    // button 0, (5_5) switches which row you're writing on
-                    y ^= 1;
-                    LED_2_Write(LED_1_Read());
-                    LED_1_Write(!LED_1_Read());
-                        
-                }
-                else if (button1 && button1 != oldbutton1)
-                {
-                    // button 1, (5_6) is a backspace
-                    lcd_backspace();
-                    send_backspace();
-                }
-                /* Update all baselines */
-                CapSense_UpdateEnabledBaselines();
-                
-           		/* Start scanning all enabled sensors */
-            	CapSense_ScanEnabledWidgets();
-                oldbutton0 = button0;
-                oldbutton1 = button1;
-		    }
-    
-   
+    }
 }
-
 
 void MainTask()
 {
     GUI_Init();                             // initilize graphics library
     GUI_Clear();
-    SCREEN_X = GUI_GetScreenSizeX();
-    SCREEN_Y = GUI_GetScreenSizeY();
     GUI_SetFont(&GUI_Font8x16);
-    GUI_DispString("Hello world!");
+    create_rects();
 }
 
-inline void counter(int* iptr, int max, int digits) {
-    GUI_DispDecAt( (*iptr)++, 20,20,digits);
-            if (*iptr > max) {
-            *iptr = 0;
-         }
+void create_rects() {
+    int x = 0;
+    int y = 0;
+    uint i;
+    for (i = 0; i < NUM_RECTS; i++) {
+
+        if (i < 2) {
+            GUI_RECT new_rect = {MARGIN, MARGIN+(y*Y_INC), SCREEN_X-MARGIN, MARGIN+((y+1)*Y_INC)};
+
+            rects[i] = new_rect;
+
+            y++;
+        } else {
+            if (x == 0) {
+                // left side
+                GUI_RECT new_rect = {MARGIN, MARGIN+(y*Y_INC), (SCREEN_X-MARGIN) /2, MARGIN+((y+1)*Y_INC)};
+                rects[i] = new_rect;
+            } else {
+                // right side
+                GUI_RECT new_rect = {(SCREEN_X-MARGIN) /2, MARGIN+(y*Y_INC), SCREEN_X-MARGIN, MARGIN+((y+1)*Y_INC)};
+                rects[i] = new_rect;
+            }
+            if (x == 1) {
+                y++;
+            }
+            x ^= 1; // toggle the side for the next one
+        }
+    }
+
 }
 
-uint8 get_x() {
-    if (y == 0) {
-        return x0;
-    } else {
-        return x1;
+void display_stats(int word_count) {
+    // displays the first display_count things in words
+    // expects rects and words to be filled
+    GUI_Clear();
+    int i;
+    for (i = 0; i < word_count; i++) {
+        GUI_DispStringInRectWrap(words[i], &rects[i], GUI_TA_CENTER, GUI_WRAPMODE_WORD);
     }
 }
 
-void inc_x() {
-    if (y == 0) {
-        x0++;
-        x0 %= 15; // keep within bounds
-    } else {
-        x1++;
-        x1 %= 15;
+void clear_words(int word_count) {
+    int i;
+    for (i = 0; i < word_count; i++) {
+        memset(words[i], 0, WORD_SIZE);   
     }
 }
-
-void dec_x() {
-    if (y == 0 && x0 > 0) {
-        x0--;
-    } else if (y == 0 && x0 == 0) {
-        x0 = 14;
-    } else if (y == 1 && x1 > 0) {
-        x1--;
-    } else if (y == 1 && x1 == 0) {
-        x1 = 14;   
-    }
-}
-
-void reset_x() {
-    x0 = 0;
-    x1 = 0;
-    x = 0;
-}
-
-void lcd_backspace() {
-    // clears the prior space on the LCD_1
-    dec_x();
-    x = get_x();
-    LCD_1_Position(y, x);
-    LCD_1_PutChar(' ');
-    LCD_1_Position(y, x);
-}
-void send_backspace() {
-    // sends the ASCII backspace character, space to delete
-    //   then another backspace
-    UART_WriteTxData(0x08);
-    UART_WriteTxData(0x20);
-    UART_WriteTxData(0x08);   
-}
-
 /* [] END OF FILE */
