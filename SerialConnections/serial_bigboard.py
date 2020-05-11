@@ -63,8 +63,8 @@ us_state_abbrev = {
     'West Virginia': 'WV',
     'Wisconsin': 'WI',
     'Wyoming': 'WY',
-    'the US': 'US',
-    'the World': 'WORLD'
+    'USA': 'US',
+    'World': 'WORLD'
 }
 
 abbrev_to_name = {v: k for k, v in us_state_abbrev.items()}
@@ -135,7 +135,7 @@ class Serial_Control():
 
                     print(r'Sent:{}'.format(data))
             except KeyError:
-                error = "No data for {}, or incorrect command".format(command)
+                error = "No data for {}".format(command)
                 print(error)
                 error += "\nEND\n"
                 self.big_board_serial.write(error.encode())

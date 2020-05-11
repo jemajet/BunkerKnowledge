@@ -299,6 +299,40 @@
 <VisibleNodeIds>
 <v>BunkerKnowledgeProcessor</v>
 <v>BunkerKnowledgeProcessor\Processor</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_AMuxCH0.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_CompCH0.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_CompCH0_PM.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_CSHL.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_IdacCH0.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_IdacCH0_PM.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_INT.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_IntClock.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_Pins.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_PM.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_SMS_Wrapper.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_TunerHelper.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\DC.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\GUI_X.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\GUIConf.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_1.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_1_LCDPort.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_1_PM.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCDConf.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

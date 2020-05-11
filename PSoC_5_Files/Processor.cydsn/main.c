@@ -24,6 +24,7 @@ inline void counter(int* i, int max, int digits);
 void create_rects();
 void display_stats(int word_count);
 void clear_words(int word_count);
+void color_change(int index, char* word, GUI_COLOR color);
 
 // Screen size for TFT 35628MP from MPJA, 240x320
 int SCREEN_X = 240; // 240
@@ -144,14 +145,31 @@ void display_stats(int word_count) {
     GUI_Clear();
     int i;
     for (i = 0; i < word_count; i++) {
+        if (i > 1 && i % 2 == 0) {
+            // check if last one was a key word so the number changes color
+            color_change(i-1, "Confirmed", GUI_RED);  
+        } else {
+            GUI_SetColor(GUI_WHITE);
+        }
         GUI_DispStringInRectWrap(words[i], &rects[i], GUI_TA_CENTER, GUI_WRAPMODE_WORD);
+    }
+}
+void color_change(int index, char* word, GUI_COLOR color) {
+    if (strcmp(words[index], word) == 0) {
+        LCD_1_PutChar('!');
+        GUI_SetColor(color);   
     }
 }
 
 void clear_words(int word_count) {
+    // clears all the words we've used to prepare for next data send
     int i;
     for (i = 0; i < word_count; i++) {
         memset(words[i], 0, WORD_SIZE);   
     }
 }
+
+
+
+
 /* [] END OF FILE */

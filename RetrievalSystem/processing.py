@@ -72,8 +72,8 @@ us_state_abbrev = {
     'West Virginia': 'WV',
     'Wisconsin': 'WI',
     'Wyoming': 'WY',
-    'the US': 'US',
-    'the World': 'WORLD'
+    'USA': 'US',
+    'World': 'WORLD'
 }
 
 abbrev_to_name = {v: k for k, v in us_state_abbrev.items()}
@@ -157,7 +157,7 @@ class Covid19_Node():
 
     def __str__(self):
         delim = '\n'
-        s = "Statistics for {}{}".format(
+        s = "{}{}".format(
             abbrev_to_name[self.__dict__["name"]], delim)
         s += "{}{}".format(self.__dict__["date"], delim)
         for key, value in self.__dict__.items():
