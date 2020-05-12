@@ -190,43 +190,55 @@ class Covid19_World_Node(Covid19_Node):
     def __init__(self, c_json):
         self.name = "WORLD"
         self.date = str(datetime.date.today())
+        self.population = populations["World"]
         self.confirmed = c_json["confirmed"]
         self.deaths = c_json["deaths"]
         self.recovered = c_json["recovered"]
         self.active = self.confirmed - self.deaths - self.recovered
-        self.population = populations["World"]
         self.percent_infected = round(
             self.confirmed / self.population * 100, 2)
         self.percent_recovered = round(
             self.recovered / self.confirmed * 100, 2)
         self.death_rate = round(self.deaths / self.confirmed * 100, 2)
+        self.percent_active = round(self.active / self.confirmed * 100, 2)
 
 
 class Covid19_USA_Node(Covid19_Node):
 
     def __init__(self, c_json):
         self.name = "US"
-        self.date = c_json["lastModified"][:10]
-        self.confirmed = c_json["positive"]
-        self.hospitalized = c_json[
-            "hospitalizedCurrently"] if "hospitalizedCurrently" in c_json else 0
+        try:
+            self.date = c_json["lastModified"][:10]
+        except KeyError:
+            self.date = c_json["dateChecked"][:10]
+        self.population = populations[self.name]
+        self.confirmed = c_json["positive"] if c_json[
+            "positive"] != None else 0
+        self.total_tested = c_json["totalTestResults"]
         self.recovered = c_json["recovered"] if c_json[
             "recovered"] != None else 0
-        self.in_icu = c_json[
-            "inIcuCurrently"] if "inIcuCurrently" in c_json else 0
+        # self.in_icu = c_json[
+        #    "inIcuCurrently"] if "inIcuCurrently" in c_json else 0
+        self.deaths = c_json["death"] if c_json["death"] != None else 0
+        self.active = self.confirmed - self.deaths - self.recovered
+        self.hospitalized = c_json[
+            "hospitalizedCurrently"] if "hospitalizedCurrently" in c_json else 0
         self.on_ventilator = c_json[
             "onVentilatorCurrently"] if "onVentilatorCurrently" in c_json else 0
-        self.total_tested = c_json["totalTestResults"]
-        self.deaths = c_json["death"]
-        self.active = self.confirmed - self.deaths - self.recovered
-        self.population = populations[self.name]
         self.percent_infected = round(
             self.confirmed / self.population * 100, 2)
         self.percent_tested = round(
             self.total_tested / self.population * 100, 2)
-        self.percent_recovered = round(
-            self.recovered / self.confirmed * 100, 2)
-        self.death_rate = round(self.deaths / self.confirmed * 100, 2)
+
+        if self.confirmed != 0:
+            self.percent_recovered = round(
+                self.recovered / self.confirmed * 100, 2)
+            self.death_rate = round(self.deaths / self.confirmed * 100, 2)
+            self.percent_active = round(self.active / self.confirmed * 100, 2)
+        else:
+            self.percent_recovered = round(0, 2)
+            self.death_rate = round(0, 2)
+            self.percent_active = round(0, 2)
 
 
 class Covid19_State_Node(Covid19_Node):
@@ -234,20 +246,29 @@ class Covid19_State_Node(Covid19_Node):
     def __init__(self, c_json):
         self.name = c_json["state"]
         self.date = c_json["dateChecked"][:10]
-        self.confirmed = c_json["positive"]
+        self.population = populations[self.name]
+        self.confirmed = c_json["positive"] if c_json[
+            "positive"] != None else 0
+        self.total_tested = c_json["totalTestResults"]
         self.recovered = c_json["recovered"] if c_json[
             "recovered"] != None else 0
-        self.total_tested = c_json["totalTestResults"]
-        self.deaths = c_json["death"]
+        self.deaths = c_json["death"] if c_json["death"] != None else 0
         self.active = self.confirmed - self.deaths - self.recovered
-        self.population = populations[self.name]
+
         self.percent_infected = round(
             self.confirmed / self.population * 100, 2)
         self.percent_tested = round(
             self.total_tested / self.population * 100, 2)
-        self.percent_recovered = round(
-            self.recovered / self.confirmed * 100, 2)
-        self.death_rate = round(self.deaths / self.confirmed * 100, 2)
+
+        if self.confirmed != 0:
+            self.percent_recovered = round(
+                self.recovered / self.confirmed * 100, 2)
+            self.death_rate = round(self.deaths / self.confirmed * 100, 2)
+            self.percent_active = round(self.active / self.confirmed * 100, 2)
+        else:
+            self.percent_recovered = round(0, 2)
+            self.death_rate = round(0, 2)
+            self.percent_active = round(0, 2)
 
 
 class Covid19_Press():
@@ -297,14 +318,11 @@ class Covid19_Dataset():
                 get_covid19_data("us", "current")[0])
             self.current["WORLD"] = Covid19_World_Node(
                 get_covid19_data("world", "current")[0]["data"])
+            self.press = Covid19_Press()
             self.history = {state: {} for state in self.names}
             self.history["US"] = {}
-            self.press = Covid19_Press()
-
-            # self.world_current = self.current["world"]
-            # self.world_history = self.history["world"]
-            # self.us_current = self.current["us"]
-            # self.us_history = self.current["world"]
+            for state in self.history:
+                self.get_historical(state)
             self.save()
 
     def save(self):
@@ -344,16 +362,32 @@ class Covid19_Dataset():
     def get_current(self, name):
         return self.current[name]
 
+    def get_by_date(self, name, month, day):
+        history = self.get_historical(name)
+        date_string = "2020-"
+        if len(month) < 2:
+            date_string += "0"
+        date_string += month
+        date_string += "-"
+        if len(day) < 2:
+            date_string += "0"
+        date_string += day
+        for day in history:
+            if day.date == date_string:
+                return day
+        raise KeyError
+
     def get_all_historical(self, name):
         """
         returns all available historical data
         """
         return self.history
 
-    def get_historical(self, name):
+    def get_historical(self, name, save=False):
         if len(self.history[name]) == 0:
             self.history[name] = Covid19_Dataset.retrieve_historical(name)
-            self.save()
+            if save:
+                self.save()
         return self.history[name]
 
     @staticmethod
@@ -366,6 +400,7 @@ class Covid19_Dataset():
             level = "world"
         elif name == "us":
             level = "us"
+            name = None
 
         # retrieve the history
         history = get_covid19_data(level, "daily", name)
@@ -381,13 +416,12 @@ class Covid19_Dataset():
         # add nodes to the history
         for time in history:
             try:
-
                 historical.append(Make_Node(time))
             except KeyError:
+
                 break
         return historical
 
 
 if __name__ == "__main__":
     data = Covid19_Dataset()
-    print(data.get_current("AK"))

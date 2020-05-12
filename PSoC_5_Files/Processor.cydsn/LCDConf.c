@@ -65,7 +65,6 @@ Purpose     : Display controller configuration (single layer)
 #define LCD_CONTROLLER GUIDRV_FLEXCOLOR_F66709
 
 
-
 //
 // Color conversion
 //   The color conversion functions should be selected according to
