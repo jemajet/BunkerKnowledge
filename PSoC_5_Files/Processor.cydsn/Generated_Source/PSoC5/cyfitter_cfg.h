@@ -23,16 +23,6 @@ extern void cyfitter_cfg(void);
 
 /* Analog Set/Unset methods */
 extern void SetAnalogRoutingPumps(uint8 enabled);
-extern void CapSense_AMuxCH0_Set(uint8 channel);
-extern void CapSense_AMuxCH0_Unset(uint8 channel);
-/* CapSense_AMuxCH0__addrTable is an implementation detail of the AMux.
-   Code that depends on it may be incompatible with other versions
-   of PSoC Creator. */
-extern uint8 CYXDATA * const CYCODE CapSense_AMuxCH0__addrTable[5];
-/* CapSense_AMuxCH0__maskTable is an implementation detail of the AMux.
-   Code that depends on it may be incompatible with other versions
-   of PSoC Creator. */
-extern const uint8 CYCODE CapSense_AMuxCH0__maskTable[5];
 
 
 #endif /* CYFITTER_CFG_H */

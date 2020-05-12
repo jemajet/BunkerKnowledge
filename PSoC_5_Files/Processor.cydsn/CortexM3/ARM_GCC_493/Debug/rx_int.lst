@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
   29:.\Generated_Source\PSoC5/rx_int.c **** /* `#START rx_int_intc` */
   30:.\Generated_Source\PSoC5/rx_int.c **** 
   31:.\Generated_Source\PSoC5/rx_int.c **** /* `#END` */
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 2
 
 
   32:.\Generated_Source\PSoC5/rx_int.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
   42              		.loc 1 70 0
   43 000e 0720     		movs	r0, #7
   44 0010 FFF7FEFF 		bl	rx_int_SetPriority
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 3
 
 
   71:.\Generated_Source\PSoC5/rx_int.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
   64              		.loc 1 105 0
   65              		.cfi_startproc
   66              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 4
 
 
   67              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  122:.\Generated_Source\PSoC5/rx_int.c **** ********************************************************************************
  123:.\Generated_Source\PSoC5/rx_int.c **** *
  124:.\Generated_Source\PSoC5/rx_int.c **** * Summary:
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 5
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 5
 
 
  125:.\Generated_Source\PSoC5/rx_int.c **** *   Disables and removes the interrupt.
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  147:.\Generated_Source\PSoC5/rx_int.c **** *
  148:.\Generated_Source\PSoC5/rx_int.c **** * Summary:
  149:.\Generated_Source\PSoC5/rx_int.c **** *   The default Interrupt Service Routine for rx_int.
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 6
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 6
 
 
  150:.\Generated_Source\PSoC5/rx_int.c **** *
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  175:.\Generated_Source\PSoC5/rx_int.c **** ********************************************************************************
  176:.\Generated_Source\PSoC5/rx_int.c **** *
  177:.\Generated_Source\PSoC5/rx_int.c **** * Summary:
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 7
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 7
 
 
  178:.\Generated_Source\PSoC5/rx_int.c **** *   Change the ISR vector for the Interrupt. Note calling rx_int_Start
@@ -409,7 +409,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  206:.\Generated_Source\PSoC5/rx_int.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)rx_int__INTC_NUMBER] = address;
  183              		.loc 1 206 0
  184 000e FB68     		ldr	r3, [r7, #12]
- 185 0010 4433     		adds	r3, r3, #68
+ 185 0010 4033     		adds	r3, r3, #64
  186 0012 7A68     		ldr	r2, [r7, #4]
  187 0014 1A60     		str	r2, [r3]
  207:.\Generated_Source\PSoC5/rx_int.c **** }
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  190              		.cfi_def_cfa_offset 4
  191 0018 BD46     		mov	sp, r7
  192              		.cfi_def_cfa_register 13
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 8
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 8
 
 
  193              		@ sp needed
@@ -478,14 +478,14 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  226 0006 054B     		ldr	r3, .L14
  227 0008 1B68     		ldr	r3, [r3]
  228 000a 7B60     		str	r3, [r7, #4]
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 9
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 9
 
 
  229:.\Generated_Source\PSoC5/rx_int.c **** 
  230:.\Generated_Source\PSoC5/rx_int.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)rx_int__INTC_NUMBER];
  229              		.loc 1 230 0
  230 000c 7B68     		ldr	r3, [r7, #4]
- 231 000e 5B6C     		ldr	r3, [r3, #68]
+ 231 000e 1B6C     		ldr	r3, [r3, #64]
  231:.\Generated_Source\PSoC5/rx_int.c **** }
  232              		.loc 1 231 0
  233 0010 1846     		mov	r0, r3
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  254:.\Generated_Source\PSoC5/rx_int.c **** * Return:
  255:.\Generated_Source\PSoC5/rx_int.c **** *   None
  256:.\Generated_Source\PSoC5/rx_int.c **** *
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 10
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 10
 
 
  257:.\Generated_Source\PSoC5/rx_int.c **** *******************************************************************************/
@@ -579,7 +579,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  288              	.L18:
  289 001e 00BF     		.align	2
  290              	.L17:
- 291 0020 01E400E0 		.word	-536812543
+ 291 0020 00E400E0 		.word	-536812544
  292              		.cfi_endproc
  293              	.LFE6:
  294              		.size	rx_int_SetPriority, .-rx_int_SetPriority
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  266:.\Generated_Source\PSoC5/rx_int.c **** ********************************************************************************
  267:.\Generated_Source\PSoC5/rx_int.c **** *
  268:.\Generated_Source\PSoC5/rx_int.c **** * Summary:
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 11
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 11
 
 
  269:.\Generated_Source\PSoC5/rx_int.c **** *   Gets the Priority of the Interrupt.
@@ -655,10 +655,10 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  334              	.L22:
  335 001e 00BF     		.align	2
  336              	.L21:
- 337 0020 01E400E0 		.word	-536812543
+ 337 0020 00E400E0 		.word	-536812544
  338              		.cfi_endproc
  339              	.LFE7:
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 12
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 12
 
 
  340              		.size	rx_int_GetPriority, .-rx_int_GetPriority
@@ -704,7 +704,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  310:.\Generated_Source\PSoC5/rx_int.c ****     *rx_int_INTC_SET_EN = rx_int__INTC_MASK;
  359              		.loc 1 310 0
  360 0004 034B     		ldr	r3, .L24
- 361 0006 0222     		movs	r2, #2
+ 361 0006 0122     		movs	r2, #1
  362 0008 1A60     		str	r2, [r3]
  311:.\Generated_Source\PSoC5/rx_int.c **** }
  363              		.loc 1 311 0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  371              	.L25:
  372 0012 00BF     		.align	2
  373              	.L24:
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 13
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 13
 
 
  374 0014 00E100E0 		.word	-536813312
@@ -764,46 +764,39 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  330:.\Generated_Source\PSoC5/rx_int.c ****     /* Get the state of the general interrupt. */
  331:.\Generated_Source\PSoC5/rx_int.c ****     return ((*rx_int_INTC_SET_EN & (uint32)rx_int__INTC_MASK) != 0u) ? 1u:0u;
  396              		.loc 1 331 0
- 397 0004 064B     		ldr	r3, .L30
+ 397 0004 054B     		ldr	r3, .L28
  398 0006 1B68     		ldr	r3, [r3]
- 399 0008 03F00203 		and	r3, r3, #2
- 400 000c 002B     		cmp	r3, #0
- 401 000e 01D0     		beq	.L27
- 402              		.loc 1 331 0 is_stmt 0 discriminator 1
- 403 0010 0123     		movs	r3, #1
- 404 0012 00E0     		b	.L28
- 405              	.L27:
- 406              		.loc 1 331 0 discriminator 2
- 407 0014 0023     		movs	r3, #0
- 408              	.L28:
+ 399 0008 DBB2     		uxtb	r3, r3
+ 400 000a 03F00103 		and	r3, r3, #1
+ 401 000e DBB2     		uxtb	r3, r3
  332:.\Generated_Source\PSoC5/rx_int.c **** }
- 409              		.loc 1 332 0 is_stmt 1 discriminator 4
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 14
+ 402              		.loc 1 332 0
+ 403 0010 1846     		mov	r0, r3
+ 404 0012 BD46     		mov	sp, r7
+ 405              		.cfi_def_cfa_register 13
+ 406              		@ sp needed
+ 407 0014 5DF8047B 		ldr	r7, [sp], #4
+ 408              		.cfi_restore 7
+ 409              		.cfi_def_cfa_offset 0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 14
 
 
- 410 0016 1846     		mov	r0, r3
- 411 0018 BD46     		mov	sp, r7
- 412              		.cfi_def_cfa_register 13
- 413              		@ sp needed
- 414 001a 5DF8047B 		ldr	r7, [sp], #4
- 415              		.cfi_restore 7
- 416              		.cfi_def_cfa_offset 0
- 417 001e 7047     		bx	lr
- 418              	.L31:
+ 410 0018 7047     		bx	lr
+ 411              	.L29:
+ 412 001a 00BF     		.align	2
+ 413              	.L28:
+ 414 001c 00E100E0 		.word	-536813312
+ 415              		.cfi_endproc
+ 416              	.LFE9:
+ 417              		.size	rx_int_GetState, .-rx_int_GetState
+ 418              		.section	.text.rx_int_Disable,"ax",%progbits
  419              		.align	2
- 420              	.L30:
- 421 0020 00E100E0 		.word	-536813312
- 422              		.cfi_endproc
- 423              	.LFE9:
- 424              		.size	rx_int_GetState, .-rx_int_GetState
- 425              		.section	.text.rx_int_Disable,"ax",%progbits
- 426              		.align	2
- 427              		.global	rx_int_Disable
- 428              		.thumb
- 429              		.thumb_func
- 430              		.type	rx_int_Disable, %function
- 431              	rx_int_Disable:
- 432              	.LFB10:
+ 420              		.global	rx_int_Disable
+ 421              		.thumb
+ 422              		.thumb_func
+ 423              		.type	rx_int_Disable, %function
+ 424              	rx_int_Disable:
+ 425              	.LFB10:
  333:.\Generated_Source\PSoC5/rx_int.c **** 
  334:.\Generated_Source\PSoC5/rx_int.c **** 
  335:.\Generated_Source\PSoC5/rx_int.c **** /*******************************************************************************
@@ -822,49 +815,49 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  348:.\Generated_Source\PSoC5/rx_int.c **** *******************************************************************************/
  349:.\Generated_Source\PSoC5/rx_int.c **** void rx_int_Disable(void)
  350:.\Generated_Source\PSoC5/rx_int.c **** {
- 433              		.loc 1 350 0
- 434              		.cfi_startproc
- 435              		@ args = 0, pretend = 0, frame = 0
- 436              		@ frame_needed = 1, uses_anonymous_args = 0
- 437              		@ link register save eliminated.
- 438 0000 80B4     		push	{r7}
- 439              		.cfi_def_cfa_offset 4
- 440              		.cfi_offset 7, -4
- 441 0002 00AF     		add	r7, sp, #0
- 442              		.cfi_def_cfa_register 7
+ 426              		.loc 1 350 0
+ 427              		.cfi_startproc
+ 428              		@ args = 0, pretend = 0, frame = 0
+ 429              		@ frame_needed = 1, uses_anonymous_args = 0
+ 430              		@ link register save eliminated.
+ 431 0000 80B4     		push	{r7}
+ 432              		.cfi_def_cfa_offset 4
+ 433              		.cfi_offset 7, -4
+ 434 0002 00AF     		add	r7, sp, #0
+ 435              		.cfi_def_cfa_register 7
  351:.\Generated_Source\PSoC5/rx_int.c ****     /* Disable the general interrupt. */
  352:.\Generated_Source\PSoC5/rx_int.c ****     *rx_int_INTC_CLR_EN = rx_int__INTC_MASK;
- 443              		.loc 1 352 0
- 444 0004 034B     		ldr	r3, .L33
- 445 0006 0222     		movs	r2, #2
- 446 0008 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 15
-
-
+ 436              		.loc 1 352 0
+ 437 0004 034B     		ldr	r3, .L31
+ 438 0006 0122     		movs	r2, #1
+ 439 0008 1A60     		str	r2, [r3]
  353:.\Generated_Source\PSoC5/rx_int.c **** }
- 447              		.loc 1 353 0
- 448 000a BD46     		mov	sp, r7
- 449              		.cfi_def_cfa_register 13
- 450              		@ sp needed
- 451 000c 5DF8047B 		ldr	r7, [sp], #4
- 452              		.cfi_restore 7
- 453              		.cfi_def_cfa_offset 0
- 454 0010 7047     		bx	lr
- 455              	.L34:
- 456 0012 00BF     		.align	2
- 457              	.L33:
- 458 0014 80E100E0 		.word	-536813184
- 459              		.cfi_endproc
- 460              	.LFE10:
- 461              		.size	rx_int_Disable, .-rx_int_Disable
- 462              		.section	.text.rx_int_SetPending,"ax",%progbits
- 463              		.align	2
- 464              		.global	rx_int_SetPending
- 465              		.thumb
- 466              		.thumb_func
- 467              		.type	rx_int_SetPending, %function
- 468              	rx_int_SetPending:
- 469              	.LFB11:
+ 440              		.loc 1 353 0
+ 441 000a BD46     		mov	sp, r7
+ 442              		.cfi_def_cfa_register 13
+ 443              		@ sp needed
+ 444 000c 5DF8047B 		ldr	r7, [sp], #4
+ 445              		.cfi_restore 7
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 15
+
+
+ 446              		.cfi_def_cfa_offset 0
+ 447 0010 7047     		bx	lr
+ 448              	.L32:
+ 449 0012 00BF     		.align	2
+ 450              	.L31:
+ 451 0014 80E100E0 		.word	-536813184
+ 452              		.cfi_endproc
+ 453              	.LFE10:
+ 454              		.size	rx_int_Disable, .-rx_int_Disable
+ 455              		.section	.text.rx_int_SetPending,"ax",%progbits
+ 456              		.align	2
+ 457              		.global	rx_int_SetPending
+ 458              		.thumb
+ 459              		.thumb_func
+ 460              		.type	rx_int_SetPending, %function
+ 461              	rx_int_SetPending:
+ 462              	.LFB11:
  354:.\Generated_Source\PSoC5/rx_int.c **** 
  355:.\Generated_Source\PSoC5/rx_int.c **** 
  356:.\Generated_Source\PSoC5/rx_int.c **** /*******************************************************************************
@@ -889,48 +882,48 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  375:.\Generated_Source\PSoC5/rx_int.c **** *******************************************************************************/
  376:.\Generated_Source\PSoC5/rx_int.c **** void rx_int_SetPending(void)
  377:.\Generated_Source\PSoC5/rx_int.c **** {
- 470              		.loc 1 377 0
- 471              		.cfi_startproc
- 472              		@ args = 0, pretend = 0, frame = 0
- 473              		@ frame_needed = 1, uses_anonymous_args = 0
- 474              		@ link register save eliminated.
- 475 0000 80B4     		push	{r7}
- 476              		.cfi_def_cfa_offset 4
- 477              		.cfi_offset 7, -4
- 478 0002 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 16
-
-
- 479              		.cfi_def_cfa_register 7
+ 463              		.loc 1 377 0
+ 464              		.cfi_startproc
+ 465              		@ args = 0, pretend = 0, frame = 0
+ 466              		@ frame_needed = 1, uses_anonymous_args = 0
+ 467              		@ link register save eliminated.
+ 468 0000 80B4     		push	{r7}
+ 469              		.cfi_def_cfa_offset 4
+ 470              		.cfi_offset 7, -4
+ 471 0002 00AF     		add	r7, sp, #0
+ 472              		.cfi_def_cfa_register 7
  378:.\Generated_Source\PSoC5/rx_int.c ****     *rx_int_INTC_SET_PD = rx_int__INTC_MASK;
- 480              		.loc 1 378 0
- 481 0004 034B     		ldr	r3, .L36
- 482 0006 0222     		movs	r2, #2
- 483 0008 1A60     		str	r2, [r3]
+ 473              		.loc 1 378 0
+ 474 0004 034B     		ldr	r3, .L34
+ 475 0006 0122     		movs	r2, #1
+ 476 0008 1A60     		str	r2, [r3]
  379:.\Generated_Source\PSoC5/rx_int.c **** }
- 484              		.loc 1 379 0
- 485 000a BD46     		mov	sp, r7
- 486              		.cfi_def_cfa_register 13
- 487              		@ sp needed
- 488 000c 5DF8047B 		ldr	r7, [sp], #4
- 489              		.cfi_restore 7
- 490              		.cfi_def_cfa_offset 0
- 491 0010 7047     		bx	lr
- 492              	.L37:
- 493 0012 00BF     		.align	2
- 494              	.L36:
- 495 0014 00E200E0 		.word	-536813056
- 496              		.cfi_endproc
- 497              	.LFE11:
- 498              		.size	rx_int_SetPending, .-rx_int_SetPending
- 499              		.section	.text.rx_int_ClearPending,"ax",%progbits
- 500              		.align	2
- 501              		.global	rx_int_ClearPending
- 502              		.thumb
- 503              		.thumb_func
- 504              		.type	rx_int_ClearPending, %function
- 505              	rx_int_ClearPending:
- 506              	.LFB12:
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 16
+
+
+ 477              		.loc 1 379 0
+ 478 000a BD46     		mov	sp, r7
+ 479              		.cfi_def_cfa_register 13
+ 480              		@ sp needed
+ 481 000c 5DF8047B 		ldr	r7, [sp], #4
+ 482              		.cfi_restore 7
+ 483              		.cfi_def_cfa_offset 0
+ 484 0010 7047     		bx	lr
+ 485              	.L35:
+ 486 0012 00BF     		.align	2
+ 487              	.L34:
+ 488 0014 00E200E0 		.word	-536813056
+ 489              		.cfi_endproc
+ 490              	.LFE11:
+ 491              		.size	rx_int_SetPending, .-rx_int_SetPending
+ 492              		.section	.text.rx_int_ClearPending,"ax",%progbits
+ 493              		.align	2
+ 494              		.global	rx_int_ClearPending
+ 495              		.thumb
+ 496              		.thumb_func
+ 497              		.type	rx_int_ClearPending, %function
+ 498              	rx_int_ClearPending:
+ 499              	.LFB12:
  380:.\Generated_Source\PSoC5/rx_int.c **** 
  381:.\Generated_Source\PSoC5/rx_int.c **** 
  382:.\Generated_Source\PSoC5/rx_int.c **** /*******************************************************************************
@@ -954,1006 +947,1006 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 1
  400:.\Generated_Source\PSoC5/rx_int.c **** *******************************************************************************/
  401:.\Generated_Source\PSoC5/rx_int.c **** void rx_int_ClearPending(void)
  402:.\Generated_Source\PSoC5/rx_int.c **** {
- 507              		.loc 1 402 0
- 508              		.cfi_startproc
- 509              		@ args = 0, pretend = 0, frame = 0
- 510              		@ frame_needed = 1, uses_anonymous_args = 0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 17
-
-
- 511              		@ link register save eliminated.
- 512 0000 80B4     		push	{r7}
- 513              		.cfi_def_cfa_offset 4
- 514              		.cfi_offset 7, -4
- 515 0002 00AF     		add	r7, sp, #0
- 516              		.cfi_def_cfa_register 7
+ 500              		.loc 1 402 0
+ 501              		.cfi_startproc
+ 502              		@ args = 0, pretend = 0, frame = 0
+ 503              		@ frame_needed = 1, uses_anonymous_args = 0
+ 504              		@ link register save eliminated.
+ 505 0000 80B4     		push	{r7}
+ 506              		.cfi_def_cfa_offset 4
+ 507              		.cfi_offset 7, -4
+ 508 0002 00AF     		add	r7, sp, #0
+ 509              		.cfi_def_cfa_register 7
  403:.\Generated_Source\PSoC5/rx_int.c ****     *rx_int_INTC_CLR_PD = rx_int__INTC_MASK;
- 517              		.loc 1 403 0
- 518 0004 034B     		ldr	r3, .L39
- 519 0006 0222     		movs	r2, #2
- 520 0008 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 17
+
+
+ 510              		.loc 1 403 0
+ 511 0004 034B     		ldr	r3, .L37
+ 512 0006 0122     		movs	r2, #1
+ 513 0008 1A60     		str	r2, [r3]
  404:.\Generated_Source\PSoC5/rx_int.c **** }
- 521              		.loc 1 404 0
- 522 000a BD46     		mov	sp, r7
- 523              		.cfi_def_cfa_register 13
- 524              		@ sp needed
- 525 000c 5DF8047B 		ldr	r7, [sp], #4
- 526              		.cfi_restore 7
- 527              		.cfi_def_cfa_offset 0
- 528 0010 7047     		bx	lr
- 529              	.L40:
- 530 0012 00BF     		.align	2
- 531              	.L39:
- 532 0014 80E200E0 		.word	-536812928
- 533              		.cfi_endproc
- 534              	.LFE12:
- 535              		.size	rx_int_ClearPending, .-rx_int_ClearPending
- 536              		.text
- 537              	.Letext0:
- 538              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
- 539              		.section	.debug_info,"",%progbits
- 540              	.Ldebug_info0:
- 541 0000 34020000 		.4byte	0x234
- 542 0004 0400     		.2byte	0x4
- 543 0006 00000000 		.4byte	.Ldebug_abbrev0
- 544 000a 04       		.byte	0x4
- 545 000b 01       		.uleb128 0x1
- 546 000c 2B010000 		.4byte	.LASF33
- 547 0010 01       		.byte	0x1
- 548 0011 1F020000 		.4byte	.LASF34
- 549 0015 39000000 		.4byte	.LASF35
- 550 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 551 001d 00000000 		.4byte	0
- 552 0021 00000000 		.4byte	.Ldebug_line0
- 553 0025 02       		.uleb128 0x2
- 554 0026 04       		.byte	0x4
- 555 0027 05       		.byte	0x5
- 556 0028 696E7400 		.ascii	"int\000"
- 557 002c 03       		.uleb128 0x3
- 558 002d 04       		.byte	0x4
- 559 002e 07       		.byte	0x7
- 560 002f D6010000 		.4byte	.LASF0
- 561 0033 03       		.uleb128 0x3
- 562 0034 01       		.byte	0x1
- 563 0035 06       		.byte	0x6
- 564 0036 C0020000 		.4byte	.LASF1
- 565 003a 03       		.uleb128 0x3
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 18
+ 514              		.loc 1 404 0
+ 515 000a BD46     		mov	sp, r7
+ 516              		.cfi_def_cfa_register 13
+ 517              		@ sp needed
+ 518 000c 5DF8047B 		ldr	r7, [sp], #4
+ 519              		.cfi_restore 7
+ 520              		.cfi_def_cfa_offset 0
+ 521 0010 7047     		bx	lr
+ 522              	.L38:
+ 523 0012 00BF     		.align	2
+ 524              	.L37:
+ 525 0014 80E200E0 		.word	-536812928
+ 526              		.cfi_endproc
+ 527              	.LFE12:
+ 528              		.size	rx_int_ClearPending, .-rx_int_ClearPending
+ 529              		.text
+ 530              	.Letext0:
+ 531              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 532              		.section	.debug_info,"",%progbits
+ 533              	.Ldebug_info0:
+ 534 0000 34020000 		.4byte	0x234
+ 535 0004 0400     		.2byte	0x4
+ 536 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 537 000a 04       		.byte	0x4
+ 538 000b 01       		.uleb128 0x1
+ 539 000c 2B010000 		.4byte	.LASF33
+ 540 0010 01       		.byte	0x1
+ 541 0011 1F020000 		.4byte	.LASF34
+ 542 0015 39000000 		.4byte	.LASF35
+ 543 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 544 001d 00000000 		.4byte	0
+ 545 0021 00000000 		.4byte	.Ldebug_line0
+ 546 0025 02       		.uleb128 0x2
+ 547 0026 04       		.byte	0x4
+ 548 0027 05       		.byte	0x5
+ 549 0028 696E7400 		.ascii	"int\000"
+ 550 002c 03       		.uleb128 0x3
+ 551 002d 04       		.byte	0x4
+ 552 002e 07       		.byte	0x7
+ 553 002f D6010000 		.4byte	.LASF0
+ 554 0033 03       		.uleb128 0x3
+ 555 0034 01       		.byte	0x1
+ 556 0035 06       		.byte	0x6
+ 557 0036 C0020000 		.4byte	.LASF1
+ 558 003a 03       		.uleb128 0x3
+ 559 003b 01       		.byte	0x1
+ 560 003c 08       		.byte	0x8
+ 561 003d C2000000 		.4byte	.LASF2
+ 562 0041 03       		.uleb128 0x3
+ 563 0042 02       		.byte	0x2
+ 564 0043 05       		.byte	0x5
+ 565 0044 8E020000 		.4byte	.LASF3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 18
 
 
- 566 003b 01       		.byte	0x1
- 567 003c 08       		.byte	0x8
- 568 003d C2000000 		.4byte	.LASF2
- 569 0041 03       		.uleb128 0x3
- 570 0042 02       		.byte	0x2
- 571 0043 05       		.byte	0x5
- 572 0044 8E020000 		.4byte	.LASF3
- 573 0048 03       		.uleb128 0x3
- 574 0049 02       		.byte	0x2
- 575 004a 07       		.byte	0x7
- 576 004b 06000000 		.4byte	.LASF4
- 577 004f 03       		.uleb128 0x3
- 578 0050 04       		.byte	0x4
- 579 0051 05       		.byte	0x5
- 580 0052 B7020000 		.4byte	.LASF5
- 581 0056 03       		.uleb128 0x3
- 582 0057 04       		.byte	0x4
- 583 0058 07       		.byte	0x7
- 584 0059 E8000000 		.4byte	.LASF6
- 585 005d 03       		.uleb128 0x3
- 586 005e 08       		.byte	0x8
- 587 005f 05       		.byte	0x5
- 588 0060 4A020000 		.4byte	.LASF7
- 589 0064 03       		.uleb128 0x3
- 590 0065 08       		.byte	0x8
- 591 0066 07       		.byte	0x7
- 592 0067 EB010000 		.4byte	.LASF8
- 593 006b 03       		.uleb128 0x3
- 594 006c 04       		.byte	0x4
- 595 006d 07       		.byte	0x7
- 596 006e 41020000 		.4byte	.LASF9
- 597 0072 04       		.uleb128 0x4
- 598 0073 04       		.byte	0x4
- 599 0074 78000000 		.4byte	0x78
- 600 0078 05       		.uleb128 0x5
- 601 0079 03       		.uleb128 0x3
- 602 007a 01       		.byte	0x1
- 603 007b 08       		.byte	0x8
- 604 007c 67020000 		.4byte	.LASF10
- 605 0080 06       		.uleb128 0x6
- 606 0081 0B010000 		.4byte	.LASF11
- 607 0085 02       		.byte	0x2
- 608 0086 C2       		.byte	0xc2
- 609 0087 3A000000 		.4byte	0x3a
- 610 008b 06       		.uleb128 0x6
- 611 008c CF010000 		.4byte	.LASF12
- 612 0090 02       		.byte	0x2
- 613 0091 C4       		.byte	0xc4
- 614 0092 56000000 		.4byte	0x56
- 615 0096 03       		.uleb128 0x3
- 616 0097 04       		.byte	0x4
- 617 0098 04       		.byte	0x4
- 618 0099 AE000000 		.4byte	.LASF13
- 619 009d 03       		.uleb128 0x3
- 620 009e 08       		.byte	0x8
- 621 009f 04       		.byte	0x4
- 622 00a0 B9010000 		.4byte	.LASF14
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 19
+ 566 0048 03       		.uleb128 0x3
+ 567 0049 02       		.byte	0x2
+ 568 004a 07       		.byte	0x7
+ 569 004b 06000000 		.4byte	.LASF4
+ 570 004f 03       		.uleb128 0x3
+ 571 0050 04       		.byte	0x4
+ 572 0051 05       		.byte	0x5
+ 573 0052 B7020000 		.4byte	.LASF5
+ 574 0056 03       		.uleb128 0x3
+ 575 0057 04       		.byte	0x4
+ 576 0058 07       		.byte	0x7
+ 577 0059 E8000000 		.4byte	.LASF6
+ 578 005d 03       		.uleb128 0x3
+ 579 005e 08       		.byte	0x8
+ 580 005f 05       		.byte	0x5
+ 581 0060 4A020000 		.4byte	.LASF7
+ 582 0064 03       		.uleb128 0x3
+ 583 0065 08       		.byte	0x8
+ 584 0066 07       		.byte	0x7
+ 585 0067 EB010000 		.4byte	.LASF8
+ 586 006b 03       		.uleb128 0x3
+ 587 006c 04       		.byte	0x4
+ 588 006d 07       		.byte	0x7
+ 589 006e 41020000 		.4byte	.LASF9
+ 590 0072 04       		.uleb128 0x4
+ 591 0073 04       		.byte	0x4
+ 592 0074 78000000 		.4byte	0x78
+ 593 0078 05       		.uleb128 0x5
+ 594 0079 03       		.uleb128 0x3
+ 595 007a 01       		.byte	0x1
+ 596 007b 08       		.byte	0x8
+ 597 007c 67020000 		.4byte	.LASF10
+ 598 0080 06       		.uleb128 0x6
+ 599 0081 0B010000 		.4byte	.LASF11
+ 600 0085 02       		.byte	0x2
+ 601 0086 C2       		.byte	0xc2
+ 602 0087 3A000000 		.4byte	0x3a
+ 603 008b 06       		.uleb128 0x6
+ 604 008c CF010000 		.4byte	.LASF12
+ 605 0090 02       		.byte	0x2
+ 606 0091 C4       		.byte	0xc4
+ 607 0092 56000000 		.4byte	0x56
+ 608 0096 03       		.uleb128 0x3
+ 609 0097 04       		.byte	0x4
+ 610 0098 04       		.byte	0x4
+ 611 0099 AE000000 		.4byte	.LASF13
+ 612 009d 03       		.uleb128 0x3
+ 613 009e 08       		.byte	0x8
+ 614 009f 04       		.byte	0x4
+ 615 00a0 B9010000 		.4byte	.LASF14
+ 616 00a4 07       		.uleb128 0x7
+ 617 00a5 D0000000 		.4byte	.LASF15
+ 618 00a9 02       		.byte	0x2
+ 619 00aa 6C01     		.2byte	0x16c
+ 620 00ac B0000000 		.4byte	0xb0
+ 621 00b0 08       		.uleb128 0x8
+ 622 00b1 80000000 		.4byte	0x80
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 19
 
 
- 623 00a4 07       		.uleb128 0x7
- 624 00a5 D0000000 		.4byte	.LASF15
- 625 00a9 02       		.byte	0x2
- 626 00aa 6C01     		.2byte	0x16c
- 627 00ac B0000000 		.4byte	0xb0
- 628 00b0 08       		.uleb128 0x8
- 629 00b1 80000000 		.4byte	0x80
- 630 00b5 07       		.uleb128 0x7
- 631 00b6 00000000 		.4byte	.LASF16
- 632 00ba 02       		.byte	0x2
- 633 00bb 6E01     		.2byte	0x16e
- 634 00bd C1000000 		.4byte	0xc1
- 635 00c1 08       		.uleb128 0x8
- 636 00c2 8B000000 		.4byte	0x8b
- 637 00c6 07       		.uleb128 0x7
- 638 00c7 02020000 		.4byte	.LASF17
- 639 00cb 02       		.byte	0x2
- 640 00cc 7E01     		.2byte	0x17e
- 641 00ce 72000000 		.4byte	0x72
- 642 00d2 09       		.uleb128 0x9
- 643 00d3 98020000 		.4byte	.LASF18
- 644 00d7 01       		.byte	0x1
- 645 00d8 3D       		.byte	0x3d
- 646 00d9 00000000 		.4byte	.LFB0
- 647 00dd 20000000 		.4byte	.LFE0-.LFB0
- 648 00e1 01       		.uleb128 0x1
- 649 00e2 9C       		.byte	0x9c
- 650 00e3 0A       		.uleb128 0xa
- 651 00e4 58020000 		.4byte	.LASF21
- 652 00e8 01       		.byte	0x1
- 653 00e9 68       		.byte	0x68
- 654 00ea 00000000 		.4byte	.LFB1
- 655 00ee 22000000 		.4byte	.LFE1-.LFB1
- 656 00f2 01       		.uleb128 0x1
- 657 00f3 9C       		.byte	0x9c
- 658 00f4 07010000 		.4byte	0x107
- 659 00f8 0B       		.uleb128 0xb
- 660 00f9 E3010000 		.4byte	.LASF23
- 661 00fd 01       		.byte	0x1
- 662 00fe 68       		.byte	0x68
- 663 00ff C6000000 		.4byte	0xc6
- 664 0103 02       		.uleb128 0x2
- 665 0104 91       		.byte	0x91
- 666 0105 74       		.sleb128 -12
- 667 0106 00       		.byte	0
- 668 0107 09       		.uleb128 0x9
- 669 0108 2D000000 		.4byte	.LASF19
- 670 010c 01       		.byte	0x1
- 671 010d 86       		.byte	0x86
- 672 010e 00000000 		.4byte	.LFB2
- 673 0112 14000000 		.4byte	.LFE2-.LFB2
- 674 0116 01       		.uleb128 0x1
- 675 0117 9C       		.byte	0x9c
- 676 0118 0C       		.uleb128 0xc
- 677 0119 11010000 		.4byte	.LASF20
- 678 011d 01       		.byte	0x1
- 679 011e A0       		.byte	0xa0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 20
+ 623 00b5 07       		.uleb128 0x7
+ 624 00b6 00000000 		.4byte	.LASF16
+ 625 00ba 02       		.byte	0x2
+ 626 00bb 6E01     		.2byte	0x16e
+ 627 00bd C1000000 		.4byte	0xc1
+ 628 00c1 08       		.uleb128 0x8
+ 629 00c2 8B000000 		.4byte	0x8b
+ 630 00c6 07       		.uleb128 0x7
+ 631 00c7 02020000 		.4byte	.LASF17
+ 632 00cb 02       		.byte	0x2
+ 633 00cc 7E01     		.2byte	0x17e
+ 634 00ce 72000000 		.4byte	0x72
+ 635 00d2 09       		.uleb128 0x9
+ 636 00d3 98020000 		.4byte	.LASF18
+ 637 00d7 01       		.byte	0x1
+ 638 00d8 3D       		.byte	0x3d
+ 639 00d9 00000000 		.4byte	.LFB0
+ 640 00dd 20000000 		.4byte	.LFE0-.LFB0
+ 641 00e1 01       		.uleb128 0x1
+ 642 00e2 9C       		.byte	0x9c
+ 643 00e3 0A       		.uleb128 0xa
+ 644 00e4 58020000 		.4byte	.LASF21
+ 645 00e8 01       		.byte	0x1
+ 646 00e9 68       		.byte	0x68
+ 647 00ea 00000000 		.4byte	.LFB1
+ 648 00ee 22000000 		.4byte	.LFE1-.LFB1
+ 649 00f2 01       		.uleb128 0x1
+ 650 00f3 9C       		.byte	0x9c
+ 651 00f4 07010000 		.4byte	0x107
+ 652 00f8 0B       		.uleb128 0xb
+ 653 00f9 E3010000 		.4byte	.LASF23
+ 654 00fd 01       		.byte	0x1
+ 655 00fe 68       		.byte	0x68
+ 656 00ff C6000000 		.4byte	0xc6
+ 657 0103 02       		.uleb128 0x2
+ 658 0104 91       		.byte	0x91
+ 659 0105 74       		.sleb128 -12
+ 660 0106 00       		.byte	0
+ 661 0107 09       		.uleb128 0x9
+ 662 0108 2D000000 		.4byte	.LASF19
+ 663 010c 01       		.byte	0x1
+ 664 010d 86       		.byte	0x86
+ 665 010e 00000000 		.4byte	.LFB2
+ 666 0112 14000000 		.4byte	.LFE2-.LFB2
+ 667 0116 01       		.uleb128 0x1
+ 668 0117 9C       		.byte	0x9c
+ 669 0118 0C       		.uleb128 0xc
+ 670 0119 11010000 		.4byte	.LASF20
+ 671 011d 01       		.byte	0x1
+ 672 011e A0       		.byte	0xa0
+ 673 011f 00000000 		.4byte	.LFB3
+ 674 0123 0C000000 		.4byte	.LFE3-.LFB3
+ 675 0127 01       		.uleb128 0x1
+ 676 0128 9C       		.byte	0x9c
+ 677 0129 0D       		.uleb128 0xd
+ 678 012a CC020000 		.4byte	.LASF22
+ 679 012e 01       		.byte	0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 20
 
 
- 680 011f 00000000 		.4byte	.LFB3
- 681 0123 0C000000 		.4byte	.LFE3-.LFB3
- 682 0127 01       		.uleb128 0x1
- 683 0128 9C       		.byte	0x9c
- 684 0129 0D       		.uleb128 0xd
- 685 012a CC020000 		.4byte	.LASF22
- 686 012e 01       		.byte	0x1
- 687 012f C8       		.byte	0xc8
- 688 0130 00000000 		.4byte	.LFB4
- 689 0134 24000000 		.4byte	.LFE4-.LFB4
- 690 0138 01       		.uleb128 0x1
- 691 0139 9C       		.byte	0x9c
- 692 013a 5B010000 		.4byte	0x15b
- 693 013e 0B       		.uleb128 0xb
- 694 013f E3010000 		.4byte	.LASF23
- 695 0143 01       		.byte	0x1
- 696 0144 C8       		.byte	0xc8
- 697 0145 C6000000 		.4byte	0xc6
- 698 0149 02       		.uleb128 0x2
- 699 014a 91       		.byte	0x91
- 700 014b 6C       		.sleb128 -20
- 701 014c 0E       		.uleb128 0xe
- 702 014d 6C020000 		.4byte	.LASF24
- 703 0151 01       		.byte	0x1
- 704 0152 CA       		.byte	0xca
- 705 0153 5B010000 		.4byte	0x15b
- 706 0157 02       		.uleb128 0x2
- 707 0158 91       		.byte	0x91
- 708 0159 74       		.sleb128 -12
- 709 015a 00       		.byte	0
- 710 015b 04       		.uleb128 0x4
- 711 015c 04       		.byte	0x4
- 712 015d C6000000 		.4byte	0xc6
- 713 0161 0F       		.uleb128 0xf
- 714 0162 FA000000 		.4byte	.LASF27
- 715 0166 01       		.byte	0x1
- 716 0167 E0       		.byte	0xe0
- 717 0168 C6000000 		.4byte	0xc6
- 718 016c 00000000 		.4byte	.LFB5
- 719 0170 20000000 		.4byte	.LFE5-.LFB5
- 720 0174 01       		.uleb128 0x1
- 721 0175 9C       		.byte	0x9c
- 722 0176 89010000 		.4byte	0x189
- 723 017a 0E       		.uleb128 0xe
- 724 017b 6C020000 		.4byte	.LASF24
- 725 017f 01       		.byte	0x1
- 726 0180 E2       		.byte	0xe2
- 727 0181 5B010000 		.4byte	0x15b
- 728 0185 02       		.uleb128 0x2
- 729 0186 91       		.byte	0x91
- 730 0187 74       		.sleb128 -12
- 731 0188 00       		.byte	0
- 732 0189 10       		.uleb128 0x10
- 733 018a 7B020000 		.4byte	.LASF25
- 734 018e 01       		.byte	0x1
- 735 018f 0201     		.2byte	0x102
- 736 0191 00000000 		.4byte	.LFB6
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 21
+ 680 012f C8       		.byte	0xc8
+ 681 0130 00000000 		.4byte	.LFB4
+ 682 0134 24000000 		.4byte	.LFE4-.LFB4
+ 683 0138 01       		.uleb128 0x1
+ 684 0139 9C       		.byte	0x9c
+ 685 013a 5B010000 		.4byte	0x15b
+ 686 013e 0B       		.uleb128 0xb
+ 687 013f E3010000 		.4byte	.LASF23
+ 688 0143 01       		.byte	0x1
+ 689 0144 C8       		.byte	0xc8
+ 690 0145 C6000000 		.4byte	0xc6
+ 691 0149 02       		.uleb128 0x2
+ 692 014a 91       		.byte	0x91
+ 693 014b 6C       		.sleb128 -20
+ 694 014c 0E       		.uleb128 0xe
+ 695 014d 6C020000 		.4byte	.LASF24
+ 696 0151 01       		.byte	0x1
+ 697 0152 CA       		.byte	0xca
+ 698 0153 5B010000 		.4byte	0x15b
+ 699 0157 02       		.uleb128 0x2
+ 700 0158 91       		.byte	0x91
+ 701 0159 74       		.sleb128 -12
+ 702 015a 00       		.byte	0
+ 703 015b 04       		.uleb128 0x4
+ 704 015c 04       		.byte	0x4
+ 705 015d C6000000 		.4byte	0xc6
+ 706 0161 0F       		.uleb128 0xf
+ 707 0162 FA000000 		.4byte	.LASF27
+ 708 0166 01       		.byte	0x1
+ 709 0167 E0       		.byte	0xe0
+ 710 0168 C6000000 		.4byte	0xc6
+ 711 016c 00000000 		.4byte	.LFB5
+ 712 0170 20000000 		.4byte	.LFE5-.LFB5
+ 713 0174 01       		.uleb128 0x1
+ 714 0175 9C       		.byte	0x9c
+ 715 0176 89010000 		.4byte	0x189
+ 716 017a 0E       		.uleb128 0xe
+ 717 017b 6C020000 		.4byte	.LASF24
+ 718 017f 01       		.byte	0x1
+ 719 0180 E2       		.byte	0xe2
+ 720 0181 5B010000 		.4byte	0x15b
+ 721 0185 02       		.uleb128 0x2
+ 722 0186 91       		.byte	0x91
+ 723 0187 74       		.sleb128 -12
+ 724 0188 00       		.byte	0
+ 725 0189 10       		.uleb128 0x10
+ 726 018a 7B020000 		.4byte	.LASF25
+ 727 018e 01       		.byte	0x1
+ 728 018f 0201     		.2byte	0x102
+ 729 0191 00000000 		.4byte	.LFB6
+ 730 0195 24000000 		.4byte	.LFE6-.LFB6
+ 731 0199 01       		.uleb128 0x1
+ 732 019a 9C       		.byte	0x9c
+ 733 019b AF010000 		.4byte	0x1af
+ 734 019f 11       		.uleb128 0x11
+ 735 01a0 22010000 		.4byte	.LASF26
+ 736 01a4 01       		.byte	0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 21
 
 
- 737 0195 24000000 		.4byte	.LFE6-.LFB6
- 738 0199 01       		.uleb128 0x1
- 739 019a 9C       		.byte	0x9c
- 740 019b AF010000 		.4byte	0x1af
- 741 019f 11       		.uleb128 0x11
- 742 01a0 22010000 		.4byte	.LASF26
- 743 01a4 01       		.byte	0x1
- 744 01a5 0201     		.2byte	0x102
- 745 01a7 80000000 		.4byte	0x80
- 746 01ab 02       		.uleb128 0x2
- 747 01ac 91       		.byte	0x91
- 748 01ad 77       		.sleb128 -9
- 749 01ae 00       		.byte	0
- 750 01af 12       		.uleb128 0x12
- 751 01b0 D5000000 		.4byte	.LASF28
- 752 01b4 01       		.byte	0x1
- 753 01b5 1801     		.2byte	0x118
- 754 01b7 80000000 		.4byte	0x80
- 755 01bb 00000000 		.4byte	.LFB7
- 756 01bf 24000000 		.4byte	.LFE7-.LFB7
- 757 01c3 01       		.uleb128 0x1
- 758 01c4 9C       		.byte	0x9c
- 759 01c5 D9010000 		.4byte	0x1d9
- 760 01c9 13       		.uleb128 0x13
- 761 01ca 22010000 		.4byte	.LASF26
- 762 01ce 01       		.byte	0x1
- 763 01cf 1A01     		.2byte	0x11a
- 764 01d1 80000000 		.4byte	0x80
- 765 01d5 02       		.uleb128 0x2
- 766 01d6 91       		.byte	0x91
- 767 01d7 77       		.sleb128 -9
- 768 01d8 00       		.byte	0
- 769 01d9 14       		.uleb128 0x14
- 770 01da B4000000 		.4byte	.LASF29
- 771 01de 01       		.byte	0x1
- 772 01df 3301     		.2byte	0x133
- 773 01e1 00000000 		.4byte	.LFB8
- 774 01e5 18000000 		.4byte	.LFE8-.LFB8
- 775 01e9 01       		.uleb128 0x1
- 776 01ea 9C       		.byte	0x9c
- 777 01eb 15       		.uleb128 0x15
- 778 01ec 0F020000 		.4byte	.LASF36
- 779 01f0 01       		.byte	0x1
- 780 01f1 4801     		.2byte	0x148
- 781 01f3 80000000 		.4byte	0x80
- 782 01f7 00000000 		.4byte	.LFB9
- 783 01fb 24000000 		.4byte	.LFE9-.LFB9
- 784 01ff 01       		.uleb128 0x1
- 785 0200 9C       		.byte	0x9c
- 786 0201 14       		.uleb128 0x14
- 787 0202 C0010000 		.4byte	.LASF30
- 788 0206 01       		.byte	0x1
- 789 0207 5D01     		.2byte	0x15d
- 790 0209 00000000 		.4byte	.LFB10
- 791 020d 18000000 		.4byte	.LFE10-.LFB10
- 792 0211 01       		.uleb128 0x1
- 793 0212 9C       		.byte	0x9c
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 22
+ 737 01a5 0201     		.2byte	0x102
+ 738 01a7 80000000 		.4byte	0x80
+ 739 01ab 02       		.uleb128 0x2
+ 740 01ac 91       		.byte	0x91
+ 741 01ad 77       		.sleb128 -9
+ 742 01ae 00       		.byte	0
+ 743 01af 12       		.uleb128 0x12
+ 744 01b0 D5000000 		.4byte	.LASF28
+ 745 01b4 01       		.byte	0x1
+ 746 01b5 1801     		.2byte	0x118
+ 747 01b7 80000000 		.4byte	0x80
+ 748 01bb 00000000 		.4byte	.LFB7
+ 749 01bf 24000000 		.4byte	.LFE7-.LFB7
+ 750 01c3 01       		.uleb128 0x1
+ 751 01c4 9C       		.byte	0x9c
+ 752 01c5 D9010000 		.4byte	0x1d9
+ 753 01c9 13       		.uleb128 0x13
+ 754 01ca 22010000 		.4byte	.LASF26
+ 755 01ce 01       		.byte	0x1
+ 756 01cf 1A01     		.2byte	0x11a
+ 757 01d1 80000000 		.4byte	0x80
+ 758 01d5 02       		.uleb128 0x2
+ 759 01d6 91       		.byte	0x91
+ 760 01d7 77       		.sleb128 -9
+ 761 01d8 00       		.byte	0
+ 762 01d9 14       		.uleb128 0x14
+ 763 01da B4000000 		.4byte	.LASF29
+ 764 01de 01       		.byte	0x1
+ 765 01df 3301     		.2byte	0x133
+ 766 01e1 00000000 		.4byte	.LFB8
+ 767 01e5 18000000 		.4byte	.LFE8-.LFB8
+ 768 01e9 01       		.uleb128 0x1
+ 769 01ea 9C       		.byte	0x9c
+ 770 01eb 15       		.uleb128 0x15
+ 771 01ec 0F020000 		.4byte	.LASF36
+ 772 01f0 01       		.byte	0x1
+ 773 01f1 4801     		.2byte	0x148
+ 774 01f3 80000000 		.4byte	0x80
+ 775 01f7 00000000 		.4byte	.LFB9
+ 776 01fb 20000000 		.4byte	.LFE9-.LFB9
+ 777 01ff 01       		.uleb128 0x1
+ 778 0200 9C       		.byte	0x9c
+ 779 0201 14       		.uleb128 0x14
+ 780 0202 C0010000 		.4byte	.LASF30
+ 781 0206 01       		.byte	0x1
+ 782 0207 5D01     		.2byte	0x15d
+ 783 0209 00000000 		.4byte	.LFB10
+ 784 020d 18000000 		.4byte	.LFE10-.LFB10
+ 785 0211 01       		.uleb128 0x1
+ 786 0212 9C       		.byte	0x9c
+ 787 0213 14       		.uleb128 0x14
+ 788 0214 A5020000 		.4byte	.LASF31
+ 789 0218 01       		.byte	0x1
+ 790 0219 7801     		.2byte	0x178
+ 791 021b 00000000 		.4byte	.LFB11
+ 792 021f 18000000 		.4byte	.LFE11-.LFB11
+ 793 0223 01       		.uleb128 0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 22
 
 
- 794 0213 14       		.uleb128 0x14
- 795 0214 A5020000 		.4byte	.LASF31
- 796 0218 01       		.byte	0x1
- 797 0219 7801     		.2byte	0x178
- 798 021b 00000000 		.4byte	.LFB11
- 799 021f 18000000 		.4byte	.LFE11-.LFB11
- 800 0223 01       		.uleb128 0x1
- 801 0224 9C       		.byte	0x9c
- 802 0225 14       		.uleb128 0x14
- 803 0226 19000000 		.4byte	.LASF32
- 804 022a 01       		.byte	0x1
- 805 022b 9101     		.2byte	0x191
- 806 022d 00000000 		.4byte	.LFB12
- 807 0231 18000000 		.4byte	.LFE12-.LFB12
- 808 0235 01       		.uleb128 0x1
- 809 0236 9C       		.byte	0x9c
- 810 0237 00       		.byte	0
- 811              		.section	.debug_abbrev,"",%progbits
- 812              	.Ldebug_abbrev0:
- 813 0000 01       		.uleb128 0x1
- 814 0001 11       		.uleb128 0x11
- 815 0002 01       		.byte	0x1
- 816 0003 25       		.uleb128 0x25
- 817 0004 0E       		.uleb128 0xe
- 818 0005 13       		.uleb128 0x13
- 819 0006 0B       		.uleb128 0xb
- 820 0007 03       		.uleb128 0x3
- 821 0008 0E       		.uleb128 0xe
- 822 0009 1B       		.uleb128 0x1b
- 823 000a 0E       		.uleb128 0xe
- 824 000b 55       		.uleb128 0x55
- 825 000c 17       		.uleb128 0x17
- 826 000d 11       		.uleb128 0x11
- 827 000e 01       		.uleb128 0x1
- 828 000f 10       		.uleb128 0x10
- 829 0010 17       		.uleb128 0x17
- 830 0011 00       		.byte	0
- 831 0012 00       		.byte	0
- 832 0013 02       		.uleb128 0x2
- 833 0014 24       		.uleb128 0x24
- 834 0015 00       		.byte	0
- 835 0016 0B       		.uleb128 0xb
- 836 0017 0B       		.uleb128 0xb
- 837 0018 3E       		.uleb128 0x3e
- 838 0019 0B       		.uleb128 0xb
- 839 001a 03       		.uleb128 0x3
- 840 001b 08       		.uleb128 0x8
- 841 001c 00       		.byte	0
- 842 001d 00       		.byte	0
- 843 001e 03       		.uleb128 0x3
- 844 001f 24       		.uleb128 0x24
- 845 0020 00       		.byte	0
- 846 0021 0B       		.uleb128 0xb
- 847 0022 0B       		.uleb128 0xb
- 848 0023 3E       		.uleb128 0x3e
- 849 0024 0B       		.uleb128 0xb
- 850 0025 03       		.uleb128 0x3
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 23
+ 794 0224 9C       		.byte	0x9c
+ 795 0225 14       		.uleb128 0x14
+ 796 0226 19000000 		.4byte	.LASF32
+ 797 022a 01       		.byte	0x1
+ 798 022b 9101     		.2byte	0x191
+ 799 022d 00000000 		.4byte	.LFB12
+ 800 0231 18000000 		.4byte	.LFE12-.LFB12
+ 801 0235 01       		.uleb128 0x1
+ 802 0236 9C       		.byte	0x9c
+ 803 0237 00       		.byte	0
+ 804              		.section	.debug_abbrev,"",%progbits
+ 805              	.Ldebug_abbrev0:
+ 806 0000 01       		.uleb128 0x1
+ 807 0001 11       		.uleb128 0x11
+ 808 0002 01       		.byte	0x1
+ 809 0003 25       		.uleb128 0x25
+ 810 0004 0E       		.uleb128 0xe
+ 811 0005 13       		.uleb128 0x13
+ 812 0006 0B       		.uleb128 0xb
+ 813 0007 03       		.uleb128 0x3
+ 814 0008 0E       		.uleb128 0xe
+ 815 0009 1B       		.uleb128 0x1b
+ 816 000a 0E       		.uleb128 0xe
+ 817 000b 55       		.uleb128 0x55
+ 818 000c 17       		.uleb128 0x17
+ 819 000d 11       		.uleb128 0x11
+ 820 000e 01       		.uleb128 0x1
+ 821 000f 10       		.uleb128 0x10
+ 822 0010 17       		.uleb128 0x17
+ 823 0011 00       		.byte	0
+ 824 0012 00       		.byte	0
+ 825 0013 02       		.uleb128 0x2
+ 826 0014 24       		.uleb128 0x24
+ 827 0015 00       		.byte	0
+ 828 0016 0B       		.uleb128 0xb
+ 829 0017 0B       		.uleb128 0xb
+ 830 0018 3E       		.uleb128 0x3e
+ 831 0019 0B       		.uleb128 0xb
+ 832 001a 03       		.uleb128 0x3
+ 833 001b 08       		.uleb128 0x8
+ 834 001c 00       		.byte	0
+ 835 001d 00       		.byte	0
+ 836 001e 03       		.uleb128 0x3
+ 837 001f 24       		.uleb128 0x24
+ 838 0020 00       		.byte	0
+ 839 0021 0B       		.uleb128 0xb
+ 840 0022 0B       		.uleb128 0xb
+ 841 0023 3E       		.uleb128 0x3e
+ 842 0024 0B       		.uleb128 0xb
+ 843 0025 03       		.uleb128 0x3
+ 844 0026 0E       		.uleb128 0xe
+ 845 0027 00       		.byte	0
+ 846 0028 00       		.byte	0
+ 847 0029 04       		.uleb128 0x4
+ 848 002a 0F       		.uleb128 0xf
+ 849 002b 00       		.byte	0
+ 850 002c 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 23
 
 
- 851 0026 0E       		.uleb128 0xe
- 852 0027 00       		.byte	0
- 853 0028 00       		.byte	0
- 854 0029 04       		.uleb128 0x4
- 855 002a 0F       		.uleb128 0xf
- 856 002b 00       		.byte	0
- 857 002c 0B       		.uleb128 0xb
- 858 002d 0B       		.uleb128 0xb
- 859 002e 49       		.uleb128 0x49
- 860 002f 13       		.uleb128 0x13
- 861 0030 00       		.byte	0
- 862 0031 00       		.byte	0
- 863 0032 05       		.uleb128 0x5
- 864 0033 15       		.uleb128 0x15
- 865 0034 00       		.byte	0
- 866 0035 27       		.uleb128 0x27
- 867 0036 19       		.uleb128 0x19
- 868 0037 00       		.byte	0
- 869 0038 00       		.byte	0
- 870 0039 06       		.uleb128 0x6
- 871 003a 16       		.uleb128 0x16
- 872 003b 00       		.byte	0
- 873 003c 03       		.uleb128 0x3
- 874 003d 0E       		.uleb128 0xe
- 875 003e 3A       		.uleb128 0x3a
- 876 003f 0B       		.uleb128 0xb
- 877 0040 3B       		.uleb128 0x3b
- 878 0041 0B       		.uleb128 0xb
- 879 0042 49       		.uleb128 0x49
- 880 0043 13       		.uleb128 0x13
- 881 0044 00       		.byte	0
- 882 0045 00       		.byte	0
- 883 0046 07       		.uleb128 0x7
- 884 0047 16       		.uleb128 0x16
- 885 0048 00       		.byte	0
- 886 0049 03       		.uleb128 0x3
- 887 004a 0E       		.uleb128 0xe
- 888 004b 3A       		.uleb128 0x3a
- 889 004c 0B       		.uleb128 0xb
- 890 004d 3B       		.uleb128 0x3b
- 891 004e 05       		.uleb128 0x5
- 892 004f 49       		.uleb128 0x49
- 893 0050 13       		.uleb128 0x13
- 894 0051 00       		.byte	0
- 895 0052 00       		.byte	0
- 896 0053 08       		.uleb128 0x8
- 897 0054 35       		.uleb128 0x35
- 898 0055 00       		.byte	0
- 899 0056 49       		.uleb128 0x49
- 900 0057 13       		.uleb128 0x13
- 901 0058 00       		.byte	0
- 902 0059 00       		.byte	0
- 903 005a 09       		.uleb128 0x9
- 904 005b 2E       		.uleb128 0x2e
- 905 005c 00       		.byte	0
- 906 005d 3F       		.uleb128 0x3f
- 907 005e 19       		.uleb128 0x19
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 24
+ 851 002d 0B       		.uleb128 0xb
+ 852 002e 49       		.uleb128 0x49
+ 853 002f 13       		.uleb128 0x13
+ 854 0030 00       		.byte	0
+ 855 0031 00       		.byte	0
+ 856 0032 05       		.uleb128 0x5
+ 857 0033 15       		.uleb128 0x15
+ 858 0034 00       		.byte	0
+ 859 0035 27       		.uleb128 0x27
+ 860 0036 19       		.uleb128 0x19
+ 861 0037 00       		.byte	0
+ 862 0038 00       		.byte	0
+ 863 0039 06       		.uleb128 0x6
+ 864 003a 16       		.uleb128 0x16
+ 865 003b 00       		.byte	0
+ 866 003c 03       		.uleb128 0x3
+ 867 003d 0E       		.uleb128 0xe
+ 868 003e 3A       		.uleb128 0x3a
+ 869 003f 0B       		.uleb128 0xb
+ 870 0040 3B       		.uleb128 0x3b
+ 871 0041 0B       		.uleb128 0xb
+ 872 0042 49       		.uleb128 0x49
+ 873 0043 13       		.uleb128 0x13
+ 874 0044 00       		.byte	0
+ 875 0045 00       		.byte	0
+ 876 0046 07       		.uleb128 0x7
+ 877 0047 16       		.uleb128 0x16
+ 878 0048 00       		.byte	0
+ 879 0049 03       		.uleb128 0x3
+ 880 004a 0E       		.uleb128 0xe
+ 881 004b 3A       		.uleb128 0x3a
+ 882 004c 0B       		.uleb128 0xb
+ 883 004d 3B       		.uleb128 0x3b
+ 884 004e 05       		.uleb128 0x5
+ 885 004f 49       		.uleb128 0x49
+ 886 0050 13       		.uleb128 0x13
+ 887 0051 00       		.byte	0
+ 888 0052 00       		.byte	0
+ 889 0053 08       		.uleb128 0x8
+ 890 0054 35       		.uleb128 0x35
+ 891 0055 00       		.byte	0
+ 892 0056 49       		.uleb128 0x49
+ 893 0057 13       		.uleb128 0x13
+ 894 0058 00       		.byte	0
+ 895 0059 00       		.byte	0
+ 896 005a 09       		.uleb128 0x9
+ 897 005b 2E       		.uleb128 0x2e
+ 898 005c 00       		.byte	0
+ 899 005d 3F       		.uleb128 0x3f
+ 900 005e 19       		.uleb128 0x19
+ 901 005f 03       		.uleb128 0x3
+ 902 0060 0E       		.uleb128 0xe
+ 903 0061 3A       		.uleb128 0x3a
+ 904 0062 0B       		.uleb128 0xb
+ 905 0063 3B       		.uleb128 0x3b
+ 906 0064 0B       		.uleb128 0xb
+ 907 0065 27       		.uleb128 0x27
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 24
 
 
- 908 005f 03       		.uleb128 0x3
- 909 0060 0E       		.uleb128 0xe
- 910 0061 3A       		.uleb128 0x3a
- 911 0062 0B       		.uleb128 0xb
- 912 0063 3B       		.uleb128 0x3b
- 913 0064 0B       		.uleb128 0xb
- 914 0065 27       		.uleb128 0x27
- 915 0066 19       		.uleb128 0x19
- 916 0067 11       		.uleb128 0x11
- 917 0068 01       		.uleb128 0x1
- 918 0069 12       		.uleb128 0x12
- 919 006a 06       		.uleb128 0x6
- 920 006b 40       		.uleb128 0x40
- 921 006c 18       		.uleb128 0x18
- 922 006d 9642     		.uleb128 0x2116
- 923 006f 19       		.uleb128 0x19
- 924 0070 00       		.byte	0
- 925 0071 00       		.byte	0
- 926 0072 0A       		.uleb128 0xa
- 927 0073 2E       		.uleb128 0x2e
- 928 0074 01       		.byte	0x1
- 929 0075 3F       		.uleb128 0x3f
- 930 0076 19       		.uleb128 0x19
- 931 0077 03       		.uleb128 0x3
- 932 0078 0E       		.uleb128 0xe
- 933 0079 3A       		.uleb128 0x3a
- 934 007a 0B       		.uleb128 0xb
- 935 007b 3B       		.uleb128 0x3b
- 936 007c 0B       		.uleb128 0xb
- 937 007d 27       		.uleb128 0x27
- 938 007e 19       		.uleb128 0x19
- 939 007f 11       		.uleb128 0x11
- 940 0080 01       		.uleb128 0x1
- 941 0081 12       		.uleb128 0x12
- 942 0082 06       		.uleb128 0x6
- 943 0083 40       		.uleb128 0x40
- 944 0084 18       		.uleb128 0x18
- 945 0085 9642     		.uleb128 0x2116
- 946 0087 19       		.uleb128 0x19
- 947 0088 01       		.uleb128 0x1
- 948 0089 13       		.uleb128 0x13
- 949 008a 00       		.byte	0
- 950 008b 00       		.byte	0
- 951 008c 0B       		.uleb128 0xb
- 952 008d 05       		.uleb128 0x5
- 953 008e 00       		.byte	0
- 954 008f 03       		.uleb128 0x3
- 955 0090 0E       		.uleb128 0xe
- 956 0091 3A       		.uleb128 0x3a
- 957 0092 0B       		.uleb128 0xb
- 958 0093 3B       		.uleb128 0x3b
- 959 0094 0B       		.uleb128 0xb
- 960 0095 49       		.uleb128 0x49
- 961 0096 13       		.uleb128 0x13
- 962 0097 02       		.uleb128 0x2
- 963 0098 18       		.uleb128 0x18
- 964 0099 00       		.byte	0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 25
+ 908 0066 19       		.uleb128 0x19
+ 909 0067 11       		.uleb128 0x11
+ 910 0068 01       		.uleb128 0x1
+ 911 0069 12       		.uleb128 0x12
+ 912 006a 06       		.uleb128 0x6
+ 913 006b 40       		.uleb128 0x40
+ 914 006c 18       		.uleb128 0x18
+ 915 006d 9642     		.uleb128 0x2116
+ 916 006f 19       		.uleb128 0x19
+ 917 0070 00       		.byte	0
+ 918 0071 00       		.byte	0
+ 919 0072 0A       		.uleb128 0xa
+ 920 0073 2E       		.uleb128 0x2e
+ 921 0074 01       		.byte	0x1
+ 922 0075 3F       		.uleb128 0x3f
+ 923 0076 19       		.uleb128 0x19
+ 924 0077 03       		.uleb128 0x3
+ 925 0078 0E       		.uleb128 0xe
+ 926 0079 3A       		.uleb128 0x3a
+ 927 007a 0B       		.uleb128 0xb
+ 928 007b 3B       		.uleb128 0x3b
+ 929 007c 0B       		.uleb128 0xb
+ 930 007d 27       		.uleb128 0x27
+ 931 007e 19       		.uleb128 0x19
+ 932 007f 11       		.uleb128 0x11
+ 933 0080 01       		.uleb128 0x1
+ 934 0081 12       		.uleb128 0x12
+ 935 0082 06       		.uleb128 0x6
+ 936 0083 40       		.uleb128 0x40
+ 937 0084 18       		.uleb128 0x18
+ 938 0085 9642     		.uleb128 0x2116
+ 939 0087 19       		.uleb128 0x19
+ 940 0088 01       		.uleb128 0x1
+ 941 0089 13       		.uleb128 0x13
+ 942 008a 00       		.byte	0
+ 943 008b 00       		.byte	0
+ 944 008c 0B       		.uleb128 0xb
+ 945 008d 05       		.uleb128 0x5
+ 946 008e 00       		.byte	0
+ 947 008f 03       		.uleb128 0x3
+ 948 0090 0E       		.uleb128 0xe
+ 949 0091 3A       		.uleb128 0x3a
+ 950 0092 0B       		.uleb128 0xb
+ 951 0093 3B       		.uleb128 0x3b
+ 952 0094 0B       		.uleb128 0xb
+ 953 0095 49       		.uleb128 0x49
+ 954 0096 13       		.uleb128 0x13
+ 955 0097 02       		.uleb128 0x2
+ 956 0098 18       		.uleb128 0x18
+ 957 0099 00       		.byte	0
+ 958 009a 00       		.byte	0
+ 959 009b 0C       		.uleb128 0xc
+ 960 009c 2E       		.uleb128 0x2e
+ 961 009d 00       		.byte	0
+ 962 009e 3F       		.uleb128 0x3f
+ 963 009f 19       		.uleb128 0x19
+ 964 00a0 03       		.uleb128 0x3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 25
 
 
- 965 009a 00       		.byte	0
- 966 009b 0C       		.uleb128 0xc
- 967 009c 2E       		.uleb128 0x2e
- 968 009d 00       		.byte	0
- 969 009e 3F       		.uleb128 0x3f
- 970 009f 19       		.uleb128 0x19
- 971 00a0 03       		.uleb128 0x3
- 972 00a1 0E       		.uleb128 0xe
- 973 00a2 3A       		.uleb128 0x3a
- 974 00a3 0B       		.uleb128 0xb
- 975 00a4 3B       		.uleb128 0x3b
- 976 00a5 0B       		.uleb128 0xb
- 977 00a6 27       		.uleb128 0x27
- 978 00a7 19       		.uleb128 0x19
- 979 00a8 11       		.uleb128 0x11
- 980 00a9 01       		.uleb128 0x1
- 981 00aa 12       		.uleb128 0x12
- 982 00ab 06       		.uleb128 0x6
- 983 00ac 40       		.uleb128 0x40
- 984 00ad 18       		.uleb128 0x18
- 985 00ae 9742     		.uleb128 0x2117
- 986 00b0 19       		.uleb128 0x19
- 987 00b1 00       		.byte	0
- 988 00b2 00       		.byte	0
- 989 00b3 0D       		.uleb128 0xd
- 990 00b4 2E       		.uleb128 0x2e
- 991 00b5 01       		.byte	0x1
- 992 00b6 3F       		.uleb128 0x3f
- 993 00b7 19       		.uleb128 0x19
- 994 00b8 03       		.uleb128 0x3
- 995 00b9 0E       		.uleb128 0xe
- 996 00ba 3A       		.uleb128 0x3a
- 997 00bb 0B       		.uleb128 0xb
- 998 00bc 3B       		.uleb128 0x3b
- 999 00bd 0B       		.uleb128 0xb
- 1000 00be 27       		.uleb128 0x27
- 1001 00bf 19       		.uleb128 0x19
- 1002 00c0 11       		.uleb128 0x11
- 1003 00c1 01       		.uleb128 0x1
- 1004 00c2 12       		.uleb128 0x12
- 1005 00c3 06       		.uleb128 0x6
- 1006 00c4 40       		.uleb128 0x40
- 1007 00c5 18       		.uleb128 0x18
- 1008 00c6 9742     		.uleb128 0x2117
- 1009 00c8 19       		.uleb128 0x19
- 1010 00c9 01       		.uleb128 0x1
- 1011 00ca 13       		.uleb128 0x13
- 1012 00cb 00       		.byte	0
- 1013 00cc 00       		.byte	0
- 1014 00cd 0E       		.uleb128 0xe
- 1015 00ce 34       		.uleb128 0x34
- 1016 00cf 00       		.byte	0
- 1017 00d0 03       		.uleb128 0x3
- 1018 00d1 0E       		.uleb128 0xe
- 1019 00d2 3A       		.uleb128 0x3a
- 1020 00d3 0B       		.uleb128 0xb
- 1021 00d4 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 26
+ 965 00a1 0E       		.uleb128 0xe
+ 966 00a2 3A       		.uleb128 0x3a
+ 967 00a3 0B       		.uleb128 0xb
+ 968 00a4 3B       		.uleb128 0x3b
+ 969 00a5 0B       		.uleb128 0xb
+ 970 00a6 27       		.uleb128 0x27
+ 971 00a7 19       		.uleb128 0x19
+ 972 00a8 11       		.uleb128 0x11
+ 973 00a9 01       		.uleb128 0x1
+ 974 00aa 12       		.uleb128 0x12
+ 975 00ab 06       		.uleb128 0x6
+ 976 00ac 40       		.uleb128 0x40
+ 977 00ad 18       		.uleb128 0x18
+ 978 00ae 9742     		.uleb128 0x2117
+ 979 00b0 19       		.uleb128 0x19
+ 980 00b1 00       		.byte	0
+ 981 00b2 00       		.byte	0
+ 982 00b3 0D       		.uleb128 0xd
+ 983 00b4 2E       		.uleb128 0x2e
+ 984 00b5 01       		.byte	0x1
+ 985 00b6 3F       		.uleb128 0x3f
+ 986 00b7 19       		.uleb128 0x19
+ 987 00b8 03       		.uleb128 0x3
+ 988 00b9 0E       		.uleb128 0xe
+ 989 00ba 3A       		.uleb128 0x3a
+ 990 00bb 0B       		.uleb128 0xb
+ 991 00bc 3B       		.uleb128 0x3b
+ 992 00bd 0B       		.uleb128 0xb
+ 993 00be 27       		.uleb128 0x27
+ 994 00bf 19       		.uleb128 0x19
+ 995 00c0 11       		.uleb128 0x11
+ 996 00c1 01       		.uleb128 0x1
+ 997 00c2 12       		.uleb128 0x12
+ 998 00c3 06       		.uleb128 0x6
+ 999 00c4 40       		.uleb128 0x40
+ 1000 00c5 18       		.uleb128 0x18
+ 1001 00c6 9742     		.uleb128 0x2117
+ 1002 00c8 19       		.uleb128 0x19
+ 1003 00c9 01       		.uleb128 0x1
+ 1004 00ca 13       		.uleb128 0x13
+ 1005 00cb 00       		.byte	0
+ 1006 00cc 00       		.byte	0
+ 1007 00cd 0E       		.uleb128 0xe
+ 1008 00ce 34       		.uleb128 0x34
+ 1009 00cf 00       		.byte	0
+ 1010 00d0 03       		.uleb128 0x3
+ 1011 00d1 0E       		.uleb128 0xe
+ 1012 00d2 3A       		.uleb128 0x3a
+ 1013 00d3 0B       		.uleb128 0xb
+ 1014 00d4 3B       		.uleb128 0x3b
+ 1015 00d5 0B       		.uleb128 0xb
+ 1016 00d6 49       		.uleb128 0x49
+ 1017 00d7 13       		.uleb128 0x13
+ 1018 00d8 02       		.uleb128 0x2
+ 1019 00d9 18       		.uleb128 0x18
+ 1020 00da 00       		.byte	0
+ 1021 00db 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 26
 
 
- 1022 00d5 0B       		.uleb128 0xb
- 1023 00d6 49       		.uleb128 0x49
- 1024 00d7 13       		.uleb128 0x13
- 1025 00d8 02       		.uleb128 0x2
- 1026 00d9 18       		.uleb128 0x18
- 1027 00da 00       		.byte	0
- 1028 00db 00       		.byte	0
- 1029 00dc 0F       		.uleb128 0xf
- 1030 00dd 2E       		.uleb128 0x2e
- 1031 00de 01       		.byte	0x1
- 1032 00df 3F       		.uleb128 0x3f
- 1033 00e0 19       		.uleb128 0x19
- 1034 00e1 03       		.uleb128 0x3
- 1035 00e2 0E       		.uleb128 0xe
- 1036 00e3 3A       		.uleb128 0x3a
- 1037 00e4 0B       		.uleb128 0xb
- 1038 00e5 3B       		.uleb128 0x3b
- 1039 00e6 0B       		.uleb128 0xb
- 1040 00e7 27       		.uleb128 0x27
- 1041 00e8 19       		.uleb128 0x19
- 1042 00e9 49       		.uleb128 0x49
- 1043 00ea 13       		.uleb128 0x13
- 1044 00eb 11       		.uleb128 0x11
- 1045 00ec 01       		.uleb128 0x1
- 1046 00ed 12       		.uleb128 0x12
- 1047 00ee 06       		.uleb128 0x6
- 1048 00ef 40       		.uleb128 0x40
- 1049 00f0 18       		.uleb128 0x18
- 1050 00f1 9742     		.uleb128 0x2117
- 1051 00f3 19       		.uleb128 0x19
- 1052 00f4 01       		.uleb128 0x1
- 1053 00f5 13       		.uleb128 0x13
- 1054 00f6 00       		.byte	0
- 1055 00f7 00       		.byte	0
- 1056 00f8 10       		.uleb128 0x10
- 1057 00f9 2E       		.uleb128 0x2e
- 1058 00fa 01       		.byte	0x1
- 1059 00fb 3F       		.uleb128 0x3f
- 1060 00fc 19       		.uleb128 0x19
- 1061 00fd 03       		.uleb128 0x3
- 1062 00fe 0E       		.uleb128 0xe
- 1063 00ff 3A       		.uleb128 0x3a
- 1064 0100 0B       		.uleb128 0xb
- 1065 0101 3B       		.uleb128 0x3b
- 1066 0102 05       		.uleb128 0x5
- 1067 0103 27       		.uleb128 0x27
- 1068 0104 19       		.uleb128 0x19
- 1069 0105 11       		.uleb128 0x11
- 1070 0106 01       		.uleb128 0x1
- 1071 0107 12       		.uleb128 0x12
- 1072 0108 06       		.uleb128 0x6
- 1073 0109 40       		.uleb128 0x40
- 1074 010a 18       		.uleb128 0x18
- 1075 010b 9742     		.uleb128 0x2117
- 1076 010d 19       		.uleb128 0x19
- 1077 010e 01       		.uleb128 0x1
- 1078 010f 13       		.uleb128 0x13
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 27
+ 1022 00dc 0F       		.uleb128 0xf
+ 1023 00dd 2E       		.uleb128 0x2e
+ 1024 00de 01       		.byte	0x1
+ 1025 00df 3F       		.uleb128 0x3f
+ 1026 00e0 19       		.uleb128 0x19
+ 1027 00e1 03       		.uleb128 0x3
+ 1028 00e2 0E       		.uleb128 0xe
+ 1029 00e3 3A       		.uleb128 0x3a
+ 1030 00e4 0B       		.uleb128 0xb
+ 1031 00e5 3B       		.uleb128 0x3b
+ 1032 00e6 0B       		.uleb128 0xb
+ 1033 00e7 27       		.uleb128 0x27
+ 1034 00e8 19       		.uleb128 0x19
+ 1035 00e9 49       		.uleb128 0x49
+ 1036 00ea 13       		.uleb128 0x13
+ 1037 00eb 11       		.uleb128 0x11
+ 1038 00ec 01       		.uleb128 0x1
+ 1039 00ed 12       		.uleb128 0x12
+ 1040 00ee 06       		.uleb128 0x6
+ 1041 00ef 40       		.uleb128 0x40
+ 1042 00f0 18       		.uleb128 0x18
+ 1043 00f1 9742     		.uleb128 0x2117
+ 1044 00f3 19       		.uleb128 0x19
+ 1045 00f4 01       		.uleb128 0x1
+ 1046 00f5 13       		.uleb128 0x13
+ 1047 00f6 00       		.byte	0
+ 1048 00f7 00       		.byte	0
+ 1049 00f8 10       		.uleb128 0x10
+ 1050 00f9 2E       		.uleb128 0x2e
+ 1051 00fa 01       		.byte	0x1
+ 1052 00fb 3F       		.uleb128 0x3f
+ 1053 00fc 19       		.uleb128 0x19
+ 1054 00fd 03       		.uleb128 0x3
+ 1055 00fe 0E       		.uleb128 0xe
+ 1056 00ff 3A       		.uleb128 0x3a
+ 1057 0100 0B       		.uleb128 0xb
+ 1058 0101 3B       		.uleb128 0x3b
+ 1059 0102 05       		.uleb128 0x5
+ 1060 0103 27       		.uleb128 0x27
+ 1061 0104 19       		.uleb128 0x19
+ 1062 0105 11       		.uleb128 0x11
+ 1063 0106 01       		.uleb128 0x1
+ 1064 0107 12       		.uleb128 0x12
+ 1065 0108 06       		.uleb128 0x6
+ 1066 0109 40       		.uleb128 0x40
+ 1067 010a 18       		.uleb128 0x18
+ 1068 010b 9742     		.uleb128 0x2117
+ 1069 010d 19       		.uleb128 0x19
+ 1070 010e 01       		.uleb128 0x1
+ 1071 010f 13       		.uleb128 0x13
+ 1072 0110 00       		.byte	0
+ 1073 0111 00       		.byte	0
+ 1074 0112 11       		.uleb128 0x11
+ 1075 0113 05       		.uleb128 0x5
+ 1076 0114 00       		.byte	0
+ 1077 0115 03       		.uleb128 0x3
+ 1078 0116 0E       		.uleb128 0xe
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 27
 
 
- 1079 0110 00       		.byte	0
- 1080 0111 00       		.byte	0
- 1081 0112 11       		.uleb128 0x11
- 1082 0113 05       		.uleb128 0x5
- 1083 0114 00       		.byte	0
- 1084 0115 03       		.uleb128 0x3
- 1085 0116 0E       		.uleb128 0xe
- 1086 0117 3A       		.uleb128 0x3a
- 1087 0118 0B       		.uleb128 0xb
- 1088 0119 3B       		.uleb128 0x3b
- 1089 011a 05       		.uleb128 0x5
- 1090 011b 49       		.uleb128 0x49
- 1091 011c 13       		.uleb128 0x13
- 1092 011d 02       		.uleb128 0x2
- 1093 011e 18       		.uleb128 0x18
- 1094 011f 00       		.byte	0
- 1095 0120 00       		.byte	0
- 1096 0121 12       		.uleb128 0x12
- 1097 0122 2E       		.uleb128 0x2e
- 1098 0123 01       		.byte	0x1
- 1099 0124 3F       		.uleb128 0x3f
- 1100 0125 19       		.uleb128 0x19
- 1101 0126 03       		.uleb128 0x3
- 1102 0127 0E       		.uleb128 0xe
- 1103 0128 3A       		.uleb128 0x3a
- 1104 0129 0B       		.uleb128 0xb
- 1105 012a 3B       		.uleb128 0x3b
- 1106 012b 05       		.uleb128 0x5
- 1107 012c 27       		.uleb128 0x27
- 1108 012d 19       		.uleb128 0x19
- 1109 012e 49       		.uleb128 0x49
- 1110 012f 13       		.uleb128 0x13
- 1111 0130 11       		.uleb128 0x11
- 1112 0131 01       		.uleb128 0x1
- 1113 0132 12       		.uleb128 0x12
- 1114 0133 06       		.uleb128 0x6
- 1115 0134 40       		.uleb128 0x40
- 1116 0135 18       		.uleb128 0x18
- 1117 0136 9742     		.uleb128 0x2117
- 1118 0138 19       		.uleb128 0x19
- 1119 0139 01       		.uleb128 0x1
- 1120 013a 13       		.uleb128 0x13
- 1121 013b 00       		.byte	0
- 1122 013c 00       		.byte	0
- 1123 013d 13       		.uleb128 0x13
- 1124 013e 34       		.uleb128 0x34
- 1125 013f 00       		.byte	0
- 1126 0140 03       		.uleb128 0x3
- 1127 0141 0E       		.uleb128 0xe
- 1128 0142 3A       		.uleb128 0x3a
- 1129 0143 0B       		.uleb128 0xb
- 1130 0144 3B       		.uleb128 0x3b
- 1131 0145 05       		.uleb128 0x5
- 1132 0146 49       		.uleb128 0x49
- 1133 0147 13       		.uleb128 0x13
- 1134 0148 02       		.uleb128 0x2
- 1135 0149 18       		.uleb128 0x18
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 28
+ 1079 0117 3A       		.uleb128 0x3a
+ 1080 0118 0B       		.uleb128 0xb
+ 1081 0119 3B       		.uleb128 0x3b
+ 1082 011a 05       		.uleb128 0x5
+ 1083 011b 49       		.uleb128 0x49
+ 1084 011c 13       		.uleb128 0x13
+ 1085 011d 02       		.uleb128 0x2
+ 1086 011e 18       		.uleb128 0x18
+ 1087 011f 00       		.byte	0
+ 1088 0120 00       		.byte	0
+ 1089 0121 12       		.uleb128 0x12
+ 1090 0122 2E       		.uleb128 0x2e
+ 1091 0123 01       		.byte	0x1
+ 1092 0124 3F       		.uleb128 0x3f
+ 1093 0125 19       		.uleb128 0x19
+ 1094 0126 03       		.uleb128 0x3
+ 1095 0127 0E       		.uleb128 0xe
+ 1096 0128 3A       		.uleb128 0x3a
+ 1097 0129 0B       		.uleb128 0xb
+ 1098 012a 3B       		.uleb128 0x3b
+ 1099 012b 05       		.uleb128 0x5
+ 1100 012c 27       		.uleb128 0x27
+ 1101 012d 19       		.uleb128 0x19
+ 1102 012e 49       		.uleb128 0x49
+ 1103 012f 13       		.uleb128 0x13
+ 1104 0130 11       		.uleb128 0x11
+ 1105 0131 01       		.uleb128 0x1
+ 1106 0132 12       		.uleb128 0x12
+ 1107 0133 06       		.uleb128 0x6
+ 1108 0134 40       		.uleb128 0x40
+ 1109 0135 18       		.uleb128 0x18
+ 1110 0136 9742     		.uleb128 0x2117
+ 1111 0138 19       		.uleb128 0x19
+ 1112 0139 01       		.uleb128 0x1
+ 1113 013a 13       		.uleb128 0x13
+ 1114 013b 00       		.byte	0
+ 1115 013c 00       		.byte	0
+ 1116 013d 13       		.uleb128 0x13
+ 1117 013e 34       		.uleb128 0x34
+ 1118 013f 00       		.byte	0
+ 1119 0140 03       		.uleb128 0x3
+ 1120 0141 0E       		.uleb128 0xe
+ 1121 0142 3A       		.uleb128 0x3a
+ 1122 0143 0B       		.uleb128 0xb
+ 1123 0144 3B       		.uleb128 0x3b
+ 1124 0145 05       		.uleb128 0x5
+ 1125 0146 49       		.uleb128 0x49
+ 1126 0147 13       		.uleb128 0x13
+ 1127 0148 02       		.uleb128 0x2
+ 1128 0149 18       		.uleb128 0x18
+ 1129 014a 00       		.byte	0
+ 1130 014b 00       		.byte	0
+ 1131 014c 14       		.uleb128 0x14
+ 1132 014d 2E       		.uleb128 0x2e
+ 1133 014e 00       		.byte	0
+ 1134 014f 3F       		.uleb128 0x3f
+ 1135 0150 19       		.uleb128 0x19
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 28
 
 
- 1136 014a 00       		.byte	0
- 1137 014b 00       		.byte	0
- 1138 014c 14       		.uleb128 0x14
- 1139 014d 2E       		.uleb128 0x2e
- 1140 014e 00       		.byte	0
- 1141 014f 3F       		.uleb128 0x3f
- 1142 0150 19       		.uleb128 0x19
- 1143 0151 03       		.uleb128 0x3
- 1144 0152 0E       		.uleb128 0xe
- 1145 0153 3A       		.uleb128 0x3a
- 1146 0154 0B       		.uleb128 0xb
- 1147 0155 3B       		.uleb128 0x3b
- 1148 0156 05       		.uleb128 0x5
- 1149 0157 27       		.uleb128 0x27
- 1150 0158 19       		.uleb128 0x19
- 1151 0159 11       		.uleb128 0x11
- 1152 015a 01       		.uleb128 0x1
- 1153 015b 12       		.uleb128 0x12
- 1154 015c 06       		.uleb128 0x6
- 1155 015d 40       		.uleb128 0x40
- 1156 015e 18       		.uleb128 0x18
- 1157 015f 9742     		.uleb128 0x2117
- 1158 0161 19       		.uleb128 0x19
- 1159 0162 00       		.byte	0
- 1160 0163 00       		.byte	0
- 1161 0164 15       		.uleb128 0x15
- 1162 0165 2E       		.uleb128 0x2e
- 1163 0166 00       		.byte	0
- 1164 0167 3F       		.uleb128 0x3f
- 1165 0168 19       		.uleb128 0x19
- 1166 0169 03       		.uleb128 0x3
- 1167 016a 0E       		.uleb128 0xe
- 1168 016b 3A       		.uleb128 0x3a
- 1169 016c 0B       		.uleb128 0xb
- 1170 016d 3B       		.uleb128 0x3b
- 1171 016e 05       		.uleb128 0x5
- 1172 016f 27       		.uleb128 0x27
- 1173 0170 19       		.uleb128 0x19
- 1174 0171 49       		.uleb128 0x49
- 1175 0172 13       		.uleb128 0x13
- 1176 0173 11       		.uleb128 0x11
- 1177 0174 01       		.uleb128 0x1
- 1178 0175 12       		.uleb128 0x12
- 1179 0176 06       		.uleb128 0x6
- 1180 0177 40       		.uleb128 0x40
- 1181 0178 18       		.uleb128 0x18
- 1182 0179 9742     		.uleb128 0x2117
- 1183 017b 19       		.uleb128 0x19
- 1184 017c 00       		.byte	0
- 1185 017d 00       		.byte	0
- 1186 017e 00       		.byte	0
- 1187              		.section	.debug_aranges,"",%progbits
- 1188 0000 7C000000 		.4byte	0x7c
- 1189 0004 0200     		.2byte	0x2
- 1190 0006 00000000 		.4byte	.Ldebug_info0
- 1191 000a 04       		.byte	0x4
- 1192 000b 00       		.byte	0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 29
+ 1136 0151 03       		.uleb128 0x3
+ 1137 0152 0E       		.uleb128 0xe
+ 1138 0153 3A       		.uleb128 0x3a
+ 1139 0154 0B       		.uleb128 0xb
+ 1140 0155 3B       		.uleb128 0x3b
+ 1141 0156 05       		.uleb128 0x5
+ 1142 0157 27       		.uleb128 0x27
+ 1143 0158 19       		.uleb128 0x19
+ 1144 0159 11       		.uleb128 0x11
+ 1145 015a 01       		.uleb128 0x1
+ 1146 015b 12       		.uleb128 0x12
+ 1147 015c 06       		.uleb128 0x6
+ 1148 015d 40       		.uleb128 0x40
+ 1149 015e 18       		.uleb128 0x18
+ 1150 015f 9742     		.uleb128 0x2117
+ 1151 0161 19       		.uleb128 0x19
+ 1152 0162 00       		.byte	0
+ 1153 0163 00       		.byte	0
+ 1154 0164 15       		.uleb128 0x15
+ 1155 0165 2E       		.uleb128 0x2e
+ 1156 0166 00       		.byte	0
+ 1157 0167 3F       		.uleb128 0x3f
+ 1158 0168 19       		.uleb128 0x19
+ 1159 0169 03       		.uleb128 0x3
+ 1160 016a 0E       		.uleb128 0xe
+ 1161 016b 3A       		.uleb128 0x3a
+ 1162 016c 0B       		.uleb128 0xb
+ 1163 016d 3B       		.uleb128 0x3b
+ 1164 016e 05       		.uleb128 0x5
+ 1165 016f 27       		.uleb128 0x27
+ 1166 0170 19       		.uleb128 0x19
+ 1167 0171 49       		.uleb128 0x49
+ 1168 0172 13       		.uleb128 0x13
+ 1169 0173 11       		.uleb128 0x11
+ 1170 0174 01       		.uleb128 0x1
+ 1171 0175 12       		.uleb128 0x12
+ 1172 0176 06       		.uleb128 0x6
+ 1173 0177 40       		.uleb128 0x40
+ 1174 0178 18       		.uleb128 0x18
+ 1175 0179 9742     		.uleb128 0x2117
+ 1176 017b 19       		.uleb128 0x19
+ 1177 017c 00       		.byte	0
+ 1178 017d 00       		.byte	0
+ 1179 017e 00       		.byte	0
+ 1180              		.section	.debug_aranges,"",%progbits
+ 1181 0000 7C000000 		.4byte	0x7c
+ 1182 0004 0200     		.2byte	0x2
+ 1183 0006 00000000 		.4byte	.Ldebug_info0
+ 1184 000a 04       		.byte	0x4
+ 1185 000b 00       		.byte	0
+ 1186 000c 0000     		.2byte	0
+ 1187 000e 0000     		.2byte	0
+ 1188 0010 00000000 		.4byte	.LFB0
+ 1189 0014 20000000 		.4byte	.LFE0-.LFB0
+ 1190 0018 00000000 		.4byte	.LFB1
+ 1191 001c 22000000 		.4byte	.LFE1-.LFB1
+ 1192 0020 00000000 		.4byte	.LFB2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 29
 
 
- 1193 000c 0000     		.2byte	0
- 1194 000e 0000     		.2byte	0
- 1195 0010 00000000 		.4byte	.LFB0
- 1196 0014 20000000 		.4byte	.LFE0-.LFB0
- 1197 0018 00000000 		.4byte	.LFB1
- 1198 001c 22000000 		.4byte	.LFE1-.LFB1
- 1199 0020 00000000 		.4byte	.LFB2
- 1200 0024 14000000 		.4byte	.LFE2-.LFB2
- 1201 0028 00000000 		.4byte	.LFB3
- 1202 002c 0C000000 		.4byte	.LFE3-.LFB3
- 1203 0030 00000000 		.4byte	.LFB4
- 1204 0034 24000000 		.4byte	.LFE4-.LFB4
- 1205 0038 00000000 		.4byte	.LFB5
- 1206 003c 20000000 		.4byte	.LFE5-.LFB5
- 1207 0040 00000000 		.4byte	.LFB6
- 1208 0044 24000000 		.4byte	.LFE6-.LFB6
- 1209 0048 00000000 		.4byte	.LFB7
- 1210 004c 24000000 		.4byte	.LFE7-.LFB7
- 1211 0050 00000000 		.4byte	.LFB8
- 1212 0054 18000000 		.4byte	.LFE8-.LFB8
- 1213 0058 00000000 		.4byte	.LFB9
- 1214 005c 24000000 		.4byte	.LFE9-.LFB9
- 1215 0060 00000000 		.4byte	.LFB10
- 1216 0064 18000000 		.4byte	.LFE10-.LFB10
- 1217 0068 00000000 		.4byte	.LFB11
- 1218 006c 18000000 		.4byte	.LFE11-.LFB11
- 1219 0070 00000000 		.4byte	.LFB12
- 1220 0074 18000000 		.4byte	.LFE12-.LFB12
- 1221 0078 00000000 		.4byte	0
- 1222 007c 00000000 		.4byte	0
- 1223              		.section	.debug_ranges,"",%progbits
- 1224              	.Ldebug_ranges0:
- 1225 0000 00000000 		.4byte	.LFB0
- 1226 0004 20000000 		.4byte	.LFE0
- 1227 0008 00000000 		.4byte	.LFB1
- 1228 000c 22000000 		.4byte	.LFE1
- 1229 0010 00000000 		.4byte	.LFB2
- 1230 0014 14000000 		.4byte	.LFE2
- 1231 0018 00000000 		.4byte	.LFB3
- 1232 001c 0C000000 		.4byte	.LFE3
- 1233 0020 00000000 		.4byte	.LFB4
- 1234 0024 24000000 		.4byte	.LFE4
- 1235 0028 00000000 		.4byte	.LFB5
- 1236 002c 20000000 		.4byte	.LFE5
- 1237 0030 00000000 		.4byte	.LFB6
- 1238 0034 24000000 		.4byte	.LFE6
- 1239 0038 00000000 		.4byte	.LFB7
- 1240 003c 24000000 		.4byte	.LFE7
- 1241 0040 00000000 		.4byte	.LFB8
- 1242 0044 18000000 		.4byte	.LFE8
- 1243 0048 00000000 		.4byte	.LFB9
- 1244 004c 24000000 		.4byte	.LFE9
- 1245 0050 00000000 		.4byte	.LFB10
- 1246 0054 18000000 		.4byte	.LFE10
- 1247 0058 00000000 		.4byte	.LFB11
- 1248 005c 18000000 		.4byte	.LFE11
- 1249 0060 00000000 		.4byte	.LFB12
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 30
+ 1193 0024 14000000 		.4byte	.LFE2-.LFB2
+ 1194 0028 00000000 		.4byte	.LFB3
+ 1195 002c 0C000000 		.4byte	.LFE3-.LFB3
+ 1196 0030 00000000 		.4byte	.LFB4
+ 1197 0034 24000000 		.4byte	.LFE4-.LFB4
+ 1198 0038 00000000 		.4byte	.LFB5
+ 1199 003c 20000000 		.4byte	.LFE5-.LFB5
+ 1200 0040 00000000 		.4byte	.LFB6
+ 1201 0044 24000000 		.4byte	.LFE6-.LFB6
+ 1202 0048 00000000 		.4byte	.LFB7
+ 1203 004c 24000000 		.4byte	.LFE7-.LFB7
+ 1204 0050 00000000 		.4byte	.LFB8
+ 1205 0054 18000000 		.4byte	.LFE8-.LFB8
+ 1206 0058 00000000 		.4byte	.LFB9
+ 1207 005c 20000000 		.4byte	.LFE9-.LFB9
+ 1208 0060 00000000 		.4byte	.LFB10
+ 1209 0064 18000000 		.4byte	.LFE10-.LFB10
+ 1210 0068 00000000 		.4byte	.LFB11
+ 1211 006c 18000000 		.4byte	.LFE11-.LFB11
+ 1212 0070 00000000 		.4byte	.LFB12
+ 1213 0074 18000000 		.4byte	.LFE12-.LFB12
+ 1214 0078 00000000 		.4byte	0
+ 1215 007c 00000000 		.4byte	0
+ 1216              		.section	.debug_ranges,"",%progbits
+ 1217              	.Ldebug_ranges0:
+ 1218 0000 00000000 		.4byte	.LFB0
+ 1219 0004 20000000 		.4byte	.LFE0
+ 1220 0008 00000000 		.4byte	.LFB1
+ 1221 000c 22000000 		.4byte	.LFE1
+ 1222 0010 00000000 		.4byte	.LFB2
+ 1223 0014 14000000 		.4byte	.LFE2
+ 1224 0018 00000000 		.4byte	.LFB3
+ 1225 001c 0C000000 		.4byte	.LFE3
+ 1226 0020 00000000 		.4byte	.LFB4
+ 1227 0024 24000000 		.4byte	.LFE4
+ 1228 0028 00000000 		.4byte	.LFB5
+ 1229 002c 20000000 		.4byte	.LFE5
+ 1230 0030 00000000 		.4byte	.LFB6
+ 1231 0034 24000000 		.4byte	.LFE6
+ 1232 0038 00000000 		.4byte	.LFB7
+ 1233 003c 24000000 		.4byte	.LFE7
+ 1234 0040 00000000 		.4byte	.LFB8
+ 1235 0044 18000000 		.4byte	.LFE8
+ 1236 0048 00000000 		.4byte	.LFB9
+ 1237 004c 20000000 		.4byte	.LFE9
+ 1238 0050 00000000 		.4byte	.LFB10
+ 1239 0054 18000000 		.4byte	.LFE10
+ 1240 0058 00000000 		.4byte	.LFB11
+ 1241 005c 18000000 		.4byte	.LFE11
+ 1242 0060 00000000 		.4byte	.LFB12
+ 1243 0064 18000000 		.4byte	.LFE12
+ 1244 0068 00000000 		.4byte	0
+ 1245 006c 00000000 		.4byte	0
+ 1246              		.section	.debug_line,"",%progbits
+ 1247              	.Ldebug_line0:
+ 1248 0000 56010000 		.section	.debug_str,"MS",%progbits,1
+ 1248      02005C00 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 30
 
 
- 1250 0064 18000000 		.4byte	.LFE12
- 1251 0068 00000000 		.4byte	0
- 1252 006c 00000000 		.4byte	0
- 1253              		.section	.debug_line,"",%progbits
- 1254              	.Ldebug_line0:
- 1255 0000 66010000 		.section	.debug_str,"MS",%progbits,1
- 1255      02005C00 
- 1255      00000201 
- 1255      FB0E0D00 
- 1255      01010101 
- 1256              	.LASF16:
- 1257 0000 72656733 		.ascii	"reg32\000"
- 1257      3200
- 1258              	.LASF4:
- 1259 0006 73686F72 		.ascii	"short unsigned int\000"
- 1259      7420756E 
- 1259      7369676E 
- 1259      65642069 
- 1259      6E7400
- 1260              	.LASF32:
- 1261 0019 72785F69 		.ascii	"rx_int_ClearPending\000"
- 1261      6E745F43 
- 1261      6C656172 
- 1261      50656E64 
- 1261      696E6700 
- 1262              	.LASF19:
- 1263 002d 72785F69 		.ascii	"rx_int_Stop\000"
- 1263      6E745F53 
- 1263      746F7000 
- 1264              	.LASF35:
- 1265 0039 433A5C55 		.ascii	"C:\\Users\\mark6\\Google Drive\\College-MIT\\S6Spri"
- 1265      73657273 
- 1265      5C6D6172 
- 1265      6B365C47 
- 1265      6F6F676C 
- 1266 0067 6E673230 		.ascii	"ng2020\\6.115\\FinalProject\\BunkerKnowledge\\PSoC_"
- 1266      32305C36 
- 1266      2E313135 
- 1266      5C46696E 
- 1266      616C5072 
- 1267 0096 355F4669 		.ascii	"5_Files\\Processor.cydsn\000"
- 1267      6C65735C 
- 1267      50726F63 
- 1267      6573736F 
- 1267      722E6379 
- 1268              	.LASF13:
- 1269 00ae 666C6F61 		.ascii	"float\000"
- 1269      7400
- 1270              	.LASF29:
- 1271 00b4 72785F69 		.ascii	"rx_int_Enable\000"
- 1271      6E745F45 
- 1271      6E61626C 
- 1271      6500
- 1272              	.LASF2:
- 1273 00c2 756E7369 		.ascii	"unsigned char\000"
- 1273      676E6564 
- 1273      20636861 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 31
+ 1248      00000201 
+ 1248      FB0E0D00 
+ 1248      01010101 
+ 1249              	.LASF16:
+ 1250 0000 72656733 		.ascii	"reg32\000"
+ 1250      3200
+ 1251              	.LASF4:
+ 1252 0006 73686F72 		.ascii	"short unsigned int\000"
+ 1252      7420756E 
+ 1252      7369676E 
+ 1252      65642069 
+ 1252      6E7400
+ 1253              	.LASF32:
+ 1254 0019 72785F69 		.ascii	"rx_int_ClearPending\000"
+ 1254      6E745F43 
+ 1254      6C656172 
+ 1254      50656E64 
+ 1254      696E6700 
+ 1255              	.LASF19:
+ 1256 002d 72785F69 		.ascii	"rx_int_Stop\000"
+ 1256      6E745F53 
+ 1256      746F7000 
+ 1257              	.LASF35:
+ 1258 0039 433A5C55 		.ascii	"C:\\Users\\mark6\\Google Drive\\College-MIT\\S6Spri"
+ 1258      73657273 
+ 1258      5C6D6172 
+ 1258      6B365C47 
+ 1258      6F6F676C 
+ 1259 0067 6E673230 		.ascii	"ng2020\\6.115\\FinalProject\\BunkerKnowledge\\PSoC_"
+ 1259      32305C36 
+ 1259      2E313135 
+ 1259      5C46696E 
+ 1259      616C5072 
+ 1260 0096 355F4669 		.ascii	"5_Files\\Processor.cydsn\000"
+ 1260      6C65735C 
+ 1260      50726F63 
+ 1260      6573736F 
+ 1260      722E6379 
+ 1261              	.LASF13:
+ 1262 00ae 666C6F61 		.ascii	"float\000"
+ 1262      7400
+ 1263              	.LASF29:
+ 1264 00b4 72785F69 		.ascii	"rx_int_Enable\000"
+ 1264      6E745F45 
+ 1264      6E61626C 
+ 1264      6500
+ 1265              	.LASF2:
+ 1266 00c2 756E7369 		.ascii	"unsigned char\000"
+ 1266      676E6564 
+ 1266      20636861 
+ 1266      7200
+ 1267              	.LASF15:
+ 1268 00d0 72656738 		.ascii	"reg8\000"
+ 1268      00
+ 1269              	.LASF28:
+ 1270 00d5 72785F69 		.ascii	"rx_int_GetPriority\000"
+ 1270      6E745F47 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 31
 
 
- 1273      7200
- 1274              	.LASF15:
- 1275 00d0 72656738 		.ascii	"reg8\000"
- 1275      00
- 1276              	.LASF28:
- 1277 00d5 72785F69 		.ascii	"rx_int_GetPriority\000"
- 1277      6E745F47 
- 1277      65745072 
- 1277      696F7269 
- 1277      747900
- 1278              	.LASF6:
- 1279 00e8 6C6F6E67 		.ascii	"long unsigned int\000"
- 1279      20756E73 
- 1279      69676E65 
- 1279      6420696E 
- 1279      7400
- 1280              	.LASF27:
- 1281 00fa 72785F69 		.ascii	"rx_int_GetVector\000"
- 1281      6E745F47 
- 1281      65745665 
- 1281      63746F72 
- 1281      00
- 1282              	.LASF11:
- 1283 010b 75696E74 		.ascii	"uint8\000"
- 1283      3800
- 1284              	.LASF20:
- 1285 0111 72785F69 		.ascii	"rx_int_Interrupt\000"
- 1285      6E745F49 
- 1285      6E746572 
- 1285      72757074 
- 1285      00
- 1286              	.LASF26:
- 1287 0122 7072696F 		.ascii	"priority\000"
- 1287      72697479 
- 1287      00
- 1288              	.LASF33:
- 1289 012b 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1289      4320342E 
- 1289      392E3320 
- 1289      32303135 
- 1289      30333033 
- 1290 015e 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1290      20726576 
- 1290      6973696F 
- 1290      6E203232 
- 1290      31323230 
- 1291 0191 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 1291      66756E63 
- 1291      74696F6E 
- 1291      2D736563 
- 1291      74696F6E 
- 1292              	.LASF14:
- 1293 01b9 646F7562 		.ascii	"double\000"
- 1293      6C6500
- 1294              	.LASF30:
- 1295 01c0 72785F69 		.ascii	"rx_int_Disable\000"
- 1295      6E745F44 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 32
+ 1270      65745072 
+ 1270      696F7269 
+ 1270      747900
+ 1271              	.LASF6:
+ 1272 00e8 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1272      20756E73 
+ 1272      69676E65 
+ 1272      6420696E 
+ 1272      7400
+ 1273              	.LASF27:
+ 1274 00fa 72785F69 		.ascii	"rx_int_GetVector\000"
+ 1274      6E745F47 
+ 1274      65745665 
+ 1274      63746F72 
+ 1274      00
+ 1275              	.LASF11:
+ 1276 010b 75696E74 		.ascii	"uint8\000"
+ 1276      3800
+ 1277              	.LASF20:
+ 1278 0111 72785F69 		.ascii	"rx_int_Interrupt\000"
+ 1278      6E745F49 
+ 1278      6E746572 
+ 1278      72757074 
+ 1278      00
+ 1279              	.LASF26:
+ 1280 0122 7072696F 		.ascii	"priority\000"
+ 1280      72697479 
+ 1280      00
+ 1281              	.LASF33:
+ 1282 012b 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1282      4320342E 
+ 1282      392E3320 
+ 1282      32303135 
+ 1282      30333033 
+ 1283 015e 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1283      20726576 
+ 1283      6973696F 
+ 1283      6E203232 
+ 1283      31323230 
+ 1284 0191 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1284      66756E63 
+ 1284      74696F6E 
+ 1284      2D736563 
+ 1284      74696F6E 
+ 1285              	.LASF14:
+ 1286 01b9 646F7562 		.ascii	"double\000"
+ 1286      6C6500
+ 1287              	.LASF30:
+ 1288 01c0 72785F69 		.ascii	"rx_int_Disable\000"
+ 1288      6E745F44 
+ 1288      69736162 
+ 1288      6C6500
+ 1289              	.LASF12:
+ 1290 01cf 75696E74 		.ascii	"uint32\000"
+ 1290      333200
+ 1291              	.LASF0:
+ 1292 01d6 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 32
 
 
- 1295      69736162 
- 1295      6C6500
- 1296              	.LASF12:
- 1297 01cf 75696E74 		.ascii	"uint32\000"
- 1297      333200
- 1298              	.LASF0:
- 1299 01d6 756E7369 		.ascii	"unsigned int\000"
- 1299      676E6564 
- 1299      20696E74 
- 1299      00
- 1300              	.LASF23:
- 1301 01e3 61646472 		.ascii	"address\000"
- 1301      65737300 
- 1302              	.LASF8:
- 1303 01eb 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1303      206C6F6E 
- 1303      6720756E 
- 1303      7369676E 
- 1303      65642069 
- 1304              	.LASF17:
- 1305 0202 63796973 		.ascii	"cyisraddress\000"
- 1305      72616464 
- 1305      72657373 
- 1305      00
- 1306              	.LASF36:
- 1307 020f 72785F69 		.ascii	"rx_int_GetState\000"
- 1307      6E745F47 
- 1307      65745374 
- 1307      61746500 
- 1308              	.LASF34:
- 1309 021f 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\rx_int.c\000"
- 1309      6E657261 
- 1309      7465645F 
- 1309      536F7572 
- 1309      63655C50 
- 1310              	.LASF9:
- 1311 0241 73697A65 		.ascii	"sizetype\000"
- 1311      74797065 
- 1311      00
- 1312              	.LASF7:
- 1313 024a 6C6F6E67 		.ascii	"long long int\000"
- 1313      206C6F6E 
- 1313      6720696E 
- 1313      7400
- 1314              	.LASF21:
- 1315 0258 72785F69 		.ascii	"rx_int_StartEx\000"
- 1315      6E745F53 
- 1315      74617274 
- 1315      457800
- 1316              	.LASF10:
- 1317 0267 63686172 		.ascii	"char\000"
- 1317      00
- 1318              	.LASF24:
- 1319 026c 72616D56 		.ascii	"ramVectorTable\000"
- 1319      6563746F 
- 1319      72546162 
- 1319      6C6500
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccIWqgNU.s 			page 33
+ 1292      676E6564 
+ 1292      20696E74 
+ 1292      00
+ 1293              	.LASF23:
+ 1294 01e3 61646472 		.ascii	"address\000"
+ 1294      65737300 
+ 1295              	.LASF8:
+ 1296 01eb 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1296      206C6F6E 
+ 1296      6720756E 
+ 1296      7369676E 
+ 1296      65642069 
+ 1297              	.LASF17:
+ 1298 0202 63796973 		.ascii	"cyisraddress\000"
+ 1298      72616464 
+ 1298      72657373 
+ 1298      00
+ 1299              	.LASF36:
+ 1300 020f 72785F69 		.ascii	"rx_int_GetState\000"
+ 1300      6E745F47 
+ 1300      65745374 
+ 1300      61746500 
+ 1301              	.LASF34:
+ 1302 021f 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\rx_int.c\000"
+ 1302      6E657261 
+ 1302      7465645F 
+ 1302      536F7572 
+ 1302      63655C50 
+ 1303              	.LASF9:
+ 1304 0241 73697A65 		.ascii	"sizetype\000"
+ 1304      74797065 
+ 1304      00
+ 1305              	.LASF7:
+ 1306 024a 6C6F6E67 		.ascii	"long long int\000"
+ 1306      206C6F6E 
+ 1306      6720696E 
+ 1306      7400
+ 1307              	.LASF21:
+ 1308 0258 72785F69 		.ascii	"rx_int_StartEx\000"
+ 1308      6E745F53 
+ 1308      74617274 
+ 1308      457800
+ 1309              	.LASF10:
+ 1310 0267 63686172 		.ascii	"char\000"
+ 1310      00
+ 1311              	.LASF24:
+ 1312 026c 72616D56 		.ascii	"ramVectorTable\000"
+ 1312      6563746F 
+ 1312      72546162 
+ 1312      6C6500
+ 1313              	.LASF25:
+ 1314 027b 72785F69 		.ascii	"rx_int_SetPriority\000"
+ 1314      6E745F53 
+ 1314      65745072 
+ 1314      696F7269 
+ 1314      747900
+ 1315              	.LASF3:
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccVziKUd.s 			page 33
 
 
- 1320              	.LASF25:
- 1321 027b 72785F69 		.ascii	"rx_int_SetPriority\000"
- 1321      6E745F53 
- 1321      65745072 
- 1321      696F7269 
- 1321      747900
- 1322              	.LASF3:
- 1323 028e 73686F72 		.ascii	"short int\000"
- 1323      7420696E 
- 1323      7400
- 1324              	.LASF18:
- 1325 0298 72785F69 		.ascii	"rx_int_Start\000"
- 1325      6E745F53 
- 1325      74617274 
- 1325      00
- 1326              	.LASF31:
- 1327 02a5 72785F69 		.ascii	"rx_int_SetPending\000"
- 1327      6E745F53 
- 1327      65745065 
- 1327      6E64696E 
- 1327      6700
- 1328              	.LASF5:
- 1329 02b7 6C6F6E67 		.ascii	"long int\000"
- 1329      20696E74 
- 1329      00
- 1330              	.LASF1:
- 1331 02c0 7369676E 		.ascii	"signed char\000"
- 1331      65642063 
- 1331      68617200 
- 1332              	.LASF22:
- 1333 02cc 72785F69 		.ascii	"rx_int_SetVector\000"
- 1333      6E745F53 
- 1333      65745665 
- 1333      63746F72 
- 1333      00
- 1334              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1316 028e 73686F72 		.ascii	"short int\000"
+ 1316      7420696E 
+ 1316      7400
+ 1317              	.LASF18:
+ 1318 0298 72785F69 		.ascii	"rx_int_Start\000"
+ 1318      6E745F53 
+ 1318      74617274 
+ 1318      00
+ 1319              	.LASF31:
+ 1320 02a5 72785F69 		.ascii	"rx_int_SetPending\000"
+ 1320      6E745F53 
+ 1320      65745065 
+ 1320      6E64696E 
+ 1320      6700
+ 1321              	.LASF5:
+ 1322 02b7 6C6F6E67 		.ascii	"long int\000"
+ 1322      20696E74 
+ 1322      00
+ 1323              	.LASF1:
+ 1324 02c0 7369676E 		.ascii	"signed char\000"
+ 1324      65642063 
+ 1324      68617200 
+ 1325              	.LASF22:
+ 1326 02cc 72785F69 		.ascii	"rx_int_SetVector\000"
+ 1326      6E745F53 
+ 1326      65745665 
+ 1326      63746F72 
+ 1326      00
+ 1327              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

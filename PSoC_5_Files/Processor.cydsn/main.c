@@ -86,10 +86,6 @@ CY_ISR(RX_INT)
 
 void main()
 {	
-    
-	LCD_1_Start();			    // initialize lcd
-	LCD_1_ClearDisplay();
-    
     CyGlobalIntEnable;
     rx_int_StartEx(RX_INT);     // start RX interrupt (look for CY_ISR with RX_INT address)
                                 // for code that writes received bytes to LCD_1.
@@ -98,17 +94,12 @@ void main()
     UART_ClearRxBuffer();
     SPIM_1_Start();             // initialize SPIM component     
 
-    /*
-    CapSense_Start();
-    CapSense_InitializeAllBaselines();
-    CapSense_ScanEnabledWidgets();
-    */
     LED_1_Write(1);
     
     MainTask();                 // all of the emWin exmples use MainTask() as the entry point
     
     for(;;) {
-     // Can be used for buttons later!
+     // Unused for now, only interrupts
     }
 }
 
@@ -159,7 +150,7 @@ void display_stats(int word_count) {
     int i;
     for (i = 0; i < word_count; i++) {
         if (i > 1 && i % 2 == 1) {
-            // check if last one was a key word so the number changes color
+            // check if last rectangle was a key word so the number changes color
             color_change(data[i-1], "Confirmed", RED);  
             color_change(data[i-1], "Infected", RED); 
             color_change(data[i-1], "ested", CYAN);  
@@ -173,6 +164,7 @@ void display_stats(int word_count) {
     }
 }
 void color_change(char* word, char* check_word, GUI_COLOR color) {
+    // changes color of the text if check_word is a substring of word
     if (strstr(word, check_word) != NULL) {
         GUI_SetColor(color);   
     }

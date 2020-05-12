@@ -1,3 +1,13 @@
+'''
+start_bunker_knowledge.py
+
+Main file used, this is the access point into the whole system. It runs
+    a MINMON, terminal style interface where commands can be input, sent,
+    and displayed on the TFT screen. This is where the baud rate and com
+    port can be changed.
+
+'''
+
 import sys
 sys.path.insert(1, "../RetrievalSystem")
 from processing import *
@@ -96,7 +106,7 @@ class Serial_Control():
         world_data = str(self.dataset.get_current("WORLD"))
         # send world data to display on startup
         self.send_data(world_data, receipt=False)
-        print("\n   *******************************************************************")
+        print("\n  ****************************************************************")
         print("  * Welcome to Bunker Knowledge, the Covid-19 Database Terminal! *")
         print("  ****************************************************************\n")
 
@@ -124,6 +134,7 @@ class Serial_Control():
 
                 elif len(command.split(" ")) >= 3:
                     # particular date, send that data
+                    # [name] [month] [day] is command format
                     split_command = command.split(" ")
                     day = split_command[-1]
                     month = split_command[-2]
@@ -146,34 +157,42 @@ class Serial_Control():
         self.big_board_serial.close()
 
     def clean_name(self, name):
+        # function to take the name of a state and convert it correctly into the stored
+        #   two letter postal code
         if len(name) != 2 and name != "world":
             # not using state code
             name = name.split(" ")
             for i, x in enumerate(name):
-                name[i] = x.capitalize()
+                name[i] = x.capitalize()  # capitalize multi letter states
             name = " ".join(name)
             name = us_state_abbrev[name]
         name = name.upper()
         return name
 
     def send_data(self, data, receipt=True):
+        # sends the data line by line, and sends the delimiter specified
+        #   by the psoc
         data = data.split("\n")
         for dat in data:
             self.big_board_serial.write(dat.encode())
-            self.big_board_serial.write("\n".encode())
+            self.big_board_serial.write("\n".encode())  # delimited
         if receipt:
             print(r'Sent: {}'.format(data))
 
     def get_command(self):
+        # waits for a new command
         return input(" > ").lower()
 
     def help(self):
+        # Prints from my help file command instructions
         help_file = "help_file.txt"
         with open(help_file, "r") as f:
             text = f.read()
             print(text)
 
     def graph(self, name):
+        # graphs the data, was originally intended to be used to send over port, but shifted because of
+        #   graphics library limitations
         data = get_timeseries(self.dataset, name)
         df = pd.DataFrame(
             data, columns=["Date", "Confirmed", "Active", "Deaths", "Recovered", "New Cases"])
@@ -221,32 +240,8 @@ def get_timeseries(dataset, name):
     return data
 
 
-class ReadLine:
-
-    def __init__(self, s):
-        self.buf = bytearray()
-        self.s = s
-
-    def readline(self):
-        i = self.buf.find(b"\n")
-        if i >= 0:
-            r = self.buf[:i + 1]
-            self.buf = self.buf[i + 1:]
-            return r
-        while True:
-            i = max(1, min(2048, self.s.in_waiting))
-            data = self.s.read(i)
-            i = data.find(b"\n")
-            if i >= 0:
-                r = self.buf + data[:i + 1]
-                self.buf[0:] = data[i + 1:]
-                return r
-            else:
-                self.buf.extend(data)
-
-
 if __name__ == "__main__":
     port = "COM3"
-    baud = 57600  # look into why 115200 is producing weird stuff
+    baud = 57600
     connection = Serial_Control(port, baud)
     connection.start()

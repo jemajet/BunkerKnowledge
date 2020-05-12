@@ -32,32 +32,6 @@
 <v>BunkerKnowledgeProcessor\Processor\Source Files\tft.c</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_CSHL.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_CSHL.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_INT.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_Pins.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_Pins.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_PM.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_SMS_Wrapper.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_TunerHelper.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_TunerHelper.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_AMuxCH0</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_AMuxCH0\CapSense_AMuxCH0.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_AMuxCH0\CapSense_AMuxCH0.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_CompCH0</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_CompCH0\CapSense_CompCH0.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_CompCH0\CapSense_CompCH0.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_CompCH0\CapSense_CompCH0_PM.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_IdacCH0</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_IdacCH0\CapSense_IdacCH0.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_IdacCH0\CapSense_IdacCH0.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_IdacCH0\CapSense_IdacCH0_PM.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_IntClock</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_IntClock\CapSense_IntClock.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_IntClock\CapSense_IntClock.h</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\Cm3Iar.icf</v>
@@ -87,14 +61,6 @@
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\DC\DC.c</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\DC\DC.h</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\DC\DC_aliases.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LCD_1</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LCD_1\LCD_1.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LCD_1\LCD_1.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LCD_1\LCD_1_PM.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LCD_1_LCDPort</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LCD_1_LCDPort\LCD_1_LCDPort.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LCD_1_LCDPort\LCD_1_LCDPort.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LCD_1_LCDPort\LCD_1_LCDPort_aliases.h</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LED</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LED\LED.c</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LED\LED.h</v>
@@ -103,10 +69,6 @@
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LED_1\LED_1.c</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LED_1\LED_1.h</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LED_1\LED_1_aliases.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LED_2</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LED_2\LED_2.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LED_2\LED_2.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\LED_2\LED_2_aliases.h</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\MISO</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\MISO\MISO.c</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\MISO\MISO.h</v>
@@ -194,25 +156,25 @@
 <v>BunkerKnowledgeProcessor\Processor\Source Files\tft.c</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source</v>
 <v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_CSHL.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_CSHL.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_INT.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_Pins.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_Pins.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_PM.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_SMS_Wrapper.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_TunerHelper.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense\CapSense_TunerHelper.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_AMuxCH0</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_AMuxCH0\CapSense_AMuxCH0.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_AMuxCH0\CapSense_AMuxCH0.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_CompCH0</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_CompCH0\CapSense_CompCH0.c</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_CompCH0\CapSense_CompCH0.h</v>
-<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\CapSense_CompCH0\CapSense_CompCH0_PM.c</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\Cm3Iar.icf</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\Cm3RealView.scat</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\Cm3Start.c</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\core_cm3.h</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\core_cm3_psoc5.h</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\core_cmFunc.h</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\core_cmInstr.h</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\CyBootAsmGnu.s</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\CyBootAsmIar.s</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\CyBootAsmRv.s</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\CyDmac.c</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\CyDmac.h</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\CyFlash.c</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\CyFlash.h</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\CyLib.c</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\CyLib.h</v>
+<v>BunkerKnowledgeProcessor\Processor\Generated_Source\PSoC5\cy_boot\cypins.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -237,19 +199,6 @@
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_AMuxCH0.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_CompCH0.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_CompCH0_PM.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_CSHL.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_IdacCH0.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_IdacCH0_PM.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_INT.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_IntClock.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_Pins.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_PM.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_SMS_Wrapper.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_TunerHelper.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
@@ -263,13 +212,9 @@
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\DC.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\GUI_X.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\GUIConf.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_1.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_1_LCDPort.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_1_PM.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCDConf.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LED.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LED_1.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LED_2.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\MISO.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\MOSI.lst</v>
@@ -303,19 +248,6 @@
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_AMuxCH0.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_CompCH0.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_CompCH0_PM.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_CSHL.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_IdacCH0.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_IdacCH0_PM.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_INT.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_IntClock.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_Pins.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_PM.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_SMS_Wrapper.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CapSense_TunerHelper.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
@@ -329,10 +261,23 @@
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\DC.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\GUI_X.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\GUIConf.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_1.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_1_LCDPort.lst</v>
-<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_1_PM.lst</v>
 <v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LCDConf.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LED.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\LED_1.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\MISO.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\MOSI.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\RESET.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\rx_int.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\SCLK.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\SPIM_1.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\SPIM_1_INT.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\SPIM_1_IntClock.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\SPIM_1_PM.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\SS.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\tft.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\TX.lst</v>
+<v>BunkerKnowledgeProcessor\Processor\CortexM3\ARM_GCC_493\Debug\Listing Files\tx_int.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -348,8 +293,6 @@
 <v>BunkerKnowledgeProcessor\Processor\CY8C58LP Family Datasheet</v>
 <v>BunkerKnowledgeProcessor\Processor\System Reference Guides</v>
 <v>BunkerKnowledgeProcessor\Processor\System Reference Guides\cy_boot_v5_20</v>
-<v>BunkerKnowledgeProcessor\Processor\CapSense_CSD_v3_50.pdf</v>
-<v>BunkerKnowledgeProcessor\Processor\CharLCD_v2_10.pdf</v>
 <v>BunkerKnowledgeProcessor\Processor\cy_constant_v1_0</v>
 <v>BunkerKnowledgeProcessor\Processor\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
 <v>BunkerKnowledgeProcessor\Processor\cy_isr_v1_70</v>
@@ -367,8 +310,6 @@
 <v>BunkerKnowledgeProcessor\Processor\CY8C58LP Family Datasheet</v>
 <v>BunkerKnowledgeProcessor\Processor\System Reference Guides</v>
 <v>BunkerKnowledgeProcessor\Processor\System Reference Guides\cy_boot_v5_20</v>
-<v>BunkerKnowledgeProcessor\Processor\CapSense_CSD_v3_50.pdf</v>
-<v>BunkerKnowledgeProcessor\Processor\CharLCD_v2_10.pdf</v>
 <v>BunkerKnowledgeProcessor\Processor\cy_constant_v1_0</v>
 <v>BunkerKnowledgeProcessor\Processor\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
 <v>BunkerKnowledgeProcessor\Processor\cy_isr_v1_70</v>

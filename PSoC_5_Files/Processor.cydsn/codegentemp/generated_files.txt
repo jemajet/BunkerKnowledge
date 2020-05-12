@@ -20,9 +20,6 @@
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\cyfitteriar.inc" value="NONE;" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\cyfitter.h" value="NONE;" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\cydisabledsheets.h" value="NONE;" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LCD_1.c" value="ARM_C_FILE;LCD_1" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LCD_1.h" value="NONE;LCD_1" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LCD_1_PM.c" value="ARM_C_FILE;LCD_1" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\UART.c" value="ARM_C_FILE;UART" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\UART.h" value="NONE;UART" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\UART_PM.c" value="ARM_C_FILE;UART" />
@@ -35,23 +32,9 @@
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\TX_aliases.h" value="NONE;TX" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\TX.c" value="ARM_C_FILE;TX" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\TX.h" value="NONE;TX" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense.c" value="ARM_C_FILE;CapSense" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense.h" value="NONE;CapSense" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_CSHL.c" value="ARM_C_FILE;CapSense" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_CSHL.h" value="NONE;CapSense" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_INT.c" value="ARM_C_FILE;CapSense" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_Pins.c" value="ARM_C_FILE;CapSense" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_Pins.h" value="NONE;CapSense" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_PM.c" value="ARM_C_FILE;CapSense" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_SMS_Wrapper.c" value="ARM_C_FILE;CapSense" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_TunerHelper.c" value="ARM_C_FILE;CapSense" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_TunerHelper.h" value="NONE;CapSense" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LED_1_aliases.h" value="NONE;LED_1" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LED_1.c" value="ARM_C_FILE;LED_1" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LED_1.h" value="NONE;LED_1" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LED_2_aliases.h" value="NONE;LED_2" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LED_2.c" value="ARM_C_FILE;LED_2" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LED_2.h" value="NONE;LED_2" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\SPIM_1.c" value="ARM_C_FILE;SPIM_1" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\SPIM_1.h" value="NONE;SPIM_1" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\SPIM_1_PM.c" value="ARM_C_FILE;SPIM_1" />
@@ -78,21 +61,8 @@
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LED_aliases.h" value="NONE;LED" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LED.c" value="ARM_C_FILE;LED" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LED.h" value="NONE;LED" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LCD_1_LCDPort_aliases.h" value="NONE;LCD_1_LCDPort" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LCD_1_LCDPort.c" value="ARM_C_FILE;LCD_1_LCDPort" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\LCD_1_LCDPort.h" value="NONE;LCD_1_LCDPort" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\UART_IntClock.c" value="ARM_C_FILE;UART_IntClock" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\UART_IntClock.h" value="NONE;UART_IntClock" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_CompCH0.c" value="ARM_C_FILE;CapSense_CompCH0" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_CompCH0.h" value="NONE;CapSense_CompCH0" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_CompCH0_PM.c" value="ARM_C_FILE;CapSense_CompCH0" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_IdacCH0.c" value="ARM_C_FILE;CapSense_IdacCH0" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_IdacCH0.h" value="NONE;CapSense_IdacCH0" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_IdacCH0_PM.c" value="ARM_C_FILE;CapSense_IdacCH0" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_AMuxCH0.c" value="ARM_C_FILE;CapSense_AMuxCH0" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_AMuxCH0.h" value="NONE;CapSense_AMuxCH0" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_IntClock.c" value="ARM_C_FILE;CapSense_IntClock" />
-  <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\CapSense_IntClock.h" value="NONE;CapSense_IntClock" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\SPIM_1_IntClock.c" value="ARM_C_FILE;SPIM_1_IntClock" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\SPIM_1_IntClock.h" value="NONE;SPIM_1_IntClock" />
   <file name="C:\Users\mark6\Google Drive\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn\codegentemp\cycodeshareimport.ld" value="NONE;" />

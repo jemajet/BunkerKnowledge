@@ -1,3 +1,11 @@
+'''
+retrieval.py
+
+File used to retrieve coronavirus information using API's in its raw, JSON
+    format. Uses two different API's to do so.
+'''
+
+
 import requests
 import json
 import datetime

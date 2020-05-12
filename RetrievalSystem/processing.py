@@ -1,3 +1,12 @@
+'''
+processing.py
+
+This file does some simple data processing by just extracting the information from the JSON.
+    Performed here becaues C has no dictionary datatype and I wanted to just be able to send
+    the info I needed to display. Data is collected in ~7 seconds and then is stored for up to
+    one hour before being declared stale.
+
+'''
 from retrieval import *
 import datetime
 import pickle
@@ -147,15 +156,8 @@ class Covid19_Node():
             self.percent_infected
     '''
 
-    def transmit_string(self):
-        s = "{} ".format(self.__dict__["name"])
-        for key, value in self.__dict__.items():
-            if key == "name":
-                continue
-            s += "{} {} ".format(key, value)
-        return s
-
     def __str__(self):
+        # Gives a string representation of exactly what we need to send to PSOC
         delim = '\n'
         s = "{}{}".format(
             abbrev_to_name[self.__dict__["name"]], delim)
@@ -178,9 +180,12 @@ class Covid19_Node():
         return s
 
     def __repr__(self):
+        # just for nice display in dictionaries :-)
         return "{}-{}".format(self.__dict__["name"], self.__dict__["date"])
 
 
+# All Node classes only have an init function where the datatypes are stored for
+#   later transmission.
 class Covid19_World_Node(Covid19_Node):
     '''
     Class to represent one date status of the world in regards to coronavirus
@@ -272,6 +277,7 @@ class Covid19_State_Node(Covid19_Node):
 
 
 class Covid19_Press():
+    # Not used currently, but available if wanted.
 
     def __init__(self):
         press_list = get_covid19_data("", "", press=True)
@@ -287,6 +293,7 @@ class Covid19_Press():
 
 
 class Covid19_Article():
+    # Not used currently, but available if wanted.
 
     def __init__(self, article_json):
         self.title = article_json[
@@ -305,6 +312,25 @@ class Covid19_Article():
 
 
 class Covid19_Dataset():
+    '''
+        Class that maintains the whole dataset, it tries to load from storage, but creates and saves
+            if not available. 
+
+        Methods:
+            save() - saves the whole dataset to a priorly specified file
+            load() - attempts to load the dataset
+            get_all_current() - gets all current data for all nodes in the dataset
+            get_current(name) - gets the current data for the specified node
+            get_by_date(name, month, day) - gets the data for a specific node for
+                                              a specific data
+            get_all_historical(name) - returns all historical information currently
+                                        stored
+            get_historical(name, save=False) - gets historical information for name,
+                                                optionally saves the dataset if changes are made
+            def retrieve_historical(name) - static method used to actually obtain the historical
+                                              data by creating a list of nodes
+
+    '''
 
     def __init__(self):
         try:
@@ -364,6 +390,7 @@ class Covid19_Dataset():
 
     def get_by_date(self, name, month, day):
         history = self.get_historical(name)
+        # make the data string
         date_string = "2020-"
         if len(month) < 2:
             date_string += "0"
@@ -372,9 +399,12 @@ class Covid19_Dataset():
         if len(day) < 2:
             date_string += "0"
         date_string += day
+
+        # search for that day
         for day in history:
             if day.date == date_string:
                 return day
+        # otherwise day does not exist, raise error
         raise KeyError
 
     def get_all_historical(self, name):

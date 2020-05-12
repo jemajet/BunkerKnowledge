@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
   30:.\LCDConf.c   **** Licensed to:              Cypress Semiconductor Corp, 198 Champion Ct., San Jose, CA 95134, USA
   31:.\LCDConf.c   **** Licensed SEGGER software: emWin
   32:.\LCDConf.c   **** License number:           GUI-00319
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 2
 
 
   33:.\LCDConf.c   **** License model:            Services and License Agreement, signed June 10th, 2009
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
   87:.\LCDConf.c   **** #ifndef   VXSIZE_PHYS
   88:.\LCDConf.c   ****   #define VXSIZE_PHYS XSIZE_PHYS
   89:.\LCDConf.c   **** #endif
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 3
 
 
   90:.\LCDConf.c   **** #ifndef   VYSIZE_PHYS
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
   49              	LCD_X_Config:
   50              	.LFB64:
  121:.\LCDConf.c   **** 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 4
 
 
  122:.\LCDConf.c   **** /*********************************************************************
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  141:.\LCDConf.c   ****   // Set the display driver and color conversion
  142:.\LCDConf.c   ****   //
  143:.\LCDConf.c   ****   pDevice = GUI_DEVICE_CreateAndLink(DISPLAY_DRIVER, COLOR_CONVERSION, 0, 0);
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 5
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 5
 
 
   86              		.loc 1 143 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  122 0078 7B61     		str	r3, [r7, #20]
  162:.\LCDConf.c   ****   PortAPI.pfReadM8_A1 = readM8_a1;
  123              		.loc 1 162 0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 6
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 6
 
 
  124 007a 0C4B     		ldr	r3, .L3+24
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  178:.\LCDConf.c   **** * Parameter:
  179:.\LCDConf.c   **** *   LayerIndex - Zero based layer index
  180:.\LCDConf.c   **** *   Cmd        - Command to be executed
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 7
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 7
 
 
  181:.\LCDConf.c   **** *   pData      - Pointer to a data structure.
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  190 001e 7B61     		str	r3, [r7, #20]
  208:.\LCDConf.c   ****   }
  209:.\LCDConf.c   ****   return r;
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 8
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 8
 
 
  191              		.loc 1 209 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  244 0041 03       		.uleb128 0x3
  245 0042 0C050000 		.4byte	.LASF9
  246 0046 02       		.byte	0x2
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 9
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 9
 
 
  247 0047 3F       		.byte	0x3f
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  301 00a7 04       		.byte	0x4
  302 00a8 2C000000 		.4byte	0x2c
  303 00ac 03       		.uleb128 0x3
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 10
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 10
 
 
  304 00ad F1010000 		.4byte	.LASF15
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  358 0118 1C010000 		.4byte	0x11c
  359 011c 0A       		.uleb128 0xa
  360 011d 53000000 		.4byte	0x53
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 11
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 11
 
 
  361 0121 2B010000 		.4byte	0x12b
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  415 0199 94       		.byte	0x94
  416 019a DC010000 		.4byte	0x1dc
  417 019e 00       		.byte	0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 12
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 12
 
 
  418 019f 0E       		.uleb128 0xe
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  472 020b 0F       		.uleb128 0xf
  473 020c 12040000 		.4byte	.LASF29
  474 0210 04       		.byte	0x4
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 13
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 13
 
 
  475 0211 4301     		.2byte	0x143
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  529 027c 4401     		.2byte	0x144
  530 027e 82020000 		.4byte	0x282
  531 0282 10       		.uleb128 0x10
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 14
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 14
 
 
  532 0283 E2010000 		.4byte	.LASF36
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  586 02ef 37050000 		.4byte	.LASF45
  587 02f3 05       		.byte	0x5
  588 02f4 7C       		.byte	0x7c
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 15
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 15
 
 
  589 02f5 2E060000 		.4byte	0x62e
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  643 0362 B9040000 		.4byte	0x4b9
  644 0366 13       		.uleb128 0x13
  645 0367 B1040000 		.4byte	.LASF50
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 16
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 16
 
 
  646 036b 06       		.byte	0x6
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  700 03e0 06       		.byte	0x6
  701 03e1 8102     		.2byte	0x281
  702 03e3 EB040000 		.4byte	0x4eb
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 17
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 17
 
 
  703 03e7 24       		.byte	0x24
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  757 045c 48       		.byte	0x48
  758 045d 13       		.uleb128 0x13
  759 045e B2010000 		.4byte	.LASF69
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 18
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 18
 
 
  760 0462 06       		.byte	0x6
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  814 04d5 68000000 		.4byte	0x68
  815 04d9 00       		.byte	0
  816 04da 05       		.uleb128 0x5
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 19
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 19
 
 
  817 04db 04       		.byte	0x4
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  871 0551 68000000 		.4byte	0x68
  872 0555 0B       		.uleb128 0xb
  873 0556 68000000 		.4byte	0x68
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 20
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 20
 
 
  874 055a 0B       		.uleb128 0xb
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  928 05d5 04       		.byte	0x4
  929 05d6 B5050000 		.4byte	0x5b5
  930 05da 0A       		.uleb128 0xa
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 21
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 21
 
 
  931 05db 53000000 		.4byte	0x53
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  985 0659 68060000 		.4byte	0x668
  986 065d 0B       		.uleb128 0xb
  987 065e 7E050000 		.4byte	0x57e
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 22
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 22
 
 
  988 0662 0B       		.uleb128 0xb
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1042 06d1 D8020000 		.4byte	.LASF79
  1043 06d5 07       		.byte	0x7
  1044 06d6 76       		.byte	0x76
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 23
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 23
 
 
  1045 06d7 68000000 		.4byte	0x68
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1099 0749 02       		.uleb128 0x2
  1100 074a 91       		.byte	0x91
  1101 074b 74       		.sleb128 -12
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 24
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 24
 
 
  1102 074c 18       		.uleb128 0x18
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1156 07b1 BD       		.byte	0xbd
  1157 07b2 68000000 		.4byte	0x68
  1158 07b6 02       		.uleb128 0x2
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 25
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 25
 
 
  1159 07b7 91       		.byte	0x91
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1213 001f 16       		.uleb128 0x16
  1214 0020 00       		.byte	0
  1215 0021 03       		.uleb128 0x3
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 26
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 26
 
 
  1216 0022 0E       		.uleb128 0xe
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1270 0058 00       		.byte	0
  1271 0059 00       		.byte	0
  1272 005a 09       		.uleb128 0x9
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 27
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 27
 
 
  1273 005b 0D       		.uleb128 0xd
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1327 0091 0E       		.uleb128 0xe
  1328 0092 3A       		.uleb128 0x3a
  1329 0093 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 28
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 28
 
 
  1330 0094 3B       		.uleb128 0x3b
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1384 00ca 00       		.byte	0
  1385 00cb 00       		.byte	0
  1386 00cc 13       		.uleb128 0x13
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 29
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 29
 
 
  1387 00cd 0D       		.uleb128 0xd
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1441 0103 06       		.uleb128 0x6
  1442 0104 40       		.uleb128 0x40
  1443 0105 18       		.uleb128 0x18
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 30
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 30
 
 
  1444 0106 9642     		.uleb128 0x2116
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1498 013e 0B       		.uleb128 0xb
  1499 013f 27       		.uleb128 0x27
  1500 0140 19       		.uleb128 0x19
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 31
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 31
 
 
  1501 0141 49       		.uleb128 0x49
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1555 0178 13       		.uleb128 0x13
  1556 0179 02       		.uleb128 0x2
  1557 017a 18       		.uleb128 0x18
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 32
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 32
 
 
  1558 017b 00       		.byte	0
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1612 0018 00000000 		.4byte	.LFB64
  1613 001c B8000000 		.4byte	.LFE64-.LFB64
  1614 0020 00000000 		.4byte	.LFB65
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 33
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 33
 
 
  1615 0024 2A000000 		.4byte	.LFE65-.LFB65
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1643              	.LASF41:
  1644 00bd 70664669 		.ascii	"pfFillRect\000"
  1644      6C6C5265 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 34
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 34
 
 
  1644      637400
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1666 01a6 70664472 		.ascii	"pfDrawVLine\000"
  1666      6177564C 
  1666      696E6500 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 35
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 35
 
 
  1667              	.LASF69:
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1690 0243 70664472 		.ascii	"pfDrawHLine\000"
  1690      6177484C 
  1690      696E6500 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 36
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 36
 
 
  1691              	.LASF34:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1717              	.LASF31:
  1718 02e1 70507265 		.ascii	"pPrev\000"
  1718      7600
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 37
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 37
 
 
  1719              	.LASF86:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1743              	.LASF8:
  1744 0383 756E7369 		.ascii	"unsigned int\000"
  1744      676E6564 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 38
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 38
 
 
  1744      20696E74 
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1766      6B00
  1767              	.LASF56:
  1768 042f 70665265 		.ascii	"pfReadM8_A0\000"
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 39
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 39
 
 
  1768      61644D38 
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1791              	.LASF67:
  1792 04c9 70665772 		.ascii	"pfWrite32_A1\000"
  1792      69746533 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 40
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 40
 
 
  1792      325F4131 
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 1
  1816      7832436F 
  1816      6C6F7242 
  1817              	.LASF17:
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccXdfoJd.s 			page 41
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccj3CAHf.s 			page 41
 
 
  1818 0572 744C4344 		.ascii	"tLCDDEV_Index2Color\000"

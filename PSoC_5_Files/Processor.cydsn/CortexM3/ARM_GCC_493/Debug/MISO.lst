@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
   29:.\Generated_Source\PSoC5/MISO.c **** * Summary:
   30:.\Generated_Source\PSoC5/MISO.c **** *  Assign a new value to the digital port's data output register.  
   31:.\Generated_Source\PSoC5/MISO.c **** *
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 2
 
 
   32:.\Generated_Source\PSoC5/MISO.c **** * Parameters:  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
   69 0034 30510040 		.word	1073762608
   70              		.cfi_endproc
   71              	.LFE0:
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 3
 
 
   72              		.size	MISO_Write, .-MISO_Write
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
   98 000e 1278     		ldrb	r2, [r2]
   99 0010 D2B2     		uxtb	r2, r2
  100 0012 D2B2     		uxtb	r2, r2
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 4
 
 
  101 0014 22F00E02 		bic	r2, r2, #14
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
   92:.\Generated_Source\PSoC5/MISO.c **** *******************************************************************************/
   93:.\Generated_Source\PSoC5/MISO.c **** uint8 MISO_Read(void) 
   94:.\Generated_Source\PSoC5/MISO.c **** {
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 5
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 5
 
 
  135              		.loc 1 94 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
  109:.\Generated_Source\PSoC5/MISO.c **** * Return: 
  110:.\Generated_Source\PSoC5/MISO.c **** *  Returns the current value assigned to the Digital Port's data output register
  111:.\Generated_Source\PSoC5/MISO.c **** *  
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 6
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 6
 
 
  112:.\Generated_Source\PSoC5/MISO.c **** *******************************************************************************/
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
  224 0025 02       		.uleb128 0x2
  225 0026 01       		.byte	0x1
  226 0027 06       		.byte	0x6
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 7
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 7
 
 
  227 0028 06020000 		.4byte	.LASF0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
  281 008b 05       		.uleb128 0x5
  282 008c 64010000 		.4byte	.LASF13
  283 0090 02       		.byte	0x2
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 8
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 8
 
 
  284 0091 6C01     		.2byte	0x16c
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
  338 0101 20000000 		.4byte	.LFE2-.LFB2
  339 0105 01       		.uleb128 0x1
  340 0106 9C       		.byte	0x9c
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 9
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 9
 
 
  341 0107 0A       		.uleb128 0xa
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
  395 002a 16       		.uleb128 0x16
  396 002b 00       		.byte	0
  397 002c 03       		.uleb128 0x3
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 10
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 10
 
 
  398 002d 0E       		.uleb128 0xe
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
  452 0064 08       		.uleb128 0x8
  453 0065 05       		.uleb128 0x5
  454 0066 00       		.byte	0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 11
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 11
 
 
  455 0067 03       		.uleb128 0x3
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
  509 0000 34000000 		.4byte	0x34
  510 0004 0200     		.2byte	0x2
  511 0006 00000000 		.4byte	.Ldebug_info0
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 12
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 12
 
 
  512 000a 04       		.byte	0x4
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
  549      6973696F 
  549      6E203232 
  549      31323230 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 13
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 13
 
 
  550 0088 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 1
  569              	.LASF18:
  570 018e 4D49534F 		.ascii	"MISO_Read\000"
  570      5F526561 
-ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc8pKCIQ.s 			page 14
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccFqONao.s 			page 14
 
 
  570      6400
