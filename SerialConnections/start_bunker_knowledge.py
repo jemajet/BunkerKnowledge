@@ -193,7 +193,7 @@ class Serial_Control():
         #   graphics library limitations
         data = get_timeseries(self.dataset, name)
         df = pd.DataFrame(
-            data, columns=["Date", "Confirmed", "Active", "Deaths", "Recovered", "New Cases"])
+            data, columns=["Date", "Confirmed", "Active", "Deaths", "Recovered", "New Cases", "New Deaths"])
 
         # Add data
         fig = make_subplots(rows=1, cols=2)
@@ -212,6 +212,9 @@ class Serial_Control():
         # Create and style trace 2, bar graph of new cases
         fig.add_trace(go.Bar(x=df["Date"], y=df[
                       "New Cases"], name="Daily New Cases"), row=1, col=2)
+        fig.add_trace(go.Bar(x=df["Date"], y=df[
+                      "New Deaths"], name="Daily New Deaths"), row=1, col=2)
+
         fig.update_layout(title="{} Covid-19 Statistics".format(name),
                           xaxis_title='Date',
                           yaxis_title='Cases')
@@ -224,8 +227,10 @@ def get_timeseries(dataset, name):
     history = dataset.get_historical(name)
     history.reverse()  # already sorted, reverse
     data = {"Date": [], "Confirmed": [],
-            "Active": [], "Deaths": [], "Recovered": [], "New Cases": []}
+            "Active": [], "Deaths": [], "Recovered": [],
+            "New Cases": [], "New Deaths": []}
     oldconfirmed = 0
+    olddeaths = 0
     for date in history:
         data["Date"].append(pd.to_datetime(
             date.date, infer_datetime_format=True))
@@ -234,7 +239,9 @@ def get_timeseries(dataset, name):
         data["Deaths"].append(date.deaths)
         data["Recovered"].append(date.recovered)
         data["New Cases"].append(date.confirmed - oldconfirmed)
+        data["New Deaths"].append(date.deaths - olddeaths)
         oldconfirmed = date.confirmed
+        olddeaths = date.deaths
     return data
 
 
