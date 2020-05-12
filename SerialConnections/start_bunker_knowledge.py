@@ -77,6 +77,8 @@ abbrev_to_name = {v: k for k, v in us_state_abbrev.items()}
 class Serial_Control():
 
     def __init__(self, port, baud_rate):
+        # Loading the dataset can take a while
+        print("-Please wait for startup (could take up to 10 seconds)")
         self.dataset = Covid19_Dataset()
         self.port = port
         self.baud_rate = baud_rate
@@ -84,9 +86,7 @@ class Serial_Control():
         self.line_reader = None
 
     def start(self):
-        # print("Send start to begin Covid-19 Database")
-        # while self.get_command() != "start":
-        #    pass
+        # starts the serial connection and puts us in terminal mode
         self.big_board_serial = serial.Serial(self.port, self.baud_rate)
         self.line_reader = ReadLine(self.big_board_serial)
         self.startup()
@@ -94,35 +94,27 @@ class Serial_Control():
 
     def startup(self):
         world_data = str(self.dataset.get_current("WORLD"))
+        # send world data to display on startup
         self.send_data(world_data, receipt=False)
-        print("\n****************************************************************")
+        print("\n   *******************************************************************")
         print("  * Welcome to Bunker Knowledge, the Covid-19 Database Terminal! *")
         print("  ****************************************************************\n")
-        # print("-Please wait for startup (could take up to 10 seconds)")
+
         print("-To get help, please type help\n")
 
-    def transmit_nodes(self, nodes):
-        # Sends nodes to the serial port, displays a progress bar with 5
-        # periods
-        sent = "".join([node.transmit_string() for node in nodes])
-
-    def transmit_node(self, node):
-        self.transmit_word(node.transmit_string())
-
-    def transmit_word(self, string):
-        self.big_board_serial.write(string.encode())
-
     def terminal(self):
+        # terminal MINMON style command checker
         while True:
-            command = self.get_command()
+            command = self.get_command().strip()
             try:
                 if command == "exit":
+                    # ends the program
                     break
                 elif command == "help":
+                    # help_file.txt has the what is printed here
                     self.help()
-                elif 'press' in command:
-                    _, article = command.split(" ")
                 elif 'graph' in command:
+                    # graphs the data for the specified name
                     split_command = command.split(" ")
                     name = " ".join((split_command)[:-1])
                     name = self.clean_name(name)
@@ -184,22 +176,25 @@ class Serial_Control():
     def graph(self, name):
         data = get_timeseries(self.dataset, name)
         df = pd.DataFrame(
-            data, columns=["Date", "Confirmed", "Active", "Deaths", "Recovered"])
+            data, columns=["Date", "Confirmed", "Active", "Deaths", "Recovered", "New Cases"])
 
         # Add data
-        fig = go.Figure()
+        fig = make_subplots(rows=1, cols=2)
         name = abbrev_to_name[name]
 
-        # Create and style traces
+        # Create and style trace 1, line graphs of info
         fig.add_trace(go.Scatter(x=df["Date"], y=df["Confirmed"], name='Confirmed',
-                                 line=dict(color='red', width=4)))
+                                 line=dict(color='red', width=4)), row=1, col=1)
         fig.add_trace(go.Scatter(x=df["Date"], y=df["Active"], name='Active',
-                                 line=dict(color='orange', width=4)))
+                                 line=dict(color='orange', width=4)), row=1, col=1)
         fig.add_trace(go.Scatter(x=df["Date"], y=df["Deaths"], name='Deaths',
-                                 line=dict(color='black', width=4,)))
+                                 line=dict(color='black', width=4,)), row=1, col=1)
         fig.add_trace(go.Scatter(x=df["Date"], y=df["Recovered"], name='Recovered',
-                                 line=dict(color='green', width=4)))
+                                 line=dict(color='green', width=4)), row=1, col=1)
 
+        # Create and style trace 2, bar graph of new cases
+        fig.add_trace(go.Bar(x=df["Date"], y=df[
+                      "New Cases"], name="Daily New Cases"), row=1, col=2)
         fig.update_layout(title="{} Covid-19 Statistics".format(name),
                           xaxis_title='Date',
                           yaxis_title='Cases')
@@ -212,16 +207,17 @@ def get_timeseries(dataset, name):
     history = dataset.get_historical(name)
     history.reverse()  # already sorted, reverse
     data = {"Date": [], "Confirmed": [],
-            "Active": [], "Deaths": [], "Recovered": []}
+            "Active": [], "Deaths": [], "Recovered": [], "New Cases": []}
+    oldconfirmed = 0
     for date in history:
-        date1 = pd.to_datetime(
-            date.date, infer_datetime_format=True)
         data["Date"].append(pd.to_datetime(
             date.date, infer_datetime_format=True))
         data["Confirmed"].append(date.confirmed)
         data["Active"].append(date.active)
         data["Deaths"].append(date.deaths)
         data["Recovered"].append(date.recovered)
+        data["New Cases"].append(date.confirmed - oldconfirmed)
+        oldconfirmed = date.confirmed
     return data
 
 

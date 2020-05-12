@@ -16,3 +16,4 @@ Covid-19 Commands Help Guide
                                 (not implemented for us and world!)
   3. [name] graph           - Displays in your browser a graph of historical Coronavirus 
                               stats, and also sends the most current date for that region
+  4. exit                   - closes the terminal
