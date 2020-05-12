@@ -93,12 +93,10 @@ class Serial_Control():
         self.port = port
         self.baud_rate = baud_rate
         self.big_board_serial = None
-        self.line_reader = None
 
     def start(self):
         # starts the serial connection and puts us in terminal mode
         self.big_board_serial = serial.Serial(self.port, self.baud_rate)
-        self.line_reader = ReadLine(self.big_board_serial)
         self.startup()
         self.terminal()
 
