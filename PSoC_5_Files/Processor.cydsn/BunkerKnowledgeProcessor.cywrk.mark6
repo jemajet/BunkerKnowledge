@@ -336,6 +336,9 @@
 <name v=".\Processor.cydwr" />
 <name v=".\main.c" />
 <name v=".\TopDesign\TopDesign.cysch" />
+<name v="..\..\..\emWinGraphics_v5_46\Code\Include\PSoC4_5\GUI_Type.h" />
+<name v="..\..\..\emWinGraphics_v5_46\Code\Include\PSoC4_5\LCD.h" />
+<name v=".\LCDConf.c" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />
